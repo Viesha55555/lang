@@ -29,6 +29,7 @@ export class StudySessionService {
   readonly currentCard = signal<Flashcard | null>(null);
   readonly practiceDeck = signal<PracticeDeck | null>(null);
   readonly lastResult = signal<ReviewResult | null>(null);
+  readonly gemCount = signal(0);
   readonly isListening = signal(false);
   readonly isLoading = signal(false);
   readonly error = signal<string | null>(null);
@@ -146,6 +147,7 @@ export class StudySessionService {
       this.currentCard.set(updatedCard);
 
       if (reviewResult.passed) {
+        this.gemCount.update((count) => count + 1);
         void this.answerFeedback.playCorrect().catch(() => undefined);
       }
     } catch (error: unknown) {

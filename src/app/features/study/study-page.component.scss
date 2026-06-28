@@ -55,6 +55,14 @@
   text-transform: uppercase;
 }
 
+.topbar-actions {
+  display: inline-flex;
+  gap: 0.65rem;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
 .practice-status {
   display: inline-flex;
   gap: 0.65rem;
@@ -73,6 +81,29 @@
   color: #716b62;
   font-size: 0.82rem;
   font-weight: 800;
+  line-height: 1;
+}
+
+.gem-counter {
+  display: inline-flex;
+  gap: 0.4rem;
+  align-items: center;
+  justify-content: center;
+  min-width: 4.25rem;
+  min-height: 2.4rem;
+  padding: 0 0.8rem;
+  border: 1px solid rgb(105 77 17 / 0.2);
+  border-radius: 0.5rem;
+  background: #fff8d6;
+  color: #25231f;
+  font-size: 0.9rem;
+  font-weight: 900;
+  line-height: 1;
+  box-shadow: 0 0.45rem 1.4rem rgb(105 77 17 / 0.1);
+}
+
+.gem-icon {
+  font-size: 1.05rem;
   line-height: 1;
 }
 
@@ -239,6 +270,16 @@
 @media (max-width: 560px) {
   .topbar {
     padding-inline: 1rem;
+  }
+
+  .brand span:last-child,
+  .mode {
+    display: none;
+  }
+
+  .topbar-actions,
+  .practice-status {
+    gap: 0.5rem;
   }
 
   .start-menu {

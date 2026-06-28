@@ -4,18 +4,24 @@
       <span class="brand-mark" aria-hidden="true">S</span>
       <span>Spoken</span>
     </a>
-    @if (session.practiceDeck()) {
-      <div class="practice-status">
-        @if (session.progressLabel(); as progressLabel) {
-          <span class="progress-pill">{{ progressLabel }}</span>
-        }
-        <button type="button" class="back-button" (click)="onBackPressed()">
-          Menu
-        </button>
+    <div class="topbar-actions">
+      @if (session.practiceDeck()) {
+        <div class="practice-status">
+          @if (session.progressLabel(); as progressLabel) {
+            <span class="progress-pill">{{ progressLabel }}</span>
+          }
+          <button type="button" class="back-button" (click)="onBackPressed()">
+            Menu
+          </button>
+        </div>
+      } @else {
+        <p class="mode">Choose practice</p>
+      }
+      <div class="gem-counter" aria-label="Total gems">
+        <span class="gem-icon" aria-hidden="true">💎</span>
+        <span>{{ session.gemCount() }}</span>
       </div>
-    } @else {
-      <p class="mode">Choose practice</p>
-    }
+    </div>
   </header>
 
   @if (session.practiceDeck()) {
