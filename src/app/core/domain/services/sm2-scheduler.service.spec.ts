@@ -31,6 +31,8 @@ describe('Sm2SchedulerService', () => {
     expect(result.easeFactor).toBe(2.3);
     expect(result.status).toBe('learning');
     expect(result.repetition).toBe(0);
+    expect(result.reviewCount).toBe(1);
+    expect(result.lapseCount).toBe(1);
   });
 
   it('graduates a good new card to one day', () => {
@@ -39,6 +41,17 @@ describe('Sm2SchedulerService', () => {
     expect(result.dueAt).toBe('2026-06-21T12:00:00.000Z');
     expect(result.intervalDays).toBe(1);
     expect(result.repetition).toBe(1);
+    expect(result.reviewCount).toBe(1);
+  });
+
+  it('counts hard answers separately for weak word ranking', () => {
+    card.reviewCount = 3;
+    card.hardCount = 1;
+
+    const result = service.schedule(card, 'hard', reviewedAt);
+
+    expect(result.reviewCount).toBe(4);
+    expect(result.hardCount).toBe(2);
   });
 
   it('graduates an easy new card to four days and raises ease', () => {

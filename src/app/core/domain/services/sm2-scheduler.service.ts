@@ -12,9 +12,11 @@ export class Sm2SchedulerService implements ReviewSchedulerPort {
 
     next.lastReviewedAt = reviewedAtIso;
     next.updatedAt = reviewedAtIso;
+    next.reviewCount = (card.reviewCount ?? card.repetition ?? 0) + 1;
 
     switch (grade) {
       case 'again':
+        next.lapseCount = (card.lapseCount ?? 0) + 1;
         next.status = 'learning';
         next.repetition = 0;
         next.intervalDays = 0;
@@ -22,6 +24,7 @@ export class Sm2SchedulerService implements ReviewSchedulerPort {
         next.dueAt = this.addMinutes(reviewedAt, 10).toISOString();
         break;
       case 'hard':
+        next.hardCount = (card.hardCount ?? 0) + 1;
         next.status = 'review';
         next.repetition += 1;
         next.intervalDays = Math.max(1, Math.ceil(next.intervalDays * 1.2));

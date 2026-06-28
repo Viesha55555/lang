@@ -55,6 +55,27 @@
   text-transform: uppercase;
 }
 
+.practice-status {
+  display: inline-flex;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.progress-pill {
+  display: inline-grid;
+  min-width: 4rem;
+  min-height: 2.4rem;
+  place-items: center;
+  padding: 0 0.75rem;
+  border: 1px solid rgb(37 35 31 / 0.12);
+  border-radius: 0.5rem;
+  background: rgb(255 253 248 / 0.76);
+  color: #716b62;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
 .back-button {
   min-width: 4.75rem;
   min-height: 2.4rem;

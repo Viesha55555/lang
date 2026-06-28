@@ -25,7 +25,7 @@ export class StudyPageComponent {
     { title: 'a1', deck: 'A1' },
     { title: 'a2', deck: 'A2' },
     { title: 'b1', deck: 'B1' },
-    { title: 'Practice week words', deck: 'WEEK_WORDS' },
+    { title: 'Weak words', deck: 'WEAK_WORDS' },
   ];
 
   onMicPressed(): void {

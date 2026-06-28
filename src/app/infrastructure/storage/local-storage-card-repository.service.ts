@@ -12,6 +12,10 @@ const STORAGE_KEY = 'spoken-flashcards.cards.v2';
 
 @Injectable({ providedIn: 'root' })
 export class LocalStorageCardRepositoryService implements CardRepositoryPort {
+  async getAllCards(): Promise<Flashcard[]> {
+    return this.loadAll();
+  }
+
   async getDueCards(now: Date, limit: number): Promise<Flashcard[]> {
     return this.loadAll()
       .filter((card) => new Date(card.dueAt).getTime() <= now.getTime())

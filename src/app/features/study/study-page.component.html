@@ -5,9 +5,14 @@
       <span>Spoken</span>
     </a>
     @if (session.practiceDeck()) {
-      <button type="button" class="back-button" (click)="onBackPressed()">
-        Menu
-      </button>
+      <div class="practice-status">
+        @if (session.progressLabel(); as progressLabel) {
+          <span class="progress-pill">{{ progressLabel }}</span>
+        }
+        <button type="button" class="back-button" (click)="onBackPressed()">
+          Menu
+        </button>
+      </div>
     } @else {
       <p class="mode">Choose practice</p>
     }
@@ -34,6 +39,12 @@
             Press Speak, say the Dutch translation, then pause for two seconds.
           </p>
         }
+      } @else if (session.isSessionComplete()) {
+        <div class="empty-state">
+          <span class="empty-icon" aria-hidden="true">✓</span>
+          <h1>Session done</h1>
+          <p>Nice work. Come back later for the next short round.</p>
+        </div>
       } @else {
         <div class="empty-state">
           <span class="empty-icon" aria-hidden="true">☀</span>
@@ -50,13 +61,15 @@
       }
     </section>
 
-    <footer class="mic-area">
-      <app-mic-button
-        [listening]="session.isListening()"
-        [disabled]="!session.canAnswer() && !session.isListening()"
-        (pressed)="onMicPressed()"
-      />
-    </footer>
+    @if (session.currentCard()) {
+      <footer class="mic-area">
+        <app-mic-button
+          [listening]="session.isListening()"
+          [disabled]="!session.canAnswer() && !session.isListening()"
+          (pressed)="onMicPressed()"
+        />
+      </footer>
+    }
   } @else {
     <section class="start-menu" aria-label="Practice menu">
       @for (menuCard of menuCards; track menuCard.deck) {

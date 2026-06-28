@@ -13,6 +13,9 @@ export interface Flashcard {
   repetition: number;
   intervalDays: number;
   easeFactor: number;
+  reviewCount?: number;
+  lapseCount?: number;
+  hardCount?: number;
   dueAt: string;
   lastReviewedAt?: string;
   createdAt: string;
