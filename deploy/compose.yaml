@@ -1,0 +1,10 @@
+services:
+  spoken-flashcards:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: spoken-flashcards:local
+    container_name: spoken-flashcards
+    restart: unless-stopped
+    ports:
+      - "8080:80"
