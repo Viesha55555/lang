@@ -14,7 +14,11 @@
         <p>Finding your next card…</p>
       </div>
     } @else if (session.currentCard(); as card) {
-      <app-study-card [card]="card" [revealed]="session.lastResult() !== null" />
+      <app-study-card
+        [card]="card"
+        [revealed]="session.lastResult() !== null"
+        [answerPassed]="session.lastResult()?.passed ?? null"
+      />
 
       @if (session.lastResult(); as result) {
         <app-study-result [result]="result" (next)="onNextPressed()" />

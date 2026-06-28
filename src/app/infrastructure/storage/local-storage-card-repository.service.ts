@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
 
-import { Flashcard } from '../../core/domain/models/flashcard.model';
+import { CardLevel, Flashcard } from '../../core/domain/models/flashcard.model';
 import { CardRepositoryPort } from '../../core/domain/ports/card-repository.port';
+import {
+  EN_NL_SOURCE_LANGUAGE,
+  EN_NL_TARGET_LANGUAGE,
+  getEnNlSeedCards,
+} from './seed-data/en-nl-seed-deck';
 
-const STORAGE_KEY = 'spoken-flashcards.cards.v1';
+const STORAGE_KEY = 'spoken-flashcards.cards.v2';
 
 @Injectable({ providedIn: 'root' })
 export class LocalStorageCardRepositoryService implements CardRepositoryPort {
@@ -61,7 +66,16 @@ export class LocalStorageCardRepositoryService implements CardRepositoryPort {
         throw new Error('Stored cards are not an array.');
       }
 
-      return cards as Flashcard[];
+      const flashcards = cards as Flashcard[];
+      const cardsWithLevels = flashcards.map((card) =>
+        this.withInferredLevel(card),
+      );
+
+      if (cardsWithLevels.some((card, index) => card !== flashcards[index])) {
+        this.saveAll(cardsWithLevels);
+      }
+
+      return cardsWithLevels;
     } catch {
       const seedCards = this.seedCards();
       this.saveAll(seedCards);
@@ -73,11 +87,31 @@ export class LocalStorageCardRepositoryService implements CardRepositoryPort {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
   }
 
+  private withInferredLevel(card: Flashcard): Flashcard {
+    if (card.level) {
+      return card;
+    }
+
+    const level = this.levelFromCardId(card.id);
+
+    return level ? { ...card, level } : card;
+  }
+
+  private levelFromCardId(cardId: string): CardLevel | undefined {
+    const prefix = cardId.slice(0, 2).toUpperCase();
+
+    if (prefix === 'A1' || prefix === 'A2' || prefix === 'B1') {
+      return prefix;
+    }
+
+    return undefined;
+  }
+
   private seedCards(): Flashcard[] {
     const now = new Date().toISOString();
     const baseCard = {
-      sourceLanguage: 'en-US',
-      targetLanguage: 'nl-NL',
+      sourceLanguage: EN_NL_SOURCE_LANGUAGE,
+      targetLanguage: EN_NL_TARGET_LANGUAGE,
       status: 'new' as const,
       repetition: 0,
       intervalDays: 0,
@@ -87,38 +121,12 @@ export class LocalStorageCardRepositoryService implements CardRepositoryPort {
       updatedAt: now,
     };
 
-    return [
-      {
-        ...baseCard,
-        id: 'seed-apple',
-        sourceText: 'apple',
-        targetText: 'appel',
-      },
-      {
-        ...baseCard,
-        id: 'seed-house',
-        sourceText: 'house',
-        targetText: 'huis',
-      },
-      {
-        ...baseCard,
-        id: 'seed-working-today',
-        sourceText: 'I am working today',
-        targetText: 'Ik werk vandaag',
-        acceptedAnswers: ["'k werk vandaag"],
-      },
-      {
-        ...baseCard,
-        id: 'seed-good-morning',
-        sourceText: 'good morning',
-        targetText: 'goedemorgen',
-      },
-      {
-        ...baseCard,
-        id: 'seed-bicycle',
-        sourceText: 'bicycle',
-        targetText: 'fiets',
-      },
-    ];
+    return getEnNlSeedCards().map((card) => ({
+      ...baseCard,
+      ...card,
+      acceptedAnswers: card.acceptedAnswers
+        ? [...card.acceptedAnswers]
+        : undefined,
+    }));
   }
 }

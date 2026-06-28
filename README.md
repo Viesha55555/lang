@@ -44,7 +44,8 @@ study UI or scheduling logic.
 - Normalizes case, punctuation, diacritics, and whitespace.
 - Passes answers with a Levenshtein similarity score of at least `0.8`.
 - Maps scores to `again`, `hard`, `good`, and `easy` review grades.
-- Seeds five English-to-Dutch cards in localStorage.
+- Seeds English-to-Dutch cards from level-specific JSON files under
+  `src/app/infrastructure/storage/seed-data/`.
 
-To reset the seed deck, remove `spoken-flashcards.cards.v1` from browser
+To reset the seed deck, remove `spoken-flashcards.cards.v2` from browser
 localStorage.
