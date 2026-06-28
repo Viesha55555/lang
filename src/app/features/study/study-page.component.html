@@ -4,50 +4,70 @@
       <span class="brand-mark" aria-hidden="true">S</span>
       <span>Spoken</span>
     </a>
-    <p class="mode">Daily practice</p>
+    @if (session.practiceDeck()) {
+      <button type="button" class="back-button" (click)="onBackPressed()">
+        Menu
+      </button>
+    } @else {
+      <p class="mode">Choose practice</p>
+    }
   </header>
 
-  <section class="study-area">
-    @if (session.isLoading()) {
-      <div class="empty-state" aria-live="polite">
-        <div class="loader" aria-hidden="true"></div>
-        <p>Finding your next card…</p>
-      </div>
-    } @else if (session.currentCard(); as card) {
-      <app-study-card
-        [card]="card"
-        [revealed]="session.lastResult() !== null"
-        [answerPassed]="session.lastResult()?.passed ?? null"
-      />
+  @if (session.practiceDeck()) {
+    <section class="study-area">
+      @if (session.isLoading()) {
+        <div class="empty-state" aria-live="polite">
+          <div class="loader" aria-hidden="true"></div>
+          <p>Finding your next card…</p>
+        </div>
+      } @else if (session.currentCard(); as card) {
+        <app-study-card
+          [card]="card"
+          [revealed]="session.lastResult() !== null"
+          [answerPassed]="session.lastResult()?.passed ?? null"
+        />
 
-      @if (session.lastResult(); as result) {
-        <app-study-result [result]="result" (next)="onNextPressed()" />
+        @if (session.lastResult(); as result) {
+          <app-study-result [result]="result" (next)="onNextPressed()" />
+        } @else {
+          <p class="hint">
+            Press Speak, say the Dutch translation, then pause for two seconds.
+          </p>
+        }
       } @else {
-        <p class="hint">
-          Press Speak, say the Dutch translation, then pause for two seconds.
-        </p>
+        <div class="empty-state">
+          <span class="empty-icon" aria-hidden="true">☀</span>
+          <h1>You’re caught up</h1>
+          <p>No cards are due in this set right now. A tidy little victory.</p>
+        </div>
       }
-    } @else {
-      <div class="empty-state">
-        <span class="empty-icon" aria-hidden="true">☀</span>
-        <h1>You’re caught up</h1>
-        <p>No cards are due right now. A tidy little victory.</p>
-      </div>
-    }
 
-    @if (session.error(); as error) {
-      <div class="error" role="alert">
-        <span aria-hidden="true">!</span>
-        <p>{{ error }}</p>
-      </div>
-    }
-  </section>
+      @if (session.error(); as error) {
+        <div class="error" role="alert">
+          <span aria-hidden="true">!</span>
+          <p>{{ error }}</p>
+        </div>
+      }
+    </section>
 
-  <footer class="mic-area">
-    <app-mic-button
-      [listening]="session.isListening()"
-      [disabled]="!session.canAnswer() && !session.isListening()"
-      (pressed)="onMicPressed()"
-    />
-  </footer>
+    <footer class="mic-area">
+      <app-mic-button
+        [listening]="session.isListening()"
+        [disabled]="!session.canAnswer() && !session.isListening()"
+        (pressed)="onMicPressed()"
+      />
+    </footer>
+  } @else {
+    <section class="start-menu" aria-label="Practice menu">
+      @for (menuCard of menuCards; track menuCard.deck) {
+        <button
+          type="button"
+          class="menu-card"
+          (click)="onMenuCardPressed(menuCard.deck)"
+        >
+          <span>{{ menuCard.title }}</span>
+        </button>
+      }
+    </section>
+  }
 </main>

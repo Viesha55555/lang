@@ -2,10 +2,12 @@ import {
   ChangeDetectionStrategy,
   Component,
   inject,
-  OnInit,
 } from '@angular/core';
 
-import { StudySessionService } from '../../core/domain/services/study-session.service';
+import {
+  PracticeDeck,
+  StudySessionService,
+} from '../../core/domain/services/study-session.service';
 import { MicButtonComponent } from './mic-button.component';
 import { StudyCardComponent } from './study-card.component';
 import { StudyResultComponent } from './study-result.component';
@@ -17,12 +19,14 @@ import { StudyResultComponent } from './study-result.component';
   styleUrl: './study-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class StudyPageComponent implements OnInit {
+export class StudyPageComponent {
   readonly session = inject(StudySessionService);
-
-  ngOnInit(): void {
-    void this.session.loadNextCard();
-  }
+  readonly menuCards: readonly { title: string; deck: PracticeDeck }[] = [
+    { title: 'a1', deck: 'A1' },
+    { title: 'a2', deck: 'A2' },
+    { title: 'b1', deck: 'B1' },
+    { title: 'Practice week words', deck: 'WEEK_WORDS' },
+  ];
 
   onMicPressed(): void {
     if (this.session.isListening()) {
@@ -35,5 +39,13 @@ export class StudyPageComponent implements OnInit {
 
   onNextPressed(): void {
     void this.session.loadNextCard();
+  }
+
+  onMenuCardPressed(deck: PracticeDeck): void {
+    void this.session.startPractice(deck);
+  }
+
+  onBackPressed(): void {
+    this.session.exitPractice();
   }
 }

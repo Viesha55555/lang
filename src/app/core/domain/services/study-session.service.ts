@@ -1,6 +1,6 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 
-import { Flashcard } from '../models/flashcard.model';
+import { CardLevel, Flashcard } from '../models/flashcard.model';
 import { ReviewGrade, ReviewResult } from '../models/review-result.model';
 import {
   ANSWER_FEEDBACK,
@@ -9,6 +9,8 @@ import {
   REVIEW_SCHEDULER,
   SPEECH_RECOGNIZER,
 } from '../tokens';
+
+export type PracticeDeck = CardLevel | 'WEEK_WORDS';
 
 @Injectable({ providedIn: 'root' })
 export class StudySessionService {
@@ -19,6 +21,7 @@ export class StudySessionService {
   private readonly answerFeedback = inject(ANSWER_FEEDBACK);
 
   readonly currentCard = signal<Flashcard | null>(null);
+  readonly practiceDeck = signal<PracticeDeck | null>(null);
   readonly lastResult = signal<ReviewResult | null>(null);
   readonly isListening = signal(false);
   readonly isLoading = signal(false);
@@ -31,14 +34,32 @@ export class StudySessionService {
       !this.isLoading(),
   );
 
+  async startPractice(deck: PracticeDeck): Promise<void> {
+    this.practiceDeck.set(deck);
+    await this.loadNextCard();
+  }
+
+  exitPractice(): void {
+    this.speech.stop();
+    this.practiceDeck.set(null);
+    this.currentCard.set(null);
+    this.lastResult.set(null);
+    this.error.set(null);
+    this.isListening.set(false);
+    this.isLoading.set(false);
+  }
+
   async loadNextCard(): Promise<void> {
     this.error.set(null);
     this.lastResult.set(null);
     this.isLoading.set(true);
 
     try {
-      const dueCards = await this.cards.getDueCards(new Date(), 1);
-      this.currentCard.set(dueCards[0] ?? null);
+      const dueCards = await this.cards.getDueCards(new Date(), 500);
+      const matchingCards = dueCards.filter((card) =>
+        this.matchesPracticeDeck(card),
+      );
+      this.currentCard.set(matchingCards[0] ?? null);
     } catch (error: unknown) {
       this.currentCard.set(null);
       this.error.set(this.messageFor(error, 'Could not load your cards.'));
@@ -113,6 +134,29 @@ export class StudySessionService {
     }
 
     return 'easy';
+  }
+
+  private matchesPracticeDeck(card: Flashcard): boolean {
+    const deck = this.practiceDeck();
+
+    if (!deck) {
+      return true;
+    }
+
+    if (deck === 'WEEK_WORDS') {
+      const searchableText = [
+        card.id,
+        card.sourceText,
+        card.targetText,
+        ...(card.acceptedAnswers ?? []),
+      ]
+        .join(' ')
+        .toLowerCase();
+
+      return searchableText.includes('week');
+    }
+
+    return card.level === deck;
   }
 
   private messageFor(error: unknown, fallback: string): string {
