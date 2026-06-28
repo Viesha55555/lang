@@ -1,0 +1,49 @@
+<main class="study-shell">
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Spoken Flashcards home">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span>Spoken</span>
+    </a>
+    <p class="mode">Daily practice</p>
+  </header>
+
+  <section class="study-area">
+    @if (session.isLoading()) {
+      <div class="empty-state" aria-live="polite">
+        <div class="loader" aria-hidden="true"></div>
+        <p>Finding your next card…</p>
+      </div>
+    } @else if (session.currentCard(); as card) {
+      <app-study-card [card]="card" />
+
+      @if (session.lastResult(); as result) {
+        <app-study-result [result]="result" (next)="onNextPressed()" />
+      } @else {
+        <p class="hint">
+          Press Speak, say the Dutch translation, then pause for two seconds.
+        </p>
+      }
+    } @else {
+      <div class="empty-state">
+        <span class="empty-icon" aria-hidden="true">☀</span>
+        <h1>You’re caught up</h1>
+        <p>No cards are due right now. A tidy little victory.</p>
+      </div>
+    }
+
+    @if (session.error(); as error) {
+      <div class="error" role="alert">
+        <span aria-hidden="true">!</span>
+        <p>{{ error }}</p>
+      </div>
+    }
+  </section>
+
+  <footer class="mic-area">
+    <app-mic-button
+      [listening]="session.isListening()"
+      [disabled]="!session.canAnswer() && !session.isListening()"
+      (pressed)="onMicPressed()"
+    />
+  </footer>
+</main>

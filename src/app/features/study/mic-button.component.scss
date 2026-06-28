@@ -1,0 +1,80 @@
+.mic-button {
+  position: relative;
+  display: inline-flex;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: center;
+  min-width: 9.5rem;
+  min-height: 4rem;
+  padding: 0 1.4rem;
+  border: 0;
+  border-radius: 999px;
+  background: #25231f;
+  box-shadow: 0 12px 30px rgb(37 35 31 / 0.25);
+  color: #fffdf8;
+  cursor: pointer;
+  font-weight: 700;
+  touch-action: manipulation;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.mic-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px rgb(37 35 31 / 0.3);
+}
+
+.mic-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.mic-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.mic-button.listening {
+  background: #bc4b35;
+}
+
+svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
+.pulse {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #bc4b35;
+  border-radius: inherit;
+  opacity: 0;
+}
+
+.listening .pulse {
+  animation: pulse 1.4s ease-out infinite;
+}
+
+@keyframes pulse {
+  from {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mic-button {
+    transition: none;
+  }
+
+  .listening .pulse {
+    animation: none;
+  }
+}

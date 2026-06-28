@@ -1,0 +1,76 @@
+.result {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  width: min(100%, 660px);
+  padding: 1rem 1rem 1rem 1.2rem;
+  border: 1px solid transparent;
+  border-radius: 1.5rem;
+}
+
+.passed {
+  border-color: #a7cdb0;
+  background: #e8f5e9;
+}
+
+.failed {
+  border-color: #e1b3a7;
+  background: #faeae5;
+}
+
+.result-mark {
+  display: grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  place-items: center;
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.65);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.result-copy p {
+  margin: 0;
+}
+
+.result-copy p + p {
+  margin-top: 0.25rem;
+}
+
+.result-title {
+  font-weight: 700;
+}
+
+.score {
+  color: #716b62;
+  font-size: 0.82rem;
+  text-transform: capitalize;
+}
+
+.next-button {
+  display: inline-flex;
+  gap: 0.55rem;
+  align-items: center;
+  min-height: 2.8rem;
+  padding: 0 1.1rem;
+  border: 0;
+  border-radius: 999px;
+  background: #25231f;
+  color: #fffdf8;
+  cursor: pointer;
+  font-weight: 700;
+  touch-action: manipulation;
+}
+
+@media (max-width: 580px) {
+  .result {
+    grid-template-columns: auto 1fr;
+  }
+
+  .next-button {
+    grid-column: 1 / -1;
+    justify-content: center;
+    width: 100%;
+  }
+}

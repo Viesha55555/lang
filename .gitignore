@@ -1,0 +1,8 @@
+/dist
+/node_modules
+/.angular
+/.idea
+/.vscode/*
+!/.vscode/extensions.json
+*.log
+.DS_Store
