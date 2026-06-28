@@ -3,6 +3,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { Flashcard } from '../models/flashcard.model';
 import { ReviewGrade, ReviewResult } from '../models/review-result.model';
 import {
+  ANSWER_FEEDBACK,
   CARD_REPOSITORY,
   PRONUNCIATION_EVALUATOR,
   REVIEW_SCHEDULER,
@@ -15,6 +16,7 @@ export class StudySessionService {
   private readonly speech = inject(SPEECH_RECOGNIZER);
   private readonly evaluator = inject(PRONUNCIATION_EVALUATOR);
   private readonly scheduler = inject(REVIEW_SCHEDULER);
+  private readonly answerFeedback = inject(ANSWER_FEEDBACK);
 
   readonly currentCard = signal<Flashcard | null>(null);
   readonly lastResult = signal<ReviewResult | null>(null);
@@ -82,6 +84,10 @@ export class StudySessionService {
       await this.cards.save(updatedCard);
       this.lastResult.set(reviewResult);
       this.currentCard.set(updatedCard);
+
+      if (reviewResult.passed) {
+        void this.answerFeedback.playCorrect().catch(() => undefined);
+      }
     } catch (error: unknown) {
       this.error.set(this.messageFor(error, 'Speech recognition failed.'));
     } finally {

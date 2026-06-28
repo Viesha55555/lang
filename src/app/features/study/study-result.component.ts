@@ -4,13 +4,11 @@ import {
   input,
   output,
 } from '@angular/core';
-import { PercentPipe } from '@angular/common';
 
 import { ReviewResult } from '../../core/domain/models/review-result.model';
 
 @Component({
   selector: 'app-study-result',
-  imports: [PercentPipe],
   template: `
     <section
       class="result"
@@ -26,13 +24,8 @@ import { ReviewResult } from '../../core/domain/models/review-result.model';
         <p class="result-title">
           {{ result().passed ? 'Nicely done' : 'Give it another round' }}
         </p>
-        <p>
-          You said <strong>{{ result().spokenText || 'nothing' }}</strong>.
-          Expected <strong>{{ result().expectedText }}</strong>.
-        </p>
         <p class="score">
-          Match {{ result().score | percent: '1.0-0' }} ·
-          {{ result().grade }}
+          {{ result().passed ? 'Answer revealed' : 'Try this card again soon' }}
         </p>
       </div>
       <button type="button" class="next-button" (click)="next.emit()">

@@ -1,23 +1,43 @@
 .word-card {
   position: relative;
   display: grid;
-  place-items: center;
-  align-content: center;
   width: min(100%, 660px);
   min-height: clamp(310px, 48vh, 470px);
+  perspective: 1100px;
+  text-align: center;
+}
+
+.card-inner {
+  display: grid;
+  width: 100%;
+  min-height: inherit;
+  transform-style: preserve-3d;
+  transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.revealed .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  grid-area: 1 / 1;
+  display: grid;
+  min-height: inherit;
+  place-items: center;
+  align-content: center;
   padding: clamp(2rem, 7vw, 4.5rem);
   overflow: hidden;
   border: 1px solid rgb(37 35 31 / 0.1);
   border-radius: 2.25rem;
+  backface-visibility: hidden;
   background: rgb(255 253 248 / 0.88);
   box-shadow:
     0 2px 3px rgb(37 35 31 / 0.04),
     0 24px 70px rgb(83 69 42 / 0.12);
-  text-align: center;
   backdrop-filter: blur(16px);
 }
 
-.word-card::before {
+.card-face::before {
   position: absolute;
   top: -7rem;
   right: -7rem;
@@ -27,6 +47,17 @@
   background: #e9b872;
   content: '';
   opacity: 0.2;
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  background: #edf5ed;
+}
+
+.card-back::before {
+  right: auto;
+  left: -7rem;
+  background: #709b84;
 }
 
 .eyebrow {
@@ -56,4 +87,10 @@ h1 {
   color: #716b62;
   font-size: 0.88rem;
   font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-inner {
+    transition: none;
+  }
 }
