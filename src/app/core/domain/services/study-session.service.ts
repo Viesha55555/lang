@@ -33,10 +33,12 @@ export class StudySessionService {
   readonly isListening = signal(false);
   readonly isLoading = signal(false);
   readonly error = signal<string | null>(null);
+  readonly needsIntro = signal(false);
   readonly canAnswer = computed(
     () =>
       this.currentCard() !== null &&
       this.lastResult() === null &&
+      !this.needsIntro() &&
       !this.isListening() &&
       !this.isLoading(),
   );
@@ -71,6 +73,7 @@ export class StudySessionService {
     this.practiceDeck.set(deck);
     this.currentCard.set(null);
     this.lastResult.set(null);
+    this.needsIntro.set(false);
     this.error.set(null);
     this.sessionQueue.set([]);
     this.sessionTotal.set(0);
@@ -97,6 +100,7 @@ export class StudySessionService {
     this.sessionQueue.set([]);
     this.sessionTotal.set(0);
     this.lastResult.set(null);
+    this.needsIntro.set(false);
     this.error.set(null);
     this.isListening.set(false);
     this.isLoading.set(false);
@@ -106,6 +110,15 @@ export class StudySessionService {
     this.error.set(null);
     this.lastResult.set(null);
     this.advanceSessionQueue();
+  }
+
+  continueIntro(): void {
+    if (!this.currentCard() || !this.needsIntro()) {
+      return;
+    }
+
+    this.error.set(null);
+    this.needsIntro.set(false);
   }
 
   async answerCurrentCard(): Promise<void> {
@@ -193,6 +206,7 @@ export class StudySessionService {
 
     this.sessionQueue.set(remainingCards);
     this.currentCard.set(nextCard ?? null);
+    this.needsIntro.set(nextCard?.status === 'new');
   }
 
   private gradeFromScore(score: number): ReviewGrade {

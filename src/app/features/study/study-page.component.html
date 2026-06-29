@@ -34,12 +34,16 @@
       } @else if (session.currentCard(); as card) {
         <app-study-card
           [card]="card"
-          [revealed]="session.lastResult() !== null"
+          [revealed]="session.lastResult() !== null || session.needsIntro()"
           [answerPassed]="session.lastResult()?.passed ?? null"
         />
 
         @if (session.lastResult(); as result) {
           <app-study-result [result]="result" (next)="onNextPressed()" />
+        } @else if (session.needsIntro()) {
+          <p class="hint">
+            Read the Dutch first, then continue when you are ready to answer.
+          </p>
         } @else {
           <p class="hint">
             Press Speak, say the Dutch translation, then pause for two seconds.
@@ -69,11 +73,17 @@
 
     @if (session.currentCard()) {
       <footer class="mic-area">
-        <app-mic-button
-          [listening]="session.isListening()"
-          [disabled]="!session.canAnswer() && !session.isListening()"
-          (pressed)="onMicPressed()"
-        />
+        @if (session.needsIntro()) {
+          <button type="button" class="continue-button" (click)="onContinuePressed()">
+            Continue
+          </button>
+        } @else {
+          <app-mic-button
+            [listening]="session.isListening()"
+            [disabled]="!session.canAnswer() && !session.isListening()"
+            (pressed)="onMicPressed()"
+          />
+        }
       </footer>
     }
   } @else {

@@ -188,6 +188,27 @@
   padding: 1rem 1rem calc(1.5rem + env(safe-area-inset-bottom));
 }
 
+.continue-button {
+  min-width: min(100%, 16rem);
+  min-height: 4.5rem;
+  padding: 0 2rem;
+  border: 0;
+  border-radius: 1.25rem;
+  background: #25231f;
+  color: #fffdf8;
+  font-size: 1.05rem;
+  font-weight: 900;
+  box-shadow: 0 1rem 2.4rem rgb(37 35 31 / 0.2);
+}
+
+.continue-button:hover {
+  background: #3a352e;
+}
+
+.continue-button:active {
+  transform: translateY(1px);
+}
+
 .empty-state {
   display: grid;
   place-items: center;

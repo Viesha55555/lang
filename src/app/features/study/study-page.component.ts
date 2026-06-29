@@ -41,6 +41,10 @@ export class StudyPageComponent {
     void this.session.loadNextCard();
   }
 
+  onContinuePressed(): void {
+    this.session.continueIntro();
+  }
+
   onMenuCardPressed(deck: PracticeDeck): void {
     void this.session.startPractice(deck);
   }
