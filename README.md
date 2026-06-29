@@ -24,6 +24,21 @@ npm test
 npm run build
 ```
 
+## Deploy to GitHub Pages
+
+This repo includes a GitHub Actions workflow that builds and publishes the app to
+GitHub Pages on every push to `main`.
+
+In GitHub, enable Pages with:
+
+- Source: `GitHub Actions`
+
+After the workflow finishes, the app should be available at:
+
+```text
+https://Viesha55555.github.io/lang/
+```
+
 ## Architecture
 
 ```text
