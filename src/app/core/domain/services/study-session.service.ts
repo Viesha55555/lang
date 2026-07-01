@@ -148,6 +148,8 @@ export class StudySessionService {
         cardId: card.id,
         spokenText: speechResult.transcript,
         expectedText: card.targetText,
+        normalizedSpokenText: evaluation.normalizedActual,
+        normalizedExpectedText: evaluation.normalizedExpected,
         score: evaluation.score,
         passed: evaluation.passed,
         grade,

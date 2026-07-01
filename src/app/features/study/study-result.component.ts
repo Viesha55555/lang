@@ -25,8 +25,28 @@ import { ReviewResult } from '../../core/domain/models/review-result.model';
           {{ result().passed ? 'Nicely done' : 'Give it another round' }}
         </p>
         <p class="score">
-          {{ result().passed ? 'Answer revealed' : 'Try this card again soon' }}
+          Score {{ scorePercent() }}%
         </p>
+        <dl class="speech-diagnostics">
+          <div>
+            <dt>Heard</dt>
+            <dd>{{ result().spokenText || 'Nothing detected' }}</dd>
+          </div>
+          <div>
+            <dt>Expected</dt>
+            <dd>{{ result().expectedText }}</dd>
+          </div>
+          @if (showNormalized()) {
+            <div>
+              <dt>Compared</dt>
+              <dd>
+                {{ result().normalizedSpokenText || 'empty' }}
+                /
+                {{ result().normalizedExpectedText }}
+              </dd>
+            </div>
+          }
+        </dl>
       </div>
       <button type="button" class="next-button" (click)="next.emit()">
         Next card
@@ -40,4 +60,17 @@ import { ReviewResult } from '../../core/domain/models/review-result.model';
 export class StudyResultComponent {
   readonly result = input.required<ReviewResult>();
   readonly next = output<void>();
+
+  scorePercent(): number {
+    return Math.round(this.result().score * 100);
+  }
+
+  showNormalized(): boolean {
+    const result = this.result();
+
+    return (
+      result.normalizedSpokenText !== result.spokenText.toLocaleLowerCase() ||
+      result.normalizedExpectedText !== result.expectedText.toLocaleLowerCase()
+    );
+  }
 }
