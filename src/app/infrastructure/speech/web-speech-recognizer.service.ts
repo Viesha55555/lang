@@ -33,14 +33,14 @@ export class WebSpeechRecognizerService implements SpeechRecognizerPort {
 
     return new Promise((resolve, reject) => {
       const recognition = new RecognitionConstructor();
-      let finalTranscript = '';
+      const finalTranscriptParts: string[] = [];
       let latestInterimTranscript = '';
       let confidence: number | undefined;
       let settled = false;
 
       recognition.lang = options.language;
       recognition.interimResults = true;
-      recognition.continuous = true;
+      recognition.continuous = false;
       recognition.maxAlternatives = 1;
       this.recognition = recognition;
 
@@ -61,7 +61,9 @@ export class WebSpeechRecognizerService implements SpeechRecognizerPort {
         }
 
         settled = true;
-        const transcript = (finalTranscript || latestInterimTranscript).trim();
+        const transcript = (
+          finalTranscriptParts.join(' ') || latestInterimTranscript
+        ).trim();
         cleanup();
 
         try {
@@ -99,13 +101,16 @@ export class WebSpeechRecognizerService implements SpeechRecognizerPort {
           confidence = bestAlternative.confidence || confidence;
 
           if (result.isFinal) {
-            finalTranscript += ` ${bestAlternative.transcript}`;
+            this.appendFinalTranscript(
+              finalTranscriptParts,
+              bestAlternative.transcript,
+            );
           } else {
             latestInterimTranscript += ` ${bestAlternative.transcript}`;
           }
         }
 
-        if ((finalTranscript || latestInterimTranscript).trim()) {
+        if ((finalTranscriptParts.join(' ') || latestInterimTranscript).trim()) {
           resetSilenceTimer();
         }
       };
@@ -181,6 +186,30 @@ export class WebSpeechRecognizerService implements SpeechRecognizerPort {
 
     this.silenceTimer = undefined;
     this.maxTimer = undefined;
+  }
+
+  private appendFinalTranscript(parts: string[], transcript: string): void {
+    const cleanedTranscript = transcript.trim();
+
+    if (!cleanedTranscript) {
+      return;
+    }
+
+    const previousTranscript = parts.at(-1);
+
+    if (
+      previousTranscript &&
+      this.comparableTranscript(previousTranscript) ===
+        this.comparableTranscript(cleanedTranscript)
+    ) {
+      return;
+    }
+
+    parts.push(cleanedTranscript);
+  }
+
+  private comparableTranscript(transcript: string): string {
+    return transcript.toLocaleLowerCase().replace(/\s+/g, ' ').trim();
   }
 
   private errorMessage(event: BrowserSpeechRecognitionErrorEvent): string {
