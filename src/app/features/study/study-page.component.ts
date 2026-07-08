@@ -1,8 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 
 import {
   PracticeDeck,
@@ -49,7 +45,55 @@ export class StudyPageComponent {
     void this.session.startPractice(deck);
   }
 
+  onDebugWritingPressed(): void {
+    void this.session.startDebugWriting();
+  }
+
+  onUseSessionWordsPressed(): void {
+    this.session.startWritingFromSession();
+  }
+
+  onWritingTextInput(event: Event): void {
+    this.session.writingText.set((event.target as HTMLTextAreaElement).value);
+  }
+
+  onCorrectedPracticeTextInput(event: Event): void {
+    this.session.correctedPracticeText.set(
+      (event.target as HTMLTextAreaElement).value,
+    );
+  }
+
+  onCheckWritingPressed(): void {
+    void this.session.checkWriting();
+  }
+
+  onWritingMicPressed(): void {
+    if (this.session.isListening()) {
+      this.session.stopListening();
+      return;
+    }
+
+    void this.session.answerCorrectedWriting();
+  }
+
+  writingSpeechScorePercent(): number {
+    return Math.round((this.session.writingSpeechResult()?.score ?? 0) * 100);
+  }
+
+  onFinishWritingPressed(): void {
+    this.session.exitPractice();
+  }
+
+  onExitWritingPressed(): void {
+    this.session.exitWriting();
+  }
+
   onBackPressed(): void {
+    if (this.session.isWritingMode()) {
+      this.session.exitWriting();
+      return;
+    }
+
     this.session.exitPractice();
   }
 }

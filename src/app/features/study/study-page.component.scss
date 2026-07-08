@@ -165,6 +165,13 @@
   overflow-wrap: anywhere;
 }
 
+.debug-card {
+  grid-column: 1 / -1;
+  min-height: 5.5rem;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
 .study-area {
   display: flex;
   flex-direction: column;
@@ -180,6 +187,259 @@
   color: #716b62;
   font-size: 0.9rem;
   text-align: center;
+}
+
+.writing-area {
+  display: grid;
+  align-items: center;
+  width: min(100%, 1120px);
+  min-height: 0;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.writing-panel {
+  display: grid;
+  gap: 1.1rem;
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+.writing-header {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.writing-header h1 {
+  margin: 0;
+  color: #25231f;
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(2rem, 7vw, 3.5rem);
+  line-height: 1;
+}
+
+.word-bank {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.word-chip {
+  display: inline-grid;
+  min-height: 2.1rem;
+  place-items: center;
+  padding: 0.35rem 0.75rem;
+  border: 1px solid rgb(37 35 31 / 0.14);
+  border-radius: 999px;
+  background: #fffdf8;
+  color: #25231f;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1.15;
+  box-shadow: 0 0.35rem 1rem rgb(37 35 31 / 0.06);
+}
+
+.word-chip.missing {
+  border-color: rgb(188 75 53 / 0.3);
+  background: #faeae5;
+  color: #7a2d20;
+}
+
+.writing-box {
+  display: grid;
+  gap: 0.55rem;
+  color: #716b62;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.writing-box textarea {
+  width: 100%;
+  min-height: 12rem;
+  resize: vertical;
+  padding: 1rem;
+  border: 1px solid rgb(37 35 31 / 0.16);
+  border-radius: 0.5rem;
+  background: #fffdf8;
+  color: #25231f;
+  font: inherit;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  box-shadow: 0 1rem 2.4rem rgb(37 35 31 / 0.09);
+}
+
+.writing-box textarea:focus {
+  outline: 3px solid rgb(214 148 61 / 0.35);
+  outline-offset: 2px;
+}
+
+.writing-box textarea:disabled {
+  background: rgb(255 253 248 / 0.58);
+  color: #716b62;
+}
+
+.writing-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.secondary-button,
+.check-button,
+.use-words-button,
+.done-button {
+  min-height: 2.8rem;
+  padding: 0 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 900;
+}
+
+.secondary-button {
+  border: 1px solid rgb(37 35 31 / 0.16);
+  background: #fffdf8;
+  color: #25231f;
+}
+
+.check-button,
+.use-words-button,
+.done-button {
+  border: 0;
+  background: #25231f;
+  color: #fffdf8;
+  box-shadow: 0 0.75rem 1.8rem rgb(37 35 31 / 0.16);
+}
+
+.check-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.use-words-button {
+  margin-top: 1.25rem;
+}
+
+.correction-result {
+  display: grid;
+  gap: 0.95rem;
+  padding: 1rem;
+  border: 1px solid rgb(37 35 31 / 0.12);
+  border-radius: 0.5rem;
+  background: rgb(255 253 248 / 0.82);
+  color: #25231f;
+  box-shadow: 0 1rem 2.4rem rgb(37 35 31 / 0.08);
+}
+
+.correction-result p {
+  margin: 0;
+}
+
+.result-label {
+  margin-bottom: 0.25rem;
+  color: #716b62;
+  font-size: 0.76rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.corrected-text {
+  font-size: 1.1rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.corrected-writing-box {
+  margin-top: 0.25rem;
+}
+
+.speaking-practice {
+  display: grid;
+  gap: 0.9rem;
+  justify-items: center;
+  padding-top: 0.25rem;
+}
+
+.speech-result {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.85rem;
+  width: min(100%, 680px);
+  padding: 1rem;
+  border: 1px solid rgb(37 35 31 / 0.12);
+  border-radius: 0.5rem;
+  background: #fffdf8;
+  color: #25231f;
+}
+
+.speech-result.passed {
+  border-color: rgb(112 155 132 / 0.38);
+  background: #eef7ed;
+}
+
+.speech-result.failed {
+  border-color: rgb(188 75 53 / 0.28);
+  background: #faeae5;
+}
+
+.result-mark {
+  display: grid;
+  width: 2.2rem;
+  height: 2.2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: #25231f;
+  color: #fffdf8;
+  font-weight: 900;
+}
+
+.result-title {
+  margin: 0;
+  font-weight: 900;
+}
+
+.speech-diagnostics.compact {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0.75rem 0 0;
+}
+
+.speech-diagnostics.compact div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.speech-diagnostics.compact dt {
+  color: #716b62;
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.speech-diagnostics.compact dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.phrase-cards {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.phrase-card {
+  display: grid;
+  gap: 0.25rem;
+  padding: 0.75rem;
+  border: 1px solid rgb(37 35 31 / 0.1);
+  border-radius: 0.5rem;
+  background: #fffdf8;
+}
+
+.phrase-card strong {
+  color: #25231f;
+}
+
+.writing-error {
+  width: 100%;
 }
 
 .mic-area {
@@ -312,6 +572,21 @@
   .menu-card {
     min-height: 6.5rem;
     font-size: clamp(1.2rem, 10vw, 1.9rem);
+  }
+
+  .debug-card {
+    min-height: 4.75rem;
+    font-size: 1rem;
+  }
+
+  .writing-area {
+    align-items: start;
+    padding: 1rem;
+  }
+
+  .writing-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }
 

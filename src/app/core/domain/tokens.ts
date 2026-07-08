@@ -4,6 +4,7 @@ import { AnswerFeedbackPort } from './ports/answer-feedback.port';
 import { CardRepositoryPort } from './ports/card-repository.port';
 import { PronunciationEvaluatorPort } from './ports/pronunciation-evaluator.port';
 import { ReviewSchedulerPort } from './ports/review-scheduler.port';
+import { SentenceCorrectionPort } from './ports/sentence-correction.port';
 import { SpeechRecognizerPort } from './ports/speech-recognizer.port';
 
 export const ANSWER_FEEDBACK = new InjectionToken<AnswerFeedbackPort>(
@@ -22,3 +23,6 @@ export const PRONUNCIATION_EVALUATOR =
   new InjectionToken<PronunciationEvaluatorPort>(
     'PronunciationEvaluatorPort',
   );
+export const SENTENCE_CORRECTOR = new InjectionToken<SentenceCorrectionPort>(
+  'SentenceCorrectionPort',
+);
