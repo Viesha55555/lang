@@ -1,9 +1,12 @@
+import type { TopicId } from './learning-topic.model';
+
 export type CardStatus = 'new' | 'learning' | 'review';
 export type CardLevel = 'A1' | 'A2' | 'B1';
 
 export interface Flashcard {
   id: string;
   level?: CardLevel;
+  topicId?: TopicId;
   sourceText: string;
   targetText: string;
   acceptedAnswers?: string[];

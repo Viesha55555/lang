@@ -3,11 +3,13 @@ import a2Cards from './a2.en-nl.json';
 import b1Cards from './b1.en-nl.json';
 
 import { CardLevel } from '../../../core/domain/models/flashcard.model';
+import type { TopicId } from '../../../core/domain/models/learning-topic.model';
 
 export interface SeedCardData {
   readonly id: string;
   readonly sourceText: string;
   readonly targetText: string;
+  readonly topicId?: TopicId;
   readonly acceptedAnswers?: readonly string[];
 }
 
@@ -28,17 +30,17 @@ export const EN_NL_SEED_DECK: readonly SeedDeckSection[] = [
   {
     level: 'A1',
     targetEntryCount: 500,
-    cards: a1Cards,
+    cards: a1Cards as readonly SeedCardData[],
   },
   {
     level: 'A2',
     targetEntryCount: 1000,
-    cards: a2Cards,
+    cards: a2Cards as readonly SeedCardData[],
   },
   {
     level: 'B1',
     targetEntryCount: 1500,
-    cards: b1Cards,
+    cards: b1Cards as readonly SeedCardData[],
   },
 ];
 

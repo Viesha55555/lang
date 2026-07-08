@@ -98,5 +98,9 @@
   { "id": "a1-0097-old", "sourceText": "old", "targetText": "oud" },
   { "id": "a1-0098-good", "sourceText": "good", "targetText": "goed" },
   { "id": "a1-0099-bad", "sourceText": "bad", "targetText": "slecht" },
-  { "id": "a1-0100-nice", "sourceText": "nice", "targetText": "leuk" }
+  { "id": "a1-0100-nice", "sourceText": "nice", "targetText": "leuk" },
+  { "id": "a1-0101-screw", "sourceText": "screw", "targetText": "de schroef", "topicId": "hardware-store", "acceptedAnswers": ["schroef"] },
+  { "id": "a1-0102-wall-plug", "sourceText": "wall plug", "targetText": "de plug", "topicId": "hardware-store", "acceptedAnswers": ["plug"] },
+  { "id": "a1-0103-wall", "sourceText": "wall", "targetText": "de muur", "topicId": "hardware-store", "acceptedAnswers": ["muur"] },
+  { "id": "a1-0104-cash-register", "sourceText": "cash register", "targetText": "de kassa", "topicId": "hardware-store", "acceptedAnswers": ["kassa"] }
 ]

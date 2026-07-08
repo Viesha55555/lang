@@ -5,13 +5,13 @@
       <span>Spoken</span>
     </a>
     <div class="topbar-actions">
-      @if (session.practiceDeck() || session.isWritingMode()) {
+      @if (session.practiceDeck() || session.selectedLevel()) {
         <div class="practice-status">
-          @if (!session.isWritingMode() && session.progressLabel(); as progressLabel) {
+          @if (session.progressLabel() || session.dialogueProgressLabel(); as progressLabel) {
             <span class="progress-pill">{{ progressLabel }}</span>
           }
           <button type="button" class="back-button" (click)="onBackPressed()">
-            Menu
+            Back
           </button>
         </div>
       } @else {
@@ -24,161 +24,7 @@
     </div>
   </header>
 
-  @if (session.isWritingMode()) {
-    <section class="writing-area" aria-label="Use today’s words">
-      <div class="writing-panel">
-        <div class="writing-header">
-          <h1>Use today’s words</h1>
-          <div class="word-bank" aria-label="Word bank">
-            @for (word of session.writingWords(); track word.cardId ?? word.text) {
-              <span class="word-chip">{{ word.text }}</span>
-            }
-          </div>
-        </div>
-
-        <label class="writing-box">
-          <span>Your sentences</span>
-          <textarea
-            [value]="session.writingText()"
-            (input)="onWritingTextInput($event)"
-            [disabled]="session.writingResult() !== null"
-            rows="5"
-            spellcheck="false"
-          ></textarea>
-        </label>
-
-        <div class="writing-actions">
-          <button
-            type="button"
-            class="secondary-button"
-            (click)="onExitWritingPressed()"
-          >
-            Back
-          </button>
-          <button
-            type="button"
-            class="check-button"
-            [disabled]="!session.canCheckWriting()"
-            (click)="onCheckWritingPressed()"
-          >
-            {{ session.isCheckingWriting() ? 'Checking…' : 'Check' }}
-          </button>
-        </div>
-
-        @if (session.writingError(); as writingError) {
-          <div class="error writing-error" role="alert">
-            <span aria-hidden="true">!</span>
-            <p>{{ writingError }}</p>
-          </div>
-        }
-
-        @if (session.writingResult(); as writingResult) {
-          <section class="correction-result" aria-live="polite">
-            <div>
-              <p class="result-label">Better</p>
-              <p class="corrected-text">{{ writingResult.correctedText }}</p>
-            </div>
-            <div>
-              <p class="result-label">Why</p>
-              <p>{{ writingResult.shortFeedback }}</p>
-            </div>
-            @if (writingResult.missingWords.length > 0) {
-              <div>
-                <p class="result-label">Missing</p>
-                <div class="word-bank">
-                  @for (word of writingResult.missingWords; track word) {
-                    <span class="word-chip missing">{{ word }}</span>
-                  }
-                </div>
-              </div>
-            }
-            @if (writingResult.naturalAlternatives.length > 0) {
-              <div>
-                <p class="result-label">Also say</p>
-                <div class="phrase-cards">
-                  @for (alternative of writingResult.naturalAlternatives; track alternative.alternative) {
-                    <div class="phrase-card">
-                      <strong>{{ alternative.alternative }}</strong>
-                      <p>{{ alternative.note }}</p>
-                    </div>
-                  }
-                </div>
-              </div>
-            }
-            @if (writingResult.newPhraseCards.length > 0) {
-              <div>
-                <p class="result-label">Phrase cards</p>
-                <div class="phrase-cards">
-                  @for (phraseCard of writingResult.newPhraseCards; track phraseCard.dutch) {
-                    <div class="phrase-card">
-                      <p>{{ phraseCard.english }}</p>
-                      <strong>{{ phraseCard.dutch }}</strong>
-                    </div>
-                  }
-                </div>
-              </div>
-            }
-          </section>
-
-          <label class="writing-box corrected-writing-box">
-            <span>Corrected version</span>
-            <textarea
-              [value]="session.correctedPracticeText()"
-              (input)="onCorrectedPracticeTextInput($event)"
-              [disabled]="session.writingSpeechResult() !== null"
-              rows="3"
-              spellcheck="false"
-            ></textarea>
-          </label>
-
-          <section class="speaking-practice" aria-label="Say corrected version">
-            <p class="result-label">Say corrected version</p>
-            @if (session.writingSpeechResult(); as speechResult) {
-              <div
-                class="speech-result"
-                [class.passed]="speechResult.passed"
-                [class.failed]="!speechResult.passed"
-                aria-live="polite"
-              >
-                <div class="result-mark" aria-hidden="true">
-                  {{ speechResult.passed ? '✓' : '↻' }}
-                </div>
-                <div>
-                  <p class="result-title">
-                    {{ speechResult.passed ? 'Nicely done' : 'Give it another round later' }}
-                  </p>
-                  <p>Score {{ writingSpeechScorePercent() }}%</p>
-                  <dl class="speech-diagnostics compact">
-                    <div>
-                      <dt>Heard</dt>
-                      <dd>{{ speechResult.spokenText || 'Nothing detected' }}</dd>
-                    </div>
-                    <div>
-                      <dt>Expected</dt>
-                      <dd>{{ speechResult.expectedText }}</dd>
-                    </div>
-                  </dl>
-                </div>
-              </div>
-              <button
-                type="button"
-                class="done-button"
-                (click)="onFinishWritingPressed()"
-              >
-                Main menu
-              </button>
-            } @else {
-              <app-mic-button
-                [listening]="session.isListening()"
-                [disabled]="!session.canSpeakCorrectedWriting() && !session.isListening()"
-                (pressed)="onWritingMicPressed()"
-              />
-            }
-          </section>
-        }
-      </div>
-    </section>
-  } @else if (session.practiceDeck()) {
+  @if (session.practiceDeck()) {
     <section class="study-area">
       @if (session.isLoading()) {
         <div class="empty-state" aria-live="polite">
@@ -208,13 +54,6 @@
           <span class="empty-icon" aria-hidden="true">✓</span>
           <h1>Session done</h1>
           <p>Nice work. Come back later for the next short round.</p>
-          <button
-            type="button"
-            class="use-words-button"
-            (click)="onUseSessionWordsPressed()"
-          >
-            Use today’s words
-          </button>
         </div>
       } @else {
         <div class="empty-state">
@@ -247,24 +86,104 @@
         }
       </footer>
     }
+  } @else if (session.selectedActivity() === 'DIALOGUE') {
+    <section class="topic-workspace dialogue-workspace" aria-label="Practice dialogue">
+      <div class="topic-heading">
+        <p>{{ session.selectedTopic()?.title }}</p>
+        <h1>Practice dialogue</h1>
+      </div>
+
+      @if (session.currentDialogueQuestion(); as question) {
+        <article class="dialogue-prompt">
+          <span>Q</span>
+          <strong>{{ question.text }}</strong>
+        </article>
+      }
+
+      @if (session.currentDialogueUserTurn(); as answer) {
+        <article class="dialogue-answer-target">
+          <span>Answer with Dutch</span>
+          <strong>{{ answer.text }}</strong>
+        </article>
+
+        @if (session.dialogueResult(); as result) {
+          <section
+            class="dialogue-result"
+            [class.passed]="result.passed"
+            [class.failed]="!result.passed"
+            aria-live="polite"
+          >
+            <div class="result-mark" aria-hidden="true">
+              {{ result.passed ? '✓' : '↻' }}
+            </div>
+            <div>
+              <p class="result-title">
+                {{ result.passed ? 'Good answer' : 'Try this version' }}
+              </p>
+              <dl class="speech-diagnostics compact">
+                <div>
+                  <dt>Heard</dt>
+                  <dd>{{ result.spokenText || 'Nothing detected' }}</dd>
+                </div>
+                <div>
+                  <dt>Try</dt>
+                  <dd>{{ result.expectedText }}</dd>
+                </div>
+              </dl>
+            </div>
+          </section>
+          <button type="button" class="continue-button" (click)="onNextDialoguePressed()">
+            Continue
+          </button>
+        } @else {
+          <app-mic-button
+            [listening]="session.isListening()"
+            [disabled]="!session.canAnswerDialogue() && !session.isListening()"
+            (pressed)="onDialogueMicPressed()"
+          />
+        }
+      } @else if (session.isDialogueComplete()) {
+        <div class="empty-state">
+          <span class="empty-icon" aria-hidden="true">✓</span>
+          <h1>Dialogue done</h1>
+          <p>Weak answers will come back in your next flashcard run.</p>
+        </div>
+      }
+    </section>
+  } @else if (session.selectedLevel(); as selectedLevel) {
+    <section class="topic-menu" aria-label="Choose topic">
+      <div class="topic-heading">
+        <p>{{ selectedLevel }}</p>
+        <h1>Choose topic</h1>
+      </div>
+      <div class="topic-grid">
+        @for (topic of session.topics; track topic.id) {
+          <button
+            type="button"
+            class="topic-card"
+            (click)="onTopicPressed(topic.id)"
+          >
+            <strong>{{ topic.title }}</strong>
+            <span>{{ topic.description }}</span>
+            <small>{{ topic.goalByLevel[selectedLevel] }}</small>
+          </button>
+        }
+      </div>
+    </section>
   } @else {
     <section class="start-menu" aria-label="Practice menu">
-      @for (menuCard of menuCards; track menuCard.deck) {
+      @for (menuCard of menuCards; track menuCard.title) {
         <button
           type="button"
           class="menu-card"
-          (click)="onMenuCardPressed(menuCard.deck)"
+          (click)="onMenuCardPressed(menuCard)"
         >
           <span>{{ menuCard.title }}</span>
+          @if (menuCard.subtitle) {
+            <small>{{ menuCard.subtitle }}</small>
+          }
         </button>
       }
-      <button
-        type="button"
-        class="menu-card debug-card"
-        (click)="onDebugWritingPressed()"
-      >
-        <span>Debug writing</span>
-      </button>
     </section>
   }
 </main>

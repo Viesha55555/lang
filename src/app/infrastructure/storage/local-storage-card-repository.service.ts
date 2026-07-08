@@ -71,15 +71,17 @@ export class LocalStorageCardRepositoryService implements CardRepositoryPort {
       }
 
       const flashcards = cards as Flashcard[];
-      const cardsWithLevels = flashcards.map((card) =>
-        this.withInferredLevel(card),
-      );
+      const cardsWithLevels = flashcards.map((card) => this.withInferredLevel(card));
+      const mergedCards = this.withMissingSeedCards(cardsWithLevels);
 
-      if (cardsWithLevels.some((card, index) => card !== flashcards[index])) {
-        this.saveAll(cardsWithLevels);
+      if (
+        cardsWithLevels.some((card, index) => card !== flashcards[index]) ||
+        mergedCards.length !== cardsWithLevels.length
+      ) {
+        this.saveAll(mergedCards);
       }
 
-      return cardsWithLevels;
+      return mergedCards;
     } catch {
       const seedCards = this.seedCards();
       this.saveAll(seedCards);
@@ -99,6 +101,15 @@ export class LocalStorageCardRepositoryService implements CardRepositoryPort {
     const level = this.levelFromCardId(card.id);
 
     return level ? { ...card, level } : card;
+  }
+
+  private withMissingSeedCards(cards: Flashcard[]): Flashcard[] {
+    const existingIds = new Set(cards.map((card) => card.id));
+    const missingSeedCards = this.seedCards().filter(
+      (card) => !existingIds.has(card.id),
+    );
+
+    return missingSeedCards.length > 0 ? [...cards, ...missingSeedCards] : cards;
   }
 
   private levelFromCardId(cardId: string): CardLevel | undefined {

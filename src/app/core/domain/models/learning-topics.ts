@@ -1,0 +1,619 @@
+import { LearningTopic, TopicId } from './learning-topic.model';
+
+export const LEARNING_TOPICS: readonly LearningTopic[] = [
+  {
+    id: 'daily-life',
+    title: 'Daily life',
+    description: 'Simple routines and everyday small talk',
+    goalByLevel: {
+      A1: 'Say simple daily needs.',
+      A2: 'Talk about your routine.',
+      B1: 'Explain what happened in your day.',
+    },
+    keywords: [
+      'hello',
+      'goodbye',
+      'morning',
+      'evening',
+      'today',
+      'tomorrow',
+      'yesterday',
+      'sometimes',
+      'often',
+      'always',
+      'usually',
+      'free time',
+      'hobby',
+      'weather',
+    ],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Ik ben ...', example: 'Ik ben thuis.' },
+        { pattern: 'Ik heb ...', example: 'Ik heb tijd.' },
+        { pattern: 'Vandaag is ...', example: 'Vandaag is maandag.' },
+      ],
+      A2: [
+        { pattern: 'Ik doe dit elke ...', example: 'Ik doe dit elke dag.' },
+        { pattern: 'Meestal ...', example: 'Meestal werk ik vandaag.' },
+        { pattern: 'Soms ...', example: 'Soms heb ik vrije tijd.' },
+      ],
+      B1: [
+        { pattern: 'Het ging over ...', example: 'Het ging over mijn dag.' },
+        { pattern: 'Ik bedoel dat ...', example: 'Ik bedoel dat ik druk was.' },
+        { pattern: 'Dat hangt ervan af ...', example: 'Dat hangt ervan af hoeveel tijd ik heb.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Hoe gaat het?' },
+        { speaker: 'user', text: 'Het gaat goed.' },
+        { speaker: 'app', text: 'Ben je thuis?' },
+        { speaker: 'user', text: 'Ja, ik ben thuis.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Wat doe je meestal vandaag?' },
+        { speaker: 'user', text: 'Meestal werk ik vandaag.' },
+        { speaker: 'app', text: 'Heb je vrije tijd?' },
+        { speaker: 'user', text: 'Ja, soms heb ik vrije tijd.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Hoe was je dag?' },
+        { speaker: 'user', text: 'Het ging over werk en vrije tijd.' },
+        { speaker: 'app', text: 'Wat bedoel je precies?' },
+        { speaker: 'user', text: 'Ik bedoel dat ik druk was, maar het ging goed.' },
+      ],
+    },
+  },
+  {
+    id: 'shopping',
+    title: 'Shopping',
+    description: 'Ask for products, prices, sizes, and payment',
+    goalByLevel: {
+      A1: 'Buy something with simple words.',
+      A2: 'Ask about price, size, and payment.',
+      B1: 'Explain a problem with a purchase.',
+    },
+    keywords: [
+      'shop',
+      'supermarket',
+      'receipt',
+      'cash',
+      'card payment',
+      'expensive',
+      'cheap',
+      'open',
+      'closed',
+      'clothes',
+      'shoes',
+      'size',
+      'color',
+      'buy',
+      'sell',
+      'pay',
+      'change',
+      'complaint',
+      'satisfied',
+    ],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Ik wil ...', example: 'Ik wil brood.' },
+        { pattern: 'Hoeveel kost ...?', example: 'Hoeveel kost het?' },
+        { pattern: 'Waar is ...?', example: 'Waar is de kassa?' },
+      ],
+      A2: [
+        { pattern: 'Ik zoek ...', example: 'Ik zoek schoenen.' },
+        { pattern: 'Heeft u maat ...?', example: 'Heeft u maat 42?' },
+        { pattern: 'Kan ik pinnen?', example: 'Kan ik hier pinnen?' },
+      ],
+      B1: [
+        { pattern: 'Ik heb een klacht over ...', example: 'Ik heb een klacht over deze aankoop.' },
+        { pattern: 'Ik ben niet tevreden met ...', example: 'Ik ben niet tevreden met de maat.' },
+        { pattern: 'Ik wil graag ...', example: 'Ik wil graag veranderen.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Kan ik u helpen?' },
+        { speaker: 'user', text: 'Ik wil brood.' },
+        { speaker: 'app', text: 'Wilt u betalen?' },
+        { speaker: 'user', text: 'Ja, ik wil pinnen.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Waar bent u naar op zoek?' },
+        { speaker: 'user', text: 'Ik zoek schoenen.' },
+        { speaker: 'app', text: 'Welke maat heeft u?' },
+        { speaker: 'user', text: 'Heeft u maat 42?' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Waarmee kan ik u helpen?' },
+        { speaker: 'user', text: 'Ik heb een klacht over deze aankoop.' },
+        { speaker: 'app', text: 'Wat is het probleem?' },
+        { speaker: 'user', text: 'Ik ben niet tevreden met de maat.' },
+      ],
+    },
+  },
+  {
+    id: 'food',
+    title: 'Food',
+    description: 'Order food and talk about eating and drinking',
+    goalByLevel: {
+      A1: 'Name basic food and drinks.',
+      A2: 'Order and talk about meals.',
+      B1: 'Explain preferences or a problem with food.',
+    },
+    keywords: ['water', 'bread', 'cheese', 'coffee', 'tea', 'apple', 'eat', 'drink'],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Ik wil ...', example: 'Ik wil koffie.' },
+        { pattern: 'Ik heb ... nodig.', example: 'Ik heb water nodig.' },
+        { pattern: 'Dank u wel.', example: 'Dank u wel.' },
+      ],
+      A2: [
+        { pattern: 'Ik heb ... gegeten.', example: 'Ik heb brood gegeten.' },
+        { pattern: 'Ik heb ... gedronken.', example: 'Ik heb koffie gedronken.' },
+        { pattern: 'Mag ik ...?', example: 'Mag ik water?' },
+      ],
+      B1: [
+        { pattern: 'Ik vind dat ...', example: 'Ik vind dat het eten goed is.' },
+        { pattern: 'Het probleem is dat ...', example: 'Het probleem is dat het koud is.' },
+        { pattern: 'Ik zou graag ...', example: 'Ik zou graag iets anders willen.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Wat wilt u drinken?' },
+        { speaker: 'user', text: 'Ik wil koffie.' },
+        { speaker: 'app', text: 'Wilt u ook eten?' },
+        { speaker: 'user', text: 'Ja, brood graag.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Wat heeft u gegeten?' },
+        { speaker: 'user', text: 'Ik heb brood gegeten.' },
+        { speaker: 'app', text: 'En wat heeft u gedronken?' },
+        { speaker: 'user', text: 'Ik heb koffie gedronken.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Is alles naar wens?' },
+        { speaker: 'user', text: 'Het eten is goed, maar de koffie is koud.' },
+        { speaker: 'app', text: 'Wilt u iets anders?' },
+        { speaker: 'user', text: 'Ja, ik zou graag nieuwe koffie willen.' },
+      ],
+    },
+  },
+  {
+    id: 'work',
+    title: 'Work',
+    description: 'Talk with colleagues and handle work situations',
+    goalByLevel: {
+      A1: 'Say simple work words.',
+      A2: 'Talk about your job and meetings.',
+      B1: 'Explain responsibilities and work problems.',
+    },
+    keywords: [
+      'work',
+      'job',
+      'colleague',
+      'boss',
+      'meeting',
+      'email',
+      'message',
+      'question',
+      'answer',
+      'problem',
+      'solution',
+      'responsible',
+      'apply',
+      'job interview',
+      'contract',
+      'salary',
+    ],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Ik werk ...', example: 'Ik werk vandaag.' },
+        { pattern: 'Ik heb een vraag.', example: 'Ik heb een vraag.' },
+        { pattern: 'Ik begrijp het niet.', example: 'Ik begrijp het niet.' },
+      ],
+      A2: [
+        { pattern: 'Ik heb een vergadering.', example: 'Ik heb een vergadering.' },
+        { pattern: 'Ik stuur een bericht.', example: 'Ik stuur een bericht.' },
+        { pattern: 'Ik zoek een oplossing.', example: 'Ik zoek een oplossing.' },
+      ],
+      B1: [
+        { pattern: 'Ik ben verantwoordelijk voor ...', example: 'Ik ben verantwoordelijk voor het project.' },
+        { pattern: 'Ik heb ervaring met ...', example: 'Ik heb ervaring met dit werk.' },
+        { pattern: 'Ik wil graag solliciteren.', example: 'Ik wil graag solliciteren.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Werk je vandaag?' },
+        { speaker: 'user', text: 'Ja, ik werk vandaag.' },
+        { speaker: 'app', text: 'Heb je een vraag?' },
+        { speaker: 'user', text: 'Ja, ik heb een vraag.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Heb je vandaag een vergadering?' },
+        { speaker: 'user', text: 'Ja, ik heb een vergadering.' },
+        { speaker: 'app', text: 'Is er een probleem?' },
+        { speaker: 'user', text: 'Ja, ik zoek een oplossing.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Waar bent u verantwoordelijk voor?' },
+        { speaker: 'user', text: 'Ik ben verantwoordelijk voor het project.' },
+        { speaker: 'app', text: 'Heeft u ervaring met dit werk?' },
+        { speaker: 'user', text: 'Ja, ik heb ervaring met dit werk.' },
+      ],
+    },
+  },
+  {
+    id: 'travel',
+    title: 'Travel',
+    description: 'Use trains, buses, tickets, and directions',
+    goalByLevel: {
+      A1: 'Ask where something is.',
+      A2: 'Use stations, tickets, and delays.',
+      B1: 'Explain a travel problem.',
+    },
+    keywords: [
+      'train',
+      'bus',
+      'ticket',
+      'left',
+      'right',
+      'straight',
+      'station',
+      'platform',
+      'departure',
+      'arrival',
+      'delay',
+      'one-way',
+      'return',
+      'lost',
+    ],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Waar is ...?', example: 'Waar is de trein?' },
+        { pattern: 'Ik wil een kaartje.', example: 'Ik wil een kaartje.' },
+        { pattern: 'Links of rechts?', example: 'Links of rechts?' },
+      ],
+      A2: [
+        { pattern: 'Welke trein ...?', example: 'Welke trein gaat naar Amsterdam?' },
+        { pattern: 'Ik heb vertraging.', example: 'Ik heb vertraging.' },
+        { pattern: 'Een enkele reis naar ...', example: 'Een enkele reis naar Utrecht.' },
+      ],
+      B1: [
+        { pattern: 'Ik ben bang dat ...', example: 'Ik ben bang dat ik te laat ben.' },
+        { pattern: 'Kunt u dat herhalen?', example: 'Kunt u dat herhalen?' },
+        { pattern: 'Wat bedoelt u?', example: 'Wat bedoelt u?' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Waar wilt u heen?' },
+        { speaker: 'user', text: 'Ik wil naar het station.' },
+        { speaker: 'app', text: 'Wilt u een kaartje?' },
+        { speaker: 'user', text: 'Ja, een kaartje graag.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Welke trein zoekt u?' },
+        { speaker: 'user', text: 'Welke trein gaat naar Amsterdam?' },
+        { speaker: 'app', text: 'Wilt u een enkele reis?' },
+        { speaker: 'user', text: 'Ja, een enkele reis graag.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Wat is het probleem?' },
+        { speaker: 'user', text: 'Ik ben bang dat ik te laat ben door vertraging.' },
+        { speaker: 'app', text: 'Wilt u een andere route?' },
+        { speaker: 'user', text: 'Ja, kunt u dat uitleggen?' },
+      ],
+    },
+  },
+  {
+    id: 'doctor',
+    title: 'Doctor',
+    description: 'Explain simple symptoms and ask for help',
+    goalByLevel: {
+      A1: 'Say that you are sick.',
+      A2: 'Describe pain and symptoms.',
+      B1: 'Explain a medical problem and ask advice.',
+    },
+    keywords: [
+      'sick',
+      'pain',
+      'doctor',
+      'pharmacy',
+      'medicine',
+      'headache',
+      'stomachache',
+      'fever',
+      'tired',
+      'emergency',
+      'accident',
+      'treatment',
+      'symptoms',
+      'advice',
+    ],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Ik ben ziek.', example: 'Ik ben ziek.' },
+        { pattern: 'Ik heb pijn.', example: 'Ik heb pijn.' },
+        { pattern: 'Ik wil de dokter.', example: 'Ik wil de dokter.' },
+      ],
+      A2: [
+        { pattern: 'Ik heb ... pijn.', example: 'Ik heb hoofdpijn.' },
+        { pattern: 'Ik heb koorts.', example: 'Ik heb koorts.' },
+        { pattern: 'Ik zoek een apotheek.', example: 'Ik zoek een apotheek.' },
+      ],
+      B1: [
+        { pattern: 'Ik heb klachten sinds ...', example: 'Ik heb klachten sinds gisteren.' },
+        { pattern: 'Wat is uw advies?', example: 'Wat is uw advies?' },
+        { pattern: 'Is behandeling nodig?', example: 'Is behandeling nodig?' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Wat is er?' },
+        { speaker: 'user', text: 'Ik ben ziek.' },
+        { speaker: 'app', text: 'Heeft u pijn?' },
+        { speaker: 'user', text: 'Ja, ik heb pijn.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Waar heeft u pijn?' },
+        { speaker: 'user', text: 'Ik heb hoofdpijn.' },
+        { speaker: 'app', text: 'Heeft u koorts?' },
+        { speaker: 'user', text: 'Ja, ik heb koorts.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Kunt u uw klachten uitleggen?' },
+        { speaker: 'user', text: 'Ik heb sinds gisteren hoofdpijn en koorts.' },
+        { speaker: 'app', text: 'Wilt u advies?' },
+        { speaker: 'user', text: 'Ja, wat is uw advies?' },
+      ],
+    },
+  },
+  {
+    id: 'neighbors',
+    title: 'Neighbors',
+    description: 'Ask politely and explain a problem nearby',
+    goalByLevel: {
+      A1: 'Greet and ask simple questions.',
+      A2: 'Talk politely with a neighbor.',
+      B1: 'Explain a problem and ask for a solution.',
+    },
+    keywords: ['neighbor', 'friend', 'girlfriend', 'family', 'home', 'house', 'problem', 'solution', 'complaint'],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Goedemorgen.', example: 'Goedemorgen.' },
+        { pattern: 'Hoe gaat het?', example: 'Hoe gaat het?' },
+        { pattern: 'Ik woon hier.', example: 'Ik woon hier.' },
+      ],
+      A2: [
+        { pattern: 'Ik heb een vraag.', example: 'Ik heb een vraag.' },
+        { pattern: 'Kunt u mij helpen?', example: 'Kunt u mij helpen?' },
+        { pattern: 'Ik woon naast u.', example: 'Ik woon naast u.' },
+      ],
+      B1: [
+        { pattern: 'Ik heb een klacht over ...', example: 'Ik heb een klacht over het geluid.' },
+        { pattern: 'Kunnen we een oplossing vinden?', example: 'Kunnen we een oplossing vinden?' },
+        { pattern: 'Wat is er gebeurd?', example: 'Wat is er gebeurd?' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Goedemorgen.' },
+        { speaker: 'user', text: 'Goedemorgen.' },
+        { speaker: 'app', text: 'Woont u hier?' },
+        { speaker: 'user', text: 'Ja, ik woon hier.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Kan ik u helpen?' },
+        { speaker: 'user', text: 'Ja, ik heb een vraag.' },
+        { speaker: 'app', text: 'Bent u mijn buurman?' },
+        { speaker: 'user', text: 'Ja, ik woon naast u.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Wat is het probleem?' },
+        { speaker: 'user', text: 'Ik heb een klacht over het geluid.' },
+        { speaker: 'app', text: 'Kunnen we een oplossing vinden?' },
+        { speaker: 'user', text: 'Ja, graag.' },
+      ],
+    },
+  },
+  {
+    id: 'home',
+    title: 'Home',
+    description: 'Talk about rooms, rent, keys, and simple repairs',
+    goalByLevel: {
+      A1: 'Name things in the house.',
+      A2: 'Explain something about your home.',
+      B1: 'Arrange or explain a housing issue.',
+    },
+    keywords: [
+      'home',
+      'house',
+      'room',
+      'door',
+      'window',
+      'rental home',
+      'rent',
+      'key',
+      'kitchen',
+      'bathroom',
+      'bedroom',
+      'table',
+      'chair',
+      'arrange',
+      'condition',
+    ],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Dit is mijn ...', example: 'Dit is mijn huis.' },
+        { pattern: 'Waar is ...?', example: 'Waar is de sleutel?' },
+        { pattern: 'Ik ben thuis.', example: 'Ik ben thuis.' },
+      ],
+      A2: [
+        { pattern: 'Ik woon in ...', example: 'Ik woon in een huurwoning.' },
+        { pattern: 'Ik heb een probleem met ...', example: 'Ik heb een probleem met de sleutel.' },
+        { pattern: 'De ... is kapot.', example: 'De deur is kapot.' },
+      ],
+      B1: [
+        { pattern: 'Ik wil graag ... regelen.', example: 'Ik wil graag de huur regelen.' },
+        { pattern: 'De voorwaarde is ...', example: 'De voorwaarde is duidelijk.' },
+        { pattern: 'Kunt u dit uitleggen?', example: 'Kunt u dit uitleggen?' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Waar woont u?' },
+        { speaker: 'user', text: 'Ik woon in een huis.' },
+        { speaker: 'app', text: 'Heeft u een sleutel?' },
+        { speaker: 'user', text: 'Ja, ik heb een sleutel.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Wat is het probleem?' },
+        { speaker: 'user', text: 'Ik heb een probleem met de sleutel.' },
+        { speaker: 'app', text: 'Is de deur open?' },
+        { speaker: 'user', text: 'Nee, de deur is gesloten.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Wat wilt u regelen?' },
+        { speaker: 'user', text: 'Ik wil graag de huur regelen.' },
+        { speaker: 'app', text: 'Is de voorwaarde duidelijk?' },
+        { speaker: 'user', text: 'Nee, kunt u dit uitleggen?' },
+      ],
+    },
+  },
+  {
+    id: 'hardware-store',
+    title: 'Hardware Store',
+    description: 'Ask for tools and materials',
+    goalByLevel: {
+      A1: 'Say simple needs.',
+      A2: 'Explain what you need something for.',
+      B1: 'Explain a problem and ask advice.',
+    },
+    keywords: [
+      'screw',
+      'plug',
+      'wall',
+      'wood',
+      'concrete',
+      'tool',
+      'material',
+      'need',
+      'looking for',
+      'use',
+    ],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Ik zoek ...', example: 'Ik zoek schroeven.' },
+        { pattern: 'Ik heb ... nodig.', example: 'Ik heb pluggen nodig.' },
+        { pattern: 'Waar is ...?', example: 'Waar is de kassa?' },
+      ],
+      A2: [
+        { pattern: 'Ik heb ... nodig voor ...', example: 'Ik heb schroeven nodig voor deze muur.' },
+        { pattern: 'Waar kan ik ... vinden?', example: 'Waar kan ik pluggen vinden?' },
+        { pattern: 'Ik wil dit gebruiken voor ...', example: 'Ik wil dit gebruiken voor hout.' },
+      ],
+      B1: [
+        { pattern: '... passen niet goed in ...', example: 'Deze schroeven passen niet goed in de muur.' },
+        { pattern: 'Welke ... kan ik het beste gebruiken?', example: 'Welke pluggen kan ik het beste gebruiken?' },
+        { pattern: 'Wat raadt u aan voor ...?', example: 'Wat raadt u aan voor een betonnen muur?' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Waarmee kan ik u helpen?' },
+        { speaker: 'user', text: 'Ik zoek schroeven.' },
+        { speaker: 'app', text: 'Heeft u pluggen nodig?' },
+        { speaker: 'user', text: 'Ja, ik heb pluggen nodig.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Waarmee kan ik u helpen?' },
+        { speaker: 'user', text: 'Ik heb schroeven nodig.' },
+        { speaker: 'app', text: 'Waarvoor heeft u ze nodig?' },
+        { speaker: 'user', text: 'Voor een betonnen muur.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Wat is het probleem?' },
+        { speaker: 'user', text: 'Deze schroeven passen niet goed in de muur.' },
+        { speaker: 'app', text: 'Welke muur heeft u?' },
+        { speaker: 'user', text: 'Een betonnen muur. Welke pluggen kan ik het beste gebruiken?' },
+      ],
+    },
+  },
+  {
+    id: 'appointments',
+    title: 'Appointments',
+    description: 'Make, confirm, and change appointments',
+    goalByLevel: {
+      A1: 'Ask when and where.',
+      A2: 'Talk about appointment times.',
+      B1: 'Confirm or change an appointment.',
+    },
+    keywords: [
+      'appointment',
+      'when',
+      'what time',
+      'this afternoon',
+      'this evening',
+      'next week',
+      'last week',
+      'available',
+      'temporary',
+      'permanent',
+      'registration',
+      'confirmation',
+      'cancel',
+      'change',
+    ],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Wanneer is ...?', example: 'Wanneer is de afspraak?' },
+        { pattern: 'Hoe laat?', example: 'Hoe laat?' },
+        { pattern: 'Vandaag of morgen?', example: 'Vandaag of morgen?' },
+      ],
+      A2: [
+        { pattern: 'Ik heb een afspraak ...', example: 'Ik heb een afspraak vanmiddag.' },
+        { pattern: 'Kan het volgende week?', example: 'Kan het volgende week?' },
+        { pattern: 'Ik ben te laat.', example: 'Ik ben te laat.' },
+      ],
+      B1: [
+        { pattern: 'Ik wil graag de afspraak veranderen.', example: 'Ik wil graag de afspraak veranderen.' },
+        { pattern: 'Kunt u de afspraak bevestigen?', example: 'Kunt u de afspraak bevestigen?' },
+        { pattern: 'Ik wil graag annuleren.', example: 'Ik wil graag annuleren.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Wanneer wilt u komen?' },
+        { speaker: 'user', text: 'Vandaag graag.' },
+        { speaker: 'app', text: 'Hoe laat?' },
+        { speaker: 'user', text: 'Vanmiddag.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Heeft u een afspraak?' },
+        { speaker: 'user', text: 'Ja, ik heb een afspraak vanmiddag.' },
+        { speaker: 'app', text: 'Bent u op tijd?' },
+        { speaker: 'user', text: 'Nee, ik ben te laat.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Waar belt u voor?' },
+        { speaker: 'user', text: 'Ik wil graag de afspraak veranderen.' },
+        { speaker: 'app', text: 'Wilt u een bevestiging?' },
+        { speaker: 'user', text: 'Ja, kunt u de afspraak bevestigen?' },
+      ],
+    },
+  },
+];
+
+export function findLearningTopic(topicId: TopicId): LearningTopic {
+  const topic = LEARNING_TOPICS.find((candidate) => candidate.id === topicId);
+
+  if (!topic) {
+    throw new Error(`Unknown topic: ${topicId}`);
+  }
+
+  return topic;
+}
+

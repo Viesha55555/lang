@@ -98,5 +98,10 @@
   { "id": "b1-0097-as-soon-as-possible", "sourceText": "as soon as possible", "targetText": "zo snel mogelijk" },
   { "id": "b1-0098-for-the-time-being", "sourceText": "for the time being", "targetText": "voorlopig" },
   { "id": "b1-0099-in-the-future", "sourceText": "in the future", "targetText": "in de toekomst" },
-  { "id": "b1-0100-from-now-on", "sourceText": "from now on", "targetText": "vanaf nu" }
+  { "id": "b1-0100-from-now-on", "sourceText": "from now on", "targetText": "vanaf nu" },
+  { "id": "b1-0101-these-screws-do-not-fit-well", "sourceText": "these screws do not fit well", "targetText": "deze schroeven passen niet goed", "topicId": "hardware-store" },
+  { "id": "b1-0102-in-the-wall", "sourceText": "in the wall", "targetText": "in de muur", "topicId": "hardware-store" },
+  { "id": "b1-0103-which-wall-plugs-should-i-use", "sourceText": "which wall plugs should I use", "targetText": "welke pluggen kan ik het beste gebruiken", "topicId": "hardware-store" },
+  { "id": "b1-0104-what-do-you-recommend", "sourceText": "what do you recommend", "targetText": "wat raadt u aan", "topicId": "hardware-store" },
+  { "id": "b1-0105-for-a-concrete-wall", "sourceText": "for a concrete wall", "targetText": "voor een betonnen muur", "topicId": "hardware-store" }
 ]

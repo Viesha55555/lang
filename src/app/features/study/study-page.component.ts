@@ -4,6 +4,8 @@ import {
   PracticeDeck,
   StudySessionService,
 } from '../../core/domain/services/study-session.service';
+import { CardLevel } from '../../core/domain/models/flashcard.model';
+import { TopicId } from '../../core/domain/models/learning-topic.model';
 import { MicButtonComponent } from './mic-button.component';
 import { StudyCardComponent } from './study-card.component';
 import { StudyResultComponent } from './study-result.component';
@@ -17,10 +19,15 @@ import { StudyResultComponent } from './study-result.component';
 })
 export class StudyPageComponent {
   readonly session = inject(StudySessionService);
-  readonly menuCards: readonly { title: string; deck: PracticeDeck }[] = [
-    { title: 'a1', deck: 'A1' },
-    { title: 'a2', deck: 'A2' },
-    { title: 'b1', deck: 'B1' },
+  readonly menuCards: readonly {
+    title: string;
+    subtitle?: string;
+    level?: CardLevel;
+    deck?: PracticeDeck;
+  }[] = [
+    { title: 'Beginner', subtitle: 'A1 · simple words and phrases', level: 'A1' },
+    { title: 'Elementary', subtitle: 'A2 · daily conversations', level: 'A2' },
+    { title: 'Intermediate', subtitle: 'B1 · explain problems', level: 'B1' },
     { title: 'Weak words', deck: 'WEAK_WORDS' },
   ];
 
@@ -41,59 +48,39 @@ export class StudyPageComponent {
     this.session.continueIntro();
   }
 
-  onMenuCardPressed(deck: PracticeDeck): void {
-    void this.session.startPractice(deck);
+  onMenuCardPressed(menuCard: {
+    readonly level?: CardLevel;
+    readonly deck?: PracticeDeck;
+  }): void {
+    if (menuCard.level) {
+      this.session.selectLevel(menuCard.level);
+      return;
+    }
+
+    if (menuCard.deck) {
+      void this.session.startPractice(menuCard.deck);
+    }
   }
 
-  onDebugWritingPressed(): void {
-    void this.session.startDebugWriting();
+  async onTopicPressed(topicId: TopicId): Promise<void> {
+    this.session.selectTopic(topicId);
+    await this.session.startTopicFlashcards();
   }
 
-  onUseSessionWordsPressed(): void {
-    this.session.startWritingFromSession();
-  }
-
-  onWritingTextInput(event: Event): void {
-    this.session.writingText.set((event.target as HTMLTextAreaElement).value);
-  }
-
-  onCorrectedPracticeTextInput(event: Event): void {
-    this.session.correctedPracticeText.set(
-      (event.target as HTMLTextAreaElement).value,
-    );
-  }
-
-  onCheckWritingPressed(): void {
-    void this.session.checkWriting();
-  }
-
-  onWritingMicPressed(): void {
+  onDialogueMicPressed(): void {
     if (this.session.isListening()) {
       this.session.stopListening();
       return;
     }
 
-    void this.session.answerCorrectedWriting();
+    void this.session.answerDialogueTurn();
   }
 
-  writingSpeechScorePercent(): number {
-    return Math.round((this.session.writingSpeechResult()?.score ?? 0) * 100);
-  }
-
-  onFinishWritingPressed(): void {
-    this.session.exitPractice();
-  }
-
-  onExitWritingPressed(): void {
-    this.session.exitWriting();
+  onNextDialoguePressed(): void {
+    this.session.nextDialogueTurn();
   }
 
   onBackPressed(): void {
-    if (this.session.isWritingMode()) {
-      this.session.exitWriting();
-      return;
-    }
-
-    this.session.exitPractice();
+    this.session.goBack();
   }
 }

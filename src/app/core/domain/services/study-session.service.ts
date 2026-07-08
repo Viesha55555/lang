@@ -1,26 +1,28 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 
 import { CardLevel, Flashcard } from '../models/flashcard.model';
-import { ReviewGrade, ReviewResult } from '../models/review-result.model';
 import {
-  PracticeWord,
-  SentenceCorrectionResult,
-} from '../models/sentence-correction.model';
+  LearningTopic,
+  TopicDialogueTurn,
+  TopicId,
+} from '../models/learning-topic.model';
+import { findLearningTopic, LEARNING_TOPICS } from '../models/learning-topics';
+import { ReviewGrade, ReviewResult } from '../models/review-result.model';
 import {
   ANSWER_FEEDBACK,
   CARD_REPOSITORY,
   PRONUNCIATION_EVALUATOR,
   REVIEW_SCHEDULER,
-  SENTENCE_CORRECTOR,
   SPEECH_RECOGNIZER,
 } from '../tokens';
 
 export type PracticeDeck = CardLevel | 'WEAK_WORDS';
+export type TopicActivity = 'DIALOGUE';
 
 const SESSION_CARD_LIMIT = 12;
 const MAX_NEW_CARDS_PER_LEVEL_SESSION = 6;
 const WEAK_CARD_LIMIT = 12;
-const DEBUG_WRITING_WORD_LIMIT = 5;
+const DIALOGUE_CARD_ID_PREFIX = 'dialogue';
 
 @Injectable({ providedIn: 'root' })
 export class StudySessionService {
@@ -29,34 +31,93 @@ export class StudySessionService {
   private readonly evaluator = inject(PRONUNCIATION_EVALUATOR);
   private readonly scheduler = inject(REVIEW_SCHEDULER);
   private readonly answerFeedback = inject(ANSWER_FEEDBACK);
-  private readonly sentenceCorrector = inject(SENTENCE_CORRECTOR);
   private readonly sessionQueue = signal<Flashcard[]>([]);
-  private readonly reviewedSessionCards = signal<Flashcard[]>([]);
   private readonly sessionTotal = signal(0);
+  private readonly sessionStartedFromTopic = signal(false);
+  private readonly dialogueUserTurnIndex = signal(0);
 
   readonly currentCard = signal<Flashcard | null>(null);
   readonly practiceDeck = signal<PracticeDeck | null>(null);
+  readonly selectedLevel = signal<CardLevel | null>(null);
+  readonly selectedTopicId = signal<TopicId | null>(null);
+  readonly selectedActivity = signal<TopicActivity | null>(null);
   readonly lastResult = signal<ReviewResult | null>(null);
+  readonly dialogueResult = signal<ReviewResult | null>(null);
   readonly gemCount = signal(0);
   readonly isListening = signal(false);
   readonly isLoading = signal(false);
   readonly error = signal<string | null>(null);
   readonly needsIntro = signal(false);
-  readonly isWritingMode = signal(false);
-  readonly writingWords = signal<PracticeWord[]>([]);
-  readonly writingText = signal('');
-  readonly correctedPracticeText = signal('');
-  readonly writingResult = signal<SentenceCorrectionResult | null>(null);
-  readonly writingSpeechResult = signal<ReviewResult | null>(null);
-  readonly writingError = signal<string | null>(null);
-  readonly isCheckingWriting = signal(false);
-  readonly writingSourceLanguage = signal('en-US');
-  readonly writingTargetLanguage = signal('nl-NL');
+  readonly topics = LEARNING_TOPICS;
+  readonly selectedTopic = computed<LearningTopic | null>(() => {
+    const topicId = this.selectedTopicId();
+
+    return topicId ? findLearningTopic(topicId) : null;
+  });
+  readonly selectedTopicDialogue = computed(
+    () =>
+      this.selectedTopic()?.dialogueByLevel[this.selectedLevel() ?? 'A1'] ?? [],
+  );
+  readonly selectedTopicUserTurns = computed(() =>
+    this.selectedTopicDialogue().filter((turn) => turn.speaker === 'user'),
+  );
+  readonly currentDialogueUserTurn = computed<TopicDialogueTurn | null>(
+    () => this.selectedTopicUserTurns()[this.dialogueUserTurnIndex()] ?? null,
+  );
+  readonly currentDialogueQuestion = computed<TopicDialogueTurn | null>(() => {
+    const dialogue = this.selectedTopicDialogue();
+    const currentUserTurn = this.currentDialogueUserTurn();
+
+    if (!currentUserTurn) {
+      return null;
+    }
+
+    const absoluteTurnIndex = dialogue.indexOf(currentUserTurn);
+
+    for (let index = absoluteTurnIndex - 1; index >= 0; index -= 1) {
+      const turn = dialogue[index];
+
+      if (turn.speaker === 'app') {
+        return turn;
+      }
+    }
+
+    return null;
+  });
+  readonly dialogueProgressLabel = computed(() => {
+    const total = this.selectedTopicUserTurns().length;
+
+    if (total === 0) {
+      return null;
+    }
+
+    return `${Math.min(this.dialogueUserTurnIndex() + 1, total)} / ${total}`;
+  });
+  readonly isDialogueComplete = computed(
+    () =>
+      this.selectedActivity() === 'DIALOGUE' &&
+      this.currentDialogueUserTurn() === null &&
+      this.selectedTopicUserTurns().length > 0,
+  );
+  readonly selectedTopicGoal = computed(() => {
+    const topic = this.selectedTopic();
+    const level = this.selectedLevel();
+
+    return topic && level ? topic.goalByLevel[level] : null;
+  });
   readonly canAnswer = computed(
     () =>
       this.currentCard() !== null &&
       this.lastResult() === null &&
       !this.needsIntro() &&
+      !this.isListening() &&
+      !this.isLoading(),
+  );
+  readonly canAnswerDialogue = computed(
+    () =>
+      this.selectedActivity() === 'DIALOGUE' &&
+      this.currentDialogueUserTurn() !== null &&
+      this.dialogueResult() === null &&
       !this.isListening() &&
       !this.isLoading(),
   );
@@ -86,23 +147,60 @@ export class StudySessionService {
       this.currentCard() === null &&
       this.sessionTotal() > 0,
   );
-  readonly canCheckWriting = computed(
-    () =>
-      this.isWritingMode() &&
-      this.writingWords().length > 0 &&
-      this.writingText().trim().length > 0 &&
-      this.writingResult() === null &&
-      !this.isCheckingWriting(),
-  );
-  readonly canSpeakCorrectedWriting = computed(
-    () =>
-      this.isWritingMode() &&
-      this.writingResult() !== null &&
-      this.correctedPracticeText().trim().length > 0 &&
-      this.writingSpeechResult() === null &&
-      !this.isListening() &&
-      !this.isCheckingWriting(),
-  );
+
+  selectLevel(level: CardLevel): void {
+    this.selectedLevel.set(level);
+    this.selectedTopicId.set(null);
+    this.selectedActivity.set(null);
+    this.exitPractice();
+  }
+
+  selectTopic(topicId: TopicId): void {
+    this.selectedTopicId.set(topicId);
+    this.selectedActivity.set(null);
+    this.exitPractice();
+  }
+
+  goBack(): void {
+    if (this.practiceDeck()) {
+      const returnToTopicList = this.sessionStartedFromTopic();
+
+      this.exitPractice();
+
+      if (returnToTopicList) {
+        this.selectedTopicId.set(null);
+      }
+
+      return;
+    }
+
+    if (this.selectedActivity()) {
+      this.selectedActivity.set(null);
+      this.dialogueUserTurnIndex.set(0);
+      this.dialogueResult.set(null);
+      return;
+    }
+
+    if (this.selectedTopicId()) {
+      this.selectedTopicId.set(null);
+      return;
+    }
+
+    if (this.selectedLevel()) {
+      this.selectedLevel.set(null);
+    }
+  }
+
+  async startTopicFlashcards(): Promise<void> {
+    const level = this.selectedLevel();
+
+    if (!level) {
+      return;
+    }
+
+    this.sessionStartedFromTopic.set(true);
+    await this.startPractice(level);
+  }
 
   async startPractice(deck: PracticeDeck): Promise<void> {
     this.practiceDeck.set(deck);
@@ -112,8 +210,7 @@ export class StudySessionService {
     this.error.set(null);
     this.sessionQueue.set([]);
     this.sessionTotal.set(0);
-    this.reviewedSessionCards.set([]);
-    this.resetWritingState();
+    this.dialogueResult.set(null);
     this.isLoading.set(true);
 
     try {
@@ -136,19 +233,25 @@ export class StudySessionService {
     this.currentCard.set(null);
     this.sessionQueue.set([]);
     this.sessionTotal.set(0);
-    this.reviewedSessionCards.set([]);
     this.lastResult.set(null);
     this.needsIntro.set(false);
     this.error.set(null);
     this.isListening.set(false);
     this.isLoading.set(false);
-    this.resetWritingState();
+    this.sessionStartedFromTopic.set(false);
   }
 
   async loadNextCard(): Promise<void> {
     this.error.set(null);
     this.lastResult.set(null);
+    const shouldStartDialogue =
+      this.sessionStartedFromTopic() && this.practiceDeck() !== 'WEAK_WORDS';
+
     this.advanceSessionQueue();
+
+    if (shouldStartDialogue && this.isSessionComplete()) {
+      this.startDialogueAfterFlashcards();
+    }
   }
 
   continueIntro(): void {
@@ -199,7 +302,6 @@ export class StudySessionService {
       await this.cards.save(updatedCard);
       this.lastResult.set(reviewResult);
       this.currentCard.set(updatedCard);
-      this.rememberReviewedSessionCard(updatedCard);
 
       if (reviewResult.passed) {
         this.gemCount.update((count) => count + 1);
@@ -216,116 +318,61 @@ export class StudySessionService {
     this.speech.stop();
   }
 
-  startWritingFromSession(): void {
-    const sessionCards = this.reviewedSessionCards();
+  async answerDialogueTurn(): Promise<void> {
+    const expectedTurn = this.currentDialogueUserTurn();
 
-    if (sessionCards.length === 0) {
-      this.error.set('Finish at least one card before using session words.');
+    if (!expectedTurn || !this.canAnswerDialogue()) {
       return;
     }
 
-    this.openWritingWithCards(sessionCards);
-  }
-
-  async startDebugWriting(): Promise<void> {
-    this.practiceDeck.set(null);
-    this.currentCard.set(null);
-    this.lastResult.set(null);
-    this.needsIntro.set(false);
     this.error.set(null);
-    this.isLoading.set(true);
-
-    try {
-      const cards = await this.cards.getAllCards();
-
-      this.openWritingWithCards(cards.slice(0, DEBUG_WRITING_WORD_LIMIT));
-    } catch (error: unknown) {
-      this.resetWritingState();
-      this.error.set(this.messageFor(error, 'Could not load writing words.'));
-    } finally {
-      this.isLoading.set(false);
-    }
-  }
-
-  exitWriting(): void {
-    this.resetWritingState();
-  }
-
-  async checkWriting(): Promise<void> {
-    if (!this.canCheckWriting()) {
-      return;
-    }
-
-    this.writingError.set(null);
-    this.writingResult.set(null);
-    this.writingSpeechResult.set(null);
-    this.correctedPracticeText.set('');
-    this.isCheckingWriting.set(true);
-
-    try {
-      const result = await this.sentenceCorrector.correct({
-        sourceLanguage: this.writingSourceLanguage(),
-        targetLanguage: this.writingTargetLanguage(),
-        submittedText: this.writingText().trim(),
-        requiredWords: this.writingWords(),
-        maxCorrections: 1,
-        maxPracticeSentences: 1,
-      });
-
-      this.writingResult.set(result);
-      this.correctedPracticeText.set(result.correctedText);
-    } catch (error: unknown) {
-      this.writingError.set(
-        this.messageFor(error, 'Could not check your sentences.'),
-      );
-    } finally {
-      this.isCheckingWriting.set(false);
-    }
-  }
-
-  async answerCorrectedWriting(): Promise<void> {
-    const expectedText = this.correctedPracticeText().trim();
-
-    if (!this.canSpeakCorrectedWriting() || !expectedText) {
-      return;
-    }
-
-    this.writingError.set(null);
     this.isListening.set(true);
 
     try {
       const speechResult = await this.speech.listen({
-        language: this.writingTargetLanguage(),
+        language: 'nl-NL',
         silenceTimeoutMs: 2_000,
         maxDurationMs: 12_000,
       });
       const evaluation = this.evaluator.evaluate(
-        expectedText,
+        expectedTurn.text,
         speechResult.transcript,
       );
+      const grade = this.gradeFromScore(evaluation.score);
       const reviewedAt = new Date();
-
-      this.writingSpeechResult.set({
-        cardId: 'writing-correction',
+      const reviewResult: ReviewResult = {
+        cardId: this.dialogueCardId(),
         spokenText: speechResult.transcript,
-        expectedText,
+        expectedText: expectedTurn.text,
         normalizedSpokenText: evaluation.normalizedActual,
         normalizedExpectedText: evaluation.normalizedExpected,
         score: evaluation.score,
         passed: evaluation.passed,
-        grade: this.gradeFromScore(evaluation.score),
+        grade,
         reviewedAt: reviewedAt.toISOString(),
-      });
+      };
 
-      if (evaluation.passed) {
+      await this.saveDialoguePhraseCard(expectedTurn, grade, reviewedAt);
+      this.dialogueResult.set(reviewResult);
+
+      if (reviewResult.passed) {
         this.gemCount.update((count) => count + 1);
         void this.answerFeedback.playCorrect().catch(() => undefined);
       }
     } catch (error: unknown) {
-      this.writingError.set(this.messageFor(error, 'Speech recognition failed.'));
+      this.error.set(this.messageFor(error, 'Speech recognition failed.'));
     } finally {
       this.isListening.set(false);
     }
+  }
+
+  nextDialogueTurn(): void {
+    if (!this.dialogueResult()) {
+      return;
+    }
+
+    this.dialogueResult.set(null);
+    this.dialogueUserTurnIndex.update((index) => index + 1);
   }
 
   private async buildSessionCards(deck: PracticeDeck): Promise<Flashcard[]> {
@@ -336,6 +383,7 @@ export class StudySessionService {
 
       return cards
         .filter((card) => this.isReviewed(card))
+        .filter((card) => this.matchesCurrentSelection(card))
         .sort(
           (first, second) =>
             this.weaknessScore(second, now) - this.weaknessScore(first, now),
@@ -344,7 +392,9 @@ export class StudySessionService {
     }
 
     const dueCards = await this.cards.getDueCards(now, 500);
-    const levelCards = dueCards.filter((card) => card.level === deck);
+    const levelCards = dueCards
+      .filter((card) => card.level === deck)
+      .filter((card) => this.matchesCurrentSelection(card));
     const newCards = levelCards
       .filter((card) => card.status === 'new')
       .slice(0, MAX_NEW_CARDS_PER_LEVEL_SESSION);
@@ -355,6 +405,40 @@ export class StudySessionService {
     return [...reviewCards, ...newCards].slice(0, SESSION_CARD_LIMIT);
   }
 
+  private startDialogueAfterFlashcards(): void {
+    this.exitPractice();
+    this.selectedActivity.set('DIALOGUE');
+    this.dialogueUserTurnIndex.set(0);
+    this.dialogueResult.set(null);
+  }
+
+  private matchesCurrentSelection(card: Flashcard): boolean {
+    const selectedLevel = this.selectedLevel();
+    const selectedTopic = this.selectedTopic();
+
+    if (selectedLevel && card.level !== selectedLevel) {
+      return false;
+    }
+
+    if (!selectedTopic) {
+      return true;
+    }
+
+    return this.cardMatchesTopic(card, selectedTopic);
+  }
+
+  private cardMatchesTopic(card: Flashcard, topic: LearningTopic): boolean {
+    if (card.topicId === topic.id) {
+      return true;
+    }
+
+    const haystack = `${card.id} ${card.sourceText} ${card.targetText}`.toLowerCase();
+
+    return topic.keywords.some((keyword) =>
+      haystack.includes(keyword.toLowerCase()),
+    );
+  }
+
   private advanceSessionQueue(): void {
     const [nextCard, ...remainingCards] = this.sessionQueue();
 
@@ -363,51 +447,48 @@ export class StudySessionService {
     this.needsIntro.set(nextCard?.status === 'new');
   }
 
-  private openWritingWithCards(cards: readonly Flashcard[]): void {
-    const words = cards.map((card) => this.toPracticeWord(card));
-    const firstCard = cards[0];
+  private async saveDialoguePhraseCard(
+    expectedTurn: TopicDialogueTurn,
+    grade: ReviewGrade,
+    reviewedAt: Date,
+  ): Promise<void> {
+    const existingCard = await this.cards.getById(this.dialogueCardId());
+    const baseCard = existingCard ?? this.createDialoguePhraseCard(expectedTurn);
+    const scheduledCard = this.scheduler.schedule(baseCard, grade, reviewedAt);
+    const dueAt =
+      grade === 'again' || grade === 'hard'
+        ? reviewedAt.toISOString()
+        : scheduledCard.dueAt;
 
-    this.isWritingMode.set(true);
-    this.writingWords.set(words);
-    this.writingText.set('');
-    this.correctedPracticeText.set('');
-    this.writingResult.set(null);
-    this.writingSpeechResult.set(null);
-    this.writingError.set(null);
-    this.writingSourceLanguage.set(firstCard?.sourceLanguage ?? 'en-US');
-    this.writingTargetLanguage.set(firstCard?.targetLanguage ?? 'nl-NL');
+    await this.cards.save({ ...scheduledCard, dueAt });
   }
 
-  private resetWritingState(): void {
-    this.isWritingMode.set(false);
-    this.writingWords.set([]);
-    this.writingText.set('');
-    this.correctedPracticeText.set('');
-    this.writingResult.set(null);
-    this.writingSpeechResult.set(null);
-    this.writingError.set(null);
-    this.isCheckingWriting.set(false);
-    this.writingSourceLanguage.set('en-US');
-    this.writingTargetLanguage.set('nl-NL');
-  }
+  private createDialoguePhraseCard(expectedTurn: TopicDialogueTurn): Flashcard {
+    const now = new Date().toISOString();
 
-  private rememberReviewedSessionCard(card: Flashcard): void {
-    this.reviewedSessionCards.update((cards) =>
-      cards.some((sessionCard) => sessionCard.id === card.id)
-        ? cards.map((sessionCard) =>
-            sessionCard.id === card.id ? card : sessionCard,
-          )
-        : [...cards, card],
-    );
-  }
-
-  private toPracticeWord(card: Flashcard): PracticeWord {
     return {
-      text: card.targetText,
-      translation: card.sourceText,
-      language: card.targetLanguage,
-      cardId: card.id,
+      id: this.dialogueCardId(),
+      level: this.selectedLevel() ?? 'A1',
+      topicId: this.selectedTopicId() ?? undefined,
+      sourceText: this.currentDialogueQuestion()?.text ?? 'dialogue answer',
+      targetText: expectedTurn.text,
+      sourceLanguage: 'nl-NL',
+      targetLanguage: 'nl-NL',
+      status: 'new',
+      repetition: 0,
+      intervalDays: 0,
+      easeFactor: 2.5,
+      dueAt: now,
+      createdAt: now,
+      updatedAt: now,
     };
+  }
+
+  private dialogueCardId(): string {
+    const level = this.selectedLevel()?.toLowerCase() ?? 'a1';
+    const topicId = this.selectedTopicId() ?? 'topic';
+
+    return `${DIALOGUE_CARD_ID_PREFIX}-${level}-${topicId}-${this.dialogueUserTurnIndex() + 1}`;
   }
 
   private gradeFromScore(score: number): ReviewGrade {
