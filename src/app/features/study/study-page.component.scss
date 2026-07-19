@@ -84,6 +84,23 @@
   line-height: 1;
 }
 
+.dict-link {
+  display: grid;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  border: 1px solid rgb(37 35 31 / 0.16);
+  border-radius: 0.5rem;
+  background: #fffdf8;
+  font-size: 1rem;
+  text-decoration: none;
+  box-shadow: 0 0.45rem 1.4rem rgb(37 35 31 / 0.08);
+}
+
+.dict-link:hover {
+  background: #f8f0e3;
+}
+
 .gem-counter {
   display: inline-flex;
   gap: 0.4rem;

@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import {
   PracticeDeck,
@@ -12,7 +13,7 @@ import { StudyResultComponent } from './study-result.component';
 
 @Component({
   selector: 'app-study-page',
-  imports: [MicButtonComponent, StudyCardComponent, StudyResultComponent],
+  imports: [MicButtonComponent, StudyCardComponent, StudyResultComponent, RouterLink],
   templateUrl: './study-page.component.html',
   styleUrl: './study-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

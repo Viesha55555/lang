@@ -9,6 +9,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'dictionary',
+    loadComponent: () =>
+      import('./features/dictionary/dictionary-page.component').then(
+        (module) => module.DictionaryPageComponent,
+      ),
+  },
+  {
     path: '**',
     redirectTo: '',
   },
