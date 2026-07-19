@@ -14,6 +14,7 @@ import {
   PRONUNCIATION_EVALUATOR,
   REVIEW_SCHEDULER,
   SPEECH_RECOGNIZER,
+  TEXT_TO_SPEECH,
 } from '../tokens';
 
 export type PracticeDeck = CardLevel | 'WEAK_WORDS';
@@ -28,6 +29,7 @@ const DIALOGUE_CARD_ID_PREFIX = 'dialogue';
 export class StudySessionService {
   private readonly cards = inject(CARD_REPOSITORY);
   private readonly speech = inject(SPEECH_RECOGNIZER);
+  private readonly tts = inject(TEXT_TO_SPEECH);
   private readonly evaluator = inject(PRONUNCIATION_EVALUATOR);
   private readonly scheduler = inject(REVIEW_SCHEDULER);
   private readonly answerFeedback = inject(ANSWER_FEEDBACK);
@@ -229,6 +231,7 @@ export class StudySessionService {
 
   exitPractice(): void {
     this.speech.stop();
+    this.tts.cancel();
     this.practiceDeck.set(null);
     this.currentCard.set(null);
     this.sessionQueue.set([]);
@@ -303,6 +306,11 @@ export class StudySessionService {
       this.lastResult.set(reviewResult);
       this.currentCard.set(updatedCard);
 
+      // Speak the Dutch answer aloud so the user hears the correct pronunciation.
+      void this.tts
+        .speak(card.targetText, { language: card.targetLanguage })
+        .catch(() => undefined);
+
       if (reviewResult.passed) {
         this.gemCount.update((count) => count + 1);
         void this.answerFeedback.playCorrect().catch(() => undefined);
@@ -373,6 +381,14 @@ export class StudySessionService {
 
     this.dialogueResult.set(null);
     this.dialogueUserTurnIndex.update((index) => index + 1);
+
+    const nextQuestion = this.currentDialogueQuestion();
+
+    if (nextQuestion) {
+      void this.tts
+        .speak(nextQuestion.text, { language: 'nl-NL' })
+        .catch(() => undefined);
+    }
   }
 
   private async buildSessionCards(deck: PracticeDeck): Promise<Flashcard[]> {
@@ -410,6 +426,14 @@ export class StudySessionService {
     this.selectedActivity.set('DIALOGUE');
     this.dialogueUserTurnIndex.set(0);
     this.dialogueResult.set(null);
+
+    const firstQuestion = this.currentDialogueQuestion();
+
+    if (firstQuestion) {
+      void this.tts
+        .speak(firstQuestion.text, { language: 'nl-NL' })
+        .catch(() => undefined);
+    }
   }
 
   private matchesCurrentSelection(card: Flashcard): boolean {
@@ -445,6 +469,14 @@ export class StudySessionService {
     this.sessionQueue.set(remainingCards);
     this.currentCard.set(nextCard ?? null);
     this.needsIntro.set(nextCard?.status === 'new');
+
+    // For new cards the answer is shown immediately as an intro — speak it so
+    // the user hears the Dutch word before they have to say it themselves.
+    if (nextCard?.status === 'new') {
+      void this.tts
+        .speak(nextCard.targetText, { language: nextCard.targetLanguage })
+        .catch(() => undefined);
+    }
   }
 
   private async saveDialoguePhraseCard(
