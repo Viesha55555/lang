@@ -605,6 +605,73 @@ export const LEARNING_TOPICS: readonly LearningTopic[] = [
       ],
     },
   },
+  {
+    id: 'past-tense',
+    title: 'Past tense',
+    description: 'Talk about things that already happened',
+    goalByLevel: {
+      A1: 'Use was, had and went.',
+      A2: 'Tell what you did with regular past forms.',
+      B1: 'Use perfect tense and past progressive.',
+    },
+    keywords: [
+      'was',
+      'waren',
+      'had',
+      'hadden',
+      'ging',
+      'gingen',
+      'gisteren',
+      'werkte',
+      'maakte',
+      'woonde',
+      'kocht',
+      'vertelde',
+      'gewerkt',
+      'gegaan',
+      'gedaan',
+      'gezegd',
+      'gekocht',
+      'gegeten',
+    ],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Ik was ...', example: 'Ik was thuis.' },
+        { pattern: 'Ik had ...', example: 'Ik had tijd.' },
+        { pattern: 'Ik ging naar ...', example: 'Ik ging naar huis.' },
+      ],
+      A2: [
+        { pattern: 'Ik werkte ...', example: 'Ik werkte gisteren.' },
+        { pattern: 'Ik maakte ...', example: 'Ik maakte een fout.' },
+        { pattern: 'Ik woonde in ...', example: 'Ik woonde in Amsterdam.' },
+      ],
+      B1: [
+        { pattern: 'Ik heb ge... + voltooid deelwoord', example: 'Ik heb de hele dag gewerkt.' },
+        { pattern: 'Ik ben ge... + voltooid deelwoord', example: 'Ik ben naar huis gegaan.' },
+        { pattern: 'Ik was aan het ...', example: 'Ik was aan het koken.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Waar was je gisteren?' },
+        { speaker: 'user', text: 'Ik was thuis.' },
+        { speaker: 'app', text: 'Had je vrije tijd?' },
+        { speaker: 'user', text: 'Ja, ik had vrije tijd.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Wat deed je gisteren?' },
+        { speaker: 'user', text: 'Ik werkte de hele dag.' },
+        { speaker: 'app', text: 'Waar woonde je vroeger?' },
+        { speaker: 'user', text: 'Ik woonde in Amsterdam.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Heb je gisteren gewerkt?' },
+        { speaker: 'user', text: 'Ja, ik heb de hele dag gewerkt.' },
+        { speaker: 'app', text: 'Wat heb je daarna gedaan?' },
+        { speaker: 'user', text: 'Ik ben naar huis gegaan en ik was aan het koken.' },
+      ],
+    },
+  },
 ];
 
 export function findLearningTopic(topicId: TopicId): LearningTopic {

@@ -10,7 +10,8 @@ export type TopicId =
   | 'neighbors'
   | 'home'
   | 'hardware-store'
-  | 'appointments';
+  | 'appointments'
+  | 'past-tense';
 
 export interface TopicPhrase {
   readonly pattern: string;
