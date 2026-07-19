@@ -329,6 +329,22 @@
   justify-self: start;
 }
 
+.audio-prompt {
+  justify-self: center;
+  text-align: center;
+}
+
+.replay-button {
+  justify-self: center;
+  min-height: 2.5rem;
+  padding: 0 1rem;
+  border: 1px solid rgb(37 35 31 / 16%);
+  border-radius: 0.5rem;
+  background: #f8f0e3;
+  color: #25231f;
+  font-weight: 800;
+}
+
 .dialogue-answer-target {
   justify-self: end;
   background: #eef7ed;
@@ -386,6 +402,26 @@
 .speech-diagnostics.compact dd {
   margin: 0;
   overflow-wrap: anywhere;
+}
+
+.challenge-debug {
+  margin-top: 1rem;
+}
+
+.challenge-debug summary {
+  color: #716b62;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+.challenge-debug ol {
+  margin: 0.75rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.challenge-debug li small {
+  display: block;
+  color: #716b62;
 }
 
 .mic-area {

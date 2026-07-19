@@ -17,15 +17,45 @@ import {
   TEXT_TO_SPEECH,
 } from '../tokens';
 import { ReminderService } from './reminder.service';
+import { normalizeText } from '../../../shared/utils/normalize-text';
+import type { DutchUsageSuggestion } from '../../../shared/utils/dutch-usage-patterns';
+import { suggestDutchUsage } from '../../../shared/utils/dutch-usage-patterns';
 
 export type PracticeDeck = CardLevel | 'WEAK_WORDS' | 'FREE_PRACTICE';
-export type TopicActivity = 'DIALOGUE';
+export type TopicActivity = 'DIALOGUE' | 'SPEAKING_CHALLENGE';
+
+export interface SpeakingChallengeResult {
+  readonly transcript: string;
+  readonly understood: boolean;
+  readonly questionAnswered: boolean;
+  readonly usedRecentWords: readonly string[];
+  readonly usageSuggestion: DutchUsageSuggestion | null;
+}
 
 const SESSION_CARD_LIMIT = 12;
 const MAX_NEW_CARDS_PER_LEVEL_SESSION = 6;
 const WEAK_CARD_LIMIT = 12;
 const FREE_PRACTICE_LIMIT = 20;
 const DIALOGUE_CARD_ID_PREFIX = 'dialogue';
+const GENERIC_SPEAKING_QUESTIONS = [
+  'Wat heb je gisteren gedaan?',
+  'Wat doe je vandaag?',
+  'Wat ga je morgen doen?',
+  'Waarom ben je moe?',
+] as const;
+const TOPIC_SPEAKING_QUESTIONS: Record<TopicId, readonly string[]> = {
+  'daily-life': ['Wat doe je vandaag?', 'Wat heb je gisteren gedaan?'],
+  shopping: ['Wat wil je in de winkel kopen?', 'Wat zoek je en waarom?'],
+  food: ['Wat wil je vandaag eten of drinken?', 'Wat heb je gisteren gegeten?'],
+  work: ['Wat moet je vandaag op je werk doen?', 'Hoe was je werkdag?'],
+  travel: ['Waar wil je naartoe en hoe ga je daarheen?', 'Wat doe je als je trein vertraging heeft?'],
+  doctor: ['Waarom wil je naar de dokter?', 'Hoe voel je je vandaag?'],
+  neighbors: ['Waarover wil je met je buur praten?', 'Hoe kun je je buur helpen?'],
+  home: ['Wat wil je thuis doen?', 'Wat moet er in je huis gebeuren?'],
+  'hardware-store': ['Wat heb je nodig om iets te repareren?', 'Wat wil je thuis maken of repareren?'],
+  appointments: ['Welke afspraak heb je binnenkort?', 'Wanneer kun je een afspraak maken?'],
+  'past-tense': ['Wat heb je gisteren gedaan?', 'Wat is er vorige week gebeurd?'],
+};
 
 @Injectable({ providedIn: 'root' })
 export class StudySessionService {
@@ -40,6 +70,7 @@ export class StudySessionService {
   private readonly sessionTotal = signal(0);
   private readonly sessionStartedFromTopic = signal(false);
   private readonly dialogueUserTurnIndex = signal(0);
+  private readonly recentChallengeCards = signal<Flashcard[]>([]);
 
   readonly currentCard = signal<Flashcard | null>(null);
   readonly practiceDeck = signal<PracticeDeck | null>(null);
@@ -48,6 +79,10 @@ export class StudySessionService {
   readonly selectedActivity = signal<TopicActivity | null>(null);
   readonly lastResult = signal<ReviewResult | null>(null);
   readonly dialogueResult = signal<ReviewResult | null>(null);
+  readonly speakingChallengeQuestion = signal<string | null>(null);
+  readonly speakingChallengeTopic = signal<string | null>(null);
+  readonly speakingChallengeWords = signal<readonly string[]>([]);
+  readonly speakingChallengeResult = signal<SpeakingChallengeResult | null>(null);
   readonly gemCount = signal(0);
   readonly isListening = signal(false);
   readonly isLoading = signal(false);
@@ -125,6 +160,22 @@ export class StudySessionService {
       this.dialogueResult() === null &&
       !this.isListening() &&
       !this.isLoading(),
+  );
+  readonly canAnswerSpeakingChallenge = computed(
+    () =>
+      this.selectedActivity() === 'SPEAKING_CHALLENGE' &&
+      this.speakingChallengeQuestion() !== null &&
+      this.speakingChallengeResult() === null &&
+      !this.isListening(),
+  );
+  readonly recentChallengeWords = computed(() => this.speakingChallengeWords());
+  readonly speakingChallengeCards = computed(() =>
+    this.recentChallengeCards().map((card) => ({
+      id: card.id,
+      sourceText: card.sourceText,
+      targetText: card.targetText,
+      topicId: card.topicId ?? null,
+    })),
   );
   readonly completedCount = computed(() => {
     const currentCardOffset = this.currentCard() ? 1 : 0;
@@ -227,6 +278,11 @@ export class StudySessionService {
     this.sessionQueue.set([]);
     this.sessionTotal.set(0);
     this.dialogueResult.set(null);
+    this.speakingChallengeQuestion.set(null);
+    this.speakingChallengeTopic.set(null);
+    this.speakingChallengeWords.set([]);
+    this.speakingChallengeResult.set(null);
+    this.recentChallengeCards.set([]);
     this.isLoading.set(true);
 
     try {
@@ -256,21 +312,29 @@ export class StudySessionService {
     this.isListening.set(false);
     this.isLoading.set(false);
     this.sessionStartedFromTopic.set(false);
+    this.selectedActivity.set(null);
+    this.speakingChallengeQuestion.set(null);
+    this.speakingChallengeTopic.set(null);
+    this.speakingChallengeWords.set([]);
+    this.speakingChallengeResult.set(null);
+    this.recentChallengeCards.set([]);
   }
 
   async loadNextCard(): Promise<void> {
     this.error.set(null);
     this.lastResult.set(null);
-    const shouldStartDialogue =
-      this.sessionStartedFromTopic() &&
-      this.practiceDeck() !== 'WEAK_WORDS' &&
-      this.practiceDeck() !== 'FREE_PRACTICE';
+
+    const completedCard = this.currentCard();
+    if (completedCard) {
+      this.recentChallengeCards.update((cards) => [...cards, completedCard]);
+
+      if (this.sessionQueue().length === 0) {
+        this.startSpeakingChallenge();
+        return;
+      }
+    }
 
     this.advanceSessionQueue();
-
-    if (shouldStartDialogue && this.isSessionComplete()) {
-      this.startDialogueAfterFlashcards();
-    }
   }
 
   continueIntro(): void {
@@ -341,6 +405,78 @@ export class StudySessionService {
 
   stopListening(): void {
     this.speech.stop();
+  }
+
+  replaySpeakingChallenge(): void {
+    const question = this.speakingChallengeQuestion();
+
+    if (question) {
+      void this.tts.speak(question, { language: 'nl-NL' }).catch(() => undefined);
+    }
+  }
+
+  async answerSpeakingChallenge(): Promise<void> {
+    if (!this.canAnswerSpeakingChallenge()) {
+      return;
+    }
+
+    this.error.set(null);
+    this.tts.cancel();
+    this.isListening.set(true);
+
+    try {
+      const speechResult = await this.speech.listen({
+        language: 'nl-NL',
+        silenceTimeoutMs: 2_000,
+        maxDurationMs: 15_000,
+      });
+      const transcript = speechResult.transcript.trim();
+
+      if (!transcript) {
+        this.error.set('No speech was detected. Press Speak and try again.');
+        return;
+      }
+
+      const normalizedTranscript = normalizeText(transcript);
+      const usedRecentWords = this.recentChallengeCards()
+        .map((card) => card.targetText)
+        .filter((word) => normalizedTranscript.includes(normalizeText(word)));
+
+      this.speakingChallengeResult.set({
+        transcript,
+        understood: normalizedTranscript.length > 0,
+        questionAnswered: normalizedTranscript.split(' ').filter(Boolean).length >= 2,
+        usedRecentWords: [...new Set(usedRecentWords)],
+        usageSuggestion: suggestDutchUsage(transcript),
+      });
+    } catch (error: unknown) {
+      this.error.set(this.messageFor(error, 'Speech recognition failed.'));
+    } finally {
+      this.isListening.set(false);
+    }
+  }
+
+  continueAfterSpeakingChallenge(): void {
+    if (!this.speakingChallengeResult()) {
+      return;
+    }
+
+    this.selectedActivity.set(null);
+    this.speakingChallengeQuestion.set(null);
+    this.speakingChallengeTopic.set(null);
+    this.speakingChallengeWords.set([]);
+    this.speakingChallengeResult.set(null);
+    this.recentChallengeCards.set([]);
+    this.advanceSessionQueue();
+  }
+
+  retrySpeakingChallenge(): void {
+    if (this.selectedActivity() !== 'SPEAKING_CHALLENGE') {
+      return;
+    }
+
+    this.speakingChallengeResult.set(null);
+    this.replaySpeakingChallenge();
   }
 
   async answerDialogueTurn(): Promise<void> {
@@ -459,6 +595,65 @@ export class StudySessionService {
         .speak(firstQuestion.text, { language: 'nl-NL' })
         .catch(() => undefined);
     }
+  }
+
+  private startSpeakingChallenge(): void {
+    const challengeCards = this.recentChallengeCards();
+    const topic = this.inferSpeakingChallengeTopic(challengeCards);
+    const questions = topic
+      ? TOPIC_SPEAKING_QUESTIONS[topic.id]
+      : GENERIC_SPEAKING_QUESTIONS;
+    const question = questions[
+      this.stableQuestionIndex(challengeCards, questions.length)
+    ];
+    const relevantCards = topic
+      ? challengeCards.filter((card) => this.cardMatchesTopic(card, topic))
+      : challengeCards;
+    const suggestedWords = [...new Set(relevantCards.map((card) => card.targetText))]
+      .slice(-3);
+
+    this.selectedActivity.set('SPEAKING_CHALLENGE');
+    this.speakingChallengeQuestion.set(question);
+    this.speakingChallengeTopic.set(topic?.title ?? null);
+    this.speakingChallengeWords.set(suggestedWords);
+    this.speakingChallengeResult.set(null);
+    void this.tts.speak(question, { language: 'nl-NL' }).catch(() => undefined);
+  }
+
+  private inferSpeakingChallengeTopic(
+    challengeCards: readonly Flashcard[],
+  ): LearningTopic | null {
+    const selectedTopic = this.selectedTopic();
+
+    if (selectedTopic) {
+      return selectedTopic;
+    }
+
+    const rankedTopics = LEARNING_TOPICS.map((topic) => ({
+      topic,
+      score: challengeCards.reduce((score, card) => {
+        if (card.topicId === topic.id) {
+          return score + 3;
+        }
+
+        return score + (this.cardMatchesTopic(card, topic) ? 1 : 0);
+      }, 0),
+    })).sort((first, second) => second.score - first.score);
+
+    return rankedTopics[0]?.score ? rankedTopics[0].topic : null;
+  }
+
+  private stableQuestionIndex(
+    challengeCards: readonly Flashcard[],
+    questionCount: number,
+  ): number {
+    const hash = challengeCards
+      .map((card) => card.id)
+      .join('|')
+      .split('')
+      .reduce((total, character) => total + character.charCodeAt(0), 0);
+
+    return hash % questionCount;
   }
 
   private matchesCurrentSelection(card: Flashcard): boolean {

@@ -82,6 +82,27 @@ export class StudyPageComponent {
     void this.session.answerDialogueTurn();
   }
 
+  onSpeakingChallengeMicPressed(): void {
+    if (this.session.isListening()) {
+      this.session.stopListening();
+      return;
+    }
+
+    void this.session.answerSpeakingChallenge();
+  }
+
+  onReplaySpeakingChallengePressed(): void {
+    this.session.replaySpeakingChallenge();
+  }
+
+  onContinueAfterSpeakingChallengePressed(): void {
+    this.session.continueAfterSpeakingChallenge();
+  }
+
+  onRetrySpeakingChallengePressed(): void {
+    this.session.retrySpeakingChallenge();
+  }
+
   onNextDialoguePressed(): void {
     this.session.nextDialogueTurn();
   }

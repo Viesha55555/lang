@@ -33,7 +33,7 @@
     </div>
   </header>
 
-  @if (session.practiceDeck()) {
+  @if (session.practiceDeck() && session.selectedActivity() !== 'SPEAKING_CHALLENGE') {
     <section class="study-area">
       @if (session.isLoading()) {
         <div class="empty-state" aria-live="polite">
@@ -101,6 +101,126 @@
         }
       </footer>
     }
+  } @else if (session.selectedActivity() === 'SPEAKING_CHALLENGE') {
+    <section class="topic-workspace dialogue-workspace" aria-label="Speaking challenge">
+      <div class="topic-heading">
+        <p>Speaking challenge</p>
+        <h1>Listen and answer</h1>
+        <span>
+          The question is audio only and follows your
+          {{ session.speakingChallengeTopic() || 'recent vocabulary' }} practice.
+          Answer naturally in Dutch.
+        </span>
+      </div>
+
+      <article class="dialogue-prompt audio-prompt">
+        <span aria-hidden="true">🔊</span>
+        <strong>Listen to the Dutch question</strong>
+        <button
+          type="button"
+          class="replay-button"
+          (click)="onReplaySpeakingChallengePressed()"
+        >Play again</button>
+      </article>
+
+      @if (session.speakingChallengeResult(); as result) {
+        <section
+          class="dialogue-result"
+          [class.passed]="result.understood"
+          [class.failed]="!result.understood"
+          aria-live="polite"
+        >
+          <div class="result-mark" aria-hidden="true">✓</div>
+          <div>
+            <p class="result-title">
+              {{ result.understood ? 'Answer received' : 'Try speaking again' }}
+            </p>
+            <dl class="speech-diagnostics compact">
+              <div>
+                <dt>Question</dt>
+                <dd>{{ session.speakingChallengeQuestion() }}</dd>
+              </div>
+              <div>
+                <dt>Understood</dt>
+                <dd>{{ result.understood ? 'Yes' : 'No' }}</dd>
+              </div>
+              <div>
+                <dt>Question answered</dt>
+                <dd>{{ result.questionAnswered ? 'Yes' : 'Try a longer answer' }}</dd>
+              </div>
+              <div>
+                <dt>Heard</dt>
+                <dd>{{ result.transcript || 'Nothing detected' }}</dd>
+              </div>
+              <div>
+                <dt>Recent word used</dt>
+                <dd>{{ result.usedRecentWords.length ? result.usedRecentWords.join(', ') : 'None — that is okay' }}</dd>
+              </div>
+              @if (result.usageSuggestion; as suggestion) {
+                <div>
+                  <dt>Suggested correction</dt>
+                  <dd>{{ suggestion.correctedText }}</dd>
+                </div>
+                <div>
+                  <dt>Why</dt>
+                  <dd>{{ suggestion.note }}</dd>
+                </div>
+              }
+            </dl>
+
+            <details class="challenge-debug">
+              <summary>Debug: session flashcards</summary>
+              <dl>
+                <div>
+                  <dt>Chosen topic</dt>
+                  <dd>{{ session.speakingChallengeTopic() || 'Generic fallback' }}</dd>
+                </div>
+              </dl>
+              <ol>
+                @for (card of session.speakingChallengeCards(); track card.id) {
+                  <li>
+                    <span>{{ card.sourceText }}</span>
+                    <span aria-hidden="true">→</span>
+                    <strong>{{ card.targetText }}</strong>
+                    <small>{{ card.topicId || 'no topic tag' }}</small>
+                  </li>
+                }
+              </ol>
+            </details>
+          </div>
+        </section>
+
+        @if (!result.usedRecentWords.length) {
+          <p class="hint">
+            Optional retry idea: include {{ session.recentChallengeWords().join(', ') }}.
+          </p>
+          <button
+            type="button"
+            class="replay-button"
+            (click)="onRetrySpeakingChallengePressed()"
+          >Try again</button>
+        }
+
+        <button
+          type="button"
+          class="continue-button"
+          (click)="onContinueAfterSpeakingChallengePressed()"
+        >Continue flashcards</button>
+      } @else {
+        <app-mic-button
+          [listening]="session.isListening()"
+          [disabled]="!session.canAnswerSpeakingChallenge() && !session.isListening()"
+          (pressed)="onSpeakingChallengeMicPressed()"
+        />
+      }
+
+      @if (session.error(); as error) {
+        <div class="error" role="alert">
+          <span aria-hidden="true">!</span>
+          <p>{{ error }}</p>
+        </div>
+      }
+    </section>
   } @else if (session.selectedActivity() === 'DIALOGUE') {
     <section class="topic-workspace dialogue-workspace" aria-label="Practice dialogue">
       <div class="topic-heading">
