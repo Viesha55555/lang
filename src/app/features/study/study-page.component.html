@@ -21,6 +21,14 @@
         <span class="gem-icon" aria-hidden="true">💎</span>
         <span>{{ session.gemCount() }}</span>
       </div>
+      @if (reminders.isSupported && !reminderEnabled()) {
+        <button
+          type="button"
+          class="bell-button"
+          aria-label="Enable reminders"
+          (click)="onEnableRemindersPressed()"
+        >🔔</button>
+      }
       <a routerLink="/dictionary" class="dict-link" aria-label="Dictionary">📖</a>
     </div>
   </header>
@@ -55,12 +63,18 @@
           <span class="empty-icon" aria-hidden="true">✓</span>
           <h1>Session done</h1>
           <p>Nice work. Come back later for the next short round.</p>
+          <button type="button" class="continue-button" (click)="onFreePracticePressed()">
+            Practice all
+          </button>
         </div>
       } @else {
         <div class="empty-state">
           <span class="empty-icon" aria-hidden="true">☀</span>
-          <h1>You’re caught up</h1>
-          <p>No cards are due in this set right now. A tidy little victory.</p>
+          <h1>You're caught up</h1>
+          <p>No cards are due in this set right now.</p>
+          <button type="button" class="continue-button" (click)="onFreePracticePressed()">
+            Practice all
+          </button>
         </div>
       }
 

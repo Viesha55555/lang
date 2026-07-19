@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 import {
@@ -7,6 +7,7 @@ import {
 } from '../../core/domain/services/study-session.service';
 import { CardLevel } from '../../core/domain/models/flashcard.model';
 import { TopicId } from '../../core/domain/models/learning-topic.model';
+import { ReminderService } from '../../core/domain/services/reminder.service';
 import { MicButtonComponent } from './mic-button.component';
 import { StudyCardComponent } from './study-card.component';
 import { StudyResultComponent } from './study-result.component';
@@ -20,6 +21,10 @@ import { StudyResultComponent } from './study-result.component';
 })
 export class StudyPageComponent {
   readonly session = inject(StudySessionService);
+  readonly reminders = inject(ReminderService);
+  readonly reminderEnabled = signal(
+    'Notification' in window && Notification.permission === 'granted',
+  );
   readonly menuCards: readonly {
     title: string;
     subtitle?: string;
@@ -83,5 +88,14 @@ export class StudyPageComponent {
 
   onBackPressed(): void {
     this.session.goBack();
+  }
+
+  onFreePracticePressed(): void {
+    void this.session.startFreePractice();
+  }
+
+  async onEnableRemindersPressed(): Promise<void> {
+    const granted = await this.reminders.requestPermission();
+    this.reminderEnabled.set(granted);
   }
 }

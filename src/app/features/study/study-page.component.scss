@@ -101,6 +101,23 @@
   background: #f8f0e3;
 }
 
+.bell-button {
+  display: grid;
+  width: 2.4rem;
+  height: 2.4rem;
+  place-items: center;
+  border: 1px solid rgb(37 35 31 / 0.16);
+  border-radius: 0.5rem;
+  background: #fffdf8;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 0.45rem 1.4rem rgb(37 35 31 / 0.08);
+}
+
+.bell-button:hover {
+  background: #f8f0e3;
+}
+
 .gem-counter {
   display: inline-flex;
   gap: 0.4rem;

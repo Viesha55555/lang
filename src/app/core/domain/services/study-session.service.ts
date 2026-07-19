@@ -16,13 +16,15 @@ import {
   SPEECH_RECOGNIZER,
   TEXT_TO_SPEECH,
 } from '../tokens';
+import { ReminderService } from './reminder.service';
 
-export type PracticeDeck = CardLevel | 'WEAK_WORDS';
+export type PracticeDeck = CardLevel | 'WEAK_WORDS' | 'FREE_PRACTICE';
 export type TopicActivity = 'DIALOGUE';
 
 const SESSION_CARD_LIMIT = 12;
 const MAX_NEW_CARDS_PER_LEVEL_SESSION = 6;
 const WEAK_CARD_LIMIT = 12;
+const FREE_PRACTICE_LIMIT = 20;
 const DIALOGUE_CARD_ID_PREFIX = 'dialogue';
 
 @Injectable({ providedIn: 'root' })
@@ -33,6 +35,7 @@ export class StudySessionService {
   private readonly evaluator = inject(PRONUNCIATION_EVALUATOR);
   private readonly scheduler = inject(REVIEW_SCHEDULER);
   private readonly answerFeedback = inject(ANSWER_FEEDBACK);
+  private readonly reminders = inject(ReminderService);
   private readonly sessionQueue = signal<Flashcard[]>([]);
   private readonly sessionTotal = signal(0);
   private readonly sessionStartedFromTopic = signal(false);
@@ -193,6 +196,17 @@ export class StudySessionService {
     }
   }
 
+  async startFreePractice(): Promise<void> {
+    const level = this.selectedLevel();
+
+    if (!level) {
+      return;
+    }
+
+    this.sessionStartedFromTopic.set(true);
+    await this.startPractice('FREE_PRACTICE');
+  }
+
   async startTopicFlashcards(): Promise<void> {
     const level = this.selectedLevel();
 
@@ -248,7 +262,9 @@ export class StudySessionService {
     this.error.set(null);
     this.lastResult.set(null);
     const shouldStartDialogue =
-      this.sessionStartedFromTopic() && this.practiceDeck() !== 'WEAK_WORDS';
+      this.sessionStartedFromTopic() &&
+      this.practiceDeck() !== 'WEAK_WORDS' &&
+      this.practiceDeck() !== 'FREE_PRACTICE';
 
     this.advanceSessionQueue();
 
@@ -303,6 +319,7 @@ export class StudySessionService {
       const updatedCard = this.scheduler.schedule(card, grade, reviewedAt);
 
       await this.cards.save(updatedCard);
+      void this.reminders.scheduleNextReminder();
       this.lastResult.set(reviewResult);
       this.currentCard.set(updatedCard);
 
@@ -405,6 +422,14 @@ export class StudySessionService {
             this.weaknessScore(second, now) - this.weaknessScore(first, now),
         )
         .slice(0, WEAK_CARD_LIMIT);
+    }
+
+    if (deck === 'FREE_PRACTICE') {
+      const cards = await this.cards.getAllCards();
+      const filtered = cards.filter((card) => this.matchesCurrentSelection(card));
+      const shuffled = [...filtered].sort(() => Math.random() - 0.5);
+
+      return shuffled.slice(0, FREE_PRACTICE_LIMIT);
     }
 
     const dueCards = await this.cards.getDueCards(now, 500);
