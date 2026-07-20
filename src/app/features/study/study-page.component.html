@@ -126,14 +126,24 @@
       @if (session.speakingChallengeResult(); as result) {
         <section
           class="dialogue-result"
-          [class.passed]="result.understood"
-          [class.failed]="!result.understood"
+          [class.passed]="result.relevance === 'relevant' && result.grammar === 'correct'"
+          [class.failed]="result.relevance === 'not-relevant' || result.grammar === 'needs-retry'"
           aria-live="polite"
         >
-          <div class="result-mark" aria-hidden="true">✓</div>
+          <div class="result-mark" aria-hidden="true">
+            {{ result.relevance === 'relevant' && result.grammar === 'correct' ? '✓' : 'i' }}
+          </div>
           <div>
             <p class="result-title">
-              {{ result.understood ? 'Answer received' : 'Try speaking again' }}
+              @if (result.relevance === 'relevant' && result.grammar === 'correct') {
+                Good answer
+              } @else if (result.grammar === 'understandable-with-errors') {
+                Understood, with a correction
+              } @else if (result.relevance === 'not-relevant') {
+                Try answering the question
+              } @else {
+                Keep working on this answer
+              }
             </p>
             <dl class="speech-diagnostics compact">
               <div>
@@ -141,20 +151,32 @@
                 <dd>{{ session.speakingChallengeQuestion() }}</dd>
               </div>
               <div>
-                <dt>Understood</dt>
-                <dd>{{ result.understood ? 'Yes' : 'No' }}</dd>
+                <dt>Speech detected</dt>
+                <dd>{{ result.speechDetected ? 'Yes' : 'No' }}</dd>
               </div>
               <div>
-                <dt>Question answered</dt>
-                <dd>{{ result.questionAnswered ? 'Yes' : 'Try a longer answer' }}</dd>
+                <dt>Relevance</dt>
+                <dd>{{ result.relevance }}</dd>
+              </div>
+              <div>
+                <dt>Grammar</dt>
+                <dd>{{ result.grammar }}</dd>
               </div>
               <div>
                 <dt>Heard</dt>
                 <dd>{{ result.transcript || 'Nothing detected' }}</dd>
               </div>
               <div>
-                <dt>Recent word used</dt>
-                <dd>{{ result.usedRecentWords.length ? result.usedRecentWords.join(', ') : 'None — that is okay' }}</dd>
+                <dt>Recently learned phrase</dt>
+                <dd>
+                  @if (result.learnedPhrases.length) {
+                    @for (item of result.learnedPhrases; track item.phrase) {
+                      {{ item.phrase }} ({{ item.usage }}){{ $last ? '' : ', ' }}
+                    }
+                  } @else {
+                    None — that is okay
+                  }
+                </dd>
               </div>
               @if (result.usageSuggestion; as suggestion) {
                 <div>
@@ -190,7 +212,7 @@
           </div>
         </section>
 
-        @if (!result.usedRecentWords.length) {
+        @if (!result.learnedPhrases.length) {
           <p class="hint">
             Optional retry idea: include {{ session.recentChallengeWords().join(', ') }}.
           </p>
