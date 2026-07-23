@@ -64,6 +64,14 @@ const TOPIC_SPEAKING_QUESTIONS: Record<TopicId, readonly SpeakingChallengePrompt
   doctor: [prompt('Waarom wil je naar de dokter?'), prompt('Hoe voel je je vandaag?')],
   neighbors: [prompt('Waarover wil je met je buur praten?'), prompt('Hoe kun je je buur helpen?')],
   home: [prompt('Wat wil je thuis doen?'), prompt('Wat moet er in je huis gebeuren?')],
+  animals: [
+    prompt('Welk dier heb je in of rond je huis gezien?', 'past-event'),
+    prompt('Wat zou je doen als er een muis in je huis liep?'),
+  ],
+  'home-renovation': [
+    prompt('Wat wil je thuis repareren?'),
+    prompt('Hoe verloopt je renovatie?'),
+  ],
   'hardware-store': [prompt('Wat heb je nodig om iets te repareren?'), prompt('Wat wil je thuis maken of repareren?')],
   appointments: [prompt('Welke afspraak heb je binnenkort?'), prompt('Wanneer kun je een afspraak maken?')],
   'past-tense': [prompt('Wat heb je gisteren gedaan?', 'past-activity'), prompt('Wat is er vorige week gebeurd?', 'past-event')],

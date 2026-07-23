@@ -615,5 +615,31 @@
     "sourceText": "it turned out that",
     "targetText": "het bleek dat",
     "topicId": "past-tense"
+  },
+  {
+    "id": "b1-0118-only",
+    "sourceText": "only",
+    "targetText": "alleen",
+    "topicId": "animals"
+  },
+  {
+    "id": "b1-0119-probably",
+    "sourceText": "probably",
+    "targetText": "waarschijnlijk",
+    "topicId": "home-renovation"
+  },
+  {
+    "id": "b1-0120-renovation",
+    "sourceText": "renovation",
+    "targetText": "de renovatie",
+    "acceptedAnswers": ["renovatie"],
+    "topicId": "home-renovation"
+  },
+  {
+    "id": "b1-0121-to-continue-with",
+    "sourceText": "to continue with",
+    "targetText": "verdergaan met",
+    "acceptedAnswers": ["verder met"],
+    "topicId": "home-renovation"
   }
 ]

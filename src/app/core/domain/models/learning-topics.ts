@@ -484,6 +484,119 @@ export const LEARNING_TOPICS: readonly LearningTopic[] = [
     },
   },
   {
+    id: 'animals',
+    title: 'Animals',
+    description: 'Talk about animals in and around the home',
+    goalByLevel: {
+      A1: 'Name common animals and places around the home.',
+      A2: 'Explain what an animal did.',
+      B1: 'Describe an encounter with an animal in detail.',
+    },
+    keywords: [
+      'bird',
+      'mouse',
+      'mousetrap',
+      'peanut butter',
+      'backyard',
+      'catch',
+      'animal',
+    ],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Ik zie een ...', example: 'Ik zie een vogel.' },
+        { pattern: 'Er is een ...', example: 'Er is een muis.' },
+        { pattern: 'De ... is in de tuin.', example: 'De vogel is in de tuin.' },
+      ],
+      A2: [
+        { pattern: 'De ... liep door ...', example: 'De muis liep door het appartement.' },
+        { pattern: 'Ik heb ... neergezet.', example: 'Ik heb een muizenval neergezet.' },
+        { pattern: 'De ... pakte ...', example: 'De vogel pakte de muis.' },
+      ],
+      B1: [
+        { pattern: 'Hoewel ..., ...', example: 'Hoewel er een val stond, at de muis alleen de pindakaas.' },
+        { pattern: 'Uiteindelijk ...', example: 'Uiteindelijk pakten de vogels de muis.' },
+        { pattern: 'Het dier was door ... gegaan.', example: 'Het dier was door de achtertuin gegaan.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Welk dier zie je?' },
+        { speaker: 'user', text: 'Ik zie een muis.' },
+        { speaker: 'app', text: 'Waar is de muis?' },
+        { speaker: 'user', text: 'De muis is in de tuin.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Wat heb je tegen de muis gedaan?' },
+        { speaker: 'user', text: 'Ik heb een muizenval neergezet.' },
+        { speaker: 'app', text: 'Wat gebeurde er daarna?' },
+        { speaker: 'user', text: 'Een vogel pakte de muis.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Kun je vertellen wat er is gebeurd?' },
+        { speaker: 'user', text: 'De muis at de pindakaas, maar viel niet in de val.' },
+        { speaker: 'app', text: 'Hoe liep het af?' },
+        { speaker: 'user', text: 'Uiteindelijk pakten de vogels hem in de achtertuin.' },
+      ],
+    },
+  },
+  {
+    id: 'home-renovation',
+    title: 'Home Renovation',
+    description: 'Talk about repairs and renovation work at home',
+    goalByLevel: {
+      A1: 'Name basic rooms and repair materials.',
+      A2: 'Explain a simple repair.',
+      B1: 'Describe renovation plans and progress.',
+    },
+    keywords: [
+      'repair',
+      'renovation',
+      'bedroom',
+      'hole',
+      'plaster',
+      'wall',
+      'continue',
+      'rest',
+    ],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Er zit een gat in ...', example: 'Er zit een gat in de muur.' },
+        { pattern: 'Ik heb ... nodig.', example: 'Ik heb gips nodig.' },
+        { pattern: 'Dit is de ...', example: 'Dit is de slaapkamer.' },
+      ],
+      A2: [
+        { pattern: 'Ik ga ... repareren.', example: 'Ik ga de muur repareren.' },
+        { pattern: 'Ik begin met ...', example: 'Ik begin met de reparatie.' },
+        { pattern: 'Ik gebruik ... voor ...', example: 'Ik gebruik gips voor het gat.' },
+      ],
+      B1: [
+        { pattern: 'Ik ga waarschijnlijk verder met ...', example: 'Ik ga waarschijnlijk verder met de renovatie.' },
+        { pattern: 'Nadat ..., ...', example: 'Nadat ik de muur heb gerepareerd, ga ik uitrusten.' },
+        { pattern: 'Ik wil ook wat ...', example: 'Ik wil ook wat uitrusten.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Wat is er kapot?' },
+        { speaker: 'user', text: 'Er zit een gat in de muur.' },
+        { speaker: 'app', text: 'Wat heb je nodig?' },
+        { speaker: 'user', text: 'Ik heb gips nodig.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Wat ga je vandaag doen?' },
+        { speaker: 'user', text: 'Ik ga de slaapkamermuur repareren.' },
+        { speaker: 'app', text: 'Waarmee repareer je het gat?' },
+        { speaker: 'user', text: 'Ik repareer het met gips.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Wat zijn je plannen voor morgen?' },
+        { speaker: 'user', text: 'Ik ga waarschijnlijk verder met de renovatie.' },
+        { speaker: 'app', text: 'Ga je de hele dag werken?' },
+        { speaker: 'user', text: 'Nee, ik wil ook wat uitrusten.' },
+      ],
+    },
+  },
+  {
     id: 'hardware-store',
     title: 'Hardware Store',
     description: 'Ask for tools and materials',
@@ -683,4 +796,3 @@ export function findLearningTopic(topicId: TopicId): LearningTopic {
 
   return topic;
 }
-

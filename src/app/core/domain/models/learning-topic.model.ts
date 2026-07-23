@@ -9,6 +9,8 @@ export type TopicId =
   | 'doctor'
   | 'neighbors'
   | 'home'
+  | 'animals'
+  | 'home-renovation'
   | 'hardware-store'
   | 'appointments'
   | 'past-tense';

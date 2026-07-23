@@ -843,5 +843,55 @@
     "sourceText": "last week",
     "targetText": "vorige week",
     "topicId": "past-tense"
+  },
+  {
+    "id": "a2-0158-to-catch",
+    "sourceText": "to catch",
+    "targetText": "pakken",
+    "topicId": "animals"
+  },
+  {
+    "id": "a2-0159-to-put-down",
+    "sourceText": "to put down",
+    "targetText": "neerzetten",
+    "topicId": "animals"
+  },
+  {
+    "id": "a2-0160-to-fall",
+    "sourceText": "to fall",
+    "targetText": "vallen",
+    "topicId": "animals"
+  },
+  {
+    "id": "a2-0161-to-start",
+    "sourceText": "to start",
+    "targetText": "beginnen",
+    "topicId": "home-renovation"
+  },
+  {
+    "id": "a2-0162-repair",
+    "sourceText": "repair",
+    "targetText": "de reparatie",
+    "acceptedAnswers": ["reparatie"],
+    "topicId": "home-renovation"
+  },
+  {
+    "id": "a2-0163-to-repair",
+    "sourceText": "to repair",
+    "targetText": "repareren",
+    "topicId": "home-renovation"
+  },
+  {
+    "id": "a2-0164-bedroom-wall",
+    "sourceText": "bedroom wall",
+    "targetText": "de slaapkamermuur",
+    "acceptedAnswers": ["slaapkamermuur"],
+    "topicId": "home-renovation"
+  },
+  {
+    "id": "a2-0165-to-rest",
+    "sourceText": "to rest",
+    "targetText": "uitrusten",
+    "topicId": "home-renovation"
   }
 ]

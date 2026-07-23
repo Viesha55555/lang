@@ -629,5 +629,61 @@
     "sourceText": "yesterday",
     "targetText": "gisteren",
     "topicId": "past-tense"
+  },
+  {
+    "id": "a1-0117-bird",
+    "sourceText": "bird",
+    "targetText": "de vogel",
+    "acceptedAnswers": ["vogel"],
+    "topicId": "animals"
+  },
+  {
+    "id": "a1-0118-mouse",
+    "sourceText": "mouse",
+    "targetText": "de muis",
+    "acceptedAnswers": ["muis"],
+    "topicId": "animals"
+  },
+  {
+    "id": "a1-0119-mousetrap",
+    "sourceText": "mousetrap",
+    "targetText": "de muizenval",
+    "acceptedAnswers": ["muizenval"],
+    "topicId": "animals"
+  },
+  {
+    "id": "a1-0120-peanut-butter",
+    "sourceText": "peanut butter",
+    "targetText": "de pindakaas",
+    "acceptedAnswers": ["pindakaas"],
+    "topicId": "animals"
+  },
+  {
+    "id": "a1-0121-backyard",
+    "sourceText": "backyard",
+    "targetText": "de achtertuin",
+    "acceptedAnswers": ["achtertuin"],
+    "topicId": "animals"
+  },
+  {
+    "id": "a1-0122-apartment",
+    "sourceText": "apartment",
+    "targetText": "het appartement",
+    "acceptedAnswers": ["appartement"],
+    "topicId": "animals"
+  },
+  {
+    "id": "a1-0123-hole",
+    "sourceText": "hole",
+    "targetText": "het gat",
+    "acceptedAnswers": ["gat"],
+    "topicId": "home-renovation"
+  },
+  {
+    "id": "a1-0124-plaster",
+    "sourceText": "plaster",
+    "targetText": "het gips",
+    "acceptedAnswers": ["gips"],
+    "topicId": "home-renovation"
   }
 ]
