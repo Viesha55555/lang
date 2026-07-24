@@ -23,6 +23,12 @@ export interface TopicPhrase {
 export interface TopicDialogueTurn {
   readonly speaker: 'app' | 'user';
   readonly text: string;
+  /** English translation for an app line. */
+  readonly translation?: string;
+  /** Precise English production instruction for a learner line. */
+  readonly instruction?: string;
+  /** The controlled structure being practised. */
+  readonly targetTemplate?: string;
 }
 
 export interface LearningTopic {

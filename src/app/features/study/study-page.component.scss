@@ -355,6 +355,43 @@
   gap: 0.85rem;
 }
 
+.dialogue-controls {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+  width: min(100%, 42rem);
+}
+
+.answer-reveal {
+  display: grid;
+  gap: 0.35rem;
+  width: min(100%, 42rem);
+  padding: 0.85rem 1rem;
+  border: 1px dashed rgb(37 35 31 / 24%);
+  border-radius: 0.5rem;
+  background: rgb(255 253 248 / 70%);
+  text-align: center;
+}
+
+.answer-reveal span,
+.answer-reveal small,
+.audio-prompt small {
+  color: #716b62;
+  font-size: 0.8rem;
+  font-weight: 800;
+}
+
+.audio-prompt > div {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.audio-prompt p {
+  margin: 0;
+  color: #4d4841;
+}
+
 .dialogue-result.passed {
   border-color: rgb(112 155 132 / 0.38);
   background: #eef7ed;

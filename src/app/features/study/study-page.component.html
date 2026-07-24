@@ -259,31 +259,71 @@
       </div>
 
       @if (session.currentDialogueQuestion(); as question) {
-        <article class="dialogue-prompt">
-          <span>Q</span>
-          <strong>{{ question.text }}</strong>
+        <article class="dialogue-prompt audio-prompt">
+          <span aria-hidden="true">🔊</span>
+          <div>
+            <small>Listen to the employee</small>
+            @if (session.dialogueTranscriptRevealed()) {
+              <strong>{{ question.text }}</strong>
+            } @else {
+              <strong>Audio only</strong>
+            }
+            @if (session.dialogueTranslationRevealed()) {
+              <p>{{ question.translation }}</p>
+            }
+          </div>
+          <button type="button" class="replay-button" (click)="onReplayDialoguePressed()">
+            Replay
+          </button>
         </article>
+        <div class="dialogue-controls">
+          <button type="button" class="replay-button" (click)="onToggleDialogueTranscriptPressed()">
+            {{ session.dialogueTranscriptRevealed() ? 'Hide Dutch text' : 'Show Dutch text' }}
+          </button>
+          <button type="button" class="replay-button" (click)="onToggleDialogueTranslationPressed()">
+            {{ session.dialogueTranslationRevealed() ? 'Hide translation' : 'Show translation' }}
+          </button>
+        </div>
       }
 
       @if (session.currentDialogueUserTurn(); as answer) {
         <article class="dialogue-answer-target">
-          <span>Answer with Dutch</span>
-          <strong>{{ answer.text }}</strong>
+          <span>Your turn</span>
+          <strong>{{ answer.instruction }}</strong>
         </article>
+
+        <div class="answer-reveal">
+          @if (session.dialogueAnswerRevealed()) {
+            <span>Expected answer</span>
+            <strong>{{ answer.text }}</strong>
+            @if (session.dialogueAnswerWasHinted() && !session.dialogueResult()) {
+              <small>Hint used — this attempt will not earn a gem.</small>
+            }
+          } @else {
+            <button type="button" class="replay-button" (click)="onShowDialogueAnswerPressed()">
+              Show answer
+            </button>
+          }
+        </div>
 
         @if (session.dialogueResult(); as result) {
           <section
             class="dialogue-result"
-            [class.passed]="result.passed"
-            [class.failed]="!result.passed"
+            [class.passed]="session.dialogueOutcome() === 'correct'"
+            [class.failed]="session.dialogueOutcome() !== 'correct'"
             aria-live="polite"
           >
             <div class="result-mark" aria-hidden="true">
-              {{ result.passed ? '✓' : '↻' }}
+              {{ session.dialogueOutcome() === 'correct' ? '✓' : '↻' }}
             </div>
             <div>
               <p class="result-title">
-                {{ result.passed ? 'Good answer' : 'Try this version' }}
+                @switch (session.dialogueOutcome()) {
+                  @case ('correct') { Correct }
+                  @case ('almost-correct') { Almost correct }
+                  @case ('could-not-understand') { Could not understand }
+                  @default { Use the target structure }
+                }
               </p>
               <dl class="speech-diagnostics compact">
                 <div>
@@ -295,11 +335,21 @@
                   <dd>{{ result.expectedText }}</dd>
                 </div>
               </dl>
+              @if (session.dialogueOutcome() === 'incorrect-structure') {
+                <p>Try again using: “{{ answer.targetTemplate }}”</p>
+              }
             </div>
           </section>
-          <button type="button" class="continue-button" (click)="onNextDialoguePressed()">
-            Continue
-          </button>
+          <div class="dialogue-controls">
+            @if (session.dialogueOutcome() !== 'correct') {
+              <button type="button" class="replay-button" (click)="onRetryDialoguePressed()">
+                Try again
+              </button>
+            }
+            <button type="button" class="continue-button" (click)="onNextDialoguePressed()">
+              Continue
+            </button>
+          </div>
         } @else {
           <app-mic-button
             [listening]="session.isListening()"

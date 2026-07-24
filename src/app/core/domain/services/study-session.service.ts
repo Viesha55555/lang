@@ -29,6 +29,11 @@ import type { DutchUsageSuggestion } from '../../../shared/utils/dutch-usage-pat
 
 export type PracticeDeck = CardLevel | 'WEAK_WORDS' | 'FREE_PRACTICE';
 export type TopicActivity = 'DIALOGUE' | 'SPEAKING_CHALLENGE';
+export type DialogueOutcome =
+  | 'correct'
+  | 'almost-correct'
+  | 'incorrect-structure'
+  | 'could-not-understand';
 
 export interface SpeakingChallengeResult {
   readonly transcript: string;
@@ -47,6 +52,11 @@ const MAX_NEW_CARDS_PER_LEVEL_SESSION = 6;
 const WEAK_CARD_LIMIT = 12;
 const FREE_PRACTICE_LIMIT = 20;
 const DIALOGUE_CARD_ID_PREFIX = 'dialogue';
+const CONTROLLED_DIALOGUE_TOPICS: readonly TopicId[] = [
+  'shopping',
+  'food',
+  'hardware-store',
+];
 const prompt = (
   text: string,
   intent: SpeakingChallengePrompt['intent'] = 'open',
@@ -115,6 +125,18 @@ export class StudySessionService {
   readonly selectedActivity = signal<TopicActivity | null>(null);
   readonly lastResult = signal<ReviewResult | null>(null);
   readonly dialogueResult = signal<ReviewResult | null>(null);
+  readonly dialogueAnswerRevealed = signal(false);
+  readonly dialogueTranscriptRevealed = signal(false);
+  readonly dialogueTranslationRevealed = signal(false);
+  readonly dialogueAnswerWasHinted = signal(false);
+  readonly dialogueOutcome = computed<DialogueOutcome | null>(() => {
+    const result = this.dialogueResult();
+    if (!result) return null;
+    if (!result.normalizedSpokenText) return 'could-not-understand';
+    if (result.score >= 0.95) return 'correct';
+    if (result.score >= 0.72) return 'almost-correct';
+    return 'incorrect-structure';
+  });
   readonly speakingChallengeQuestion = signal<string | null>(null);
   private readonly speakingChallengePrompt = signal<SpeakingChallengePrompt | null>(null);
   readonly speakingChallengeInstruction = computed(
@@ -321,6 +343,7 @@ export class StudySessionService {
     this.sessionQueue.set([]);
     this.sessionTotal.set(0);
     this.dialogueResult.set(null);
+    this.resetDialogueRevealState();
     this.speakingChallengeQuestion.set(null);
     this.speakingChallengePrompt.set(null);
     this.speakingChallengeTopic.set(null);
@@ -374,7 +397,14 @@ export class StudySessionService {
       this.recentChallengeCards.update((cards) => [...cards, completedCard]);
 
       if (this.sessionQueue().length === 0) {
-        this.startSpeakingChallenge();
+        if (
+          this.selectedTopicId() &&
+          CONTROLLED_DIALOGUE_TOPICS.includes(this.selectedTopicId()!)
+        ) {
+          this.startDialogueAfterFlashcards();
+        } else {
+          this.advanceSessionQueue();
+        }
         return;
       }
     }
@@ -570,8 +600,9 @@ export class StudySessionService {
 
       await this.saveDialoguePhraseCard(expectedTurn, grade, reviewedAt);
       this.dialogueResult.set(reviewResult);
+      this.dialogueAnswerRevealed.set(true);
 
-      if (reviewResult.passed) {
+      if (evaluation.score >= 0.95 && !this.dialogueAnswerWasHinted()) {
         this.gemCount.update((count) => count + 1);
         void this.answerFeedback.playCorrect().catch(() => undefined);
       }
@@ -589,6 +620,7 @@ export class StudySessionService {
 
     this.dialogueResult.set(null);
     this.dialogueUserTurnIndex.update((index) => index + 1);
+    this.resetDialogueRevealState();
 
     const nextQuestion = this.currentDialogueQuestion();
 
@@ -642,6 +674,7 @@ export class StudySessionService {
     this.selectedActivity.set('DIALOGUE');
     this.dialogueUserTurnIndex.set(0);
     this.dialogueResult.set(null);
+    this.resetDialogueRevealState();
 
     const firstQuestion = this.currentDialogueQuestion();
 
@@ -650,6 +683,40 @@ export class StudySessionService {
         .speak(firstQuestion.text, { language: 'nl-NL' })
         .catch(() => undefined);
     }
+  }
+
+  replayDialogueLine(): void {
+    const question = this.currentDialogueQuestion();
+    if (question) {
+      void this.tts.speak(question.text, { language: 'nl-NL' }).catch(() => undefined);
+    }
+  }
+
+  toggleDialogueTranscript(): void {
+    this.dialogueTranscriptRevealed.update((shown) => !shown);
+  }
+
+  toggleDialogueTranslation(): void {
+    this.dialogueTranslationRevealed.update((shown) => !shown);
+  }
+
+  revealDialogueAnswer(): void {
+    if (this.dialogueAnswerRevealed()) return;
+    this.dialogueAnswerRevealed.set(true);
+    this.dialogueAnswerWasHinted.set(true);
+  }
+
+  retryDialogueTurn(): void {
+    if (!this.dialogueResult()) return;
+    this.dialogueResult.set(null);
+    this.dialogueAnswerRevealed.set(false);
+  }
+
+  private resetDialogueRevealState(): void {
+    this.dialogueAnswerRevealed.set(false);
+    this.dialogueTranscriptRevealed.set(false);
+    this.dialogueTranslationRevealed.set(false);
+    this.dialogueAnswerWasHinted.set(false);
   }
 
   private startSpeakingChallenge(): void {
@@ -823,9 +890,9 @@ export class StudySessionService {
       id: this.dialogueCardId(),
       level: this.selectedLevel() ?? 'A1',
       topicId: this.selectedTopicId() ?? undefined,
-      sourceText: this.currentDialogueQuestion()?.text ?? 'dialogue answer',
+      sourceText: expectedTurn.instruction ?? 'Say the dialogue answer.',
       targetText: expectedTurn.text,
-      sourceLanguage: 'nl-NL',
+      sourceLanguage: 'en-US',
       targetLanguage: 'nl-NL',
       status: 'new',
       repetition: 0,

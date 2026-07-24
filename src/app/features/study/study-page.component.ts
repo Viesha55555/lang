@@ -107,6 +107,26 @@ export class StudyPageComponent {
     this.session.nextDialogueTurn();
   }
 
+  onReplayDialoguePressed(): void {
+    this.session.replayDialogueLine();
+  }
+
+  onToggleDialogueTranscriptPressed(): void {
+    this.session.toggleDialogueTranscript();
+  }
+
+  onToggleDialogueTranslationPressed(): void {
+    this.session.toggleDialogueTranslation();
+  }
+
+  onShowDialogueAnswerPressed(): void {
+    this.session.revealDialogueAnswer();
+  }
+
+  onRetryDialoguePressed(): void {
+    this.session.retryDialogueTurn();
+  }
+
   onBackPressed(): void {
     this.session.goBack();
   }
