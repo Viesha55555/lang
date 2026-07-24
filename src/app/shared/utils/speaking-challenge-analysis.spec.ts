@@ -7,6 +7,8 @@ const question: SpeakingChallengePrompt = {
   text: 'Wat heb je gisteren gedaan?',
   intent: 'past-activity',
   minimumWords: 3,
+  mode: 'open-answer',
+  instruction: 'Answer the question in Dutch. Any relevant answer is accepted.',
 };
 
 const cards = [
@@ -34,6 +36,17 @@ describe('analyzeSpeakingChallenge', () => {
 
     expect(result.relevance).toBe('relevant');
     expect(result.grammar).toBe('correct');
+  });
+
+  it('accepts a relevant unpractised answer and reports a minor correction separately', () => {
+    const result = analyzeSpeakingChallenge('Ik liep naar winkel', question, cards);
+
+    expect(result.answeredQuestion).toBeTrue();
+    expect(result.relevance).toBe('relevant');
+    expect(result.understandable).toBeTrue();
+    expect(result.grammar).toBe('understandable-with-errors');
+    expect(result.correction?.correctedText).toBe('Ik liep naar de winkel');
+    expect(result.learnedPhrases).toEqual([]);
   });
 
   it('detects the wrong perfect-tense auxiliary as an attempted phrase', () => {

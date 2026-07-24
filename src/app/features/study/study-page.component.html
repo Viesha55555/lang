@@ -105,17 +105,16 @@
     <section class="topic-workspace dialogue-workspace" aria-label="Speaking challenge">
       <div class="topic-heading">
         <p>Speaking challenge</p>
-        <h1>Listen and answer</h1>
-        <span>
-          The question is audio only and follows your
-          {{ session.speakingChallengeTopic() || 'recent vocabulary' }} practice.
-          Answer naturally in Dutch.
-        </span>
+        <h1>Answer naturally</h1>
+        <span>{{ session.speakingChallengeInstruction() }}</span>
       </div>
 
+      @if (session.speakingChallengeScenario(); as scenario) {
+        <p class="hint"><strong>Situation:</strong> {{ scenario }}</p>
+      }
       <article class="dialogue-prompt audio-prompt">
         <span aria-hidden="true">🔊</span>
-        <strong>Listen to the Dutch question</strong>
+        <strong>{{ session.speakingChallengeQuestion() }}</strong>
         <button
           type="button"
           class="replay-button"
@@ -155,8 +154,16 @@
                 <dd>{{ result.speechDetected ? 'Yes' : 'No' }}</dd>
               </div>
               <div>
+                <dt>Answered question</dt>
+                <dd>{{ result.answeredQuestion ? 'Yes' : 'No' }}</dd>
+              </div>
+              <div>
                 <dt>Relevance</dt>
                 <dd>{{ result.relevance }}</dd>
+              </div>
+              <div>
+                <dt>Understandable</dt>
+                <dd>{{ result.understandable ? 'Yes' : 'No' }}</dd>
               </div>
               <div>
                 <dt>Grammar</dt>
@@ -189,6 +196,7 @@
                 </div>
               }
             </dl>
+            <p>{{ result.feedback }}</p>
 
             <details class="challenge-debug">
               <summary>Debug: session flashcards</summary>

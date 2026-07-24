@@ -7,11 +7,16 @@ import {
 export type ChallengeRelevance = 'relevant' | 'partly-relevant' | 'not-relevant';
 export type ChallengeGrammar = 'correct' | 'understandable-with-errors' | 'needs-retry';
 export type LearnedPhraseUsage = 'exact' | 'variant' | 'attempted';
+export type ExerciseMode = 'translation' | 'open-answer' | 'guided-answer';
 
 export interface SpeakingChallengePrompt {
   readonly text: string;
   readonly intent: 'past-activity' | 'past-event' | 'open';
   readonly minimumWords: number;
+  readonly mode: ExerciseMode;
+  readonly instruction: string;
+  readonly scenario?: string;
+  readonly targetPhrase?: string;
 }
 
 export interface SpeakingChallengeCardInput {
@@ -26,15 +31,19 @@ export interface SpeakingChallengePhraseUsage {
 
 export interface SpeakingChallengeAnalysis {
   readonly speechDetected: boolean;
+  readonly answeredQuestion: boolean;
   readonly relevance: ChallengeRelevance;
+  readonly understandable: boolean;
   readonly grammar: ChallengeGrammar;
   readonly learnedPhrases: readonly SpeakingChallengePhraseUsage[];
   readonly correction: DutchUsageSuggestion | null;
+  readonly feedback: string;
 }
 
 const PAST_MARKERS = [
   'was', 'waren', 'had', 'hadden', 'ging', 'gingen', 'werkte', 'woonde',
-  'maakte', 'kocht', 'zei', 'deed', 'bleek', 'gisteren', 'vorige',
+  'maakte', 'kocht', 'zei', 'deed', 'bleek', 'liep', 'fietste', 'reed',
+  'speelde', 'keek', 'las', 'sliep', 'bezocht', 'gisteren', 'vorige',
 ] as const;
 const PERFECT_AUXILIARIES = ['heb', 'hebt', 'heeft', 'ben', 'bent', 'is', 'zijn'] as const;
 const PAST_PARTICIPLES = [
@@ -57,32 +66,47 @@ export function analyzeSpeakingChallenge(
   if (!normalized) {
     return {
       speechDetected: false,
+      answeredQuestion: false,
       relevance: 'not-relevant',
+      understandable: false,
       grammar: 'needs-retry',
       learnedPhrases,
       correction,
+      feedback: 'No answer was detected. Try answering the question in Dutch.',
     };
   }
 
   const pastRelevant = hasPastForm(words);
   const enoughContent = words.length >= prompt.minimumWords;
-  const relevance: ChallengeRelevance = prompt.intent === 'open'
-    ? (enoughContent ? 'relevant' : 'partly-relevant')
-    : (pastRelevant && enoughContent
-      ? 'relevant'
-      : (pastRelevant ? 'partly-relevant' : 'not-relevant'));
   const grammarCorrection = correction ?? suggestPastTenseCorrection(transcript);
   const incoherent = isClearlyIncomplete(normalized) || isClearlyIncoherent(normalized);
+  // Open conversation is not an exact-answer quiz. Recent cards are reported as
+  // an optional bonus and never determine relevance.
+  const answeredQuestion = enoughContent && !incoherent;
+  const relevance: ChallengeRelevance = incoherent
+    ? 'not-relevant'
+    : answeredQuestion
+    ? (prompt.intent === 'open' || pastRelevant ? 'relevant' : 'partly-relevant')
+    : (words.length > 0 ? 'partly-relevant' : 'not-relevant');
   const grammar: ChallengeGrammar = incoherent
     ? 'needs-retry'
     : (grammarCorrection ? 'understandable-with-errors' : 'correct');
+  const understandable = !incoherent;
+  const feedback = !answeredQuestion
+    ? 'Try giving a complete answer to the question.'
+    : grammarCorrection
+      ? `Good answer. ${grammarCorrection.note}`
+      : 'Good answer.';
 
   return {
     speechDetected: true,
+    answeredQuestion,
     relevance,
+    understandable,
     grammar,
     learnedPhrases,
     correction: grammarCorrection,
+    feedback,
   };
 }
 

@@ -33,10 +33,13 @@ export type TopicActivity = 'DIALOGUE' | 'SPEAKING_CHALLENGE';
 export interface SpeakingChallengeResult {
   readonly transcript: string;
   readonly speechDetected: boolean;
+  readonly answeredQuestion: boolean;
   readonly relevance: ChallengeRelevance;
+  readonly understandable: boolean;
   readonly grammar: ChallengeGrammar;
   readonly learnedPhrases: readonly SpeakingChallengePhraseUsage[];
   readonly usageSuggestion: DutchUsageSuggestion | null;
+  readonly feedback: string;
 }
 
 const SESSION_CARD_LIMIT = 12;
@@ -48,7 +51,15 @@ const prompt = (
   text: string,
   intent: SpeakingChallengePrompt['intent'] = 'open',
   minimumWords = 3,
-): SpeakingChallengePrompt => ({ text, intent, minimumWords });
+  scenario?: string,
+): SpeakingChallengePrompt => ({
+  text,
+  intent,
+  minimumWords,
+  mode: 'open-answer',
+  instruction: 'Answer the question in Dutch. Any relevant answer is accepted.',
+  scenario,
+});
 const GENERIC_SPEAKING_QUESTIONS: readonly SpeakingChallengePrompt[] = [
   prompt('Wat heb je gisteren gedaan?', 'past-activity'),
   prompt('Wat doe je vandaag?'),
@@ -56,7 +67,11 @@ const GENERIC_SPEAKING_QUESTIONS: readonly SpeakingChallengePrompt[] = [
   prompt('Waarom ben je moe?'),
 ] as const;
 const TOPIC_SPEAKING_QUESTIONS: Record<TopicId, readonly SpeakingChallengePrompt[]> = {
-  'daily-life': [prompt('Wat doe je vandaag?'), prompt('Wat heb je gisteren gedaan?', 'past-activity')],
+  'daily-life': [
+    prompt('Wat doe je meestal in je vrije tijd?'),
+    prompt('Wat doe je soms na je werk?'),
+    prompt('Werk je vandaag?'),
+  ],
   shopping: [prompt('Wat wil je in de winkel kopen?'), prompt('Wat zoek je en waarom?')],
   food: [prompt('Wat wil je vandaag eten of drinken?'), prompt('Wat heb je gisteren gegeten?', 'past-activity')],
   work: [prompt('Wat moet je vandaag op je werk doen?'), prompt('Hoe was je werkdag?', 'past-event')],
@@ -69,8 +84,9 @@ const TOPIC_SPEAKING_QUESTIONS: Record<TopicId, readonly SpeakingChallengePrompt
     prompt('Wat zou je doen als er een muis in je huis liep?'),
   ],
   'home-renovation': [
-    prompt('Wat wil je thuis repareren?'),
-    prompt('Hoe verloopt je renovatie?'),
+    prompt('Wat wil je in de slaapkamer repareren?'),
+    prompt('Waarmee wil je beginnen?'),
+    prompt('Is de muur van beton?'),
   ],
   'hardware-store': [prompt('Wat heb je nodig om iets te repareren?'), prompt('Wat wil je thuis maken of repareren?')],
   appointments: [prompt('Welke afspraak heb je binnenkort?'), prompt('Wanneer kun je een afspraak maken?')],
@@ -101,6 +117,12 @@ export class StudySessionService {
   readonly dialogueResult = signal<ReviewResult | null>(null);
   readonly speakingChallengeQuestion = signal<string | null>(null);
   private readonly speakingChallengePrompt = signal<SpeakingChallengePrompt | null>(null);
+  readonly speakingChallengeInstruction = computed(
+    () => this.speakingChallengePrompt()?.instruction ?? '',
+  );
+  readonly speakingChallengeScenario = computed(
+    () => this.speakingChallengePrompt()?.scenario ?? null,
+  );
   readonly speakingChallengeTopic = signal<string | null>(null);
   readonly speakingChallengeWords = signal<readonly string[]>([]);
   readonly speakingChallengeResult = signal<SpeakingChallengeResult | null>(null);
@@ -473,10 +495,13 @@ export class StudySessionService {
       this.speakingChallengeResult.set({
         transcript,
         speechDetected: analysis.speechDetected,
+        answeredQuestion: analysis.answeredQuestion,
         relevance: analysis.relevance,
+        understandable: analysis.understandable,
         grammar: analysis.grammar,
         learnedPhrases: analysis.learnedPhrases,
         usageSuggestion: analysis.correction,
+        feedback: analysis.feedback,
       });
     } catch (error: unknown) {
       this.error.set(this.messageFor(error, 'Speech recognition failed.'));
@@ -654,11 +679,32 @@ export class StudySessionService {
     cards: readonly Flashcard[],
     topic: LearningTopic | null,
   ): SpeakingChallengePrompt | null {
+    const targets = cards.map((card) => normalizeText(card.targetText));
+
+    if (topic?.id === 'daily-life') {
+      if (targets.some((target) => /\b(vrije tijd|hobby|meestal)\b/.test(target))) {
+        return prompt('Wat doe je meestal in je vrije tijd?');
+      }
+      if (targets.some((target) => /\b(vandaag|werk)\b/.test(target))) {
+        return prompt('Werk je vandaag?');
+      }
+    }
+
+    if (topic?.id === 'home-renovation' || topic?.id === 'hardware-store') {
+      if (targets.some((target) => /\b(pluggen|beton|betonnen muur)\b/.test(target))) {
+        return prompt('Waarvoor heb je pluggen nodig?');
+      }
+      if (targets.some((target) => /\b(slaapkamer|repareren)\b/.test(target))) {
+        return prompt('Wat wil je in de slaapkamer repareren?');
+      }
+      if (targets.some((target) => /\bbeginnen\b/.test(target))) {
+        return prompt('Waarmee wil je beginnen?');
+      }
+    }
+
     if (topic?.id !== 'past-tense') {
       return null;
     }
-
-    const targets = cards.map((card) => normalizeText(card.targetText));
 
     if (targets.some((target) => /\b(had|hadden) al\b/.test(target))) {
       return prompt('Wat had je gisteren al gedaan?', 'past-activity');

@@ -11,6 +11,11 @@ interface UsageRule {
 
 const USAGE_RULES: readonly UsageRule[] = [
   {
+    pattern: /\bnaar winkel\b/i,
+    replacement: 'naar de winkel',
+    note: "Use the definite article in 'naar de winkel'.",
+  },
+  {
     pattern: /\b(wacht|wachten|wachtte|wachtten)\s+voor\b/i,
     replacement: '$1 op',
     note: "Use 'wachten op' when saying what or whom you are waiting for.",
