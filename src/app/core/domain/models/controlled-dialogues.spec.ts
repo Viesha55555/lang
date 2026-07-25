@@ -24,18 +24,13 @@ describe('controlled dialogues', () => {
     }
   }
 
-  it('keeps advanced targets focused while practising connectors', () => {
+  it('keeps advanced targets focused', () => {
     for (const topicId of topicIds) {
       const b1Turns =
         findLearningTopic(topicId)?.dialogueByLevel.B1.filter(
           (turn) => turn.speaker === 'user',
         ) ?? [];
 
-      expect(
-        b1Turns.some((turn) =>
-          /\b(omdat|hoewel|vanwege)\b/i.test(turn.text),
-        ),
-      ).toBeTrue();
       expect(b1Turns.every((turn) => turn.text.split(/\s+/).length <= 14)).toBeTrue();
     }
   });

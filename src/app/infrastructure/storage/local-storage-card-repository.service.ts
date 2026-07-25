@@ -9,6 +9,7 @@ import {
 } from './seed-data/en-nl-seed-deck';
 
 const STORAGE_KEY = 'spoken-flashcards.cards.v2';
+const RETIRED_CARD_IDS = new Set(['b1-0108-i-have-eaten']);
 
 @Injectable({ providedIn: 'root' })
 export class LocalStorageCardRepositoryService implements CardRepositoryPort {
@@ -70,11 +71,27 @@ export class LocalStorageCardRepositoryService implements CardRepositoryPort {
         throw new Error('Stored cards are not an array.');
       }
 
-      const flashcards = cards as Flashcard[];
-      const cardsWithLevels = flashcards.map((card) => this.withInferredLevel(card));
+      const flashcards = (cards as Flashcard[]).filter(
+        (card) =>
+          !card.id.startsWith('dialogue-') &&
+          !card.sourceText.trim().endsWith('?') &&
+          !RETIRED_CARD_IDS.has(card.id),
+      );
+      const seedTopics = new Map(
+        this.seedCards().map((card) => [card.id, card.topicId]),
+      );
+      const cardsWithLevels = flashcards.map((card) => {
+        const inferredCard = this.withInferredLevel(card);
+        const seedTopic = seedTopics.get(card.id);
+
+        return seedTopic && inferredCard.topicId !== seedTopic
+          ? { ...inferredCard, topicId: seedTopic }
+          : inferredCard;
+      });
       const mergedCards = this.withMissingSeedCards(cardsWithLevels);
 
       if (
+        flashcards.length !== (cards as Flashcard[]).length ||
         cardsWithLevels.some((card, index) => card !== flashcards[index]) ||
         mergedCards.length !== cardsWithLevels.length
       ) {

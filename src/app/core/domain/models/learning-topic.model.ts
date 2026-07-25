@@ -2,6 +2,7 @@ import type { CardLevel } from './flashcard.model';
 
 export type TopicId =
   | 'daily-life'
+  | 'colors'
   | 'shopping'
   | 'food'
   | 'work'

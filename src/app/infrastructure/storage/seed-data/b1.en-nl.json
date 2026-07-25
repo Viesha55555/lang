@@ -551,12 +551,6 @@
     "topicId": "past-tense"
   },
   {
-    "id": "b1-0108-i-have-eaten",
-    "sourceText": "I have eaten",
-    "targetText": "ik heb gegeten",
-    "topicId": "past-tense"
-  },
-  {
     "id": "b1-0109-i-have-bought",
     "sourceText": "I have bought",
     "targetText": "ik heb gekocht",
@@ -641,5 +635,30 @@
     "targetText": "verdergaan met",
     "acceptedAnswers": ["verder met"],
     "topicId": "home-renovation"
+  },
+  {
+    "id": "b1-0122-light-blue",
+    "sourceText": "light blue",
+    "targetText": "lichtblauw",
+    "topicId": "colors"
+  },
+  {
+    "id": "b1-0123-dark-green",
+    "sourceText": "dark green",
+    "targetText": "donkergroen",
+    "topicId": "colors"
+  },
+  {
+    "id": "b1-0124-colorful",
+    "sourceText": "colorful",
+    "targetText": "kleurrijk",
+    "topicId": "colors"
+  },
+  {
+    "id": "b1-0125-shade",
+    "sourceText": "shade",
+    "targetText": "de tint",
+    "acceptedAnswers": ["tint"],
+    "topicId": "colors"
   }
 ]

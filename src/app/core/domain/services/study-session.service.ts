@@ -82,6 +82,10 @@ const TOPIC_SPEAKING_QUESTIONS: Record<TopicId, readonly SpeakingChallengePrompt
     prompt('Wat doe je soms na je werk?'),
     prompt('Werk je vandaag?'),
   ],
+  colors: [
+    prompt('Wat is je lievelingskleur en waarom?'),
+    prompt('Welke kleur hebben je kleren vandaag?'),
+  ],
   shopping: [prompt('Wat wil je in de winkel kopen?'), prompt('Wat zoek je en waarom?')],
   food: [prompt('Wat wil je vandaag eten of drinken?'), prompt('Wat heb je gisteren gegeten?', 'past-activity')],
   work: [prompt('Wat moet je vandaag op je werk doen?'), prompt('Hoe was je werkdag?', 'past-event')],
@@ -598,7 +602,6 @@ export class StudySessionService {
         reviewedAt: reviewedAt.toISOString(),
       };
 
-      await this.saveDialoguePhraseCard(expectedTurn, grade, reviewedAt);
       this.dialogueResult.set(reviewResult);
       this.dialogueAnswerRevealed.set(true);
 
@@ -865,43 +868,6 @@ export class StudySessionService {
         .speak(nextCard.targetText, { language: nextCard.targetLanguage })
         .catch(() => undefined);
     }
-  }
-
-  private async saveDialoguePhraseCard(
-    expectedTurn: TopicDialogueTurn,
-    grade: ReviewGrade,
-    reviewedAt: Date,
-  ): Promise<void> {
-    const existingCard = await this.cards.getById(this.dialogueCardId());
-    const baseCard = existingCard ?? this.createDialoguePhraseCard(expectedTurn);
-    const scheduledCard = this.scheduler.schedule(baseCard, grade, reviewedAt);
-    const dueAt =
-      grade === 'again' || grade === 'hard'
-        ? reviewedAt.toISOString()
-        : scheduledCard.dueAt;
-
-    await this.cards.save({ ...scheduledCard, dueAt });
-  }
-
-  private createDialoguePhraseCard(expectedTurn: TopicDialogueTurn): Flashcard {
-    const now = new Date().toISOString();
-
-    return {
-      id: this.dialogueCardId(),
-      level: this.selectedLevel() ?? 'A1',
-      topicId: this.selectedTopicId() ?? undefined,
-      sourceText: expectedTurn.instruction ?? 'Say the dialogue answer.',
-      targetText: expectedTurn.text,
-      sourceLanguage: 'en-US',
-      targetLanguage: 'nl-NL',
-      status: 'new',
-      repetition: 0,
-      intervalDays: 0,
-      easeFactor: 2.5,
-      dueAt: now,
-      createdAt: now,
-      updatedAt: now,
-    };
   }
 
   private dialogueCardId(): string {

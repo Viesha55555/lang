@@ -446,32 +446,38 @@
   {
     "id": "a2-0088-color",
     "sourceText": "color",
-    "targetText": "kleur"
+    "targetText": "kleur",
+    "topicId": "colors"
   },
   {
     "id": "a2-0089-red",
     "sourceText": "red",
-    "targetText": "rood"
+    "targetText": "rood",
+    "topicId": "colors"
   },
   {
     "id": "a2-0090-blue",
     "sourceText": "blue",
-    "targetText": "blauw"
+    "targetText": "blauw",
+    "topicId": "colors"
   },
   {
     "id": "a2-0091-green",
     "sourceText": "green",
-    "targetText": "groen"
+    "targetText": "groen",
+    "topicId": "colors"
   },
   {
     "id": "a2-0092-black",
     "sourceText": "black",
-    "targetText": "zwart"
+    "targetText": "zwart",
+    "topicId": "colors"
   },
   {
     "id": "a2-0093-white",
     "sourceText": "white",
-    "targetText": "wit"
+    "targetText": "wit",
+    "topicId": "colors"
   },
   {
     "id": "a2-0094-to-buy",

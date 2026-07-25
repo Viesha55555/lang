@@ -656,21 +656,21 @@
     "sourceText": "peanut butter",
     "targetText": "de pindakaas",
     "acceptedAnswers": ["pindakaas"],
-    "topicId": "animals"
+    "topicId": "food"
   },
   {
     "id": "a1-0121-backyard",
     "sourceText": "backyard",
     "targetText": "de achtertuin",
     "acceptedAnswers": ["achtertuin"],
-    "topicId": "animals"
+    "topicId": "home"
   },
   {
     "id": "a1-0122-apartment",
     "sourceText": "apartment",
     "targetText": "het appartement",
     "acceptedAnswers": ["appartement"],
-    "topicId": "animals"
+    "topicId": "home"
   },
   {
     "id": "a1-0123-hole",
@@ -685,5 +685,71 @@
     "targetText": "het gips",
     "acceptedAnswers": ["gips"],
     "topicId": "home-renovation"
+  },
+  {
+    "id": "a1-0125-yellow",
+    "sourceText": "yellow",
+    "targetText": "geel",
+    "topicId": "colors"
+  },
+  {
+    "id": "a1-0126-orange",
+    "sourceText": "orange",
+    "targetText": "oranje",
+    "topicId": "colors"
+  },
+  {
+    "id": "a1-0127-purple",
+    "sourceText": "purple",
+    "targetText": "paars",
+    "topicId": "colors"
+  },
+  {
+    "id": "a1-0128-pink",
+    "sourceText": "pink",
+    "targetText": "roze",
+    "topicId": "colors"
+  },
+  {
+    "id": "a1-0129-brown",
+    "sourceText": "brown",
+    "targetText": "bruin",
+    "topicId": "colors"
+  },
+  {
+    "id": "a1-0130-gray",
+    "sourceText": "gray",
+    "targetText": "grijs",
+    "topicId": "colors"
+  },
+  {
+    "id": "a1-0131-red",
+    "sourceText": "red",
+    "targetText": "rood",
+    "topicId": "colors"
+  },
+  {
+    "id": "a1-0132-blue",
+    "sourceText": "blue",
+    "targetText": "blauw",
+    "topicId": "colors"
+  },
+  {
+    "id": "a1-0133-green",
+    "sourceText": "green",
+    "targetText": "groen",
+    "topicId": "colors"
+  },
+  {
+    "id": "a1-0134-black",
+    "sourceText": "black",
+    "targetText": "zwart",
+    "topicId": "colors"
+  },
+  {
+    "id": "a1-0135-white",
+    "sourceText": "white",
+    "targetText": "wit",
+    "topicId": "colors"
   }
 ]
