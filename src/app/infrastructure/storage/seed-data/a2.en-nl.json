@@ -899,5 +899,45 @@
     "sourceText": "to rest",
     "targetText": "uitrusten",
     "topicId": "home-renovation"
+  },
+  {
+    "id": "a2-0166-self-adhesive-tape",
+    "sourceText": "self-adhesive tape",
+    "targetText": "de zelfklevende tape",
+    "acceptedAnswers": ["zelfklevende tape"],
+    "topicId": "home-renovation"
+  },
+  {
+    "id": "a2-0167-to-apply",
+    "sourceText": "to apply",
+    "targetText": "aanbrengen",
+    "topicId": "home-renovation"
+  },
+  {
+    "id": "a2-0168-layer",
+    "sourceText": "layer",
+    "targetText": "de laag",
+    "acceptedAnswers": ["laag"],
+    "topicId": "home-renovation"
+  },
+  {
+    "id": "a2-0169-to-play-saxophone",
+    "sourceText": "to play saxophone",
+    "targetText": "saxofoon spelen",
+    "topicId": "music"
+  },
+  {
+    "id": "a2-0170-recording",
+    "sourceText": "recording",
+    "targetText": "de opname",
+    "acceptedAnswers": ["opname"],
+    "topicId": "music"
+  },
+  {
+    "id": "a2-0171-to-print",
+    "sourceText": "to print",
+    "targetText": "uitprinten",
+    "acceptedAnswers": ["printen"],
+    "topicId": "work"
   }
 ]

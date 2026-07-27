@@ -89,6 +89,7 @@ const TOPIC_SPEAKING_QUESTIONS: Record<TopicId, readonly SpeakingChallengePrompt
   shopping: [prompt('Wat wil je in de winkel kopen?'), prompt('Wat zoek je en waarom?')],
   food: [prompt('Wat wil je vandaag eten of drinken?'), prompt('Wat heb je gisteren gegeten?', 'past-activity')],
   work: [prompt('Wat moet je vandaag op je werk doen?'), prompt('Hoe was je werkdag?', 'past-event')],
+  music: [prompt('Welk instrument speel je?'), prompt('Waarvoor hebben jullie opnames gemaakt?', 'past-event')],
   travel: [prompt('Waar wil je naartoe en hoe ga je daarheen?'), prompt('Wat doe je als je trein vertraging heeft?')],
   doctor: [prompt('Waarom wil je naar de dokter?'), prompt('Hoe voel je je vandaag?')],
   neighbors: [prompt('Waarover wil je met je buur praten?'), prompt('Hoe kun je je buur helpen?')],

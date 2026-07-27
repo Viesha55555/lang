@@ -309,6 +309,54 @@ export const LEARNING_TOPICS: readonly LearningTopic[] = [
     },
   },
   {
+    id: 'music',
+    title: 'Music',
+    description: 'Talk about instruments, playing music, and recordings',
+    goalByLevel: {
+      A1: 'Name common instruments.',
+      A2: 'Talk about playing and recording music.',
+      B1: 'Describe a recording or promotional project.',
+    },
+    keywords: ['music', 'instrument', 'saxophone', 'play', 'record', 'recording'],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Dit is een ...', example: 'Dit is een saxofoon.' },
+        { pattern: 'Ik speel ...', example: 'Ik speel saxofoon.' },
+        { pattern: 'Ik houd van ...', example: 'Ik houd van muziek.' },
+      ],
+      A2: [
+        { pattern: 'Ik heb ... gespeeld.', example: 'Ik heb saxofoon gespeeld.' },
+        { pattern: 'Wij maken opnames.', example: 'Wij maken opnames.' },
+        { pattern: 'Ik oefen voor ...', example: 'Ik oefen voor de opname.' },
+      ],
+      B1: [
+        { pattern: 'Wij hebben opnames gemaakt voor ...', example: 'Wij hebben opnames gemaakt voor de promotie.' },
+        { pattern: 'De opname wordt gebruikt voor ...', example: 'De opname wordt gebruikt voor reclame.' },
+        { pattern: 'Tijdens de opname ...', example: 'Tijdens de opname speelde ik saxofoon.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Welk instrument speel je?' },
+        { speaker: 'user', text: 'Ik speel saxofoon.' },
+        { speaker: 'app', text: 'Houd je van muziek?' },
+        { speaker: 'user', text: 'Ja, ik houd van muziek.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Wat heb je gisteren gespeeld?' },
+        { speaker: 'user', text: 'Ik heb saxofoon gespeeld.' },
+        { speaker: 'app', text: 'Hebben jullie ook opnames gemaakt?' },
+        { speaker: 'user', text: 'Ja, wij hebben opnames gemaakt.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Waarvoor hebben jullie opnames gemaakt?' },
+        { speaker: 'user', text: 'Wij hebben opnames gemaakt voor de promotie.' },
+        { speaker: 'app', text: 'Wat deed jij tijdens de opname?' },
+        { speaker: 'user', text: 'Tijdens de opname speelde ik saxofoon.' },
+      ],
+    },
+  },
+  {
     id: 'travel',
     title: 'Travel',
     description: 'Use trains, buses, tickets, and directions',

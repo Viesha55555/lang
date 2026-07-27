@@ -777,5 +777,26 @@
       "op zeven september"
     ],
     "topicId": "appointments"
+  },
+  {
+    "id": "a1-0139-saxophone",
+    "sourceText": "saxophone",
+    "targetText": "de saxofoon",
+    "acceptedAnswers": ["saxofoon"],
+    "topicId": "music"
+  },
+  {
+    "id": "a1-0140-office",
+    "sourceText": "office",
+    "targetText": "het kantoor",
+    "acceptedAnswers": ["kantoor"],
+    "topicId": "work"
+  },
+  {
+    "id": "a1-0141-document",
+    "sourceText": "document",
+    "targetText": "het document",
+    "acceptedAnswers": ["document"],
+    "topicId": "work"
   }
 ]

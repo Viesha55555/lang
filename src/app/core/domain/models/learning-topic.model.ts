@@ -6,6 +6,7 @@ export type TopicId =
   | 'shopping'
   | 'food'
   | 'work'
+  | 'music'
   | 'travel'
   | 'doctor'
   | 'neighbors'

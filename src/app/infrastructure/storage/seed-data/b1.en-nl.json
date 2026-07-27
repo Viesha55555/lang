@@ -661,5 +661,45 @@
     "targetText": "de tint",
     "acceptedAnswers": ["tint"],
     "topicId": "colors"
+  },
+  {
+    "id": "b1-0126-productive",
+    "sourceText": "productive",
+    "targetText": "productief",
+    "topicId": "daily-life"
+  },
+  {
+    "id": "b1-0127-promotion",
+    "sourceText": "promotion",
+    "targetText": "de promotie",
+    "acceptedAnswers": ["promotie"],
+    "topicId": "work"
+  },
+  {
+    "id": "b1-0128-advertising",
+    "sourceText": "advertising",
+    "targetText": "de reclame",
+    "acceptedAnswers": ["reclame"],
+    "topicId": "work"
+  },
+  {
+    "id": "b1-0129-workday",
+    "sourceText": "workday",
+    "targetText": "de werkdag",
+    "acceptedAnswers": ["werkdag"],
+    "topicId": "work"
+  },
+  {
+    "id": "b1-0130-second-layer",
+    "sourceText": "second layer",
+    "targetText": "de tweede laag",
+    "acceptedAnswers": ["tweede laag"],
+    "topicId": "home-renovation"
+  },
+  {
+    "id": "b1-0131-to-make-recordings",
+    "sourceText": "to make recordings",
+    "targetText": "opnames maken",
+    "topicId": "music"
   }
 ]
