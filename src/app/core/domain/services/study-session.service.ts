@@ -401,11 +401,8 @@ export class StudySessionService {
       this.recentChallengeCards.update((cards) => [...cards, completedCard]);
 
       if (this.sessionQueue().length === 0) {
-        if (
-          this.selectedTopicId() &&
-          CONTROLLED_DIALOGUE_TOPICS.includes(this.selectedTopicId()!)
-        ) {
-          this.startDialogueAfterFlashcards();
+        if (this.selectedTopicId()) {
+          this.startSpeakingChallenge();
         } else {
           this.advanceSessionQueue();
         }
@@ -556,7 +553,13 @@ export class StudySessionService {
     this.speakingChallengeWords.set([]);
     this.speakingChallengeResult.set(null);
     this.recentChallengeCards.set([]);
-    this.advanceSessionQueue();
+
+    const topicId = this.selectedTopicId();
+    if (topicId && CONTROLLED_DIALOGUE_TOPICS.includes(topicId)) {
+      this.startDialogueAfterFlashcards();
+    } else {
+      this.advanceSessionQueue();
+    }
   }
 
   retrySpeakingChallenge(): void {
