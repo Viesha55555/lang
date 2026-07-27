@@ -843,8 +843,8 @@ export class StudySessionService {
   }
 
   private cardMatchesTopic(card: Flashcard, topic: LearningTopic): boolean {
-    if (card.topicId === topic.id) {
-      return true;
+    if (card.topicId) {
+      return card.topicId === topic.id;
     }
 
     const haystack = `${card.id} ${card.sourceText} ${card.targetText}`.toLowerCase();

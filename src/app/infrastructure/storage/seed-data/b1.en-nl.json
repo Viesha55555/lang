@@ -187,7 +187,8 @@
   {
     "id": "b1-0038-appointment-confirmation",
     "sourceText": "appointment confirmation",
-    "targetText": "afspraakbevestiging"
+    "targetText": "afspraakbevestiging",
+    "topicId": "appointments"
   },
   {
     "id": "b1-0039-could-you-repeat-that",

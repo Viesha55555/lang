@@ -751,5 +751,31 @@
     "sourceText": "white",
     "targetText": "wit",
     "topicId": "colors"
+  },
+  {
+    "id": "a1-0136-at-7-pm",
+    "sourceText": "at 7 pm",
+    "targetText": "om zeven uur 's avonds",
+    "acceptedAnswers": [
+      "om 19.00 uur",
+      "om 19:00 uur",
+      "om zeven uur 's avonds"
+    ],
+    "topicId": "appointments"
+  },
+  {
+    "id": "a1-0137-on-wednesday",
+    "sourceText": "on Wednesday",
+    "targetText": "op woensdag",
+    "topicId": "appointments"
+  },
+  {
+    "id": "a1-0138-on-7-september",
+    "sourceText": "on 7th September",
+    "targetText": "op 7 september",
+    "acceptedAnswers": [
+      "op zeven september"
+    ],
+    "topicId": "appointments"
   }
 ]
