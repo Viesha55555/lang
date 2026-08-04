@@ -417,20 +417,6 @@ export class StudySessionService {
     this.error.set(null);
     this.lastResult.set(null);
 
-    const completedCard = this.currentCard();
-    if (completedCard) {
-      this.recentChallengeCards.update((cards) => [...cards, completedCard]);
-
-      if (this.sessionQueue().length === 0) {
-        if (this.selectedTopicId()) {
-          this.startSpeakingChallenge();
-        } else {
-          this.advanceSessionQueue();
-        }
-        return;
-      }
-    }
-
     this.advanceSessionQueue();
   }
 
