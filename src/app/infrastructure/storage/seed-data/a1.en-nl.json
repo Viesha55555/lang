@@ -2,7 +2,8 @@
   {
     "id": "a1-0001-hello",
     "sourceText": "hello",
-    "targetText": "hallo"
+    "targetText": "hallo",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0002-goodbye",
@@ -13,17 +14,20 @@
       "dag",
       "tot later",
       "tot straks"
-    ]
+    ],
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0003-yes",
     "sourceText": "yes",
-    "targetText": "ja"
+    "targetText": "ja",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0004-no",
     "sourceText": "no",
-    "targetText": "nee"
+    "targetText": "nee",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0005-please",
@@ -31,7 +35,8 @@
     "targetText": "alstublieft",
     "acceptedAnswers": [
       "alsjeblieft"
-    ]
+    ],
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0006-thank-you",
@@ -44,477 +49,575 @@
       "dankjewel",
       "dankje",
       "bedankt"
-    ]
+    ],
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0007-sorry",
     "sourceText": "sorry",
-    "targetText": "sorry"
+    "targetText": "sorry",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0008-excuse-me",
     "sourceText": "excuse me",
-    "targetText": "pardon"
+    "targetText": "pardon",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0009-good-morning",
     "sourceText": "good morning",
-    "targetText": "goedemorgen"
+    "targetText": "goedemorgen",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0010-good-evening",
     "sourceText": "good evening",
-    "targetText": "goedenavond"
+    "targetText": "goedenavond",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0011-good-night",
     "sourceText": "good night",
-    "targetText": "welterusten"
+    "targetText": "welterusten",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0012-how-are-you",
     "sourceText": "how are you",
-    "targetText": "hoe gaat het"
+    "targetText": "hoe gaat het",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0013-i-am-fine",
     "sourceText": "I am fine",
-    "targetText": "het gaat goed"
+    "targetText": "het gaat goed",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0014-my-name-is",
     "sourceText": "my name is",
-    "targetText": "ik heet"
+    "targetText": "ik heet",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0015-what-is-your-name",
     "sourceText": "what is your name",
-    "targetText": "hoe heet jij"
+    "targetText": "hoe heet jij",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0016-i-am",
     "sourceText": "I am",
-    "targetText": "ik ben"
+    "targetText": "ik ben",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0017-you-are",
     "sourceText": "you are",
-    "targetText": "jij bent"
+    "targetText": "jij bent",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0018-he-is",
     "sourceText": "he is",
-    "targetText": "hij is"
+    "targetText": "hij is",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0019-she-is",
     "sourceText": "she is",
-    "targetText": "zij is"
+    "targetText": "zij is",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0020-we-are",
     "sourceText": "we are",
-    "targetText": "wij zijn"
+    "targetText": "wij zijn",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0021-i-have",
     "sourceText": "I have",
-    "targetText": "ik heb"
+    "targetText": "ik heb",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0022-i-want",
     "sourceText": "I want",
-    "targetText": "ik wil"
+    "targetText": "ik wil",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0023-i-need",
-    "sourceText": "I need",
-    "targetText": "ik heb nodig"
+    "sourceText": "I need it",
+    "targetText": "ik heb het nodig",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0024-i-like",
-    "sourceText": "I like",
-    "targetText": "ik vind leuk"
+    "sourceText": "I like it",
+    "targetText": "ik vind het leuk",
+    "topicId": "introductions-and-communication",
+    "acceptedAnswers": [
+      "ik hou ervan"
+    ]
   },
   {
     "id": "a1-0025-i-understand",
     "sourceText": "I understand",
-    "targetText": "ik begrijp het"
+    "targetText": "ik begrijp het",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0026-i-do-not-understand",
     "sourceText": "I do not understand",
-    "targetText": "ik begrijp het niet"
+    "targetText": "ik begrijp het niet",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0027-do-you-speak-english",
     "sourceText": "do you speak English",
-    "targetText": "spreek je Engels"
+    "targetText": "spreek je Engels",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0028-i-speak-a-little-dutch",
     "sourceText": "I speak a little Dutch",
-    "targetText": "ik spreek een beetje Nederlands"
+    "targetText": "ik spreek een beetje Nederlands",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "a1-0029-where-is",
     "sourceText": "where is",
-    "targetText": "waar is"
+    "targetText": "waar is",
+    "topicId": "travel"
   },
   {
     "id": "a1-0030-what-is-this",
     "sourceText": "what is this",
-    "targetText": "wat is dit"
+    "targetText": "wat is dit",
+    "topicId": "travel"
   },
   {
     "id": "a1-0031-how-much",
     "sourceText": "how much",
-    "targetText": "hoeveel"
+    "targetText": "hoeveel",
+    "topicId": "shopping"
   },
   {
     "id": "a1-0032-how-much-does-it-cost",
     "sourceText": "how much does it cost",
-    "targetText": "hoeveel kost het"
+    "targetText": "hoeveel kost het",
+    "topicId": "shopping"
   },
   {
     "id": "a1-0033-when",
     "sourceText": "when",
-    "targetText": "wanneer"
+    "targetText": "wanneer",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0034-who",
     "sourceText": "who",
-    "targetText": "wie"
+    "targetText": "wie",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0035-why",
     "sourceText": "why",
-    "targetText": "waarom"
+    "targetText": "waarom",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0036-today",
     "sourceText": "today",
-    "targetText": "vandaag"
+    "targetText": "vandaag",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0037-tomorrow",
     "sourceText": "tomorrow",
-    "targetText": "morgen"
+    "targetText": "morgen",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0038-yesterday",
-    "sourceText": "yesterday",
-    "targetText": "gisteren"
+    "sourceText": "yesterday evening",
+    "targetText": "gisteravond",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0039-now",
     "sourceText": "now",
-    "targetText": "nu"
+    "targetText": "nu",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0040-later",
     "sourceText": "later",
-    "targetText": "later"
+    "targetText": "later",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0041-here",
     "sourceText": "here",
-    "targetText": "hier"
+    "targetText": "hier",
+    "topicId": "travel"
   },
   {
     "id": "a1-0042-there",
     "sourceText": "there",
-    "targetText": "daar"
+    "targetText": "daar",
+    "topicId": "travel"
   },
   {
     "id": "a1-0043-left",
     "sourceText": "left",
-    "targetText": "links"
+    "targetText": "links",
+    "topicId": "travel"
   },
   {
     "id": "a1-0044-right",
     "sourceText": "right",
-    "targetText": "rechts"
+    "targetText": "rechts",
+    "topicId": "travel"
   },
   {
     "id": "a1-0045-straight-ahead",
     "sourceText": "straight ahead",
-    "targetText": "rechtdoor"
+    "targetText": "rechtdoor",
+    "topicId": "travel"
   },
   {
     "id": "a1-0046-home",
     "sourceText": "home",
-    "targetText": "thuis"
+    "targetText": "thuis",
+    "topicId": "home"
   },
   {
     "id": "a1-0047-house",
     "sourceText": "house",
-    "targetText": "huis"
+    "targetText": "huis",
+    "topicId": "home"
   },
   {
     "id": "a1-0048-room",
     "sourceText": "room",
-    "targetText": "kamer"
+    "targetText": "kamer",
+    "topicId": "home"
   },
   {
     "id": "a1-0049-door",
     "sourceText": "door",
-    "targetText": "deur"
+    "targetText": "deur",
+    "topicId": "home"
   },
   {
     "id": "a1-0050-window",
     "sourceText": "window",
-    "targetText": "raam"
+    "targetText": "raam",
+    "topicId": "home"
   },
   {
     "id": "a1-0051-water",
     "sourceText": "water",
-    "targetText": "water"
+    "targetText": "water",
+    "topicId": "food"
   },
   {
     "id": "a1-0052-bread",
     "sourceText": "bread",
-    "targetText": "brood"
+    "targetText": "brood",
+    "topicId": "food"
   },
   {
     "id": "a1-0053-cheese",
     "sourceText": "cheese",
-    "targetText": "kaas"
+    "targetText": "kaas",
+    "topicId": "food"
   },
   {
     "id": "a1-0054-coffee",
     "sourceText": "coffee",
-    "targetText": "koffie"
+    "targetText": "koffie",
+    "topicId": "food"
   },
   {
     "id": "a1-0055-tea",
     "sourceText": "tea",
-    "targetText": "thee"
+    "targetText": "thee",
+    "topicId": "food"
   },
   {
     "id": "a1-0056-apple",
     "sourceText": "apple",
-    "targetText": "appel"
+    "targetText": "appel",
+    "topicId": "food"
   },
   {
     "id": "a1-0057-bicycle",
     "sourceText": "bicycle",
-    "targetText": "fiets"
+    "targetText": "fiets",
+    "topicId": "travel"
   },
   {
     "id": "a1-0058-train",
     "sourceText": "train",
-    "targetText": "trein"
+    "targetText": "trein",
+    "topicId": "travel"
   },
   {
     "id": "a1-0059-bus",
     "sourceText": "bus",
-    "targetText": "bus"
+    "targetText": "bus",
+    "topicId": "travel"
   },
   {
     "id": "a1-0060-ticket",
     "sourceText": "ticket",
-    "targetText": "kaartje"
+    "targetText": "kaartje",
+    "topicId": "travel"
   },
   {
     "id": "a1-0061-one",
     "sourceText": "one",
-    "targetText": "een"
+    "targetText": "een",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0062-two",
     "sourceText": "two",
-    "targetText": "twee"
+    "targetText": "twee",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0063-three",
     "sourceText": "three",
-    "targetText": "drie"
+    "targetText": "drie",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0064-four",
     "sourceText": "four",
-    "targetText": "vier"
+    "targetText": "vier",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0065-five",
     "sourceText": "five",
-    "targetText": "vijf"
+    "targetText": "vijf",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0066-six",
     "sourceText": "six",
-    "targetText": "zes"
+    "targetText": "zes",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0067-seven",
     "sourceText": "seven",
-    "targetText": "zeven"
+    "targetText": "zeven",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0068-eight",
     "sourceText": "eight",
-    "targetText": "acht"
+    "targetText": "acht",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0069-nine",
     "sourceText": "nine",
-    "targetText": "negen"
+    "targetText": "negen",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0070-ten",
     "sourceText": "ten",
-    "targetText": "tien"
+    "targetText": "tien",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0071-monday",
     "sourceText": "Monday",
-    "targetText": "maandag"
+    "targetText": "maandag",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0072-tuesday",
     "sourceText": "Tuesday",
-    "targetText": "dinsdag"
+    "targetText": "dinsdag",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0073-wednesday",
     "sourceText": "Wednesday",
-    "targetText": "woensdag"
+    "targetText": "woensdag",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0074-thursday",
     "sourceText": "Thursday",
-    "targetText": "donderdag"
+    "targetText": "donderdag",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0075-friday",
     "sourceText": "Friday",
-    "targetText": "vrijdag"
+    "targetText": "vrijdag",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0076-saturday",
     "sourceText": "Saturday",
-    "targetText": "zaterdag"
+    "targetText": "zaterdag",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0077-sunday",
     "sourceText": "Sunday",
-    "targetText": "zondag"
+    "targetText": "zondag",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0078-morning",
     "sourceText": "morning",
-    "targetText": "ochtend"
+    "targetText": "ochtend",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0079-afternoon",
     "sourceText": "afternoon",
-    "targetText": "middag"
+    "targetText": "middag",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0080-evening",
     "sourceText": "evening",
-    "targetText": "avond"
+    "targetText": "avond",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0081-night",
     "sourceText": "night",
-    "targetText": "nacht"
+    "targetText": "nacht",
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0082-man",
     "sourceText": "man",
-    "targetText": "man"
+    "targetText": "man",
+    "topicId": "family-and-relationships"
   },
   {
     "id": "a1-0083-woman",
     "sourceText": "woman",
-    "targetText": "vrouw"
+    "targetText": "vrouw",
+    "topicId": "family-and-relationships"
   },
   {
     "id": "a1-0084-child",
     "sourceText": "child",
-    "targetText": "kind"
+    "targetText": "kind",
+    "topicId": "family-and-relationships"
   },
   {
     "id": "a1-0085-father",
     "sourceText": "father",
-    "targetText": "vader"
+    "targetText": "vader",
+    "topicId": "family-and-relationships"
   },
   {
     "id": "a1-0086-mother",
     "sourceText": "mother",
-    "targetText": "moeder"
+    "targetText": "moeder",
+    "topicId": "family-and-relationships"
   },
   {
     "id": "a1-0087-brother",
     "sourceText": "brother",
-    "targetText": "broer"
+    "targetText": "broer",
+    "topicId": "family-and-relationships"
   },
   {
     "id": "a1-0088-sister",
     "sourceText": "sister",
-    "targetText": "zus"
+    "targetText": "zus",
+    "topicId": "family-and-relationships"
   },
   {
     "id": "a1-0089-school",
     "sourceText": "school",
-    "targetText": "school"
+    "targetText": "school",
+    "topicId": "daily-life"
   },
   {
     "id": "a1-0090-shop",
     "sourceText": "shop",
-    "targetText": "winkel"
+    "targetText": "winkel",
+    "topicId": "shopping"
   },
   {
     "id": "a1-0091-street",
     "sourceText": "street",
-    "targetText": "straat"
+    "targetText": "straat",
+    "topicId": "travel"
   },
   {
     "id": "a1-0092-city",
     "sourceText": "city",
-    "targetText": "stad"
+    "targetText": "stad",
+    "topicId": "travel"
   },
   {
     "id": "a1-0093-country",
     "sourceText": "country",
-    "targetText": "land"
+    "targetText": "land",
+    "topicId": "travel"
   },
   {
     "id": "a1-0094-big",
     "sourceText": "big",
-    "targetText": "groot"
+    "targetText": "groot",
+    "topicId": "daily-life"
   },
   {
     "id": "a1-0095-small",
     "sourceText": "small",
-    "targetText": "klein"
+    "targetText": "klein",
+    "topicId": "daily-life"
   },
   {
     "id": "a1-0096-new",
     "sourceText": "new",
-    "targetText": "nieuw"
+    "targetText": "nieuw",
+    "topicId": "daily-life"
   },
   {
     "id": "a1-0097-old",
     "sourceText": "old",
-    "targetText": "oud"
+    "targetText": "oud",
+    "topicId": "daily-life"
   },
   {
     "id": "a1-0098-good",
     "sourceText": "good",
-    "targetText": "goed"
+    "targetText": "goed",
+    "topicId": "daily-life"
   },
   {
     "id": "a1-0099-bad",
     "sourceText": "bad",
-    "targetText": "slecht"
+    "targetText": "slecht",
+    "topicId": "daily-life"
   },
   {
     "id": "a1-0100-nice",
     "sourceText": "nice",
-    "targetText": "leuk"
+    "targetText": "leuk",
+    "topicId": "daily-life"
   },
   {
     "id": "a1-0101-screw",
@@ -547,7 +650,7 @@
     "id": "a1-0104-cash-register",
     "sourceText": "cash register",
     "targetText": "de kassa",
-    "topicId": "hardware-store",
+    "topicId": "shopping",
     "acceptedAnswers": [
       "kassa"
     ]
@@ -634,56 +737,72 @@
     "id": "a1-0117-bird",
     "sourceText": "bird",
     "targetText": "de vogel",
-    "acceptedAnswers": ["vogel"],
+    "acceptedAnswers": [
+      "vogel"
+    ],
     "topicId": "animals"
   },
   {
     "id": "a1-0118-mouse",
     "sourceText": "mouse",
     "targetText": "de muis",
-    "acceptedAnswers": ["muis"],
+    "acceptedAnswers": [
+      "muis"
+    ],
     "topicId": "animals"
   },
   {
     "id": "a1-0119-mousetrap",
     "sourceText": "mousetrap",
     "targetText": "de muizenval",
-    "acceptedAnswers": ["muizenval"],
+    "acceptedAnswers": [
+      "muizenval"
+    ],
     "topicId": "animals"
   },
   {
     "id": "a1-0120-peanut-butter",
     "sourceText": "peanut butter",
     "targetText": "de pindakaas",
-    "acceptedAnswers": ["pindakaas"],
+    "acceptedAnswers": [
+      "pindakaas"
+    ],
     "topicId": "food"
   },
   {
     "id": "a1-0121-backyard",
     "sourceText": "backyard",
     "targetText": "de achtertuin",
-    "acceptedAnswers": ["achtertuin"],
+    "acceptedAnswers": [
+      "achtertuin"
+    ],
     "topicId": "home"
   },
   {
     "id": "a1-0122-apartment",
     "sourceText": "apartment",
     "targetText": "het appartement",
-    "acceptedAnswers": ["appartement"],
+    "acceptedAnswers": [
+      "appartement"
+    ],
     "topicId": "home"
   },
   {
     "id": "a1-0123-hole",
     "sourceText": "hole",
     "targetText": "het gat",
-    "acceptedAnswers": ["gat"],
+    "acceptedAnswers": [
+      "gat"
+    ],
     "topicId": "home-renovation"
   },
   {
     "id": "a1-0124-plaster",
     "sourceText": "plaster",
     "targetText": "het gips",
-    "acceptedAnswers": ["gips"],
+    "acceptedAnswers": [
+      "gips"
+    ],
     "topicId": "home-renovation"
   },
   {
@@ -782,21 +901,27 @@
     "id": "a1-0139-saxophone",
     "sourceText": "saxophone",
     "targetText": "de saxofoon",
-    "acceptedAnswers": ["saxofoon"],
+    "acceptedAnswers": [
+      "saxofoon"
+    ],
     "topicId": "music"
   },
   {
     "id": "a1-0140-office",
     "sourceText": "office",
     "targetText": "het kantoor",
-    "acceptedAnswers": ["kantoor"],
+    "acceptedAnswers": [
+      "kantoor"
+    ],
     "topicId": "work"
   },
   {
     "id": "a1-0141-document",
     "sourceText": "document",
     "targetText": "het document",
-    "acceptedAnswers": ["document"],
+    "acceptedAnswers": [
+      "document"
+    ],
     "topicId": "work"
   }
 ]

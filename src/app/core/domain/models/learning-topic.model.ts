@@ -2,6 +2,11 @@ import type { CardLevel } from './flashcard.model';
 
 export type TopicId =
   | 'daily-life'
+  | 'introductions-and-communication'
+  | 'family-and-relationships'
+  | 'time-and-calendar'
+  | 'government-and-administration'
+  | 'opinions-and-discussion'
   | 'colors'
   | 'shopping'
   | 'food'

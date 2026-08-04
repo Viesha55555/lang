@@ -82,6 +82,26 @@ const TOPIC_SPEAKING_QUESTIONS: Record<TopicId, readonly SpeakingChallengePrompt
     prompt('Wat doe je soms na je werk?'),
     prompt('Werk je vandaag?'),
   ],
+  'introductions-and-communication': [
+    prompt('Hoe stel je jezelf voor aan iemand die je nog niet kent?'),
+    prompt('Wat zeg je als je iets niet begrijpt?'),
+  ],
+  'family-and-relationships': [
+    prompt('Kun je iets over je familie of vrienden vertellen?'),
+    prompt('Met wie heb je vaak contact?'),
+  ],
+  'time-and-calendar': [
+    prompt('Wat staat er volgende week in je agenda?'),
+    prompt('Wanneer heb je meestal vrije tijd?'),
+  ],
+  'government-and-administration': [
+    prompt('Wat moet je bij de gemeente regelen?'),
+    prompt('Over welk document heb je informatie nodig?'),
+  ],
+  'opinions-and-discussion': [
+    prompt('Waarover heb je een duidelijke mening?'),
+    prompt('Wat zijn de voor- en nadelen daarvan?'),
+  ],
   colors: [
     prompt('Wat is je lievelingskleur en waarom?'),
     prompt('Welke kleur hebben je kleren vandaag?'),

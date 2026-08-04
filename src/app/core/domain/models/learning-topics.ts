@@ -894,6 +894,201 @@ export const LEARNING_TOPICS: readonly LearningTopic[] = [
       ],
     },
   },
+  {
+    id: 'introductions-and-communication',
+    title: 'Introductions & communication',
+    description: 'Introduce yourself and keep a conversation understandable',
+    goalByLevel: {
+      A1: 'Greet someone and exchange basic personal information.',
+      A2: 'Ask for help and clarify simple information.',
+      B1: 'Clarify meaning and repair misunderstandings.',
+    },
+    keywords: ['hello', 'goodbye', 'name', 'understand', 'speak', 'repeat', 'mean', 'help me'],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Ik heet ...', example: 'Ik heet Sara.' },
+        { pattern: 'Ik spreek ...', example: 'Ik spreek een beetje Nederlands.' },
+      ],
+      A2: [
+        { pattern: 'Kunt u mij helpen met ...?', example: 'Kunt u mij helpen met deze vraag?' },
+        { pattern: 'Ik zoek ...', example: 'Ik zoek de juiste informatie.' },
+      ],
+      B1: [
+        { pattern: 'Wat bedoelt u met ...?', example: 'Wat bedoelt u met deze voorwaarde?' },
+        { pattern: 'Ik bedoel dat ...', example: 'Ik bedoel dat de afspraak niet duidelijk is.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Hoe heet je?' },
+        { speaker: 'user', text: 'Ik heet Sara.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Waarmee kan ik u helpen?' },
+        { speaker: 'user', text: 'Ik zoek informatie over mijn afspraak.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Is de uitleg duidelijk?' },
+        { speaker: 'user', text: 'Niet helemaal. Wat bedoelt u met deze voorwaarde?' },
+      ],
+    },
+  },
+  {
+    id: 'family-and-relationships',
+    title: 'Family & relationships',
+    description: 'Talk about family, friends, partners, and other relationships',
+    goalByLevel: {
+      A1: 'Name close family members.',
+      A2: 'Describe your family and relationships.',
+      B1: 'Discuss how relationships develop and change.',
+    },
+    keywords: ['family', 'parent', 'father', 'mother', 'brother', 'sister', 'friend', 'married', 'relationship'],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Dit is mijn ...', example: 'Dit is mijn zus.' },
+        { pattern: 'Ik heb een ...', example: 'Ik heb een broer.' },
+      ],
+      A2: [
+        { pattern: 'Ik ben ...', example: 'Ik ben getrouwd.' },
+        { pattern: 'Mijn ... woont in ...', example: 'Mijn familie woont in Utrecht.' },
+      ],
+      B1: [
+        { pattern: 'Mijn relatie met ...', example: 'Mijn relatie met mijn buren is goed.' },
+        { pattern: 'Sinds ...', example: 'Sinds vorig jaar wonen we bij elkaar.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Heb je broers of zussen?' },
+        { speaker: 'user', text: 'Ja, ik heb een zus.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Waar woont je familie?' },
+        { speaker: 'user', text: 'Mijn familie woont in Utrecht.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Hoe is het contact met je familie?' },
+        { speaker: 'user', text: 'We hebben goed contact, hoewel we ver van elkaar wonen.' },
+      ],
+    },
+  },
+  {
+    id: 'time-and-calendar',
+    title: 'Time & calendar',
+    description: 'Use times, weekdays, dates, and common time expressions',
+    goalByLevel: {
+      A1: 'Name days and basic times of day.',
+      A2: 'Describe frequency and periods of time.',
+      B1: 'Sequence plans and events precisely.',
+    },
+    keywords: ['today', 'tomorrow', 'yesterday', 'week', 'monday', 'tuesday', 'morning', 'evening', 'time'],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Vandaag is het ...', example: 'Vandaag is het maandag.' },
+        { pattern: 'Het is ... uur.', example: 'Het is zeven uur.' },
+      ],
+      A2: [
+        { pattern: 'Elke ...', example: 'Elke week ga ik sporten.' },
+        { pattern: 'Volgende ...', example: 'Volgende week heb ik tijd.' },
+      ],
+      B1: [
+        { pattern: 'Voordat ...', example: 'Voordat ik vertrek, bel ik je.' },
+        { pattern: 'Zodra ...', example: 'Zodra ik tijd heb, maak ik een afspraak.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Welke dag is het vandaag?' },
+        { speaker: 'user', text: 'Vandaag is het maandag.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Wanneer heb je tijd?' },
+        { speaker: 'user', text: 'Volgende week heb ik tijd.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Wanneer laat je het weten?' },
+        { speaker: 'user', text: 'Zodra ik mijn planning weet, bel ik u.' },
+      ],
+    },
+  },
+  {
+    id: 'government-and-administration',
+    title: 'Government & administration',
+    description: 'Handle municipal, financial, and residency administration',
+    goalByLevel: {
+      A1: 'Recognize basic official places and documents.',
+      A2: 'Ask for common administrative information.',
+      B1: 'Discuss registrations, permits, taxes, rights, and duties.',
+    },
+    keywords: ['municipality', 'registration', 'permit', 'tax', 'insurance', 'government', 'rights', 'duties'],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Waar is ...?', example: 'Waar is het gemeentehuis?' },
+        { pattern: 'Ik heb een ...', example: 'Ik heb een document.' },
+      ],
+      A2: [
+        { pattern: 'Ik heb informatie nodig over ...', example: 'Ik heb informatie nodig over mijn inschrijving.' },
+        { pattern: 'Waar kan ik ...?', example: 'Waar kan ik dit formulier inleveren?' },
+      ],
+      B1: [
+        { pattern: 'Ik wil mij inschrijven voor ...', example: 'Ik wil mij inschrijven bij de gemeente.' },
+        { pattern: 'Welke voorwaarden gelden voor ...?', example: 'Welke voorwaarden gelden voor deze vergunning?' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Hebt u het document?' },
+        { speaker: 'user', text: 'Ja, ik heb het document.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Waarover hebt u informatie nodig?' },
+        { speaker: 'user', text: 'Ik heb informatie nodig over mijn inschrijving.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Waarvoor komt u naar de gemeente?' },
+        { speaker: 'user', text: 'Ik wil mijn inschrijving en verblijfsvergunning regelen.' },
+      ],
+    },
+  },
+  {
+    id: 'opinions-and-discussion',
+    title: 'Opinions & discussion',
+    description: 'Express, support, compare, and qualify opinions',
+    goalByLevel: {
+      A1: 'Say what you like or dislike.',
+      A2: 'Give a simple opinion and reason.',
+      B1: 'Develop and qualify an argument.',
+    },
+    keywords: ['opinion', 'agree', 'disagree', 'however', 'although', 'advantage', 'disadvantage', 'cause', 'result'],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Ik vind ... leuk.', example: 'Ik vind muziek leuk.' },
+        { pattern: 'Ik vind ... goed.', example: 'Ik vind dit goed.' },
+      ],
+      A2: [
+        { pattern: 'Ik vind ... omdat ...', example: 'Ik vind het handig omdat het snel is.' },
+        { pattern: 'Volgens mij ...', example: 'Volgens mij is dit de beste keuze.' },
+      ],
+      B1: [
+        { pattern: 'Aan de ene kant ..., aan de andere kant ...', example: 'Aan de ene kant is het goedkoop, aan de andere kant is het tijdelijk.' },
+        { pattern: 'Hoewel ..., ...', example: 'Hoewel ik het begrijp, ben ik het er niet mee eens.' },
+      ],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Vind je dit goed?' },
+        { speaker: 'user', text: 'Ja, ik vind dit goed.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Waarom vind je dat?' },
+        { speaker: 'user', text: 'Ik vind het handig omdat het snel is.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Ben je het met deze beslissing eens?' },
+        { speaker: 'user', text: 'Gedeeltelijk: er zijn zowel voordelen als nadelen.' },
+      ],
+    },
+  },
 ];
 
 export function findLearningTopic(topicId: TopicId): LearningTopic {

@@ -2,187 +2,224 @@
   {
     "id": "b1-0001-i-think-that",
     "sourceText": "I think that",
-    "targetText": "ik denk dat"
+    "targetText": "ik denk dat",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0002-in-my-opinion",
     "sourceText": "in my opinion",
-    "targetText": "naar mijn mening"
+    "targetText": "naar mijn mening",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0003-i-agree",
     "sourceText": "I agree",
-    "targetText": "ik ben het ermee eens"
+    "targetText": "ik ben het ermee eens",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0004-i-disagree",
     "sourceText": "I disagree",
-    "targetText": "ik ben het er niet mee eens"
+    "targetText": "ik ben het er niet mee eens",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0005-that-depends",
     "sourceText": "that depends",
-    "targetText": "dat hangt ervan af"
+    "targetText": "dat hangt ervan af",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0006-on-the-one-hand",
     "sourceText": "on the one hand",
-    "targetText": "aan de ene kant"
+    "targetText": "aan de ene kant",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0007-on-the-other-hand",
     "sourceText": "on the other hand",
-    "targetText": "aan de andere kant"
+    "targetText": "aan de andere kant",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0008-for-example",
     "sourceText": "for example",
-    "targetText": "bijvoorbeeld"
+    "targetText": "bijvoorbeeld",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0009-because-of-that",
     "sourceText": "because of that",
-    "targetText": "daardoor"
+    "targetText": "daardoor",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0010-therefore",
     "sourceText": "therefore",
-    "targetText": "daarom"
+    "targetText": "daarom",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0011-however",
     "sourceText": "however",
-    "targetText": "toch"
+    "targetText": "toch",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0012-although",
     "sourceText": "although",
-    "targetText": "hoewel"
+    "targetText": "hoewel",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0013-while",
     "sourceText": "while",
-    "targetText": "terwijl"
+    "targetText": "terwijl",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0014-before",
     "sourceText": "before",
-    "targetText": "voordat"
+    "targetText": "voordat",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0015-after",
     "sourceText": "after",
-    "targetText": "nadat"
+    "targetText": "nadat",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0016-during",
     "sourceText": "during",
-    "targetText": "tijdens"
+    "targetText": "tijdens",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0017-i-plan-to",
     "sourceText": "I plan to",
-    "targetText": "ik ben van plan om"
+    "targetText": "ik ben van plan om",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0018-i-hope-that",
     "sourceText": "I hope that",
-    "targetText": "ik hoop dat"
+    "targetText": "ik hoop dat",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0019-i-expect-that",
     "sourceText": "I expect that",
-    "targetText": "ik verwacht dat"
+    "targetText": "ik verwacht dat",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0020-i-am-afraid-that",
     "sourceText": "I am afraid that",
-    "targetText": "ik ben bang dat"
+    "targetText": "ik ben bang dat",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0021-it-seems-to-me",
     "sourceText": "it seems to me",
-    "targetText": "het lijkt me"
+    "targetText": "het lijkt me",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0022-that-is-possible",
     "sourceText": "that is possible",
-    "targetText": "dat is mogelijk"
+    "targetText": "dat is mogelijk",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0023-that-is-necessary",
     "sourceText": "that is necessary",
-    "targetText": "dat is nodig"
+    "targetText": "dat is nodig",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0024-that-is-important",
     "sourceText": "that is important",
-    "targetText": "dat is belangrijk"
+    "targetText": "dat is belangrijk",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0025-that-is-difficult",
     "sourceText": "that is difficult",
-    "targetText": "dat is moeilijk"
+    "targetText": "dat is moeilijk",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0026-that-is-useful",
     "sourceText": "that is useful",
-    "targetText": "dat is handig"
+    "targetText": "dat is handig",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0027-i-have-experience-with",
     "sourceText": "I have experience with",
-    "targetText": "ik heb ervaring met"
+    "targetText": "ik heb ervaring met",
+    "topicId": "work"
   },
   {
     "id": "b1-0028-i-am-responsible-for",
     "sourceText": "I am responsible for",
-    "targetText": "ik ben verantwoordelijk voor"
+    "targetText": "ik ben verantwoordelijk voor",
+    "topicId": "work"
   },
   {
     "id": "b1-0029-i-would-like-to-apply",
     "sourceText": "I would like to apply",
-    "targetText": "ik wil graag solliciteren"
+    "targetText": "ik wil graag solliciteren",
+    "topicId": "work"
   },
   {
     "id": "b1-0030-job-interview",
     "sourceText": "job interview",
-    "targetText": "sollicitatiegesprek"
+    "targetText": "sollicitatiegesprek",
+    "topicId": "work"
   },
   {
     "id": "b1-0031-contract",
     "sourceText": "contract",
-    "targetText": "contract"
+    "targetText": "contract",
+    "topicId": "work"
   },
   {
     "id": "b1-0032-salary",
     "sourceText": "salary",
-    "targetText": "salaris"
+    "targetText": "salaris",
+    "topicId": "work"
   },
   {
     "id": "b1-0033-insurance",
     "sourceText": "insurance",
-    "targetText": "verzekering"
+    "targetText": "verzekering",
+    "topicId": "government-and-administration"
   },
   {
     "id": "b1-0034-tax",
     "sourceText": "tax",
-    "targetText": "belasting"
+    "targetText": "belasting",
+    "topicId": "government-and-administration"
   },
   {
     "id": "b1-0035-municipality",
     "sourceText": "municipality",
-    "targetText": "gemeente"
+    "targetText": "gemeente",
+    "topicId": "government-and-administration"
   },
   {
     "id": "b1-0036-residence-permit",
     "sourceText": "residence permit",
-    "targetText": "verblijfsvergunning"
+    "targetText": "verblijfsvergunning",
+    "topicId": "government-and-administration"
   },
   {
     "id": "b1-0037-registration",
     "sourceText": "registration",
-    "targetText": "inschrijving"
+    "targetText": "inschrijving",
+    "topicId": "government-and-administration"
   },
   {
     "id": "b1-0038-appointment-confirmation",
@@ -196,7 +233,8 @@
     "targetText": "kunt u dat herhalen",
     "acceptedAnswers": [
       "kun je dat herhalen"
-    ]
+    ],
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "b1-0040-could-you-speak-more-slowly",
@@ -204,7 +242,8 @@
     "targetText": "kunt u langzamer praten",
     "acceptedAnswers": [
       "kun je langzamer praten"
-    ]
+    ],
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "b1-0041-what-do-you-mean",
@@ -212,302 +251,368 @@
     "targetText": "wat bedoelt u",
     "acceptedAnswers": [
       "wat bedoel je"
-    ]
+    ],
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "b1-0042-i-mean-that",
     "sourceText": "I mean that",
-    "targetText": "ik bedoel dat"
+    "targetText": "ik bedoel dat",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "b1-0043-it-was-about",
     "sourceText": "it was about",
-    "targetText": "het ging over"
+    "targetText": "het ging over",
+    "topicId": "introductions-and-communication"
   },
   {
     "id": "b1-0044-i-have-a-complaint",
     "sourceText": "I have a complaint",
-    "targetText": "ik heb een klacht"
+    "targetText": "ik heb een klacht",
+    "topicId": "shopping"
   },
   {
     "id": "b1-0045-i-would-like-to-change",
-    "sourceText": "I would like to change",
-    "targetText": "ik wil graag veranderen"
+    "sourceText": "I would like to change it",
+    "targetText": "ik wil het graag wijzigen",
+    "topicId": "shopping",
+    "acceptedAnswers": [
+      "ik zou het graag willen wijzigen"
+    ]
   },
   {
     "id": "b1-0046-i-would-like-to-cancel",
     "sourceText": "I would like to cancel",
-    "targetText": "ik wil graag annuleren"
+    "targetText": "ik wil graag annuleren",
+    "topicId": "shopping"
   },
   {
     "id": "b1-0047-i-am-not-satisfied",
     "sourceText": "I am not satisfied",
-    "targetText": "ik ben niet tevreden"
+    "targetText": "ik ben niet tevreden",
+    "topicId": "shopping"
   },
   {
     "id": "b1-0048-what-happened",
     "sourceText": "what happened",
-    "targetText": "wat is er gebeurd"
+    "targetText": "wat is er gebeurd",
+    "topicId": "doctor"
   },
   {
     "id": "b1-0049-i-lost-my",
-    "sourceText": "I lost my",
-    "targetText": "ik ben mijn kwijt"
+    "sourceText": "I lost my wallet",
+    "targetText": "ik ben mijn portemonnee kwijt",
+    "topicId": "doctor",
+    "acceptedAnswers": [
+      "ik heb mijn portemonnee verloren"
+    ]
   },
   {
     "id": "b1-0050-i-have-to-report-this",
     "sourceText": "I have to report this",
-    "targetText": "ik moet dit melden"
+    "targetText": "ik moet dit melden",
+    "topicId": "doctor"
   },
   {
     "id": "b1-0051-emergency",
     "sourceText": "emergency",
-    "targetText": "noodgeval"
+    "targetText": "noodgeval",
+    "topicId": "doctor"
   },
   {
     "id": "b1-0052-accident",
     "sourceText": "accident",
-    "targetText": "ongeluk"
+    "targetText": "ongeluk",
+    "topicId": "doctor"
   },
   {
     "id": "b1-0053-treatment",
     "sourceText": "treatment",
-    "targetText": "behandeling"
+    "targetText": "behandeling",
+    "topicId": "doctor"
   },
   {
     "id": "b1-0054-symptoms",
     "sourceText": "symptoms",
-    "targetText": "klachten"
+    "targetText": "klachten",
+    "topicId": "doctor"
   },
   {
     "id": "b1-0055-advice",
     "sourceText": "advice",
-    "targetText": "advies"
+    "targetText": "advies",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0056-decision",
     "sourceText": "decision",
-    "targetText": "beslissing"
+    "targetText": "beslissing",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0057-possibility",
     "sourceText": "possibility",
-    "targetText": "mogelijkheid"
+    "targetText": "mogelijkheid",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0058-development",
     "sourceText": "development",
-    "targetText": "ontwikkeling"
+    "targetText": "ontwikkeling",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0059-relationship",
     "sourceText": "relationship",
-    "targetText": "relatie"
+    "targetText": "relatie",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0060-society",
     "sourceText": "society",
-    "targetText": "samenleving"
+    "targetText": "samenleving",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0061-environment",
     "sourceText": "environment",
-    "targetText": "milieu"
+    "targetText": "milieu",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0062-education",
     "sourceText": "education",
-    "targetText": "onderwijs"
+    "targetText": "onderwijs",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0063-government",
     "sourceText": "government",
-    "targetText": "overheid"
+    "targetText": "overheid",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0064-rights",
     "sourceText": "rights",
-    "targetText": "rechten"
+    "targetText": "rechten",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0065-duties",
     "sourceText": "duties",
-    "targetText": "plichten"
+    "targetText": "plichten",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0066-advantage",
     "sourceText": "advantage",
-    "targetText": "voordeel"
+    "targetText": "voordeel",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0067-disadvantage",
     "sourceText": "disadvantage",
-    "targetText": "nadeel"
+    "targetText": "nadeel",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0068-cause",
     "sourceText": "cause",
-    "targetText": "oorzaak"
+    "targetText": "oorzaak",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0069-result",
     "sourceText": "result",
-    "targetText": "gevolg"
+    "targetText": "gevolg",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0070-goal",
     "sourceText": "goal",
-    "targetText": "doel"
+    "targetText": "doel",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0071-choice",
     "sourceText": "choice",
-    "targetText": "keuze"
+    "targetText": "keuze",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0072-rule",
     "sourceText": "rule",
-    "targetText": "regel"
+    "targetText": "regel",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0073-agreement",
     "sourceText": "agreement",
-    "targetText": "afspraak"
+    "targetText": "afspraak",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0074-condition",
     "sourceText": "condition",
-    "targetText": "voorwaarde"
+    "targetText": "voorwaarde",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0075-available",
     "sourceText": "available",
-    "targetText": "beschikbaar"
+    "targetText": "beschikbaar",
+    "topicId": "work"
   },
   {
     "id": "b1-0076-reliable",
     "sourceText": "reliable",
-    "targetText": "betrouwbaar"
+    "targetText": "betrouwbaar",
+    "topicId": "work"
   },
   {
     "id": "b1-0077-clear",
     "sourceText": "clear",
-    "targetText": "duidelijk"
+    "targetText": "duidelijk",
+    "topicId": "work"
   },
   {
     "id": "b1-0078-unclear",
     "sourceText": "unclear",
-    "targetText": "onduidelijk"
+    "targetText": "onduidelijk",
+    "topicId": "work"
   },
   {
     "id": "b1-0079-temporary",
     "sourceText": "temporary",
-    "targetText": "tijdelijk"
+    "targetText": "tijdelijk",
+    "topicId": "work"
   },
   {
     "id": "b1-0080-permanent",
     "sourceText": "permanent",
-    "targetText": "vast"
+    "targetText": "vast",
+    "topicId": "work"
   },
   {
     "id": "b1-0081-to-explain",
     "sourceText": "to explain",
-    "targetText": "uitleggen"
+    "targetText": "uitleggen",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0082-to-discuss",
     "sourceText": "to discuss",
-    "targetText": "bespreken"
+    "targetText": "bespreken",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0083-to-decide",
     "sourceText": "to decide",
-    "targetText": "beslissen"
+    "targetText": "beslissen",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0084-to-arrange",
     "sourceText": "to arrange",
-    "targetText": "regelen"
+    "targetText": "regelen",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0085-to-continue",
     "sourceText": "to continue",
-    "targetText": "doorgaan"
+    "targetText": "doorgaan",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0086-to-stop",
     "sourceText": "to stop",
-    "targetText": "stoppen"
+    "targetText": "stoppen",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0087-to-compare",
     "sourceText": "to compare",
-    "targetText": "vergelijken"
+    "targetText": "vergelijken",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0088-to-improve",
     "sourceText": "to improve",
-    "targetText": "verbeteren"
+    "targetText": "verbeteren",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0089-to-change",
     "sourceText": "to change",
-    "targetText": "veranderen"
+    "targetText": "veranderen",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0090-to-prepare",
     "sourceText": "to prepare",
-    "targetText": "voorbereiden"
+    "targetText": "voorbereiden",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0091-i-have-decided-to",
     "sourceText": "I have decided to",
-    "targetText": "ik heb besloten om"
+    "targetText": "ik heb besloten om",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0092-i-am-used-to",
     "sourceText": "I am used to",
-    "targetText": "ik ben gewend aan"
+    "targetText": "ik ben gewend aan",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0093-i-am-interested-in",
     "sourceText": "I am interested in",
-    "targetText": "ik ben geinteresseerd in"
+    "targetText": "ik ben geïnteresseerd in",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0094-i-am-concerned-about",
     "sourceText": "I am concerned about",
-    "targetText": "ik maak me zorgen over"
+    "targetText": "ik maak me zorgen over",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0095-it-is-about",
     "sourceText": "it is about",
-    "targetText": "het gaat om"
+    "targetText": "het gaat om",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0096-that-means-that",
     "sourceText": "that means that",
-    "targetText": "dat betekent dat"
+    "targetText": "dat betekent dat",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0097-as-soon-as-possible",
     "sourceText": "as soon as possible",
-    "targetText": "zo snel mogelijk"
+    "targetText": "zo snel mogelijk",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0098-for-the-time-being",
     "sourceText": "for the time being",
-    "targetText": "voorlopig"
+    "targetText": "voorlopig",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0099-in-the-future",
     "sourceText": "in the future",
-    "targetText": "in de toekomst"
+    "targetText": "in de toekomst",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0100-from-now-on",
     "sourceText": "from now on",
-    "targetText": "vanaf nu"
+    "targetText": "vanaf nu",
+    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0101-these-screws-do-not-fit-well",
@@ -541,26 +646,26 @@
   },
   {
     "id": "b1-0106-i-have-worked",
-    "sourceText": "I have worked",
-    "targetText": "ik heb gewerkt",
+    "sourceText": "I have worked there for three years",
+    "targetText": "ik heb daar drie jaar gewerkt",
     "topicId": "past-tense"
   },
   {
     "id": "b1-0107-i-have-gone",
-    "sourceText": "I have gone",
-    "targetText": "ik ben gegaan",
+    "sourceText": "I have gone home because I was tired",
+    "targetText": "ik ben naar huis gegaan omdat ik moe was",
     "topicId": "past-tense"
   },
   {
     "id": "b1-0109-i-have-bought",
-    "sourceText": "I have bought",
-    "targetText": "ik heb gekocht",
+    "sourceText": "I have bought everything we need",
+    "targetText": "ik heb alles gekocht wat we nodig hebben",
     "topicId": "past-tense"
   },
   {
     "id": "b1-0110-i-have-said",
-    "sourceText": "I have said",
-    "targetText": "ik heb gezegd",
+    "sourceText": "I have said that I disagree",
+    "targetText": "ik heb gezegd dat ik het er niet mee eens ben",
     "topicId": "past-tense"
   },
   {
@@ -613,28 +718,32 @@
   },
   {
     "id": "b1-0118-only",
-    "sourceText": "only",
-    "targetText": "alleen",
+    "sourceText": "the trap only catches mice",
+    "targetText": "de val vangt alleen muizen",
     "topicId": "animals"
   },
   {
     "id": "b1-0119-probably",
-    "sourceText": "probably",
-    "targetText": "waarschijnlijk",
+    "sourceText": "the plaster is probably dry",
+    "targetText": "het gips is waarschijnlijk droog",
     "topicId": "home-renovation"
   },
   {
     "id": "b1-0120-renovation",
     "sourceText": "renovation",
     "targetText": "de renovatie",
-    "acceptedAnswers": ["renovatie"],
+    "acceptedAnswers": [
+      "renovatie"
+    ],
     "topicId": "home-renovation"
   },
   {
     "id": "b1-0121-to-continue-with",
     "sourceText": "to continue with",
     "targetText": "verdergaan met",
-    "acceptedAnswers": ["verder met"],
+    "acceptedAnswers": [
+      "verder met"
+    ],
     "topicId": "home-renovation"
   },
   {
@@ -659,41 +768,51 @@
     "id": "b1-0125-shade",
     "sourceText": "shade",
     "targetText": "de tint",
-    "acceptedAnswers": ["tint"],
+    "acceptedAnswers": [
+      "tint"
+    ],
     "topicId": "colors"
   },
   {
     "id": "b1-0126-productive",
-    "sourceText": "productive",
-    "targetText": "productief",
+    "sourceText": "I had a productive day",
+    "targetText": "ik had een productieve dag",
     "topicId": "daily-life"
   },
   {
     "id": "b1-0127-promotion",
     "sourceText": "promotion",
     "targetText": "de promotie",
-    "acceptedAnswers": ["promotie"],
+    "acceptedAnswers": [
+      "promotie"
+    ],
     "topicId": "work"
   },
   {
     "id": "b1-0128-advertising",
     "sourceText": "advertising",
     "targetText": "de reclame",
-    "acceptedAnswers": ["reclame"],
+    "acceptedAnswers": [
+      "reclame"
+    ],
     "topicId": "work"
   },
   {
     "id": "b1-0129-workday",
     "sourceText": "workday",
     "targetText": "de werkdag",
-    "acceptedAnswers": ["werkdag"],
+    "acceptedAnswers": [
+      "werkdag"
+    ],
     "topicId": "work"
   },
   {
     "id": "b1-0130-second-layer",
     "sourceText": "second layer",
     "targetText": "de tweede laag",
-    "acceptedAnswers": ["tweede laag"],
+    "acceptedAnswers": [
+      "tweede laag"
+    ],
     "topicId": "home-renovation"
   },
   {
