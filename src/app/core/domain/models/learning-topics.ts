@@ -65,6 +65,51 @@ export const LEARNING_TOPICS: readonly LearningTopic[] = [
     },
   },
   {
+    id: 'numbers',
+    title: 'Numbers',
+    description: 'Recognize and say numbers on their own',
+    goalByLevel: {
+      A1: 'Count and name basic numbers.',
+      A2: 'Use numbers in everyday quantities.',
+      B1: 'Use larger and more precise numbers.',
+    },
+    keywords: [
+      'number',
+      'one',
+      'two',
+      'three',
+      'four',
+      'five',
+      'six',
+      'seven',
+      'eight',
+      'nine',
+      'ten',
+    ],
+    phrasesByLevel: {
+      A1: [
+        { pattern: 'Het getal is ...', example: 'Het getal is zeven.' },
+        { pattern: 'Ik tel tot ...', example: 'Ik tel tot tien.' },
+      ],
+      A2: [{ pattern: 'Er zijn ...', example: 'Er zijn twintig mensen.' }],
+      B1: [{ pattern: 'Ongeveer ...', example: 'Ongeveer honderd mensen.' }],
+    },
+    dialogueByLevel: {
+      A1: [
+        { speaker: 'app', text: 'Welk getal komt na zes?' },
+        { speaker: 'user', text: 'Zeven.' },
+      ],
+      A2: [
+        { speaker: 'app', text: 'Hoeveel mensen zijn er?' },
+        { speaker: 'user', text: 'Er zijn twintig mensen.' },
+      ],
+      B1: [
+        { speaker: 'app', text: 'Hoeveel mensen waren er ongeveer?' },
+        { speaker: 'user', text: 'Er waren ongeveer honderd mensen.' },
+      ],
+    },
+  },
+  {
     id: 'colors',
     title: 'Colors',
     description: 'Name colors and describe how things look',

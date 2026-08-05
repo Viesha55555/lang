@@ -7,6 +7,20 @@ import {
 import { levenshteinDistance } from '../../../shared/utils/levenshtein';
 import { normalizeText } from '../../../shared/utils/normalize-text';
 
+const DUTCH_NUMBER_WORDS: Readonly<Record<string, string>> = {
+  '0': 'nul',
+  '1': 'een',
+  '2': 'twee',
+  '3': 'drie',
+  '4': 'vier',
+  '5': 'vijf',
+  '6': 'zes',
+  '7': 'zeven',
+  '8': 'acht',
+  '9': 'negen',
+  '10': 'tien',
+};
+
 @Injectable({ providedIn: 'root' })
 export class SimplePronunciationEvaluatorService
   implements PronunciationEvaluatorPort
@@ -16,8 +30,12 @@ export class SimplePronunciationEvaluatorService
     actual: string,
     acceptedAnswers: readonly string[] = [],
   ): PronunciationEvaluation {
-    const normalizedActual = normalizeText(actual);
-    const candidates = [expected, ...acceptedAnswers].map(normalizeText);
+    const normalizedActual = this.expandRecognizedDutchNumbers(
+      normalizeText(actual),
+    );
+    const candidates = [expected, ...acceptedAnswers].map((candidate) =>
+      this.expandRecognizedDutchNumbers(normalizeText(candidate)),
+    );
 
     if (!normalizedActual) {
       return {
@@ -48,5 +66,12 @@ export class SimplePronunciationEvaluatorService
   private similarity(expected: string, actual: string): number {
     const maxLength = Math.max(expected.length, actual.length, 1);
     return Math.max(0, 1 - levenshteinDistance(expected, actual) / maxLength);
+  }
+
+  private expandRecognizedDutchNumbers(text: string): string {
+    return text
+      .split(' ')
+      .map((word) => DUTCH_NUMBER_WORDS[word] ?? word)
+      .join(' ');
   }
 }

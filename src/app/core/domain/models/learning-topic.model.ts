@@ -4,6 +4,7 @@ export type TopicId =
   | 'daily-life'
   | 'introductions-and-communication'
   | 'family-and-relationships'
+  | 'numbers'
   | 'time-and-calendar'
   | 'government-and-administration'
   | 'opinions-and-discussion'

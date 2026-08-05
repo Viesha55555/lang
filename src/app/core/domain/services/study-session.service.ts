@@ -90,6 +90,10 @@ const TOPIC_SPEAKING_QUESTIONS: Record<TopicId, readonly SpeakingChallengePrompt
     prompt('Kun je iets over je familie of vrienden vertellen?'),
     prompt('Met wie heb je vaak contact?'),
   ],
+  numbers: [
+    prompt('Welk getal komt na zeven?'),
+    prompt('Hoeveel dagen zitten er in een week?'),
+  ],
   'time-and-calendar': [
     prompt('Wat staat er volgende week in je agenda?'),
     prompt('Wanneer heb je meestal vrije tijd?'),

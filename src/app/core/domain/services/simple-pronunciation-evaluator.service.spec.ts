@@ -34,4 +34,12 @@ describe('SimplePronunciationEvaluatorService', () => {
     expect(result.score).toBeCloseTo(0.8);
     expect(result.passed).toBeTrue();
   });
+
+  it('accepts a digit produced by speech recognition for a Dutch number word', () => {
+    const result = service.evaluate('zeven', '7');
+
+    expect(result.score).toBe(1);
+    expect(result.passed).toBeTrue();
+    expect(result.normalizedActual).toBe('zeven');
+  });
 });
