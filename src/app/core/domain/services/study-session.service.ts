@@ -6,6 +6,7 @@ import {
   TopicDialogueTurn,
   TopicId,
 } from '../models/learning-topic.model';
+import { FEATURE_FLAGS } from '../../config/feature-flags';
 import { findLearningTopic, LEARNING_TOPICS } from '../models/learning-topics';
 import { ReviewGrade, ReviewResult } from '../models/review-result.model';
 import {
@@ -566,7 +567,11 @@ export class StudySessionService {
     this.recentChallengeCards.set([]);
 
     const topicId = this.selectedTopicId();
-    if (topicId && CONTROLLED_DIALOGUE_TOPICS.includes(topicId)) {
+    if (
+      FEATURE_FLAGS.dialogue &&
+      topicId &&
+      CONTROLLED_DIALOGUE_TOPICS.includes(topicId)
+    ) {
       this.startDialogueAfterFlashcards();
     } else {
       this.advanceSessionQueue();
