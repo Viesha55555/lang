@@ -1,9 +1,9 @@
 [
   {
     "id": "a2-0001-i-would-like",
-    "sourceText": "I would like",
-    "targetText": "ik wil graag",
-    "topicId": "introductions-and-communication"
+    "sourceText": "I would like to ...",
+    "targetText": "ik wil graag ...",
+    "topicId": "basic-communication"
   },
   {
     "id": "a2-0002-can-you-help-me",
@@ -12,205 +12,205 @@
     "acceptedAnswers": [
       "kun je mij helpen"
     ],
-    "topicId": "introductions-and-communication"
+    "topicId": "basic-communication"
   },
   {
     "id": "a2-0003-i-am-looking-for",
-    "sourceText": "I am looking for",
-    "targetText": "ik zoek",
-    "topicId": "introductions-and-communication"
+    "sourceText": "I am looking for ...",
+    "targetText": "ik zoek ...",
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0004-i-am-lost",
     "sourceText": "I am lost",
     "targetText": "ik ben verdwaald",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a2-0005-the-station",
     "sourceText": "the station",
     "targetText": "het station",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a2-0006-the-platform",
     "sourceText": "the platform",
     "targetText": "het perron",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a2-0007-the-departure",
     "sourceText": "the departure",
     "targetText": "het vertrek",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a2-0008-the-arrival",
     "sourceText": "the arrival",
     "targetText": "de aankomst",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a2-0009-the-delay",
     "sourceText": "the delay",
     "targetText": "de vertraging",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a2-0010-which-train",
     "sourceText": "which train",
     "targetText": "welke trein",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a2-0011-one-way-ticket",
     "sourceText": "one-way ticket",
     "targetText": "een enkele reis",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a2-0012-return-ticket",
     "sourceText": "return ticket",
     "targetText": "een retourtje",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a2-0013-i-have-an-appointment",
     "sourceText": "I have an appointment",
     "targetText": "ik heb een afspraak",
-    "topicId": "appointments"
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a2-0014-at-what-time",
     "sourceText": "at what time",
     "targetText": "hoe laat",
-    "topicId": "appointments"
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a2-0015-this-afternoon",
     "sourceText": "this afternoon",
     "targetText": "vanmiddag",
-    "topicId": "appointments"
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a2-0016-this-evening",
     "sourceText": "this evening",
     "targetText": "vanavond",
-    "topicId": "appointments"
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a2-0017-next-week",
     "sourceText": "next week",
     "targetText": "volgende week",
-    "topicId": "appointments"
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a2-0018-last-week",
     "sourceText": "last week",
     "targetText": "vorige week",
-    "topicId": "appointments"
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a2-0019-every-day",
     "sourceText": "every day",
     "targetText": "elke dag",
-    "topicId": "daily-life"
+    "topicId": "daily-routine"
   },
   {
     "id": "a2-0020-sometimes",
     "sourceText": "sometimes",
     "targetText": "soms",
-    "topicId": "daily-life"
+    "topicId": "daily-routine"
   },
   {
     "id": "a2-0021-often",
     "sourceText": "often",
     "targetText": "vaak",
-    "topicId": "daily-life"
+    "topicId": "daily-routine"
   },
   {
     "id": "a2-0022-never",
     "sourceText": "never",
     "targetText": "nooit",
-    "topicId": "daily-life"
+    "topicId": "daily-routine"
   },
   {
     "id": "a2-0023-always",
     "sourceText": "always",
     "targetText": "altijd",
-    "topicId": "daily-life"
+    "topicId": "daily-routine"
   },
   {
     "id": "a2-0024-usually",
     "sourceText": "usually",
     "targetText": "meestal",
-    "topicId": "daily-life"
+    "topicId": "daily-routine"
   },
   {
     "id": "a2-0025-work",
     "sourceText": "work",
-    "targetText": "werk",
-    "topicId": "work"
+    "targetText": "het werk",
+    "topicId": "work-and-learning"
   },
   {
     "id": "a2-0026-job",
     "sourceText": "job",
-    "targetText": "baan",
-    "topicId": "work"
+    "targetText": "de baan",
+    "topicId": "work-and-learning"
   },
   {
     "id": "a2-0027-colleague",
     "sourceText": "colleague",
-    "targetText": "collega",
-    "topicId": "work"
+    "targetText": "de collega",
+    "topicId": "work-and-learning"
   },
   {
     "id": "a2-0028-boss",
     "sourceText": "boss",
-    "targetText": "baas",
-    "topicId": "work"
+    "targetText": "de baas",
+    "topicId": "work-and-learning"
   },
   {
     "id": "a2-0029-meeting",
     "sourceText": "meeting",
-    "targetText": "vergadering",
-    "topicId": "work"
+    "targetText": "de vergadering",
+    "topicId": "work-and-learning"
   },
   {
     "id": "a2-0030-email",
     "sourceText": "email",
-    "targetText": "e-mail",
-    "topicId": "work"
+    "targetText": "de e-mail",
+    "topicId": "work-and-learning"
   },
   {
     "id": "a2-0031-message",
     "sourceText": "message",
-    "targetText": "bericht",
-    "topicId": "work"
+    "targetText": "het bericht",
+    "topicId": "work-and-learning"
   },
   {
     "id": "a2-0032-question",
     "sourceText": "question",
-    "targetText": "vraag",
-    "topicId": "work"
+    "targetText": "de vraag",
+    "topicId": "work-and-learning"
   },
   {
     "id": "a2-0033-answer",
     "sourceText": "answer",
-    "targetText": "antwoord",
-    "topicId": "work"
+    "targetText": "het antwoord",
+    "topicId": "work-and-learning"
   },
   {
     "id": "a2-0034-problem",
     "sourceText": "problem",
-    "targetText": "probleem",
-    "topicId": "work"
+    "targetText": "het probleem",
+    "topicId": "work-and-learning"
   },
   {
     "id": "a2-0035-solution",
     "sourceText": "solution",
-    "targetText": "oplossing",
-    "topicId": "work"
+    "targetText": "de oplossing",
+    "topicId": "work-and-learning"
   },
   {
     "id": "a2-0036-i-am-working-today",
@@ -219,60 +219,60 @@
     "acceptedAnswers": [
       "'k werk vandaag"
     ],
-    "topicId": "work"
+    "topicId": "work-and-learning"
   },
   {
     "id": "a2-0037-i-live-in",
-    "sourceText": "I live in",
-    "targetText": "ik woon in",
-    "topicId": "family-and-relationships"
+    "sourceText": "I live in ...",
+    "targetText": "ik woon in ...",
+    "topicId": "personal-information"
   },
   {
     "id": "a2-0038-i-come-from",
-    "sourceText": "I come from",
-    "targetText": "ik kom uit",
-    "topicId": "family-and-relationships"
+    "sourceText": "I come from ...",
+    "targetText": "ik kom uit ...",
+    "topicId": "personal-information"
   },
   {
     "id": "a2-0039-i-am-married",
     "sourceText": "I am married",
     "targetText": "ik ben getrouwd",
-    "topicId": "family-and-relationships"
+    "topicId": "family-and-people"
   },
   {
     "id": "a2-0040-i-have-children",
     "sourceText": "I have children",
     "targetText": "ik heb kinderen",
-    "topicId": "family-and-relationships"
+    "topicId": "family-and-people"
   },
   {
     "id": "a2-0041-family",
     "sourceText": "family",
-    "targetText": "familie",
-    "topicId": "family-and-relationships"
+    "targetText": "de familie",
+    "topicId": "family-and-people"
   },
   {
     "id": "a2-0042-parents",
     "sourceText": "parents",
-    "targetText": "ouders",
-    "topicId": "family-and-relationships"
+    "targetText": "de ouders",
+    "topicId": "family-and-people"
   },
   {
     "id": "a2-0043-friend",
-    "sourceText": "friend",
-    "targetText": "vriend",
-    "topicId": "family-and-relationships"
+    "sourceText": "the friend (male)",
+    "targetText": "de vriend",
+    "topicId": "family-and-people"
   },
   {
     "id": "a2-0044-girlfriend",
-    "sourceText": "girlfriend",
-    "targetText": "vriendin",
-    "topicId": "family-and-relationships"
+    "sourceText": "the friend / girlfriend (female)",
+    "targetText": "de vriendin",
+    "topicId": "family-and-people"
   },
   {
     "id": "a2-0045-neighbor",
-    "sourceText": "neighbor",
-    "targetText": "buur",
+    "sourceText": "the neighbor",
+    "targetText": "de buur",
     "acceptedAnswers": [
       "de buur",
       "buurman",
@@ -280,25 +280,25 @@
       "buurvrouw",
       "de buurvrouw"
     ],
-    "topicId": "family-and-relationships"
+    "topicId": "family-and-people"
   },
   {
     "id": "a2-0046-supermarket",
     "sourceText": "supermarket",
-    "targetText": "supermarkt",
-    "topicId": "shopping"
+    "targetText": "de supermarkt",
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0047-receipt",
     "sourceText": "receipt",
-    "targetText": "bonnetje",
-    "topicId": "shopping"
+    "targetText": "het bonnetje",
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0048-cash",
     "sourceText": "cash",
     "targetText": "contant geld",
-    "topicId": "shopping",
+    "topicId": "shopping-and-paying",
     "acceptedAnswers": [
       "cash"
     ]
@@ -307,7 +307,7 @@
     "id": "a2-0049-card-payment",
     "sourceText": "to pay by card",
     "targetText": "pinnen",
-    "topicId": "shopping",
+    "topicId": "shopping-and-paying",
     "acceptedAnswers": [
       "met de pin betalen",
       "met een kaart betalen"
@@ -317,234 +317,234 @@
     "id": "a2-0050-expensive",
     "sourceText": "expensive",
     "targetText": "duur",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0051-cheap",
     "sourceText": "cheap",
     "targetText": "goedkoop",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0052-open",
     "sourceText": "open",
     "targetText": "open",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0053-closed",
     "sourceText": "closed",
     "targetText": "gesloten",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0054-too-late",
     "sourceText": "too late",
     "targetText": "te laat",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0055-on-time",
     "sourceText": "on time",
     "targetText": "op tijd",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0056-sick",
     "sourceText": "sick",
     "targetText": "ziek",
-    "topicId": "doctor"
+    "topicId": "health-and-body"
   },
   {
     "id": "a2-0057-pain",
     "sourceText": "pain",
     "targetText": "pijn",
-    "topicId": "doctor"
+    "topicId": "health-and-body"
   },
   {
     "id": "a2-0058-doctor",
-    "sourceText": "doctor",
-    "targetText": "dokter",
-    "topicId": "doctor"
+    "sourceText": "the doctor",
+    "targetText": "de dokter",
+    "topicId": "health-and-body"
   },
   {
     "id": "a2-0059-pharmacy",
-    "sourceText": "pharmacy",
-    "targetText": "apotheek",
-    "topicId": "doctor"
+    "sourceText": "the pharmacy",
+    "targetText": "de apotheek",
+    "topicId": "health-and-body"
   },
   {
     "id": "a2-0060-medicine",
-    "sourceText": "medicine",
-    "targetText": "medicijn",
-    "topicId": "doctor"
+    "sourceText": "the medicine",
+    "targetText": "het medicijn",
+    "topicId": "health-and-body"
   },
   {
     "id": "a2-0061-headache",
     "sourceText": "headache",
     "targetText": "hoofdpijn",
-    "topicId": "doctor"
+    "topicId": "health-and-body"
   },
   {
     "id": "a2-0062-stomachache",
     "sourceText": "stomachache",
     "targetText": "buikpijn",
-    "topicId": "doctor"
+    "topicId": "health-and-body"
   },
   {
     "id": "a2-0063-fever",
     "sourceText": "fever",
     "targetText": "koorts",
-    "topicId": "doctor"
+    "topicId": "health-and-body"
   },
   {
     "id": "a2-0064-tired",
     "sourceText": "tired",
     "targetText": "moe",
-    "topicId": "doctor"
+    "topicId": "health-and-body"
   },
   {
     "id": "a2-0065-busy",
     "sourceText": "busy",
     "targetText": "druk",
-    "topicId": "daily-life"
+    "topicId": "common-adjectives"
   },
   {
     "id": "a2-0066-free-time",
     "sourceText": "free time",
     "targetText": "vrije tijd",
-    "topicId": "daily-life"
+    "topicId": "hobbies-and-free-time"
   },
   {
     "id": "a2-0067-hobby",
-    "sourceText": "hobby",
-    "targetText": "hobby",
-    "topicId": "daily-life"
+    "sourceText": "the hobby",
+    "targetText": "de hobby",
+    "topicId": "hobbies-and-free-time"
   },
   {
     "id": "a2-0068-sports",
     "sourceText": "sports",
     "targetText": "sport",
-    "topicId": "daily-life"
+    "topicId": "hobbies-and-free-time"
   },
   {
     "id": "a2-0069-music",
     "sourceText": "music",
     "targetText": "muziek",
-    "topicId": "daily-life"
+    "topicId": "hobbies-and-free-time"
   },
   {
     "id": "a2-0070-movie",
-    "sourceText": "movie",
-    "targetText": "film",
-    "topicId": "daily-life"
+    "sourceText": "the film",
+    "targetText": "de film",
+    "topicId": "hobbies-and-free-time"
   },
   {
     "id": "a2-0071-weather",
-    "sourceText": "weather",
-    "targetText": "weer",
-    "topicId": "daily-life"
+    "sourceText": "the weather",
+    "targetText": "het weer",
+    "topicId": "weather-and-clothes"
   },
   {
     "id": "a2-0072-rain",
-    "sourceText": "rain",
-    "targetText": "regen",
-    "topicId": "daily-life"
+    "sourceText": "the rain",
+    "targetText": "de regen",
+    "topicId": "weather-and-clothes"
   },
   {
     "id": "a2-0073-wind",
-    "sourceText": "wind",
-    "targetText": "wind",
-    "topicId": "daily-life"
+    "sourceText": "the wind",
+    "targetText": "de wind",
+    "topicId": "weather-and-clothes"
   },
   {
     "id": "a2-0074-sun",
-    "sourceText": "sun",
-    "targetText": "zon",
-    "topicId": "daily-life"
+    "sourceText": "the sun",
+    "targetText": "de zon",
+    "topicId": "weather-and-clothes"
   },
   {
     "id": "a2-0075-cold",
     "sourceText": "cold",
     "targetText": "koud",
-    "topicId": "daily-life"
+    "topicId": "weather-and-clothes"
   },
   {
     "id": "a2-0076-warm",
     "sourceText": "warm",
     "targetText": "warm",
-    "topicId": "daily-life"
+    "topicId": "weather-and-clothes"
   },
   {
     "id": "a2-0077-rental-home",
-    "sourceText": "rental home",
-    "targetText": "huurwoning",
-    "topicId": "home"
+    "sourceText": "the rental home",
+    "targetText": "de huurwoning",
+    "topicId": "home-and-household"
   },
   {
     "id": "a2-0078-rent",
-    "sourceText": "rent",
-    "targetText": "huur",
-    "topicId": "home"
+    "sourceText": "the rent",
+    "targetText": "de huur",
+    "topicId": "home-and-household"
   },
   {
     "id": "a2-0079-key",
-    "sourceText": "key",
-    "targetText": "sleutel",
-    "topicId": "home"
+    "sourceText": "the key",
+    "targetText": "de sleutel",
+    "topicId": "home-and-household"
   },
   {
     "id": "a2-0080-kitchen",
-    "sourceText": "kitchen",
-    "targetText": "keuken",
-    "topicId": "home"
+    "sourceText": "the kitchen",
+    "targetText": "de keuken",
+    "topicId": "home-and-household"
   },
   {
     "id": "a2-0081-bathroom",
-    "sourceText": "bathroom",
-    "targetText": "badkamer",
-    "topicId": "home"
+    "sourceText": "the bathroom",
+    "targetText": "de badkamer",
+    "topicId": "home-and-household"
   },
   {
     "id": "a2-0082-bedroom",
-    "sourceText": "bedroom",
-    "targetText": "slaapkamer",
-    "topicId": "home"
+    "sourceText": "the bedroom",
+    "targetText": "de slaapkamer",
+    "topicId": "home-and-household"
   },
   {
     "id": "a2-0083-table",
-    "sourceText": "table",
-    "targetText": "tafel",
-    "topicId": "home"
+    "sourceText": "the table",
+    "targetText": "de tafel",
+    "topicId": "home-and-household"
   },
   {
     "id": "a2-0084-chair",
-    "sourceText": "chair",
-    "targetText": "stoel",
-    "topicId": "home"
+    "sourceText": "the chair",
+    "targetText": "de stoel",
+    "topicId": "home-and-household"
   },
   {
     "id": "a2-0085-clothes",
     "sourceText": "clothes",
     "targetText": "kleren",
-    "topicId": "shopping"
+    "topicId": "weather-and-clothes"
   },
   {
     "id": "a2-0086-shoes",
-    "sourceText": "shoes",
-    "targetText": "schoenen",
-    "topicId": "shopping"
+    "sourceText": "the shoes",
+    "targetText": "de schoenen",
+    "topicId": "weather-and-clothes"
   },
   {
     "id": "a2-0087-size",
-    "sourceText": "size",
-    "targetText": "maat",
-    "topicId": "shopping"
+    "sourceText": "the size",
+    "targetText": "de maat",
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0088-color",
-    "sourceText": "color",
-    "targetText": "kleur",
+    "sourceText": "the color",
+    "targetText": "de kleur",
     "topicId": "colors"
   },
   {
@@ -581,283 +581,283 @@
     "id": "a2-0094-to-buy",
     "sourceText": "to buy",
     "targetText": "kopen",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0095-to-sell",
     "sourceText": "to sell",
     "targetText": "verkopen",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0096-to-pay",
     "sourceText": "to pay",
     "targetText": "betalen",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0097-to-wait",
     "sourceText": "to wait",
     "targetText": "wachten",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0098-to-call",
     "sourceText": "to call",
     "targetText": "bellen",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0099-to-send",
     "sourceText": "to send",
     "targetText": "sturen",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0100-to-receive",
     "sourceText": "to receive",
     "targetText": "ontvangen",
-    "topicId": "shopping"
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a2-0101-i-was",
     "sourceText": "I was",
     "targetText": "ik was",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0102-i-had",
     "sourceText": "I had",
     "targetText": "ik had",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0103-i-came",
     "sourceText": "I came",
     "targetText": "ik kwam",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0104-i-went",
     "sourceText": "I went",
     "targetText": "ik ging",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0105-i-saw",
     "sourceText": "I saw",
     "targetText": "ik zag",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0106-i-did",
     "sourceText": "I did",
     "targetText": "ik deed",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0107-i-said",
     "sourceText": "I said",
     "targetText": "ik zei",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0108-i-gave",
     "sourceText": "I gave",
     "targetText": "ik gaf",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0109-i-took",
     "sourceText": "I took",
     "targetText": "ik nam",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0110-i-got",
     "sourceText": "I got",
     "targetText": "ik kreeg",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0111-i-found",
     "sourceText": "I found",
     "targetText": "ik vond",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0112-i-thought",
     "sourceText": "I thought",
     "targetText": "ik dacht",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0113-i-knew",
     "sourceText": "I knew",
     "targetText": "ik wist",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0114-i-had-to",
     "sourceText": "I had to",
     "targetText": "ik moest",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0115-i-could",
     "sourceText": "I could",
     "targetText": "ik kon",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0116-i-wanted",
     "sourceText": "I wanted",
     "targetText": "ik wilde",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0117-i-bought",
     "sourceText": "I bought",
     "targetText": "ik kocht",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0118-i-ate",
     "sourceText": "I ate",
     "targetText": "ik at",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0119-i-drank",
     "sourceText": "I drank",
     "targetText": "ik dronk",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0172-to-need",
     "sourceText": "to need",
     "targetText": "nodig hebben",
-    "topicId": "hardware-store"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0173-to-look-for",
     "sourceText": "to look for",
     "targetText": "zoeken",
-    "topicId": "hardware-store"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0174-i-need-screws",
     "sourceText": "I need screws",
     "targetText": "ik heb schroeven nodig",
-    "topicId": "hardware-store"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0175-where-can-i-find-wall-plugs",
     "sourceText": "where can I find wall plugs",
     "targetText": "waar kan ik pluggen vinden",
-    "topicId": "hardware-store"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0176-for-a-concrete-wall",
     "sourceText": "for a concrete wall",
     "targetText": "voor een betonnen muur",
-    "topicId": "hardware-store"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0120-i-slept",
     "sourceText": "I slept",
     "targetText": "ik sliep",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0121-i-waited",
     "sourceText": "I waited",
     "targetText": "ik wachtte",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0122-i-worked",
     "sourceText": "I worked yesterday",
     "targetText": "ik werkte gisteren",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0123-i-called",
     "sourceText": "I called",
     "targetText": "ik belde",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0124-i-lived",
     "sourceText": "I lived",
     "targetText": "ik woonde",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0125-i-learned",
     "sourceText": "I learned",
     "targetText": "ik leerde",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0126-i-paid",
     "sourceText": "I paid",
     "targetText": "ik betaalde",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0127-i-heard",
     "sourceText": "I heard",
     "targetText": "ik hoorde",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0128-i-played",
     "sourceText": "I played",
     "targetText": "ik speelde",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0129-i-have-eaten",
     "sourceText": "I have eaten",
     "targetText": "ik heb gegeten",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0130-i-have-drunk",
     "sourceText": "I have drunk",
     "targetText": "ik heb gedronken",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0131-i-have-bought",
     "sourceText": "I have bought",
     "targetText": "ik heb gekocht",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0132-i-have-done-it",
     "sourceText": "I have done it",
     "targetText": "ik heb het gedaan",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0133-i-have-seen-it",
     "sourceText": "I have seen it",
     "targetText": "ik heb het gezien",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0134-i-have-said-it",
     "sourceText": "I have said it",
     "targetText": "ik heb het gezegd",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0135-i-have-forgotten-it",
     "sourceText": "I have forgotten it",
     "targetText": "ik ben het vergeten",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0136-i-have-lost-it",
@@ -866,97 +866,97 @@
     "acceptedAnswers": [
       "ik ben het kwijt"
     ],
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0137-i-have-gone",
     "sourceText": "I have gone",
     "targetText": "ik ben gegaan",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0138-i-have-come",
     "sourceText": "I have come",
     "targetText": "ik ben gekomen",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0139-i-have-been",
     "sourceText": "I have been",
     "targetText": "ik ben geweest",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0140-i-have-worked",
     "sourceText": "I have worked",
     "targetText": "ik heb gewerkt",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0141-i-have-called",
     "sourceText": "I have called",
     "targetText": "ik heb gebeld",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0142-i-have-waited",
     "sourceText": "I have waited",
     "targetText": "ik heb gewacht",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0143-i-have-paid",
     "sourceText": "I have paid",
     "targetText": "ik heb betaald",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0144-i-have-lived",
     "sourceText": "I have lived",
     "targetText": "ik heb gewoond",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0145-i-have-learned",
     "sourceText": "I have learned",
     "targetText": "ik heb geleerd",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0146-i-worked",
     "sourceText": "I worked",
     "targetText": "ik werkte",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0147-i-lived-in",
     "sourceText": "I lived in Amsterdam",
     "targetText": "ik woonde in Amsterdam",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0148-i-made-a-mistake",
     "sourceText": "I made a mistake",
     "targetText": "ik maakte een fout",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0149-i-bought",
     "sourceText": "I bought groceries",
     "targetText": "ik kocht boodschappen",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0150-i-said",
     "sourceText": "I said no",
     "targetText": "ik zei nee",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0151-i-worked-all-day",
     "sourceText": "I worked all day",
     "targetText": "ik werkte de hele dag",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0152-she-called",
@@ -965,13 +965,13 @@
     "acceptedAnswers": [
       "ze belde"
     ],
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0153-i-waited",
     "sourceText": "I waited for an hour",
     "targetText": "ik wachtte een uur",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0154-we-ate",
@@ -980,49 +980,49 @@
     "acceptedAnswers": [
       "we aten"
     ],
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0155-i-walked",
     "sourceText": "I walked",
     "targetText": "ik liep",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0156-he-told",
     "sourceText": "he told",
     "targetText": "hij vertelde",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0157-last-week",
     "sourceText": "last week I worked",
     "targetText": "vorige week werkte ik",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a2-0158-to-catch",
     "sourceText": "to catch a mouse",
     "targetText": "een muis vangen",
-    "topicId": "animals"
+    "topicId": "animals-and-nature"
   },
   {
     "id": "a2-0159-to-put-down",
     "sourceText": "to put down a mousetrap",
     "targetText": "een muizenval neerzetten",
-    "topicId": "animals"
+    "topicId": "animals-and-nature"
   },
   {
     "id": "a2-0160-to-fall",
     "sourceText": "to fall into the trap",
     "targetText": "in de val lopen",
-    "topicId": "animals"
+    "topicId": "animals-and-nature"
   },
   {
     "id": "a2-0161-to-start",
     "sourceText": "to start",
     "targetText": "beginnen",
-    "topicId": "home-renovation"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0162-repair",
@@ -1031,13 +1031,13 @@
     "acceptedAnswers": [
       "reparatie"
     ],
-    "topicId": "home-renovation"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0163-to-repair",
     "sourceText": "to repair",
     "targetText": "repareren",
-    "topicId": "home-renovation"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0164-bedroom-wall",
@@ -1046,13 +1046,13 @@
     "acceptedAnswers": [
       "slaapkamermuur"
     ],
-    "topicId": "home-renovation"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0165-to-rest",
     "sourceText": "to let it dry",
     "targetText": "het laten drogen",
-    "topicId": "home-renovation"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0166-self-adhesive-tape",
@@ -1061,13 +1061,13 @@
     "acceptedAnswers": [
       "zelfklevende tape"
     ],
-    "topicId": "home-renovation"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0167-to-apply",
     "sourceText": "to apply",
     "targetText": "aanbrengen",
-    "topicId": "home-renovation"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0168-layer",
@@ -1076,13 +1076,13 @@
     "acceptedAnswers": [
       "laag"
     ],
-    "topicId": "home-renovation"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a2-0169-to-play-saxophone",
     "sourceText": "to play saxophone",
     "targetText": "saxofoon spelen",
-    "topicId": "music"
+    "topicId": "hobbies-and-free-time"
   },
   {
     "id": "a2-0170-recording",
@@ -1091,7 +1091,7 @@
     "acceptedAnswers": [
       "opname"
     ],
-    "topicId": "music"
+    "topicId": "hobbies-and-free-time"
   },
   {
     "id": "a2-0171-to-print",
@@ -1100,6 +1100,186 @@
     "acceptedAnswers": [
       "printen"
     ],
-    "topicId": "work"
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a2-0177-to-reschedule",
+    "sourceText": "to reschedule",
+    "targetText": "verzetten",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a2-0178-to-cancel",
+    "sourceText": "to cancel",
+    "targetText": "annuleren",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a2-0179-to-confirm",
+    "sourceText": "to confirm",
+    "targetText": "bevestigen",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a2-0180-to-make-an-appointment",
+    "sourceText": "to make an appointment",
+    "targetText": "een afspraak maken",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a2-0181-is-it-possible-to",
+    "sourceText": "Is it possible to ...?",
+    "targetText": "is het mogelijk om ...",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a2-0182-i-want-to-reschedule-my-appointment",
+    "sourceText": "I want to reschedule my appointment",
+    "targetText": "ik wil mijn afspraak verzetten",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a2-0183-to-transfer",
+    "sourceText": "to transfer",
+    "targetText": "overstappen",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a2-0184-to-miss",
+    "sourceText": "to miss",
+    "targetText": "missen",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a2-0185-to-be-on-time",
+    "sourceText": "to be on time",
+    "targetText": "op tijd zijn",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a2-0186-i-missed-my-train",
+    "sourceText": "I missed my train",
+    "targetText": "ik heb mijn trein gemist",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a2-0187-the-timetable",
+    "sourceText": "the timetable",
+    "targetText": "de dienstregeling",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a2-0188-the-journey",
+    "sourceText": "the journey",
+    "targetText": "de reis",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a2-0189-to-suffer-from-be-bothered-by",
+    "sourceText": "to suffer from / be bothered by",
+    "targetText": "last hebben van",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a2-0190-since-yesterday",
+    "sourceText": "since yesterday",
+    "targetText": "sinds gisteren",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a2-0191-for-three-days",
+    "sourceText": "for three days",
+    "targetText": "al drie dagen",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a2-0192-the-prescription",
+    "sourceText": "the prescription",
+    "targetText": "het recept",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a2-0193-three-days-per-week",
+    "sourceText": "three days per week",
+    "targetText": "drie dagen per week",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a2-0194-to-try-to",
+    "sourceText": "to try to ...",
+    "targetText": "proberen te ...",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a2-0195-to-agree-with",
+    "sourceText": "to agree with",
+    "targetText": "het eens zijn met",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a2-0196-to-finish",
+    "sourceText": "to finish",
+    "targetText": "afronden",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a2-0197-the-deadline",
+    "sourceText": "the deadline",
+    "targetText": "de deadline",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a2-0198-the-heating",
+    "sourceText": "the heating",
+    "targetText": "de verwarming",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a2-0199-the-landlord",
+    "sourceText": "the landlord",
+    "targetText": "de verhuurder",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a2-0200-to-report-a-problem",
+    "sourceText": "to report a problem",
+    "targetText": "een probleem melden",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a2-0201-the-heating-is-not-working",
+    "sourceText": "the heating is not working",
+    "targetText": "de verwarming werkt niet",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a2-0202-to-exchange",
+    "sourceText": "to exchange",
+    "targetText": "ruilen",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a2-0203-to-return",
+    "sourceText": "to return",
+    "targetText": "terugbrengen",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a2-0204-the-refund",
+    "sourceText": "the refund",
+    "targetText": "de terugbetaling",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a2-0205-the-warranty",
+    "sourceText": "the warranty",
+    "targetText": "de garantie",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a2-0206-could-you-let-me-know",
+    "sourceText": "Could you let me know ...?",
+    "targetText": "kunt u mij laten weten ...",
+    "topicId": "basic-communication"
   }
 ]

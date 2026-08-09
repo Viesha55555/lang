@@ -3,7 +3,7 @@
     "id": "a1-0001-hello",
     "sourceText": "hello",
     "targetText": "hallo",
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0002-goodbye",
@@ -15,19 +15,19 @@
       "tot later",
       "tot straks"
     ],
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0003-yes",
     "sourceText": "yes",
     "targetText": "ja",
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0004-no",
     "sourceText": "no",
     "targetText": "nee",
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0005-please",
@@ -36,129 +36,129 @@
     "acceptedAnswers": [
       "alsjeblieft"
     ],
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0006-thank-you",
     "sourceText": "thank you",
-    "targetText": "dank u",
+    "targetText": "dank u wel",
     "acceptedAnswers": [
-      "dank u wel",
+      "dank u",
       "dank je",
       "dank je wel",
       "dankjewel",
       "dankje",
       "bedankt"
     ],
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0007-sorry",
     "sourceText": "sorry",
     "targetText": "sorry",
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0008-excuse-me",
     "sourceText": "excuse me",
     "targetText": "pardon",
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0009-good-morning",
     "sourceText": "good morning",
     "targetText": "goedemorgen",
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0010-good-evening",
     "sourceText": "good evening",
     "targetText": "goedenavond",
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0011-good-night",
     "sourceText": "good night",
     "targetText": "welterusten",
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0012-how-are-you",
     "sourceText": "how are you",
     "targetText": "hoe gaat het",
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0013-i-am-fine",
     "sourceText": "I am fine",
     "targetText": "het gaat goed",
-    "topicId": "introductions-and-communication"
+    "topicId": "greetings-and-politeness"
   },
   {
     "id": "a1-0014-my-name-is",
     "sourceText": "my name is",
     "targetText": "ik heet",
-    "topicId": "introductions-and-communication"
+    "topicId": "personal-information"
   },
   {
     "id": "a1-0015-what-is-your-name",
     "sourceText": "what is your name",
     "targetText": "hoe heet jij",
-    "topicId": "introductions-and-communication"
+    "topicId": "personal-information"
   },
   {
     "id": "a1-0016-i-am",
     "sourceText": "I am",
     "targetText": "ik ben",
-    "topicId": "introductions-and-communication"
+    "topicId": "personal-information"
   },
   {
     "id": "a1-0017-you-are",
     "sourceText": "you are",
     "targetText": "jij bent",
-    "topicId": "introductions-and-communication"
+    "topicId": "personal-information"
   },
   {
     "id": "a1-0018-he-is",
     "sourceText": "he is",
     "targetText": "hij is",
-    "topicId": "introductions-and-communication"
+    "topicId": "personal-information"
   },
   {
     "id": "a1-0019-she-is",
     "sourceText": "she is",
     "targetText": "zij is",
-    "topicId": "introductions-and-communication"
+    "topicId": "personal-information"
   },
   {
     "id": "a1-0020-we-are",
     "sourceText": "we are",
     "targetText": "wij zijn",
-    "topicId": "introductions-and-communication"
+    "topicId": "personal-information"
   },
   {
     "id": "a1-0021-i-have",
     "sourceText": "I have",
     "targetText": "ik heb",
-    "topicId": "introductions-and-communication"
+    "topicId": "basic-communication"
   },
   {
     "id": "a1-0022-i-want",
     "sourceText": "I want",
     "targetText": "ik wil",
-    "topicId": "introductions-and-communication"
+    "topicId": "basic-communication"
   },
   {
     "id": "a1-0023-i-need",
     "sourceText": "I need it",
     "targetText": "ik heb het nodig",
-    "topicId": "introductions-and-communication"
+    "topicId": "basic-communication"
   },
   {
     "id": "a1-0024-i-like",
     "sourceText": "I like it",
     "targetText": "ik vind het leuk",
-    "topicId": "introductions-and-communication",
+    "topicId": "hobbies-and-free-time",
     "acceptedAnswers": [
       "ik hou ervan"
     ]
@@ -167,67 +167,67 @@
     "id": "a1-0025-i-understand",
     "sourceText": "I understand",
     "targetText": "ik begrijp het",
-    "topicId": "introductions-and-communication"
+    "topicId": "basic-communication"
   },
   {
     "id": "a1-0026-i-do-not-understand",
     "sourceText": "I do not understand",
     "targetText": "ik begrijp het niet",
-    "topicId": "introductions-and-communication"
+    "topicId": "basic-communication"
   },
   {
     "id": "a1-0027-do-you-speak-english",
     "sourceText": "do you speak English",
     "targetText": "spreek je Engels",
-    "topicId": "introductions-and-communication"
+    "topicId": "personal-information"
   },
   {
     "id": "a1-0028-i-speak-a-little-dutch",
     "sourceText": "I speak a little Dutch",
     "targetText": "ik spreek een beetje Nederlands",
-    "topicId": "introductions-and-communication"
+    "topicId": "personal-information"
   },
   {
     "id": "a1-0029-where-is",
     "sourceText": "where is",
     "targetText": "waar is",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a1-0030-what-is-this",
     "sourceText": "what is this",
     "targetText": "wat is dit",
-    "topicId": "travel"
+    "topicId": "basic-communication"
   },
   {
     "id": "a1-0031-how-much",
-    "sourceText": "how much",
+    "sourceText": "how much / how many",
     "targetText": "hoeveel",
-    "topicId": "shopping"
+    "topicId": "basic-communication"
   },
   {
     "id": "a1-0032-how-much-does-it-cost",
-    "sourceText": "how much does it cost",
-    "targetText": "hoeveel kost het",
-    "topicId": "shopping"
+    "sourceText": "how much does this cost",
+    "targetText": "hoeveel kost dit",
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a1-0033-when",
     "sourceText": "when",
     "targetText": "wanneer",
-    "topicId": "time-and-calendar"
+    "topicId": "basic-communication"
   },
   {
     "id": "a1-0034-who",
     "sourceText": "who",
     "targetText": "wie",
-    "topicId": "time-and-calendar"
+    "topicId": "basic-communication"
   },
   {
     "id": "a1-0035-why",
     "sourceText": "why",
     "targetText": "waarom",
-    "topicId": "time-and-calendar"
+    "topicId": "basic-communication"
   },
   {
     "id": "a1-0036-today",
@@ -255,129 +255,132 @@
   },
   {
     "id": "a1-0040-later",
-    "sourceText": "later",
-    "targetText": "later",
-    "topicId": "time-and-calendar"
+    "sourceText": "later / shortly",
+    "targetText": "straks",
+    "topicId": "time-and-calendar",
+    "acceptedAnswers": [
+      "later"
+    ]
   },
   {
     "id": "a1-0041-here",
     "sourceText": "here",
     "targetText": "hier",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a1-0042-there",
     "sourceText": "there",
     "targetText": "daar",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a1-0043-left",
     "sourceText": "left",
     "targetText": "links",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a1-0044-right",
     "sourceText": "right",
     "targetText": "rechts",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a1-0045-straight-ahead",
     "sourceText": "straight ahead",
     "targetText": "rechtdoor",
-    "topicId": "travel"
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a1-0046-home",
     "sourceText": "home",
     "targetText": "thuis",
-    "topicId": "home"
+    "topicId": "home-and-household"
   },
   {
     "id": "a1-0047-house",
     "sourceText": "house",
-    "targetText": "huis",
-    "topicId": "home"
+    "targetText": "het huis",
+    "topicId": "home-and-household"
   },
   {
     "id": "a1-0048-room",
     "sourceText": "room",
-    "targetText": "kamer",
-    "topicId": "home"
+    "targetText": "de kamer",
+    "topicId": "home-and-household"
   },
   {
     "id": "a1-0049-door",
     "sourceText": "door",
-    "targetText": "deur",
-    "topicId": "home"
+    "targetText": "de deur",
+    "topicId": "home-and-household"
   },
   {
     "id": "a1-0050-window",
     "sourceText": "window",
-    "targetText": "raam",
-    "topicId": "home"
+    "targetText": "het raam",
+    "topicId": "home-and-household"
   },
   {
     "id": "a1-0051-water",
     "sourceText": "water",
-    "targetText": "water",
-    "topicId": "food"
+    "targetText": "het water",
+    "topicId": "food-and-drink"
   },
   {
     "id": "a1-0052-bread",
     "sourceText": "bread",
-    "targetText": "brood",
-    "topicId": "food"
+    "targetText": "het brood",
+    "topicId": "food-and-drink"
   },
   {
     "id": "a1-0053-cheese",
     "sourceText": "cheese",
-    "targetText": "kaas",
-    "topicId": "food"
+    "targetText": "de kaas",
+    "topicId": "food-and-drink"
   },
   {
     "id": "a1-0054-coffee",
     "sourceText": "coffee",
-    "targetText": "koffie",
-    "topicId": "food"
+    "targetText": "de koffie",
+    "topicId": "food-and-drink"
   },
   {
     "id": "a1-0055-tea",
     "sourceText": "tea",
-    "targetText": "thee",
-    "topicId": "food"
+    "targetText": "de thee",
+    "topicId": "food-and-drink"
   },
   {
     "id": "a1-0056-apple",
     "sourceText": "apple",
-    "targetText": "appel",
-    "topicId": "food"
+    "targetText": "de appel",
+    "topicId": "food-and-drink"
   },
   {
     "id": "a1-0057-bicycle",
     "sourceText": "bicycle",
-    "targetText": "fiets",
-    "topicId": "travel"
+    "targetText": "de fiets",
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a1-0058-train",
     "sourceText": "train",
-    "targetText": "trein",
-    "topicId": "travel"
+    "targetText": "de trein",
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a1-0059-bus",
     "sourceText": "bus",
-    "targetText": "bus",
-    "topicId": "travel"
+    "targetText": "de bus",
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a1-0060-ticket",
     "sourceText": "ticket",
-    "targetText": "kaartje",
-    "topicId": "travel"
+    "targetText": "het kaartje",
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a1-0061-one",
@@ -508,122 +511,122 @@
   {
     "id": "a1-0082-man",
     "sourceText": "man",
-    "targetText": "man",
-    "topicId": "family-and-relationships"
+    "targetText": "de man",
+    "topicId": "family-and-people"
   },
   {
     "id": "a1-0083-woman",
     "sourceText": "woman",
-    "targetText": "vrouw",
-    "topicId": "family-and-relationships"
+    "targetText": "de vrouw",
+    "topicId": "family-and-people"
   },
   {
     "id": "a1-0084-child",
     "sourceText": "child",
-    "targetText": "kind",
-    "topicId": "family-and-relationships"
+    "targetText": "het kind",
+    "topicId": "family-and-people"
   },
   {
     "id": "a1-0085-father",
     "sourceText": "father",
-    "targetText": "vader",
-    "topicId": "family-and-relationships"
+    "targetText": "de vader",
+    "topicId": "family-and-people"
   },
   {
     "id": "a1-0086-mother",
     "sourceText": "mother",
-    "targetText": "moeder",
-    "topicId": "family-and-relationships"
+    "targetText": "de moeder",
+    "topicId": "family-and-people"
   },
   {
     "id": "a1-0087-brother",
     "sourceText": "brother",
-    "targetText": "broer",
-    "topicId": "family-and-relationships"
+    "targetText": "de broer",
+    "topicId": "family-and-people"
   },
   {
     "id": "a1-0088-sister",
     "sourceText": "sister",
-    "targetText": "zus",
-    "topicId": "family-and-relationships"
+    "targetText": "de zus",
+    "topicId": "family-and-people"
   },
   {
     "id": "a1-0089-school",
     "sourceText": "school",
-    "targetText": "school",
-    "topicId": "daily-life"
+    "targetText": "de school",
+    "topicId": "work-and-learning"
   },
   {
     "id": "a1-0090-shop",
     "sourceText": "shop",
-    "targetText": "winkel",
-    "topicId": "shopping"
+    "targetText": "de winkel",
+    "topicId": "shopping-and-paying"
   },
   {
     "id": "a1-0091-street",
     "sourceText": "street",
-    "targetText": "straat",
-    "topicId": "travel"
+    "targetText": "de straat",
+    "topicId": "travel-and-directions"
   },
   {
     "id": "a1-0092-city",
     "sourceText": "city",
-    "targetText": "stad",
-    "topicId": "travel"
+    "targetText": "de stad",
+    "topicId": "personal-information"
   },
   {
     "id": "a1-0093-country",
     "sourceText": "country",
-    "targetText": "land",
-    "topicId": "travel"
+    "targetText": "het land",
+    "topicId": "personal-information"
   },
   {
     "id": "a1-0094-big",
     "sourceText": "big",
     "targetText": "groot",
-    "topicId": "daily-life"
+    "topicId": "common-adjectives"
   },
   {
     "id": "a1-0095-small",
     "sourceText": "small",
     "targetText": "klein",
-    "topicId": "daily-life"
+    "topicId": "common-adjectives"
   },
   {
     "id": "a1-0096-new",
     "sourceText": "new",
     "targetText": "nieuw",
-    "topicId": "daily-life"
+    "topicId": "common-adjectives"
   },
   {
     "id": "a1-0097-old",
     "sourceText": "old",
     "targetText": "oud",
-    "topicId": "daily-life"
+    "topicId": "common-adjectives"
   },
   {
     "id": "a1-0098-good",
     "sourceText": "good",
     "targetText": "goed",
-    "topicId": "daily-life"
+    "topicId": "common-adjectives"
   },
   {
     "id": "a1-0099-bad",
     "sourceText": "bad",
     "targetText": "slecht",
-    "topicId": "daily-life"
+    "topicId": "common-adjectives"
   },
   {
     "id": "a1-0100-nice",
     "sourceText": "nice",
     "targetText": "leuk",
-    "topicId": "daily-life"
+    "topicId": "common-adjectives"
   },
   {
     "id": "a1-0101-screw",
     "sourceText": "screw",
     "targetText": "de schroef",
-    "topicId": "hardware-store",
+    "topicId": "diy-and-renovation",
     "acceptedAnswers": [
       "schroef"
     ]
@@ -632,7 +635,7 @@
     "id": "a1-0102-wall-plug",
     "sourceText": "wall plug",
     "targetText": "de plug",
-    "topicId": "hardware-store",
+    "topicId": "diy-and-renovation",
     "acceptedAnswers": [
       "plug"
     ]
@@ -641,7 +644,7 @@
     "id": "a1-0103-wall",
     "sourceText": "wall",
     "targetText": "de muur",
-    "topicId": "hardware-store",
+    "topicId": "diy-and-renovation",
     "acceptedAnswers": [
       "muur"
     ]
@@ -650,7 +653,7 @@
     "id": "a1-0104-cash-register",
     "sourceText": "cash register",
     "targetText": "de kassa",
-    "topicId": "shopping",
+    "topicId": "shopping-and-paying",
     "acceptedAnswers": [
       "kassa"
     ]
@@ -659,7 +662,7 @@
     "id": "a1-0105-i-was",
     "sourceText": "I was",
     "targetText": "ik was",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a1-0106-you-were",
@@ -668,13 +671,13 @@
     "acceptedAnswers": [
       "je was"
     ],
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a1-0107-he-was",
     "sourceText": "he was",
     "targetText": "hij was",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a1-0108-we-were",
@@ -683,55 +686,55 @@
     "acceptedAnswers": [
       "we waren"
     ],
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a1-0109-i-had",
     "sourceText": "I had",
     "targetText": "ik had",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a1-0110-he-had",
     "sourceText": "he had",
     "targetText": "hij had",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a1-0111-i-went",
     "sourceText": "I went",
     "targetText": "ik ging",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a1-0112-i-was-at-home",
     "sourceText": "I was at home",
     "targetText": "ik was thuis",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a1-0113-i-went-home",
     "sourceText": "I went home",
     "targetText": "ik ging naar huis",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a1-0114-i-had-time",
     "sourceText": "I had time",
     "targetText": "ik had tijd",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a1-0115-it-was-good",
     "sourceText": "it was good",
     "targetText": "het was goed",
-    "topicId": "past-tense"
+    "topicId": "talking-about-yesterday"
   },
   {
     "id": "a1-0116-yesterday",
     "sourceText": "yesterday",
     "targetText": "gisteren",
-    "topicId": "past-tense"
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0117-bird",
@@ -740,7 +743,7 @@
     "acceptedAnswers": [
       "vogel"
     ],
-    "topicId": "animals"
+    "topicId": "animals-and-nature"
   },
   {
     "id": "a1-0118-mouse",
@@ -749,7 +752,7 @@
     "acceptedAnswers": [
       "muis"
     ],
-    "topicId": "animals"
+    "topicId": "animals-and-nature"
   },
   {
     "id": "a1-0119-mousetrap",
@@ -758,7 +761,7 @@
     "acceptedAnswers": [
       "muizenval"
     ],
-    "topicId": "animals"
+    "topicId": "home-and-household"
   },
   {
     "id": "a1-0120-peanut-butter",
@@ -767,7 +770,7 @@
     "acceptedAnswers": [
       "pindakaas"
     ],
-    "topicId": "food"
+    "topicId": "food-and-drink"
   },
   {
     "id": "a1-0121-backyard",
@@ -776,7 +779,7 @@
     "acceptedAnswers": [
       "achtertuin"
     ],
-    "topicId": "home"
+    "topicId": "home-and-household"
   },
   {
     "id": "a1-0122-apartment",
@@ -785,7 +788,7 @@
     "acceptedAnswers": [
       "appartement"
     ],
-    "topicId": "home"
+    "topicId": "home-and-household"
   },
   {
     "id": "a1-0123-hole",
@@ -794,7 +797,7 @@
     "acceptedAnswers": [
       "gat"
     ],
-    "topicId": "home-renovation"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a1-0124-plaster",
@@ -803,7 +806,7 @@
     "acceptedAnswers": [
       "gips"
     ],
-    "topicId": "home-renovation"
+    "topicId": "diy-and-renovation"
   },
   {
     "id": "a1-0125-yellow",
@@ -880,13 +883,13 @@
       "om 19:00 uur",
       "om zeven uur 's avonds"
     ],
-    "topicId": "appointments"
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0137-on-wednesday",
     "sourceText": "on Wednesday",
     "targetText": "op woensdag",
-    "topicId": "appointments"
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0138-on-7-september",
@@ -895,7 +898,7 @@
     "acceptedAnswers": [
       "op zeven september"
     ],
-    "topicId": "appointments"
+    "topicId": "time-and-calendar"
   },
   {
     "id": "a1-0139-saxophone",
@@ -904,7 +907,7 @@
     "acceptedAnswers": [
       "saxofoon"
     ],
-    "topicId": "music"
+    "topicId": "hobbies-and-free-time"
   },
   {
     "id": "a1-0140-office",
@@ -913,7 +916,7 @@
     "acceptedAnswers": [
       "kantoor"
     ],
-    "topicId": "work"
+    "topicId": "work-and-learning"
   },
   {
     "id": "a1-0141-document",
@@ -922,6 +925,1710 @@
     "acceptedAnswers": [
       "document"
     ],
-    "topicId": "work"
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0142-good-afternoon",
+    "sourceText": "good afternoon",
+    "targetText": "goedemiddag",
+    "topicId": "greetings-and-politeness"
+  },
+  {
+    "id": "a1-0143-see-you-tomorrow",
+    "sourceText": "see you tomorrow",
+    "targetText": "tot morgen",
+    "topicId": "greetings-and-politeness"
+  },
+  {
+    "id": "a1-0144-you-re-welcome",
+    "sourceText": "you're welcome",
+    "targetText": "graag gedaan",
+    "topicId": "greetings-and-politeness"
+  },
+  {
+    "id": "a1-0145-maybe",
+    "sourceText": "maybe",
+    "targetText": "misschien",
+    "topicId": "greetings-and-politeness"
+  },
+  {
+    "id": "a1-0146-see-you-later",
+    "sourceText": "see you later",
+    "targetText": "tot later",
+    "topicId": "greetings-and-politeness"
+  },
+  {
+    "id": "a1-0147-have-a-nice-day",
+    "sourceText": "have a nice day",
+    "targetText": "fijne dag",
+    "topicId": "greetings-and-politeness"
+  },
+  {
+    "id": "a1-0148-my-name-is",
+    "sourceText": "my name is ...",
+    "targetText": "mijn naam is ...",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0149-i-am-years-old",
+    "sourceText": "I am ... years old",
+    "targetText": "ik ben ... jaar oud",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0150-i-come-from",
+    "sourceText": "I come from ...",
+    "targetText": "ik kom uit ...",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0151-i-live-in",
+    "sourceText": "I live in ...",
+    "targetText": "ik woon in ...",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0152-i-speak",
+    "sourceText": "I speak ...",
+    "targetText": "ik spreek ...",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0153-what-is-your-name-formal",
+    "sourceText": "what is your name (formal)",
+    "targetText": "hoe heet u",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0154-where-are-you-from-formal",
+    "sourceText": "where are you from (formal)",
+    "targetText": "waar komt u vandaan",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0155-where-do-you-live-formal",
+    "sourceText": "where do you live (formal)",
+    "targetText": "waar woont u",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0156-how-old-are-you-formal",
+    "sourceText": "how old are you (formal)",
+    "targetText": "hoe oud bent u",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0157-the-name",
+    "sourceText": "the name",
+    "targetText": "de naam",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0158-the-address",
+    "sourceText": "the address",
+    "targetText": "het adres",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0159-the-language",
+    "sourceText": "the language",
+    "targetText": "de taal",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0160-dutch",
+    "sourceText": "Dutch",
+    "targetText": "Nederlands",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0161-english",
+    "sourceText": "English",
+    "targetText": "Engels",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0162-the-age",
+    "sourceText": "the age",
+    "targetText": "de leeftijd",
+    "topicId": "personal-information"
+  },
+  {
+    "id": "a1-0163-what",
+    "sourceText": "what",
+    "targetText": "wat",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0164-where",
+    "sourceText": "where",
+    "targetText": "waar",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0165-how",
+    "sourceText": "how",
+    "targetText": "hoe",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0166-which",
+    "sourceText": "which",
+    "targetText": "welke",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0167-can-you-repeat-that-formal",
+    "sourceText": "can you repeat that (formal)",
+    "targetText": "kunt u dat herhalen",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0168-can-you-speak-more-slowly-formal",
+    "sourceText": "can you speak more slowly (formal)",
+    "targetText": "kunt u langzamer praten",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0169-what-does-that-mean",
+    "sourceText": "what does that mean",
+    "targetText": "wat betekent dat",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0170-how-do-you-say-that-in-dutch",
+    "sourceText": "how do you say that in Dutch",
+    "targetText": "hoe zeg je dat in het Nederlands",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0171-i-don-t-know",
+    "sourceText": "I don't know",
+    "targetText": "ik weet het niet",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0172-i-need",
+    "sourceText": "I need ...",
+    "targetText": "ik heb ... nodig",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0173-can-you-help-me-formal",
+    "sourceText": "can you help me (formal)",
+    "targetText": "kunt u mij helpen",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0174-help",
+    "sourceText": "help!",
+    "targetText": "help",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0175-again",
+    "sourceText": "again",
+    "targetText": "nog een keer",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a1-0176-eleven",
+    "sourceText": "eleven",
+    "targetText": "elf",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0177-twelve",
+    "sourceText": "twelve",
+    "targetText": "twaalf",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0178-thirteen",
+    "sourceText": "thirteen",
+    "targetText": "dertien",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0179-fourteen",
+    "sourceText": "fourteen",
+    "targetText": "veertien",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0180-fifteen",
+    "sourceText": "fifteen",
+    "targetText": "vijftien",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0181-sixteen",
+    "sourceText": "sixteen",
+    "targetText": "zestien",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0182-seventeen",
+    "sourceText": "seventeen",
+    "targetText": "zeventien",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0183-eighteen",
+    "sourceText": "eighteen",
+    "targetText": "achttien",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0184-nineteen",
+    "sourceText": "nineteen",
+    "targetText": "negentien",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0185-twenty",
+    "sourceText": "twenty",
+    "targetText": "twintig",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0186-thirty",
+    "sourceText": "thirty",
+    "targetText": "dertig",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0187-forty",
+    "sourceText": "forty",
+    "targetText": "veertig",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0188-fifty",
+    "sourceText": "fifty",
+    "targetText": "vijftig",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0189-sixty",
+    "sourceText": "sixty",
+    "targetText": "zestig",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0190-seventy",
+    "sourceText": "seventy",
+    "targetText": "zeventig",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0191-eighty",
+    "sourceText": "eighty",
+    "targetText": "tachtig",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0192-ninety",
+    "sourceText": "ninety",
+    "targetText": "negentig",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0193-one-hundred",
+    "sourceText": "one hundred",
+    "targetText": "honderd",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a1-0194-the-time",
+    "sourceText": "the time",
+    "targetText": "de tijd",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0195-the-hour",
+    "sourceText": "the hour",
+    "targetText": "het uur",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0196-late",
+    "sourceText": "late",
+    "targetText": "laat",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0197-early",
+    "sourceText": "early",
+    "targetText": "vroeg",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0198-the-week",
+    "sourceText": "the week",
+    "targetText": "de week",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0199-the-weekend",
+    "sourceText": "the weekend",
+    "targetText": "het weekend",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0200-the-month",
+    "sourceText": "the month",
+    "targetText": "de maand",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0201-the-year",
+    "sourceText": "the year",
+    "targetText": "het jaar",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0202-what-time-is-it",
+    "sourceText": "what time is it",
+    "targetText": "hoe laat is het",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0203-at-three-o-clock",
+    "sourceText": "at three o’clock",
+    "targetText": "om drie uur",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0204-on-monday",
+    "sourceText": "on Monday",
+    "targetText": "op maandag",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0205-on-10-august",
+    "sourceText": "on 10 August",
+    "targetText": "op 10 augustus",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0206-the-date",
+    "sourceText": "the date",
+    "targetText": "de datum",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0207-the-appointment",
+    "sourceText": "the appointment",
+    "targetText": "de afspraak",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0208-at-what-time",
+    "sourceText": "at what time",
+    "targetText": "om hoe laat",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0209-day",
+    "sourceText": "day",
+    "targetText": "de dag",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0210-the-parents",
+    "sourceText": "the parents",
+    "targetText": "de ouders",
+    "topicId": "family-and-people"
+  },
+  {
+    "id": "a1-0211-the-son",
+    "sourceText": "the son",
+    "targetText": "de zoon",
+    "topicId": "family-and-people"
+  },
+  {
+    "id": "a1-0212-the-daughter",
+    "sourceText": "the daughter",
+    "targetText": "de dochter",
+    "topicId": "family-and-people"
+  },
+  {
+    "id": "a1-0213-the-children",
+    "sourceText": "the children",
+    "targetText": "de kinderen",
+    "topicId": "family-and-people"
+  },
+  {
+    "id": "a1-0214-the-friend-male",
+    "sourceText": "the friend (male)",
+    "targetText": "de vriend",
+    "topicId": "family-and-people"
+  },
+  {
+    "id": "a1-0215-the-friend-female",
+    "sourceText": "the friend (female)",
+    "targetText": "de vriendin",
+    "topicId": "family-and-people"
+  },
+  {
+    "id": "a1-0216-the-family",
+    "sourceText": "the family",
+    "targetText": "de familie",
+    "topicId": "family-and-people"
+  },
+  {
+    "id": "a1-0217-married",
+    "sourceText": "married",
+    "targetText": "getrouwd",
+    "topicId": "family-and-people"
+  },
+  {
+    "id": "a1-0218-alone",
+    "sourceText": "alone",
+    "targetText": "alleen",
+    "topicId": "family-and-people"
+  },
+  {
+    "id": "a1-0219-the-baby",
+    "sourceText": "the baby",
+    "targetText": "de baby",
+    "topicId": "family-and-people"
+  },
+  {
+    "id": "a1-0220-the-person",
+    "sourceText": "the person",
+    "targetText": "de persoon",
+    "topicId": "family-and-people"
+  },
+  {
+    "id": "a1-0221-beautiful",
+    "sourceText": "beautiful",
+    "targetText": "mooi",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0222-ugly",
+    "sourceText": "ugly",
+    "targetText": "lelijk",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0223-easy",
+    "sourceText": "easy",
+    "targetText": "makkelijk",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0224-difficult",
+    "sourceText": "difficult",
+    "targetText": "moeilijk",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0225-fast",
+    "sourceText": "fast",
+    "targetText": "snel",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0226-slow",
+    "sourceText": "slow",
+    "targetText": "langzaam",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0227-warm",
+    "sourceText": "warm",
+    "targetText": "warm",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0228-cold",
+    "sourceText": "cold",
+    "targetText": "koud",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0229-expensive",
+    "sourceText": "expensive",
+    "targetText": "duur",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0230-cheap",
+    "sourceText": "cheap",
+    "targetText": "goedkoop",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0231-open",
+    "sourceText": "open",
+    "targetText": "open",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0232-closed",
+    "sourceText": "closed",
+    "targetText": "dicht",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0233-full",
+    "sourceText": "full",
+    "targetText": "vol",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0234-empty",
+    "sourceText": "empty",
+    "targetText": "leeg",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0235-clean",
+    "sourceText": "clean",
+    "targetText": "schoon",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0236-dirty",
+    "sourceText": "dirty",
+    "targetText": "vies",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0237-happy",
+    "sourceText": "happy",
+    "targetText": "blij",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0238-sad",
+    "sourceText": "sad",
+    "targetText": "verdrietig",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a1-0239-to-wake-up",
+    "sourceText": "to wake up",
+    "targetText": "wakker worden",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0240-to-get-up",
+    "sourceText": "to get up",
+    "targetText": "opstaan",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0241-to-shower",
+    "sourceText": "to shower",
+    "targetText": "douchen",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0242-to-wash-oneself",
+    "sourceText": "to wash oneself",
+    "targetText": "zich wassen",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0243-to-get-dressed",
+    "sourceText": "to get dressed",
+    "targetText": "zich aankleden",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0244-to-have-breakfast",
+    "sourceText": "to have breakfast",
+    "targetText": "ontbijten",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0245-to-work",
+    "sourceText": "to work",
+    "targetText": "werken",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0246-to-learn",
+    "sourceText": "to learn",
+    "targetText": "leren",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0247-to-cook",
+    "sourceText": "to cook",
+    "targetText": "koken",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0248-to-eat",
+    "sourceText": "to eat",
+    "targetText": "eten",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0249-to-drink",
+    "sourceText": "to drink",
+    "targetText": "drinken",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0250-to-walk",
+    "sourceText": "to walk",
+    "targetText": "wandelen",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0251-to-do-the-shopping",
+    "sourceText": "to do the shopping",
+    "targetText": "boodschappen doen",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0252-to-come-home",
+    "sourceText": "to come home",
+    "targetText": "thuiskomen",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0253-to-watch-television",
+    "sourceText": "to watch television",
+    "targetText": "televisie kijken",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0254-to-go-to-bed",
+    "sourceText": "to go to bed",
+    "targetText": "naar bed gaan",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0255-to-sleep",
+    "sourceText": "to sleep",
+    "targetText": "slapen",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0256-i-get-up",
+    "sourceText": "I get up",
+    "targetText": "ik sta op",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0257-i-go-to-work",
+    "sourceText": "I go to work",
+    "targetText": "ik ga naar mijn werk",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a1-0258-the-egg",
+    "sourceText": "the egg",
+    "targetText": "het ei",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0259-the-meat",
+    "sourceText": "the meat",
+    "targetText": "het vlees",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0260-the-fish",
+    "sourceText": "the fish",
+    "targetText": "de vis",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0261-the-vegetables",
+    "sourceText": "the vegetable",
+    "targetText": "de groente",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0262-the-fruit",
+    "sourceText": "the fruit",
+    "targetText": "het fruit",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0263-the-banana",
+    "sourceText": "the banana",
+    "targetText": "de banaan",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0264-the-potato",
+    "sourceText": "the potato",
+    "targetText": "de aardappel",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0265-the-rice",
+    "sourceText": "the rice",
+    "targetText": "de rijst",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0266-the-soup",
+    "sourceText": "the soup",
+    "targetText": "de soep",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0267-the-milk",
+    "sourceText": "the milk",
+    "targetText": "de melk",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0268-breakfast",
+    "sourceText": "breakfast",
+    "targetText": "het ontbijt",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0269-lunch",
+    "sourceText": "lunch",
+    "targetText": "de lunch",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0270-dinner",
+    "sourceText": "dinner",
+    "targetText": "het avondeten",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0271-hunger",
+    "sourceText": "hunger",
+    "targetText": "honger",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0272-thirst",
+    "sourceText": "thirst",
+    "targetText": "dorst",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0273-i-would-like",
+    "sourceText": "I would like ...",
+    "targetText": "ik wil graag ...",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0274-may-i-have",
+    "sourceText": "may I have ...",
+    "targetText": "mag ik ...",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0275-the-bill-please",
+    "sourceText": "the bill, please",
+    "targetText": "de rekening, alstublieft",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0276-enjoy-your-meal",
+    "sourceText": "enjoy your meal",
+    "targetText": "eet smakelijk",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a1-0277-the-supermarket",
+    "sourceText": "the supermarket",
+    "targetText": "de supermarkt",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0278-the-market",
+    "sourceText": "the market",
+    "targetText": "de markt",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0279-the-price",
+    "sourceText": "the price",
+    "targetText": "de prijs",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0280-the-money",
+    "sourceText": "the money",
+    "targetText": "het geld",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0281-cash",
+    "sourceText": "cash",
+    "targetText": "contant",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0282-to-pay-by-card",
+    "sourceText": "to pay by card",
+    "targetText": "pinnen",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0283-to-pay",
+    "sourceText": "to pay",
+    "targetText": "betalen",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0284-to-buy",
+    "sourceText": "to buy",
+    "targetText": "kopen",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0285-to-sell",
+    "sourceText": "to sell",
+    "targetText": "verkopen",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0286-to-look-for",
+    "sourceText": "to look for",
+    "targetText": "zoeken",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0287-to-need",
+    "sourceText": "to need",
+    "targetText": "nodig hebben",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0288-closed-shop",
+    "sourceText": "closed (shop)",
+    "targetText": "gesloten",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0289-i-am-looking-for",
+    "sourceText": "I am looking for ...",
+    "targetText": "ik zoek ...",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0290-do-you-have-formal",
+    "sourceText": "do you have ... (formal)",
+    "targetText": "heeft u ...",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0291-i-want-to-pay-by-card",
+    "sourceText": "I want to pay by card",
+    "targetText": "ik wil pinnen",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0292-can-i-pay-by-card",
+    "sourceText": "can I pay by card",
+    "targetText": "kan ik met pin betalen",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0293-may-i-have-the-receipt",
+    "sourceText": "may I have the receipt",
+    "targetText": "mag ik de bon",
+    "topicId": "shopping-and-paying"
+  },
+  {
+    "id": "a1-0294-the-living-room",
+    "sourceText": "the living room",
+    "targetText": "de woonkamer",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0295-the-bedroom",
+    "sourceText": "the bedroom",
+    "targetText": "de slaapkamer",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0296-the-kitchen",
+    "sourceText": "the kitchen",
+    "targetText": "de keuken",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0297-the-bathroom",
+    "sourceText": "the bathroom",
+    "targetText": "de badkamer",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0298-the-toilet",
+    "sourceText": "the toilet",
+    "targetText": "het toilet",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0299-the-floor",
+    "sourceText": "the floor",
+    "targetText": "de vloer",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0300-the-ceiling",
+    "sourceText": "the ceiling",
+    "targetText": "het plafond",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0301-the-table",
+    "sourceText": "the table",
+    "targetText": "de tafel",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0302-the-chair",
+    "sourceText": "the chair",
+    "targetText": "de stoel",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0303-the-bed",
+    "sourceText": "the bed",
+    "targetText": "het bed",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0304-the-cupboard",
+    "sourceText": "the cupboard",
+    "targetText": "de kast",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0305-the-key",
+    "sourceText": "the key",
+    "targetText": "de sleutel",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0306-the-lamp",
+    "sourceText": "the lamp",
+    "targetText": "de lamp",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0307-the-garden",
+    "sourceText": "the garden",
+    "targetText": "de tuin",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0308-the-station",
+    "sourceText": "the station",
+    "targetText": "het station",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0309-the-stop",
+    "sourceText": "the stop",
+    "targetText": "de halte",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0310-the-car",
+    "sourceText": "the car",
+    "targetText": "de auto",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0311-the-road",
+    "sourceText": "the road",
+    "targetText": "de weg",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0312-nearby",
+    "sourceText": "nearby",
+    "targetText": "dichtbij",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0313-far",
+    "sourceText": "far",
+    "targetText": "ver",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0314-to-depart",
+    "sourceText": "to depart",
+    "targetText": "vertrekken",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0315-to-arrive",
+    "sourceText": "to arrive",
+    "targetText": "aankomen",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0316-to-get-on",
+    "sourceText": "to get on",
+    "targetText": "instappen",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0317-to-get-off",
+    "sourceText": "to get off",
+    "targetText": "uitstappen",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0318-where-is-the-station",
+    "sourceText": "where is the station",
+    "targetText": "waar is het station",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0319-how-do-i-get-to",
+    "sourceText": "how do I get to ...",
+    "targetText": "hoe kom ik bij ...",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0320-a-ticket-to-please",
+    "sourceText": "a ticket to ..., please",
+    "targetText": "een kaartje naar ..., alstublieft",
+    "topicId": "travel-and-directions"
+  },
+  {
+    "id": "a1-0321-the-baker",
+    "sourceText": "the baker",
+    "targetText": "de bakker",
+    "topicId": "places-in-town"
+  },
+  {
+    "id": "a1-0322-the-hospital",
+    "sourceText": "the hospital",
+    "targetText": "het ziekenhuis",
+    "topicId": "places-in-town"
+  },
+  {
+    "id": "a1-0323-the-restaurant",
+    "sourceText": "the restaurant",
+    "targetText": "het restaurant",
+    "topicId": "places-in-town"
+  },
+  {
+    "id": "a1-0324-the-caf",
+    "sourceText": "the café",
+    "targetText": "het café",
+    "topicId": "places-in-town"
+  },
+  {
+    "id": "a1-0325-the-library",
+    "sourceText": "the library",
+    "targetText": "de bibliotheek",
+    "topicId": "places-in-town"
+  },
+  {
+    "id": "a1-0326-the-town-hall",
+    "sourceText": "the town hall",
+    "targetText": "het gemeentehuis",
+    "topicId": "places-in-town"
+  },
+  {
+    "id": "a1-0327-the-park",
+    "sourceText": "the park",
+    "targetText": "het park",
+    "topicId": "places-in-town"
+  },
+  {
+    "id": "a1-0328-the-pharmacy",
+    "sourceText": "the pharmacy",
+    "targetText": "de apotheek",
+    "topicId": "places-in-town"
+  },
+  {
+    "id": "a1-0329-the-bus-stop",
+    "sourceText": "the bus stop",
+    "targetText": "de bushalte",
+    "topicId": "places-in-town"
+  },
+  {
+    "id": "a1-0330-work",
+    "sourceText": "work",
+    "targetText": "het werk",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0331-the-job",
+    "sourceText": "the job",
+    "targetText": "de baan",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0332-the-colleague",
+    "sourceText": "the colleague",
+    "targetText": "de collega",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0333-the-boss",
+    "sourceText": "the boss",
+    "targetText": "de baas",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0334-the-break",
+    "sourceText": "the break",
+    "targetText": "de pauze",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0335-the-meeting",
+    "sourceText": "the meeting",
+    "targetText": "de vergadering",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0336-the-computer",
+    "sourceText": "the computer",
+    "targetText": "de computer",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0337-the-teacher",
+    "sourceText": "the teacher",
+    "targetText": "de leraar",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0338-the-student",
+    "sourceText": "the student",
+    "targetText": "de leerling",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0339-the-lesson",
+    "sourceText": "the lesson",
+    "targetText": "de les",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0340-the-exercise",
+    "sourceText": "the exercise",
+    "targetText": "de oefening",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0341-the-question",
+    "sourceText": "the question",
+    "targetText": "de vraag",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0342-the-answer",
+    "sourceText": "the answer",
+    "targetText": "het antwoord",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0343-to-begin",
+    "sourceText": "to begin",
+    "targetText": "beginnen",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0344-to-stop",
+    "sourceText": "to stop",
+    "targetText": "stoppen",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0345-to-read",
+    "sourceText": "to read",
+    "targetText": "lezen",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0346-to-write",
+    "sourceText": "to write",
+    "targetText": "schrijven",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0347-to-practise",
+    "sourceText": "to practise",
+    "targetText": "oefenen",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a1-0348-the-head",
+    "sourceText": "the head",
+    "targetText": "het hoofd",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0349-the-eye",
+    "sourceText": "the eye",
+    "targetText": "het oog",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0350-the-ear",
+    "sourceText": "the ear",
+    "targetText": "het oor",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0351-the-mouth",
+    "sourceText": "the mouth",
+    "targetText": "de mond",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0352-the-hand",
+    "sourceText": "the hand",
+    "targetText": "de hand",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0353-the-arm",
+    "sourceText": "the arm",
+    "targetText": "de arm",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0354-the-leg",
+    "sourceText": "the leg",
+    "targetText": "het been",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0355-the-foot",
+    "sourceText": "the foot",
+    "targetText": "de voet",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0356-the-stomach",
+    "sourceText": "the stomach",
+    "targetText": "de buik",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0357-the-back",
+    "sourceText": "the back",
+    "targetText": "de rug",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0358-ill",
+    "sourceText": "ill",
+    "targetText": "ziek",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0359-healthy",
+    "sourceText": "healthy",
+    "targetText": "gezond",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0360-pain",
+    "sourceText": "pain",
+    "targetText": "pijn",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0361-tired",
+    "sourceText": "tired",
+    "targetText": "moe",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0362-the-doctor",
+    "sourceText": "the doctor",
+    "targetText": "de dokter",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0363-i-am-ill",
+    "sourceText": "I am ill",
+    "targetText": "ik ben ziek",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0364-i-am-in-pain",
+    "sourceText": "I am in pain",
+    "targetText": "ik heb pijn",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0365-my-hurts",
+    "sourceText": "my ... hurts",
+    "targetText": "ik heb pijn aan mijn ...",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0366-i-don-t-feel-well",
+    "sourceText": "I don't feel well",
+    "targetText": "ik voel me niet goed",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a1-0367-the-weather",
+    "sourceText": "the weather",
+    "targetText": "het weer",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0368-the-sun",
+    "sourceText": "the sun",
+    "targetText": "de zon",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0369-the-rain",
+    "sourceText": "the rain",
+    "targetText": "de regen",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0370-the-wind",
+    "sourceText": "the wind",
+    "targetText": "de wind",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0371-the-snow",
+    "sourceText": "the snow",
+    "targetText": "de sneeuw",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0372-dry",
+    "sourceText": "dry",
+    "targetText": "droog",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0373-wet",
+    "sourceText": "wet",
+    "targetText": "nat",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0374-to-rain",
+    "sourceText": "to rain",
+    "targetText": "regenen",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0375-the-coat",
+    "sourceText": "the coat",
+    "targetText": "de jas",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0376-the-trousers",
+    "sourceText": "the trousers",
+    "targetText": "de broek",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0377-the-shirt",
+    "sourceText": "the shirt",
+    "targetText": "het shirt",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0378-the-jumper",
+    "sourceText": "the jumper",
+    "targetText": "de trui",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0379-the-shoes",
+    "sourceText": "the shoes",
+    "targetText": "de schoenen",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0380-the-socks",
+    "sourceText": "the socks",
+    "targetText": "de sokken",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0381-to-wear",
+    "sourceText": "to wear",
+    "targetText": "dragen",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0382-it-is-raining",
+    "sourceText": "it is raining",
+    "targetText": "het regent",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0383-it-is-cold",
+    "sourceText": "it is cold",
+    "targetText": "het is koud",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0384-what-is-the-weather-like",
+    "sourceText": "what is the weather like",
+    "targetText": "wat voor weer is het",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a1-0385-the-hobby",
+    "sourceText": "the hobby",
+    "targetText": "de hobby",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0386-the-music",
+    "sourceText": "the music",
+    "targetText": "de muziek",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0387-the-book",
+    "sourceText": "the book",
+    "targetText": "het boek",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0388-the-film",
+    "sourceText": "the film",
+    "targetText": "de film",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0389-the-game",
+    "sourceText": "the game",
+    "targetText": "het spel",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0390-to-exercise",
+    "sourceText": "to play sports / exercise",
+    "targetText": "sporten",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0391-to-cycle",
+    "sourceText": "to cycle",
+    "targetText": "fietsen",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0392-to-swim",
+    "sourceText": "to swim",
+    "targetText": "zwemmen",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0393-to-listen-to-music",
+    "sourceText": "to listen to music",
+    "targetText": "muziek luisteren",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0394-to-travel",
+    "sourceText": "to travel",
+    "targetText": "reizen",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0395-what-do-you-like-doing",
+    "sourceText": "what do you like doing",
+    "targetText": "wat doe je graag",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0396-i-love",
+    "sourceText": "I love ...",
+    "targetText": "ik houd van ...",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0397-i-play-the-saxophone",
+    "sourceText": "I play the saxophone",
+    "targetText": "ik speel saxofoon",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0398-the-nail",
+    "sourceText": "the nail",
+    "targetText": "de spijker",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0399-the-hammer",
+    "sourceText": "the hammer",
+    "targetText": "de hamer",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0400-the-drill",
+    "sourceText": "the drill",
+    "targetText": "de boormachine",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0401-the-saw",
+    "sourceText": "the saw",
+    "targetText": "de zaag",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0402-the-wood",
+    "sourceText": "the wood",
+    "targetText": "het hout",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0403-the-paint",
+    "sourceText": "the paint",
+    "targetText": "de verf",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0404-the-paintbrush",
+    "sourceText": "the paintbrush",
+    "targetText": "de kwast",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0405-to-measure",
+    "sourceText": "to measure",
+    "targetText": "meten",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0406-to-drill",
+    "sourceText": "to drill",
+    "targetText": "boren",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0407-to-saw",
+    "sourceText": "to saw",
+    "targetText": "zagen",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0408-to-paint",
+    "sourceText": "to paint",
+    "targetText": "schilderen",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0409-to-repair",
+    "sourceText": "to repair",
+    "targetText": "repareren",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0410-to-build",
+    "sourceText": "to build",
+    "targetText": "bouwen",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a1-0411-i-had-an-appointment",
+    "sourceText": "I had an appointment",
+    "targetText": "ik had een afspraak",
+    "topicId": "talking-about-yesterday"
+  },
+  {
+    "id": "a1-0412-i-went-to-the-shop",
+    "sourceText": "I went to the shop",
+    "targetText": "ik ging naar de winkel",
+    "topicId": "talking-about-yesterday"
+  },
+  {
+    "id": "a1-0413-i-worked",
+    "sourceText": "I worked",
+    "targetText": "ik heb gewerkt",
+    "topicId": "talking-about-yesterday"
+  },
+  {
+    "id": "a1-0414-i-walked",
+    "sourceText": "I walked",
+    "targetText": "ik heb gewandeld",
+    "topicId": "talking-about-yesterday"
+  },
+  {
+    "id": "a1-0415-i-did-the-shopping",
+    "sourceText": "I did the shopping",
+    "targetText": "ik heb boodschappen gedaan",
+    "topicId": "talking-about-yesterday"
+  },
+  {
+    "id": "a1-0416-i-cooked",
+    "sourceText": "I cooked",
+    "targetText": "ik heb gekookt",
+    "topicId": "talking-about-yesterday"
+  },
+  {
+    "id": "a1-0417-i-watched-television",
+    "sourceText": "I watched television",
+    "targetText": "ik heb televisie gekeken",
+    "topicId": "talking-about-yesterday"
+  },
+  {
+    "id": "a1-0418-yesterday-i-was-at-home",
+    "sourceText": "yesterday I was at home",
+    "targetText": "gisteren was ik thuis",
+    "topicId": "talking-about-yesterday"
+  },
+  {
+    "id": "a1-0419-what-did-you-do-yesterday",
+    "sourceText": "what did you do yesterday",
+    "targetText": "wat heb je gisteren gedaan",
+    "topicId": "talking-about-yesterday"
+  },
+  {
+    "id": "a1-0420-the-dog",
+    "sourceText": "the dog",
+    "targetText": "de hond",
+    "topicId": "animals-and-nature"
+  },
+  {
+    "id": "a1-0421-the-cat",
+    "sourceText": "the cat",
+    "targetText": "de kat",
+    "topicId": "animals-and-nature"
+  },
+  {
+    "id": "a1-0422-the-animal",
+    "sourceText": "the animal",
+    "targetText": "het dier",
+    "topicId": "animals-and-nature"
+  },
+  {
+    "id": "a1-0423-the-tree",
+    "sourceText": "the tree",
+    "targetText": "de boom",
+    "topicId": "animals-and-nature"
+  },
+  {
+    "id": "a1-0424-the-flower",
+    "sourceText": "the flower",
+    "targetText": "de bloem",
+    "topicId": "animals-and-nature"
+  },
+  {
+    "id": "a1-0425-nature",
+    "sourceText": "nature",
+    "targetText": "de natuur",
+    "topicId": "animals-and-nature"
   }
 ]

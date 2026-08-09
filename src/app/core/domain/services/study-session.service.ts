@@ -54,9 +54,9 @@ const WEAK_CARD_LIMIT = 12;
 const FREE_PRACTICE_LIMIT = 20;
 const DIALOGUE_CARD_ID_PREFIX = 'dialogue';
 const CONTROLLED_DIALOGUE_TOPICS: readonly TopicId[] = [
-  'shopping',
-  'food',
-  'hardware-store',
+  'shopping-and-paying',
+  'food-and-drink',
+  'diy-and-renovation',
 ];
 const prompt = (
   text: string,
@@ -77,7 +77,7 @@ const GENERIC_SPEAKING_QUESTIONS: readonly SpeakingChallengePrompt[] = [
   prompt('Wat ga je morgen doen?'),
   prompt('Waarom ben je moe?'),
 ] as const;
-const TOPIC_SPEAKING_QUESTIONS: Record<TopicId, readonly SpeakingChallengePrompt[]> = {
+const TOPIC_SPEAKING_QUESTIONS: Partial<Record<TopicId, readonly SpeakingChallengePrompt[]>> = {
   'daily-life': [
     prompt('Wat doe je meestal in je vrije tijd?'),
     prompt('Wat doe je soms na je werk?'),
@@ -754,9 +754,8 @@ export class StudySessionService {
   private startSpeakingChallenge(): void {
     const challengeCards = this.recentChallengeCards();
     const topic = this.inferSpeakingChallengeTopic(challengeCards);
-    const questions = topic
-      ? TOPIC_SPEAKING_QUESTIONS[topic.id]
-      : GENERIC_SPEAKING_QUESTIONS;
+    const questions = (topic && TOPIC_SPEAKING_QUESTIONS[topic.id]) ??
+      GENERIC_SPEAKING_QUESTIONS;
     const selectedPrompt = this.promptForChallengeCards(challengeCards, topic) ??
       questions[this.stableQuestionIndex(challengeCards, questions.length)];
     const relevantCards = topic

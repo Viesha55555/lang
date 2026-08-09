@@ -1,6 +1,53 @@
 import { LearningTopic, TopicId } from './learning-topic.model';
 
+const beginnerTopic = (
+  id: TopicId,
+  title: string,
+  description: string,
+  keywords: readonly string[],
+  pattern: string,
+  example: string,
+): LearningTopic => ({
+  id,
+  title,
+  description,
+  goalByLevel: {
+    A1: `Use basic ${title.toLowerCase()} vocabulary.`,
+    A2: `Use ${title.toLowerCase()} vocabulary in short conversations.`,
+    B1: `Discuss ${title.toLowerCase()} with more detail.`,
+  },
+  keywords,
+  phrasesByLevel: {
+    A1: [{ pattern, example }],
+    A2: [{ pattern, example }],
+    B1: [{ pattern, example }],
+  },
+  dialogueByLevel: {
+    A1: [],
+    A2: [],
+    B1: [],
+  },
+});
+
 export const LEARNING_TOPICS: readonly LearningTopic[] = [
+  beginnerTopic('greetings-and-politeness', 'Greetings & Politeness', 'Greet people and respond politely', ['hello', 'goodbye', 'please', 'thank you'], 'Goedemorgen.', 'Goedemorgen.'),
+  beginnerTopic('personal-information', 'Introducing Yourself', 'Share basic personal information', ['name', 'age', 'address', 'language'], 'Ik heet ...', 'Ik heet Sam.'),
+  beginnerTopic('basic-communication', 'Basic Communication', 'Ask questions and get help understanding', ['who', 'what', 'where', 'help'], 'Ik begrijp het niet.', 'Ik begrijp het niet.'),
+  beginnerTopic('family-and-people', 'Family & People', 'Talk about family, friends, and people', ['family', 'mother', 'father', 'friend'], 'Dit is mijn ...', 'Dit is mijn broer.'),
+  beginnerTopic('common-adjectives', 'Common Descriptions', 'Describe everyday people and things', ['big', 'small', 'good', 'bad'], 'Het is ...', 'Het is mooi.'),
+  beginnerTopic('daily-routine', 'Daily Routine', 'Talk about common daily actions', ['wake up', 'work', 'eat', 'sleep'], 'Ik ...', 'Ik sta op.'),
+  beginnerTopic('food-and-drink', 'Food & Drink', 'Order and talk about basic food and drinks', ['bread', 'water', 'coffee', 'bill'], 'Ik wil graag ...', 'Ik wil graag koffie.'),
+  beginnerTopic('shopping-and-paying', 'Shopping & Paying', 'Find, buy, and pay for everyday items', ['shop', 'price', 'cash', 'card'], 'Ik zoek ...', 'Ik zoek een jas.'),
+  beginnerTopic('home-and-household', 'Home & Household', 'Name rooms, furniture, and household objects', ['house', 'room', 'table', 'key'], 'Waar is ...?', 'Waar is de sleutel?'),
+  beginnerTopic('travel-and-directions', 'Travel & Directions', 'Travel and ask for simple directions', ['station', 'train', 'left', 'right'], 'Waar is ...?', 'Waar is het station?'),
+  beginnerTopic('places-in-town', 'Places in Town', 'Recognize useful places nearby', ['bakery', 'hospital', 'library', 'park'], 'Waar is ...?', 'Waar is de bibliotheek?'),
+  beginnerTopic('work-and-learning', 'Work & Learning', 'Talk about basic work and study activities', ['work', 'school', 'lesson', 'document'], 'Ik werk ...', 'Ik werk op kantoor.'),
+  beginnerTopic('health-and-body', 'Health & Body', 'Name body parts and explain simple health needs', ['head', 'hand', 'doctor', 'pain'], 'Ik heb pijn aan mijn ...', 'Ik heb pijn aan mijn rug.'),
+  beginnerTopic('weather-and-clothes', 'Weather & Clothes', 'Talk about simple weather and clothing', ['weather', 'rain', 'coat', 'shoes'], 'Het is ...', 'Het is koud.'),
+  beginnerTopic('hobbies-and-free-time', 'Hobbies & Free Time', 'Talk about leisure activities and preferences', ['hobby', 'music', 'sport', 'book'], 'Ik houd van ...', 'Ik houd van muziek.'),
+  beginnerTopic('diy-and-renovation', 'DIY & Renovation', 'Use simple language for practical home projects', ['screw', 'hammer', 'paint', 'wall'], 'Ik heb ... nodig.', 'Ik heb een hamer nodig.'),
+  beginnerTopic('talking-about-yesterday', 'Talking About Yesterday', 'Say what happened yesterday', ['yesterday', 'was', 'had', 'went'], 'Gisteren heb ik ...', 'Gisteren heb ik gewerkt.'),
+  beginnerTopic('animals-and-nature', 'Animals & Nature', 'Name common animals and things in nature', ['bird', 'mouse', 'dog', 'tree'], 'Ik zie ...', 'Ik zie een vogel.'),
   {
     id: 'daily-life',
     title: 'Daily life',
