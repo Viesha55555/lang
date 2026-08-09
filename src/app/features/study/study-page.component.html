@@ -45,6 +45,7 @@
           [card]="card"
           [revealed]="session.lastResult() !== null || session.needsIntro()"
           [answerPassed]="session.lastResult()?.passed ?? null"
+          (replayRequested)="onReplayCardPressed()"
         />
 
         @if (session.lastResult(); as result) {

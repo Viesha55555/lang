@@ -125,6 +125,43 @@ h1 {
   font-weight: 600;
 }
 
+.replay-answer {
+  display: inline-grid;
+  width: 3.25rem;
+  height: 3.25rem;
+  margin-top: 1.25rem;
+  padding: 0;
+  place-items: center;
+  border: 1px solid rgb(37 35 31 / 0.14);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 0.72);
+  color: #3f755a;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgb(37 35 31 / 0.08);
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease;
+}
+
+.replay-answer:hover {
+  background: #fff;
+  transform: scale(1.06);
+}
+
+.replay-answer:focus-visible {
+  outline: 3px solid rgb(63 117 90 / 0.35);
+  outline-offset: 3px;
+}
+
+.replay-answer svg {
+  width: 1.55rem;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .card-inner {
     transition: none;

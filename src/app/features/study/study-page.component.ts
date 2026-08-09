@@ -54,6 +54,10 @@ export class StudyPageComponent {
     this.session.continueIntro();
   }
 
+  onReplayCardPressed(): void {
+    this.session.replayCurrentCard();
+  }
+
   onMenuCardPressed(menuCard: {
     readonly level?: CardLevel;
     readonly deck?: PracticeDeck;

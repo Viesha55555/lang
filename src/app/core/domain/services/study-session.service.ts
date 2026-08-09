@@ -495,6 +495,16 @@ export class StudySessionService {
     this.speech.stop();
   }
 
+  replayCurrentCard(): void {
+    const card = this.currentCard();
+
+    if (card) {
+      void this.tts
+        .speak(card.targetText, { language: card.targetLanguage })
+        .catch(() => undefined);
+    }
+  }
+
   replaySpeakingChallenge(): void {
     const question = this.speakingChallengeQuestion();
 
