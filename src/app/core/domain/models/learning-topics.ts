@@ -48,6 +48,7 @@ export const LEARNING_TOPICS: readonly LearningTopic[] = [
   beginnerTopic('diy-and-renovation', 'DIY & Renovation', 'Use simple language for practical home projects', ['screw', 'hammer', 'paint', 'wall'], 'Ik heb ... nodig.', 'Ik heb een hamer nodig.'),
   beginnerTopic('talking-about-yesterday', 'Talking About Yesterday', 'Say what happened yesterday', ['yesterday', 'was', 'had', 'went'], 'Gisteren heb ik ...', 'Gisteren heb ik gewerkt.'),
   beginnerTopic('animals-and-nature', 'Animals & Nature', 'Name common animals and things in nature', ['bird', 'mouse', 'dog', 'tree'], 'Ik zie ...', 'Ik zie een vogel.'),
+  beginnerTopic('birthdays-and-celebrations', 'Birthdays & Celebrations', 'Talk about birthdays and birthday celebrations', ['birthday', 'birthday party', 'present', 'cake', 'congratulate', 'celebrate'], 'Ik ben jarig.', 'Vandaag ben ik jarig.'),
   {
     id: 'daily-life',
     title: 'Daily life',

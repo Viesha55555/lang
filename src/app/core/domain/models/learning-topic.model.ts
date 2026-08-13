@@ -19,6 +19,7 @@ export type TopicId =
   | 'diy-and-renovation'
   | 'talking-about-yesterday'
   | 'animals-and-nature'
+  | 'birthdays-and-celebrations'
   | 'daily-life'
   | 'introductions-and-communication'
   | 'family-and-relationships'

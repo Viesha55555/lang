@@ -41,12 +41,14 @@
           <p>Finding your next card…</p>
         </div>
       } @else if (session.currentCard(); as card) {
-        <app-study-card
-          [card]="card"
-          [revealed]="session.lastResult() !== null || session.needsIntro()"
-          [answerPassed]="session.lastResult()?.passed ?? null"
-          (replayRequested)="onReplayCardPressed()"
-        />
+        @for (currentCard of [card]; track currentCard.id) {
+          <app-study-card
+            [card]="currentCard"
+            [revealed]="session.lastResult() !== null || session.needsIntro()"
+            [answerPassed]="session.lastResult()?.passed ?? null"
+            (replayRequested)="onReplayCardPressed()"
+          />
+        }
 
         @if (session.lastResult(); as result) {
           <app-study-result [result]="result" (next)="onNextPressed()" />

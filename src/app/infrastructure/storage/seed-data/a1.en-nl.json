@@ -2630,5 +2630,62 @@
     "sourceText": "nature",
     "targetText": "de natuur",
     "topicId": "animals-and-nature"
+  },
+  {
+    "id": "a1-0426-to-have-your-birthday",
+    "sourceText": "to have your birthday",
+    "targetText": "jarig zijn",
+    "topicId": "birthdays-and-celebrations"
+  },
+  {
+    "id": "a1-0427-to-celebrate",
+    "sourceText": "to celebrate",
+    "targetText": "feestvieren",
+    "topicId": "birthdays-and-celebrations"
+  },
+  {
+    "id": "a1-0428-the-birthday",
+    "sourceText": "the birthday",
+    "targetText": "de verjaardag",
+    "acceptedAnswers": [
+      "verjaardag"
+    ],
+    "topicId": "birthdays-and-celebrations"
+  },
+  {
+    "id": "a1-0429-the-birthday-party",
+    "sourceText": "the birthday party",
+    "targetText": "het verjaardagsfeest",
+    "acceptedAnswers": [
+      "verjaardagsfeest"
+    ],
+    "topicId": "birthdays-and-celebrations"
+  },
+  {
+    "id": "a1-0430-the-birthday-present",
+    "sourceText": "the birthday present",
+    "targetText": "het verjaardagscadeau",
+    "acceptedAnswers": [
+      "verjaardagscadeau"
+    ],
+    "topicId": "birthdays-and-celebrations"
+  },
+  {
+    "id": "a1-0431-the-birthday-cake",
+    "sourceText": "the birthday cake",
+    "targetText": "de verjaardagstaart",
+    "acceptedAnswers": [
+      "verjaardagstaart"
+    ],
+    "topicId": "birthdays-and-celebrations"
+  },
+  {
+    "id": "a1-0432-happy-birthday",
+    "sourceText": "happy birthday",
+    "targetText": "gefeliciteerd met je verjaardag",
+    "acceptedAnswers": [
+      "gefeliciteerd"
+    ],
+    "topicId": "birthdays-and-celebrations"
   }
 ]

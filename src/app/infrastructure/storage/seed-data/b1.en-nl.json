@@ -1042,5 +1042,23 @@
     "sourceText": "to a certain extent",
     "targetText": "tot op zekere hoogte",
     "topicId": "opinions-and-discussion"
+  },
+  {
+    "id": "b1-0169-sound-insulation",
+    "sourceText": "sound insulation",
+    "targetText": "de geluidsisolatie",
+    "acceptedAnswers": [
+      "geluidsisolatie"
+    ],
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "b1-0170-primer",
+    "sourceText": "primer",
+    "targetText": "de voorstrijk",
+    "acceptedAnswers": [
+      "voorstrijk"
+    ],
+    "topicId": "diy-and-renovation"
   }
 ]

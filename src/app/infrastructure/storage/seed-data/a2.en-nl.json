@@ -1281,5 +1281,17 @@
     "sourceText": "Could you let me know ...?",
     "targetText": "kunt u mij laten weten ...",
     "topicId": "basic-communication"
+  },
+  {
+    "id": "a2-0207-to-cover",
+    "sourceText": "to cover",
+    "targetText": "afdekken",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a2-0208-to-seal-or-fill",
+    "sourceText": "to close / fill",
+    "targetText": "dichtmaken",
+    "topicId": "diy-and-renovation"
   }
 ]
