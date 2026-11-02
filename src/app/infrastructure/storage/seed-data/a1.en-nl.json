@@ -2687,5 +2687,59 @@
       "gefeliciteerd"
     ],
     "topicId": "birthdays-and-celebrations"
+  },
+  {
+    "id": "a1-0433-this-weekend",
+    "sourceText": "this weekend",
+    "targetText": "dit weekend",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a1-0434-the-films",
+    "sourceText": "the films",
+    "targetText": "de films",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0435-the-story",
+    "sourceText": "the story",
+    "targetText": "het verhaal",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a1-0436-a-strange-building",
+    "sourceText": "a strange building",
+    "targetText": "een vreemd gebouw",
+    "topicId": "common-adjectives",
+    "acceptedAnswers": [
+      "een raar gebouw"
+    ]
+  },
+  {
+    "id": "a1-0437-yellow-walls",
+    "sourceText": "yellow walls",
+    "targetText": "gele muren",
+    "topicId": "colors"
+  },
+  {
+    "id": "a1-0438-the-carpet",
+    "sourceText": "the carpet",
+    "targetText": "het tapijt",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a1-0439-the-furniture",
+    "sourceText": "the furniture",
+    "targetText": "de meubels",
+    "topicId": "home-and-household",
+    "acceptedAnswers": [
+      "het meubilair"
+    ]
+  },
+  {
+    "id": "a1-0440-the-swimming-pool",
+    "sourceText": "the swimming pool",
+    "targetText": "het zwembad",
+    "topicId": "places-in-town"
   }
 ]

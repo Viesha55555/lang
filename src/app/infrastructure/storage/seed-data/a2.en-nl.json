@@ -1293,5 +1293,137 @@
     "sourceText": "to close / fill",
     "targetText": "dichtmaken",
     "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a2-0209-most-films",
+    "sourceText": "most films",
+    "targetText": "de meeste films",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a2-0210-nowadays",
+    "sourceText": "nowadays",
+    "targetText": "tegenwoordig",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a2-0211-different-from",
+    "sourceText": "different from ...",
+    "targetText": "anders dan ...",
+    "topicId": "opinions-and-discussion"
+  },
+  {
+    "id": "a2-0212-the-story-of-the-film",
+    "sourceText": "the story of the film",
+    "targetText": "het verhaal van de film",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a2-0213-it-is-about",
+    "sourceText": "it is about ...",
+    "targetText": "het gaat over ...",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a2-0214-it-resembles",
+    "sourceText": "it resembles ...",
+    "targetText": "het lijkt op ...",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a2-0215-thousands-of-rooms",
+    "sourceText": "thousands of rooms",
+    "targetText": "duizenden kamers",
+    "topicId": "numbers"
+  },
+  {
+    "id": "a2-0216-from-the-seventies",
+    "sourceText": "from the 1970s",
+    "targetText": "uit de jaren zeventig",
+    "topicId": "time-and-calendar"
+  },
+  {
+    "id": "a2-0217-the-fluorescent-light",
+    "sourceText": "the fluorescent light",
+    "targetText": "de tl-lamp",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a2-0218-the-shape",
+    "sourceText": "the shape",
+    "targetText": "de vorm",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a2-0219-the-layout",
+    "sourceText": "the layout",
+    "targetText": "de indeling",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a2-0220-the-furnishings",
+    "sourceText": "the furnishings / interior arrangement",
+    "targetText": "de inrichting",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "a2-0221-apart-from-that",
+    "sourceText": "apart from that, everything is fine",
+    "targetText": "verder is alles goed",
+    "topicId": "daily-life",
+    "acceptedAnswers": [
+      "voor de rest is alles goed"
+    ]
+  },
+  {
+    "id": "a2-0222-the-notification",
+    "sourceText": "the notification",
+    "targetText": "de melding",
+    "topicId": "work-and-learning",
+    "acceptedAnswers": [
+      "de notificatie"
+    ]
+  },
+  {
+    "id": "a2-0223-notification-on-screen",
+    "sourceText": "there is a notification on the screen",
+    "targetText": "er staat een melding op het scherm",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a2-0224-the-email-reminder",
+    "sourceText": "the email reminder",
+    "targetText": "de e-mailherinnering",
+    "topicId": "work-and-learning",
+    "acceptedAnswers": [
+      "de herinnering per e-mail"
+    ]
+  },
+  {
+    "id": "a2-0225-the-reason",
+    "sourceText": "the reason",
+    "targetText": "de reden",
+    "topicId": "opinions-and-discussion"
+  },
+  {
+    "id": "a2-0226-tomorrow-going-investigate",
+    "sourceText": "tomorrow I am going to investigate the cause",
+    "targetText": "morgen ga ik de oorzaak onderzoeken",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a2-0227-we-have-seen-film",
+    "sourceText": "we have seen the film",
+    "targetText": "we hebben de film gezien",
+    "topicId": "talking-about-yesterday",
+    "acceptedAnswers": [
+      "wij hebben de film gezien"
+    ]
+  },
+  {
+    "id": "a2-0228-looking-forward",
+    "sourceText": "I am looking forward to it",
+    "targetText": "ik kijk ernaar uit",
+    "topicId": "daily-life"
   }
 ]

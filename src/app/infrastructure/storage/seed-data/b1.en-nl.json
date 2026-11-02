@@ -1060,5 +1060,47 @@
       "voorstrijk"
     ],
     "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "b1-0171-based-on",
+    "sourceText": "it is based on ...",
+    "targetText": "het is gebaseerd op ...",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "b1-0172-the-background-noise",
+    "sourceText": "the background noise",
+    "targetText": "het achtergrondgeluid",
+    "topicId": "home-and-household"
+  },
+  {
+    "id": "b1-0173-to-investigate",
+    "sourceText": "to investigate",
+    "targetText": "onderzoeken",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "b1-0174-find-out-why",
+    "sourceText": "I am going to find out why",
+    "targetText": "ik ga uitzoeken waarom",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "b1-0175-script-executed",
+    "sourceText": "the script has been executed",
+    "targetText": "het script is uitgevoerd",
+    "topicId": "work-and-learning",
+    "acceptedAnswers": [
+      "het script is gedraaid"
+    ]
+  },
+  {
+    "id": "b1-0176-had-already-seen-film",
+    "sourceText": "we had already seen the film",
+    "targetText": "we hadden de film al gezien",
+    "topicId": "past-tense",
+    "acceptedAnswers": [
+      "wij hadden de film al gezien"
+    ]
   }
 ]
