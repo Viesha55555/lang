@@ -28,7 +28,7 @@ import {
 } from '../../../shared/utils/speaking-challenge-analysis';
 import type { DutchUsageSuggestion } from '../../../shared/utils/dutch-usage-patterns';
 
-export type PracticeDeck = CardLevel | 'WEAK_WORDS' | 'FREE_PRACTICE';
+export type PracticeDeck = CardLevel | 'WEAK_WORDS' | 'FREE_PRACTICE' | 'FOCUS_WORDS';
 export type TopicActivity = 'DIALOGUE' | 'SPEAKING_CHALLENGE';
 export type DialogueOutcome =
   | 'correct'
@@ -666,6 +666,14 @@ export class StudySessionService {
   private async buildSessionCards(deck: PracticeDeck): Promise<Flashcard[]> {
     const now = new Date();
 
+    if (deck === 'FOCUS_WORDS') {
+      return (await this.cards.getAllCards())
+        .filter(card => card.focused && new Date(card.dueAt).getTime() <= now.getTime())
+        .sort((a, b) => Number((a.focusStreak ?? 0) >= 3) - Number((b.focusStreak ?? 0) >= 3)
+          || new Date(a.dueAt).getTime() - new Date(b.dueAt).getTime())
+        .slice(0, 15);
+    }
+
     if (deck === 'WEAK_WORDS') {
       const cards = await this.cards.getAllCards();
 
@@ -682,12 +690,15 @@ export class StudySessionService {
     if (deck === 'FREE_PRACTICE') {
       const cards = await this.cards.getAllCards();
       const filtered = cards.filter((card) => this.matchesCurrentSelection(card));
-      const shuffled = [...filtered].sort(() => Math.random() - 0.5);
+      const shuffled = [...filtered].sort(() => Math.random() - 0.5)
+        .sort((a, b) => Number(!!b.focused) - Number(!!a.focused));
 
       return shuffled.slice(0, FREE_PRACTICE_LIMIT);
     }
 
-    const dueCards = await this.cards.getDueCards(now, 500);
+    const dueCards = (await this.cards.getAllCards())
+      .filter(card => Date.parse(card.dueAt) <= now.getTime())
+      .sort((a, b) => Number(!!b.focused) - Number(!!a.focused) || Date.parse(a.dueAt) - Date.parse(b.dueAt));
     const levelCards = dueCards
       .filter((card) => card.level === deck)
       .filter((card) => this.matchesCurrentSelection(card));
@@ -698,7 +709,7 @@ export class StudySessionService {
       .filter((card) => card.status !== 'new')
       .slice(0, SESSION_CARD_LIMIT - newCards.length);
 
-    return [...reviewCards, ...newCards].slice(0, SESSION_CARD_LIMIT);
+    return [...reviewCards, ...newCards].sort((a, b) => Number(!!b.focused) - Number(!!a.focused)).slice(0, SESSION_CARD_LIMIT);
   }
 
   private startDialogueAfterFlashcards(): void {

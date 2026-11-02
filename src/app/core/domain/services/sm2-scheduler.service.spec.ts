@@ -24,6 +24,24 @@ describe('Sm2SchedulerService', () => {
     };
   });
 
+  it('keeps selected words for maintenance after three successful reviews', () => {
+    let result = { ...card, focused: true };
+    for (let i = 0; i < 3; i++) {
+      result = service.schedule(result, 'good', reviewedAt) as typeof result;
+    }
+    expect(result.focusStreak).toBe(3);
+    expect(result.focused).toBeTrue();
+    expect(Date.parse(result.dueAt)).toBeGreaterThan(reviewedAt.getTime());
+  });
+
+  it('returns a difficult focus word to active learning', () => {
+    for (const grade of ['hard', 'again'] as const) {
+      const result = service.schedule({ ...card, focused: true, focusStreak: 3 }, grade, reviewedAt);
+      expect(result.focusStreak).toBe(0);
+      expect(result.focused).toBeTrue();
+    }
+  });
+
   it('schedules again in ten minutes and lowers ease', () => {
     const result = service.schedule(card, 'again', reviewedAt);
 

@@ -20,8 +20,9 @@ import { CardLevel, Flashcard } from '../../core/domain/models/flashcard.model';
           @if (cardLevel(); as level) {
             <span class="level-badge">{{ level }}</span>
           }
-          <p class="eyebrow">Translate and say aloud</p>
+          <p class="eyebrow">Say the Dutch translation</p>
           <h1>{{ card().sourceText }}</h1>
+          <p>Translate the text shown above, including any question. You do not need to answer the question.</p>
           <p class="language-pair">
             {{ languageName(card().sourceLanguage) }}
             <span aria-hidden="true">→</span>

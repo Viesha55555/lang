@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 
 import { CARD_REPOSITORY } from '../tokens';
 
-const SW_PATH = '/sw.js';
+const SW_PATH = new URL('sw.js', document.baseURI).href;
 
 @Injectable({ providedIn: 'root' })
 export class ReminderService {
@@ -49,17 +49,17 @@ export class ReminderService {
     }
 
     const allCards = await this.cards.getAllCards();
-    const futureDues = allCards
-      .map((card) => new Date(card.dueAt).getTime())
-      .filter((t) => t > Date.now());
-
-    if (futureDues.length === 0) {
+    const selected = allCards.filter(card => card.focused);
+    if (!selected.length) {
+      this.cancelReminders();
       return;
     }
-
-    const nextDueAt = new Date(Math.min(...futureDues)).toISOString();
-
-    this.postToSW({ type: 'SCHEDULE_REMINDER', dueAt: nextDueAt });
+    const next = [...selected].sort((a, b) => Date.parse(a.dueAt) - Date.parse(b.dueAt))[0];
+    this.postToSW({
+      type: 'SCHEDULE_REMINDER',
+      dueAt: new Date(Math.max(Date.parse(next.dueAt), Date.now() + 60_000)).toISOString(),
+      word: next.targetText,
+    });
     await this.tryRegisterPeriodicSync();
   }
 
@@ -70,7 +70,7 @@ export class ReminderService {
   private async registerServiceWorker(): Promise<void> {
     try {
       this.swRegistration = await navigator.serviceWorker.register(SW_PATH, {
-        scope: '/',
+        scope: new URL('.', document.baseURI).pathname,
       });
     } catch {
       // Service worker registration failed silently — notifications won't work
@@ -98,10 +98,8 @@ export class ReminderService {
   }
 
   private postToSW(message: Record<string, unknown>): void {
-    if (!navigator.serviceWorker.controller) {
-      return;
-    }
-
-    navigator.serviceWorker.controller.postMessage(message);
+    const worker = this.swRegistration?.active ?? navigator.serviceWorker.controller;
+    if (worker) worker.postMessage(message);
+    else void navigator.serviceWorker.ready.then(registration => registration.active?.postMessage(message));
   }
 }

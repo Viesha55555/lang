@@ -15,6 +15,8 @@ export interface FlashcardGrammar {
 
 export interface Flashcard {
   id: string;
+  focused?: boolean;
+  focusStreak?: number;
   level?: CardLevel;
   topicId?: TopicId;
   sourceText: string;

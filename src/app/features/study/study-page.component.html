@@ -29,7 +29,7 @@
           (click)="onEnableRemindersPressed()"
         >🔔</button>
       }
-      <a routerLink="/dictionary" class="dict-link" aria-label="Dictionary">📖</a>
+      <a routerLink="/dictionary" class="dict-link" aria-label="Choose focus words">Focus words</a>
     </div>
   </header>
 
@@ -66,18 +66,14 @@
           <span class="empty-icon" aria-hidden="true">✓</span>
           <h1>Session done</h1>
           <p>Nice work. Come back later for the next short round.</p>
-          <button type="button" class="continue-button" (click)="onFreePracticePressed()">
-            Practice all
-          </button>
+          <a routerLink="/dictionary" class="continue-button">Choose focus words</a>
         </div>
       } @else {
         <div class="empty-state">
           <span class="empty-icon" aria-hidden="true">☀</span>
           <h1>You're caught up</h1>
           <p>No cards are due in this set right now.</p>
-          <button type="button" class="continue-button" (click)="onFreePracticePressed()">
-            Practice all
-          </button>
+          <a routerLink="/dictionary" class="continue-button">Choose focus words</a>
         </div>
       }
 
@@ -390,6 +386,7 @@
     </section>
   } @else {
     <section class="start-menu" aria-label="Practice menu">
+      <a routerLink="/dictionary" class="menu-card"><span>Choose your focus words</span><small>Search, browse categories, and build your own set</small></a>
       @for (menuCard of menuCards; track menuCard.title) {
         <button
           type="button"

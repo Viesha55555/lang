@@ -9,6 +9,8 @@ import {
 import { RouterLink } from '@angular/router';
 
 import { CARD_REPOSITORY } from '../../core/domain/tokens';
+import { findLearningTopic } from '../../core/domain/models/learning-topics';
+import { ReminderService } from '../../core/domain/services/reminder.service';
 import { Flashcard } from '../../core/domain/models/flashcard.model';
 
 type SortKey = 'strength' | 'dutch' | 'level' | 'due';
@@ -21,11 +23,32 @@ type SortKey = 'strength' | 'dutch' | 'level' | 'due';
       <header class="dict-header">
         <div class="dict-title-row">
           <a routerLink="/" class="back-link" aria-label="Back to practice">←</a>
-          <h1>Dictionary</h1>
+          <h1>Focus words</h1>
           <span class="count-badge">{{ cards().length }} words</span>
         </div>
 
+        <p>Choose the words you want to learn. Search Dutch or English, or browse by category.</p>
+        <p>Aim for 15 words or fewer so you have time to revisit each one. A smaller set is easier to practise consistently.</p>
+        <div class="focus-actions">
+          <strong>{{ focusedCount() }} selected</strong>
+          <a routerLink="/" [queryParams]="{ practice: 'focus' }">Practise focus words</a>
+          <button type="button" (click)="onlyFocused.set(!onlyFocused())" [attr.aria-pressed]="onlyFocused()">Show {{ onlyFocused() ? 'all words' : 'selected words' }}</button>
+        </div>
+        @if (reminders.isSupported) {
+          <button type="button" (click)="enableReminders()">Enable focus reminders</button>
+          <p role="status">{{ reminderMessage() }}</p>
+        }
+        <p>Reminders depend on browser support and permission; delivery while the app is closed is not guaranteed.</p>
+        <p>After 3 successful reviews in a row, a word moves to maintenance. It stays selected and returns when due.</p>
+        @if (focusedCount() > 15) { <p role="status">You have more than 15 selected. Consider a smaller set to give each word more attention.</p> }
+        @if (error()) { <p role="alert">{{ error() }}</p> }
         <div class="dict-controls">
+          <label>Category
+            <select [value]="category()" (change)="category.set($any($event.target).value)">
+              <option value="">All categories</option>
+              @for (name of categories(); track name) { <option [value]="name">{{ name }}</option> }
+            </select>
+          </label>
           <input
             class="search-input"
             type="search"
@@ -63,7 +86,7 @@ type SortKey = 'strength' | 'dutch' | 'level' | 'due';
               <tr>
                 <th scope="col">Dutch</th>
                 <th scope="col">English</th>
-                <th scope="col">Level</th>
+                <th scope="col">Category</th><th scope="col">Focus</th><th scope="col">Level</th>
                 <th scope="col">Status</th>
                 <th scope="col">Strength</th>
               </tr>
@@ -73,6 +96,8 @@ type SortKey = 'strength' | 'dutch' | 'level' | 'due';
                 <tr [class]="'status-' + card.status">
                   <td class="dutch-cell">{{ card.targetText }}</td>
                   <td class="english-cell">{{ card.sourceText }}</td>
+                  <td>{{ categoryName(card) }}</td>
+                  <td><button type="button" [disabled]="saving()" [attr.aria-pressed]="!!card.focused" [attr.aria-label]="(card.focused ? 'Remove ' : 'Focus on ') + card.targetText" (click)="toggleFocus(card)">{{ card.focused ? ((card.focusStreak ?? 0) >= 3 ? 'Maintenance · Remove' : 'Focused · Remove') : 'Add to focus' }}</button></td>
                   <td class="level-cell">
                     @if (card.level) {
                       <span class="level-badge level-{{ card.level }}">{{ card.level }}</span>
@@ -105,6 +130,41 @@ type SortKey = 'strength' | 'dutch' | 'level' | 'due';
 export class DictionaryPageComponent implements OnInit {
   private readonly repo = inject(CARD_REPOSITORY);
 
+  readonly reminders = inject(ReminderService);
+  readonly reminderMessage = signal('');
+  async enableReminders(): Promise<void> {
+    try {
+      this.reminderMessage.set(await this.reminders.requestPermission()
+        ? 'Focus reminders enabled.'
+        : 'Notifications are blocked or unavailable. You can still practise your focus words here.');
+    } catch { this.reminderMessage.set('Could not enable notifications. Please try again.'); }
+  }
+  readonly error = signal('');
+  readonly saving = signal(false);
+  readonly onlyFocused = signal(false);
+  readonly category = signal('');
+  readonly focusedCount = computed(() => this.cards().filter(c => c.focused).length);
+  readonly categories = computed(() => [...new Set(this.cards().map(c => this.categoryName(c)))].sort());
+
+  categoryName(card: Flashcard): string {
+    return (card.topicId ? findLearningTopic(card.topicId)?.title : null) ?? 'Other';
+  }
+
+  async toggleFocus(card: Flashcard): Promise<void> {
+    this.saving.set(true);
+    this.error.set('');
+    try {
+      const updated = { ...card, focused: !card.focused, focusStreak: 0 };
+      await this.repo.save(updated);
+      this.cards.update(cards => cards.map(c => c.id === card.id ? updated : c));
+      await this.reminders.scheduleNextReminder();
+    } catch {
+      this.error.set('Could not save your selection. Please try again.');
+    } finally {
+      this.saving.set(false);
+    }
+  }
+
   readonly cards = signal<Flashcard[]>([]);
   readonly isLoading = signal(true);
   readonly query = signal('');
@@ -119,7 +179,7 @@ export class DictionaryPageComponent implements OnInit {
 
   readonly filtered = computed(() => {
     const q = this.query().trim().toLowerCase();
-    const all = this.cards();
+    const all = this.cards().filter(c => (!this.onlyFocused() || c.focused) && (!this.category() || this.categoryName(c) === this.category()));
     const sort = this.sortKey();
 
     const matched = q
@@ -149,9 +209,9 @@ export class DictionaryPageComponent implements OnInit {
   });
 
   async ngOnInit(): Promise<void> {
-    const all = await this.repo.getAllCards();
-    this.cards.set(all);
-    this.isLoading.set(false);
+    try { this.cards.set(await this.repo.getAllCards()); }
+    catch { this.error.set('Could not load your words. Please reload to try again.'); }
+    finally { this.isLoading.set(false); }
   }
 
   strengthPct(card: Flashcard): number {

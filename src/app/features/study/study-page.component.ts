@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import {
   PracticeDeck,
@@ -20,6 +20,12 @@ import { StudyResultComponent } from './study-result.component';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StudyPageComponent {
+  constructor() {
+    if (inject(ActivatedRoute).snapshot.queryParamMap.get('practice') === 'focus') {
+      void this.session.startPractice('FOCUS_WORDS');
+    }
+  }
+
   readonly session = inject(StudySessionService);
   readonly reminders = inject(ReminderService);
   readonly reminderEnabled = signal(
@@ -31,6 +37,7 @@ export class StudyPageComponent {
     level?: CardLevel;
     deck?: PracticeDeck;
   }[] = [
+    { title: 'Practise focus words', subtitle: 'Your selected words, when due', deck: 'FOCUS_WORDS' },
     { title: 'Beginner', subtitle: 'A1 · simple words and phrases', level: 'A1' },
     { title: 'Elementary', subtitle: 'A2 · daily conversations', level: 'A2' },
     { title: 'Intermediate', subtitle: 'B1 · explain problems', level: 'B1' },

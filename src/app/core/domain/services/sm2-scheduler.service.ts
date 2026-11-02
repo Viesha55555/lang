@@ -10,6 +10,11 @@ export class Sm2SchedulerService implements ReviewSchedulerPort {
     const next: Flashcard = { ...card };
     const reviewedAtIso = reviewedAt.toISOString();
 
+    if (card.focused) {
+      next.focusStreak = grade === 'good' || grade === 'easy'
+        ? (card.focusStreak ?? 0) + 1 : 0;
+    }
+
     next.lastReviewedAt = reviewedAtIso;
     next.updatedAt = reviewedAtIso;
     next.reviewCount = (card.reviewCount ?? card.repetition ?? 0) + 1;

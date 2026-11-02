@@ -1,89 +1,60 @@
 const REMINDER_ALARM_KEY = 'spoken-flashcards.reminder';
+const STATE_CACHE = 'spoken-reminders-v1';
+const stateUrl = new URL('reminder-state', self.registration.scope).href;
+let timer;
 
 self.addEventListener('install', () => self.skipWaiting());
-self.addEventListener('activate', (event) => event.waitUntil(self.clients.claim()));
-
-// Main app posts { type: 'SCHEDULE_REMINDER', dueAt: <ISO string> }
-self.addEventListener('message', (event) => {
+self.addEventListener('activate', event => event.waitUntil(self.clients.claim()));
+self.addEventListener('message', event => {
   if (event.data?.type === 'SCHEDULE_REMINDER') {
-    scheduleReminder(event.data.dueAt);
-  }
-
-  if (event.data?.type === 'CANCEL_REMINDER') {
-    clearScheduled();
-  }
-});
-
-// Periodic background sync fires the SW periodically (Chrome 80+)
-self.addEventListener('periodicsync', (event) => {
-  if (event.tag === REMINDER_ALARM_KEY) {
-    event.waitUntil(maybeNotify());
+    event.waitUntil(saveReminder(event.data));
+  } else if (event.data?.type === 'CANCEL_REMINDER') {
+    clearTimeout(timer);
+    event.waitUntil(caches.open(STATE_CACHE).then(cache => cache.delete(stateUrl)));
   }
 });
-
-// Also check on fetch so the SW stays alive while the app is open
-self.addEventListener('fetch', () => {
-  maybeNotify();
-});
-
-let scheduledTimer = null;
-
-function scheduleReminder(dueAtIso) {
-  clearScheduled();
-
-  const msUntilDue = new Date(dueAtIso).getTime() - Date.now();
-
-  if (msUntilDue <= 0) {
-    showReminder();
-    return;
-  }
-
-  // Cap at 24 hours so browsers don't kill the timer silently
-  const delay = Math.min(msUntilDue, 24 * 60 * 60 * 1000);
-
-  scheduledTimer = setTimeout(() => showReminder(), delay);
+async function saveReminder(data) {
+  clearTimeout(timer);
+  const cache = await caches.open(STATE_CACHE);
+  await cache.put(stateUrl, new Response(JSON.stringify(data)));
+  const delay = Math.min(Math.max(0, Date.parse(data.dueAt) - Date.now()), 2147483647);
+  timer = setTimeout(() => maybeNotify(), delay);
 }
-
-function clearScheduled() {
-  if (scheduledTimer !== null) {
-    clearTimeout(scheduledTimer);
-    scheduledTimer = null;
-  }
-}
-
+self.addEventListener('periodicsync', event => {
+  if (event.tag === REMINDER_ALARM_KEY) event.waitUntil(maybeNotify());
+});
+self.addEventListener('fetch', event => event.waitUntil(maybeNotify()));
+let checking = false;
 async function maybeNotify() {
-  const clients = await self.clients.matchAll();
-  // Don't notify if the app is in the foreground — the app handles that itself
-  if (clients.some((c) => c.visibilityState === 'visible')) {
-    return;
+  if (checking) return;
+  checking = true;
+  try {
+    const cache = await caches.open(STATE_CACHE);
+    const response = await cache.match(stateUrl);
+    if (!response) return;
+    const reminder = await response.json();
+    if (Date.parse(reminder.dueAt) > Date.now()) return;
+    const clients = await self.clients.matchAll({ type: 'window' });
+    if (clients.some(client => client.visibilityState === 'visible')) return;
+    await self.registration.showNotification('Practise your focus words', {
+      body: reminder.word + ' is ready to review. Take a moment to practise your selected words.',
+      tag: 'spoken-reminder',
+      data: { url: new URL('?practice=focus', self.registration.scope).href },
+    });
+    await cache.delete(stateUrl);
+  } finally {
+    checking = false;
   }
-
-  showReminder();
 }
-
-function showReminder() {
-  self.registration.showNotification('Time to practice Dutch 🇳🇱', {
-    body: 'You have words due for review. Open Spoken to keep your streak going.',
-    icon: '/favicon.ico',
-    badge: '/favicon.ico',
-    tag: 'spoken-reminder',
-    renotify: false,
-  });
-}
-
-self.addEventListener('notificationclick', (event) => {
+self.addEventListener('notificationclick', event => {
   event.notification.close();
-  event.waitUntil(
-    self.clients.matchAll({ type: 'window' }).then((clientList) => {
-      for (const client of clientList) {
-        if (client.url && 'focus' in client) {
-          return client.focus();
-        }
-      }
-
-      if (self.clients.openWindow) {
-        return self.clients.openWindow('/');
-      }
-    }),
-  );
+  const url = new URL('?practice=focus', self.registration.scope).href;
+  event.waitUntil(self.clients.matchAll({ type: 'window' }).then(async clients => {
+    const client = clients.find(client => client.url.startsWith(self.registration.scope));
+    if (client) {
+      await client.navigate(url);
+      return client.focus();
+    }
+    return self.clients.openWindow(url);
+  }));
 });

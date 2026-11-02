@@ -307,3 +307,20 @@
     transition: none;
   }
 }
+
+.focus-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+button, select {
+  padding: .55rem .75rem;
+  border: 1px solid #8c958b;
+  border-radius: .5rem;
+  background: #fffdf8;
+  color: #25231f;
+}
+button[aria-pressed="true"] { background: #dbe9dc; }
+.dict-header p { margin: 0; line-height: 1.5; }
+.dict-list { overflow-x: auto; }
