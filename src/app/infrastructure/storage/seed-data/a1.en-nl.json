@@ -662,7 +662,7 @@
     "id": "a1-0105-i-was",
     "sourceText": "I was",
     "targetText": "ik was",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0106-you-were",
@@ -671,13 +671,13 @@
     "acceptedAnswers": [
       "je was"
     ],
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0107-he-was",
     "sourceText": "he was",
     "targetText": "hij was",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0108-we-were",
@@ -686,49 +686,49 @@
     "acceptedAnswers": [
       "we waren"
     ],
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0109-i-had",
     "sourceText": "I had",
     "targetText": "ik had",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0110-he-had",
     "sourceText": "he had",
     "targetText": "hij had",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0111-i-went",
     "sourceText": "I went",
     "targetText": "ik ging",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0112-i-was-at-home",
     "sourceText": "I was at home",
     "targetText": "ik was thuis",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0113-i-went-home",
     "sourceText": "I went home",
     "targetText": "ik ging naar huis",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0114-i-had-time",
     "sourceText": "I had time",
     "targetText": "ik had tijd",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0115-it-was-good",
     "sourceText": "it was good",
     "targetText": "het was goed",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0116-yesterday",
@@ -2545,55 +2545,55 @@
     "id": "a1-0411-i-had-an-appointment",
     "sourceText": "I had an appointment",
     "targetText": "ik had een afspraak",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0412-i-went-to-the-shop",
     "sourceText": "I went to the shop",
     "targetText": "ik ging naar de winkel",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0413-i-worked",
     "sourceText": "I worked",
     "targetText": "ik heb gewerkt",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0414-i-walked",
     "sourceText": "I walked",
     "targetText": "ik heb gewandeld",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0415-i-did-the-shopping",
     "sourceText": "I did the shopping",
     "targetText": "ik heb boodschappen gedaan",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0416-i-cooked",
     "sourceText": "I cooked",
     "targetText": "ik heb gekookt",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0417-i-watched-television",
     "sourceText": "I watched television",
     "targetText": "ik heb televisie gekeken",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0418-yesterday-i-was-at-home",
     "sourceText": "yesterday I was at home",
     "targetText": "gisteren was ik thuis",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0419-what-did-you-do-yesterday",
     "sourceText": "what did you do yesterday",
     "targetText": "wat heb je gisteren gedaan",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a1-0420-the-dog",

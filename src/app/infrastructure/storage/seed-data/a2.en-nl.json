@@ -623,115 +623,115 @@
     "id": "a2-0101-i-was",
     "sourceText": "I was",
     "targetText": "ik was",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0102-i-had",
     "sourceText": "I had",
     "targetText": "ik had",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0103-i-came",
     "sourceText": "I came",
     "targetText": "ik kwam",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0104-i-went",
     "sourceText": "I went",
     "targetText": "ik ging",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0105-i-saw",
     "sourceText": "I saw",
     "targetText": "ik zag",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0106-i-did",
     "sourceText": "I did",
     "targetText": "ik deed",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0107-i-said",
     "sourceText": "I said",
     "targetText": "ik zei",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0108-i-gave",
     "sourceText": "I gave",
     "targetText": "ik gaf",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0109-i-took",
     "sourceText": "I took",
     "targetText": "ik nam",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0110-i-got",
     "sourceText": "I got",
     "targetText": "ik kreeg",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0111-i-found",
     "sourceText": "I found",
     "targetText": "ik vond",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0112-i-thought",
     "sourceText": "I thought",
     "targetText": "ik dacht",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0113-i-knew",
     "sourceText": "I knew",
     "targetText": "ik wist",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0114-i-had-to",
     "sourceText": "I had to",
     "targetText": "ik moest",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0115-i-could",
     "sourceText": "I could",
     "targetText": "ik kon",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0116-i-wanted",
     "sourceText": "I wanted",
     "targetText": "ik wilde",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0117-i-bought",
     "sourceText": "I bought",
     "targetText": "ik kocht",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0118-i-ate",
     "sourceText": "I ate",
     "targetText": "ik at",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0119-i-drank",
     "sourceText": "I drank",
     "targetText": "ik dronk",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0172-to-need",
@@ -767,97 +767,97 @@
     "id": "a2-0120-i-slept",
     "sourceText": "I slept",
     "targetText": "ik sliep",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0121-i-waited",
     "sourceText": "I waited",
     "targetText": "ik wachtte",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0122-i-worked",
     "sourceText": "I worked yesterday",
     "targetText": "ik werkte gisteren",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0123-i-called",
     "sourceText": "I called",
     "targetText": "ik belde",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0124-i-lived",
     "sourceText": "I lived",
     "targetText": "ik woonde",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0125-i-learned",
     "sourceText": "I learned",
     "targetText": "ik leerde",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0126-i-paid",
     "sourceText": "I paid",
     "targetText": "ik betaalde",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0127-i-heard",
     "sourceText": "I heard",
     "targetText": "ik hoorde",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0128-i-played",
     "sourceText": "I played",
     "targetText": "ik speelde",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0129-i-have-eaten",
     "sourceText": "I have eaten",
     "targetText": "ik heb gegeten",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0130-i-have-drunk",
     "sourceText": "I have drunk",
     "targetText": "ik heb gedronken",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0131-i-have-bought",
     "sourceText": "I have bought",
     "targetText": "ik heb gekocht",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0132-i-have-done-it",
     "sourceText": "I have done it",
     "targetText": "ik heb het gedaan",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0133-i-have-seen-it",
     "sourceText": "I have seen it",
     "targetText": "ik heb het gezien",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0134-i-have-said-it",
     "sourceText": "I have said it",
     "targetText": "ik heb het gezegd",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0135-i-have-forgotten-it",
     "sourceText": "I have forgotten it",
     "targetText": "ik ben het vergeten",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0136-i-have-lost-it",
@@ -866,97 +866,97 @@
     "acceptedAnswers": [
       "ik ben het kwijt"
     ],
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0137-i-have-gone",
     "sourceText": "I have gone",
     "targetText": "ik ben gegaan",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0138-i-have-come",
     "sourceText": "I have come",
     "targetText": "ik ben gekomen",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0139-i-have-been",
     "sourceText": "I have been",
     "targetText": "ik ben geweest",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0140-i-have-worked",
     "sourceText": "I have worked",
     "targetText": "ik heb gewerkt",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0141-i-have-called",
     "sourceText": "I have called",
     "targetText": "ik heb gebeld",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0142-i-have-waited",
     "sourceText": "I have waited",
     "targetText": "ik heb gewacht",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0143-i-have-paid",
     "sourceText": "I have paid",
     "targetText": "ik heb betaald",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0144-i-have-lived",
     "sourceText": "I have lived",
     "targetText": "ik heb gewoond",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0145-i-have-learned",
     "sourceText": "I have learned",
     "targetText": "ik heb geleerd",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0146-i-worked",
     "sourceText": "I worked",
     "targetText": "ik werkte",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0147-i-lived-in",
     "sourceText": "I lived in Amsterdam",
     "targetText": "ik woonde in Amsterdam",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0148-i-made-a-mistake",
     "sourceText": "I made a mistake",
     "targetText": "ik maakte een fout",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0149-i-bought",
     "sourceText": "I bought groceries",
     "targetText": "ik kocht boodschappen",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0150-i-said",
     "sourceText": "I said no",
     "targetText": "ik zei nee",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0151-i-worked-all-day",
     "sourceText": "I worked all day",
     "targetText": "ik werkte de hele dag",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0152-she-called",
@@ -965,13 +965,13 @@
     "acceptedAnswers": [
       "ze belde"
     ],
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0153-i-waited",
     "sourceText": "I waited for an hour",
     "targetText": "ik wachtte een uur",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0154-we-ate",
@@ -980,25 +980,25 @@
     "acceptedAnswers": [
       "we aten"
     ],
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0155-i-walked",
     "sourceText": "I walked",
     "targetText": "ik liep",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0156-he-told",
     "sourceText": "he told",
     "targetText": "hij vertelde",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0157-last-week",
     "sourceText": "last week I worked",
     "targetText": "vorige week werkte ik",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "a2-0158-to-catch",
@@ -1415,7 +1415,7 @@
     "id": "a2-0227-we-have-seen-film",
     "sourceText": "we have seen the film",
     "targetText": "we hebben de film gezien",
-    "topicId": "talking-about-yesterday",
+    "topicId": "past-tense",
     "acceptedAnswers": [
       "wij hebben de film gezien"
     ]
@@ -1425,5 +1425,113 @@
     "sourceText": "I am looking forward to it",
     "targetText": "ik kijk ernaar uit",
     "topicId": "daily-life"
+  },
+  {
+    "id": "a2-0229-to-see-colleagues-again",
+    "sourceText": "to see colleagues again",
+    "targetText": "collega's weer zien",
+    "topicId": "work-and-learning"
+  },
+  {
+    "id": "a2-0230-i-had-lunch",
+    "sourceText": "I had lunch",
+    "targetText": "ik heb geluncht",
+    "topicId": "past-tense"
+  },
+  {
+    "id": "a2-0231-to-eat-out",
+    "sourceText": "to eat out",
+    "targetText": "buiten de deur eten",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a2-0232-away-from-home",
+    "sourceText": "away from home",
+    "targetText": "buiten de deur",
+    "topicId": "daily-routine"
+  },
+  {
+    "id": "a2-0233-the-italian-sandwich-shop",
+    "sourceText": "the Italian sandwich shop",
+    "targetText": "de Italiaanse broodjeszaak",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a2-0234-i-have-started",
+    "sourceText": "I have started",
+    "targetText": "ik ben begonnen",
+    "topicId": "past-tense"
+  },
+  {
+    "id": "a2-0235-really-nice",
+    "sourceText": "really nice",
+    "targetText": "echt leuk",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a2-0236-what-can-you-do-there",
+    "sourceText": "what can you do there",
+    "targetText": "wat kun je er doen",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a2-0237-the-gp-practice",
+    "sourceText": "the GP practice",
+    "targetText": "de huisartsenpraktijk",
+    "topicId": "health-and-body"
+  },
+  {
+    "id": "a2-0238-to-call-someone",
+    "sourceText": "to call someone",
+    "targetText": "iemand bellen",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a2-0239-the-whole-conversation",
+    "sourceText": "the whole conversation",
+    "targetText": "het hele gesprek",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a2-0240-in-dutch",
+    "sourceText": "in Dutch",
+    "targetText": "in het Nederlands",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a2-0241-to-have-a-conversation",
+    "sourceText": "to have a conversation",
+    "targetText": "een gesprek voeren",
+    "topicId": "basic-communication"
+  },
+  {
+    "id": "a2-0242-i-am-proud-of-that",
+    "sourceText": "I am proud of that",
+    "targetText": "daar ben ik trots op",
+    "topicId": "common-adjectives"
+  },
+  {
+    "id": "a2-0243-the-lighting",
+    "sourceText": "the lighting",
+    "targetText": "de verlichting",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a2-0244-acoustic",
+    "sourceText": "acoustic",
+    "targetText": "akoestisch",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a2-0245-the-panels",
+    "sourceText": "the panels",
+    "targetText": "de panelen",
+    "topicId": "diy-and-renovation"
+  },
+  {
+    "id": "a2-0246-i-called-the-gp-practice",
+    "sourceText": "I called the GP practice",
+    "targetText": "ik heb de huisartsenpraktijk gebeld",
+    "topicId": "past-tense"
   }
 ]

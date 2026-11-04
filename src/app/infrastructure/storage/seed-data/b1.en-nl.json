@@ -264,7 +264,7 @@
     "id": "b1-0043-it-was-about",
     "sourceText": "it was about",
     "targetText": "het ging over",
-    "topicId": "basic-communication"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0044-i-have-a-complaint",
@@ -297,7 +297,7 @@
     "id": "b1-0048-what-happened",
     "sourceText": "what happened",
     "targetText": "wat is er gebeurd",
-    "topicId": "basic-communication"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0049-i-lost-my",
@@ -648,37 +648,37 @@
     "id": "b1-0106-i-have-worked",
     "sourceText": "I have worked there for three years",
     "targetText": "ik heb daar drie jaar gewerkt",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0107-i-have-gone",
     "sourceText": "I went home because I was tired",
     "targetText": "ik ben naar huis gegaan omdat ik moe was",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0109-i-have-bought",
     "sourceText": "I have bought everything we need",
     "targetText": "ik heb alles gekocht wat we nodig hebben",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0110-i-have-said",
     "sourceText": "I said that I disagreed",
     "targetText": "ik heb gezegd dat ik het er niet mee eens ben",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0111-i-was-cooking",
     "sourceText": "I was cooking",
     "targetText": "ik was aan het koken",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0112-i-was-working",
     "sourceText": "I was working",
     "targetText": "ik was aan het werken",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0113-she-has-called",
@@ -687,7 +687,7 @@
     "acceptedAnswers": [
       "ze heeft gebeld"
     ],
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0114-we-have-arrived",
@@ -696,25 +696,25 @@
     "acceptedAnswers": [
       "we zijn aangekomen"
     ],
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0115-he-has-left",
     "sourceText": "he has left",
     "targetText": "hij is vertrokken",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0116-i-had-already-eaten",
     "sourceText": "I had already eaten",
     "targetText": "ik had al gegeten",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0117-it-turned-out-that",
     "sourceText": "it turned out that",
     "targetText": "het bleek dat",
-    "topicId": "talking-about-yesterday"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0118-only",
@@ -777,7 +777,7 @@
     "id": "b1-0126-productive",
     "sourceText": "I had a productive day",
     "targetText": "ik had een productieve dag",
-    "topicId": "work-and-learning"
+    "topicId": "past-tense"
   },
   {
     "id": "b1-0127-promotion",

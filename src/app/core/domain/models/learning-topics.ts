@@ -46,7 +46,6 @@ export const LEARNING_TOPICS: readonly LearningTopic[] = [
   beginnerTopic('weather-and-clothes', 'Weather & Clothes', 'Talk about simple weather and clothing', ['weather', 'rain', 'coat', 'shoes'], 'Het is ...', 'Het is koud.'),
   beginnerTopic('hobbies-and-free-time', 'Hobbies & Free Time', 'Talk about leisure activities and preferences', ['hobby', 'music', 'sport', 'book'], 'Ik houd van ...', 'Ik houd van muziek.'),
   beginnerTopic('diy-and-renovation', 'DIY & Renovation', 'Use simple language for practical home projects', ['screw', 'hammer', 'paint', 'wall'], 'Ik heb ... nodig.', 'Ik heb een hamer nodig.'),
-  beginnerTopic('talking-about-yesterday', 'Talking About Yesterday', 'Say what happened yesterday', ['yesterday', 'was', 'had', 'went'], 'Gisteren heb ik ...', 'Gisteren heb ik gewerkt.'),
   beginnerTopic('animals-and-nature', 'Animals & Nature', 'Name common animals and things in nature', ['bird', 'mouse', 'dog', 'tree'], 'Ik zie ...', 'Ik zie een vogel.'),
   beginnerTopic('birthdays-and-celebrations', 'Birthdays & Celebrations', 'Talk about birthdays and birthday celebrations', ['birthday', 'birthday party', 'present', 'cake', 'congratulate', 'celebrate'], 'Ik ben jarig.', 'Vandaag ben ik jarig.'),
   {
@@ -923,7 +922,7 @@ export const LEARNING_TOPICS: readonly LearningTopic[] = [
   {
     id: 'past-tense',
     title: 'Past tense',
-    description: 'Talk about things that already happened',
+    description: 'Practise past-tense words and phrases gathered from everyday topics',
     goalByLevel: {
       A1: 'Use was, had and went.',
       A2: 'Tell what you did with regular past forms.',
@@ -961,8 +960,8 @@ export const LEARNING_TOPICS: readonly LearningTopic[] = [
         { pattern: 'Ik woonde in ...', example: 'Ik woonde in Amsterdam.' },
       ],
       B1: [
-        { pattern: 'Ik heb ge... + voltooid deelwoord', example: 'Ik heb de hele dag gewerkt.' },
-        { pattern: 'Ik ben ge... + voltooid deelwoord', example: 'Ik ben naar huis gegaan.' },
+        { pattern: 'Ik heb + voltooid deelwoord', example: 'Ik heb de hele dag gewerkt.' },
+        { pattern: 'Ik ben + voltooid deelwoord', example: 'Ik ben naar huis gegaan.' },
         { pattern: 'Ik was aan het ...', example: 'Ik was aan het koken.' },
       ],
     },
