@@ -527,7 +527,10 @@
     "id": "a2-0085-clothes",
     "sourceText": "clothes",
     "targetText": "kleren",
-    "topicId": "weather-and-clothes"
+    "topicId": "weather-and-clothes",
+    "acceptedAnswers": [
+      "kleding"
+    ]
   },
   {
     "id": "a2-0086-shoes",
@@ -1533,5 +1536,89 @@
     "sourceText": "I called the GP practice",
     "targetText": "ik heb de huisartsenpraktijk gebeld",
     "topicId": "past-tense"
+  },
+  {
+    "id": "a2-0247-the-winner",
+    "sourceText": "the winner",
+    "targetText": "de winnaar",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a2-0248-the-computer-game",
+    "sourceText": "the computer game",
+    "targetText": "het computerspel",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a2-0249-the-event",
+    "sourceText": "the event",
+    "targetText": "het evenement",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a2-0250-the-dish",
+    "sourceText": "the dish (prepared food)",
+    "targetText": "het gerecht",
+    "topicId": "food-and-drink"
+  },
+  {
+    "id": "a2-0251-the-shopping-centre",
+    "sourceText": "the shopping centre",
+    "targetText": "het winkelcentrum",
+    "topicId": "places-in-town"
+  },
+  {
+    "id": "a2-0252-the-city-centre",
+    "sourceText": "the city centre",
+    "targetText": "het centrum",
+    "topicId": "places-in-town"
+  },
+  {
+    "id": "a2-0253-the-training-trousers",
+    "sourceText": "the training trousers / sweatpants",
+    "targetText": "de trainingsbroek",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a2-0254-the-zipper",
+    "sourceText": "the zipper",
+    "targetText": "de rits",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a2-0255-the-zippered-pocket",
+    "sourceText": "the zippered pocket",
+    "targetText": "de ritszak",
+    "topicId": "weather-and-clothes"
+  },
+  {
+    "id": "a2-0256-the-neon-lights",
+    "sourceText": "the neon lights",
+    "targetText": "de neonlichten",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a2-0257-the-mini-golf-course",
+    "sourceText": "the mini golf course",
+    "targetText": "de minigolfbaan",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a2-0258-the-obstacle",
+    "sourceText": "the obstacle",
+    "targetText": "de hindernis",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a2-0259-the-fairy-tale",
+    "sourceText": "the fairy tale",
+    "targetText": "het sprookje",
+    "topicId": "hobbies-and-free-time"
+  },
+  {
+    "id": "a2-0260-the-fictional-character",
+    "sourceText": "the fictional character",
+    "targetText": "het personage",
+    "topicId": "hobbies-and-free-time"
   }
 ]
