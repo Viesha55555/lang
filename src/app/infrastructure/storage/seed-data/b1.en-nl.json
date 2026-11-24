@@ -525,12 +525,6 @@
     "topicId": "opinions-and-discussion"
   },
   {
-    "id": "b1-0086-to-stop",
-    "sourceText": "to stop",
-    "targetText": "stoppen",
-    "topicId": "opinions-and-discussion"
-  },
-  {
     "id": "b1-0087-to-compare",
     "sourceText": "to compare",
     "targetText": "vergelijken",
@@ -636,12 +630,6 @@
     "id": "b1-0104-what-do-you-recommend",
     "sourceText": "what do you recommend",
     "targetText": "wat raadt u aan",
-    "topicId": "diy-and-renovation"
-  },
-  {
-    "id": "b1-0105-for-a-concrete-wall",
-    "sourceText": "for a concrete wall",
-    "targetText": "voor een betonnen muur",
     "topicId": "diy-and-renovation"
   },
   {
@@ -900,12 +888,6 @@
     "topicId": "time-and-calendar"
   },
   {
-    "id": "b1-0145-to-reschedule",
-    "sourceText": "to reschedule",
-    "targetText": "verzetten",
-    "topicId": "time-and-calendar"
-  },
-  {
     "id": "b1-0146-to-be-available",
     "sourceText": "to be available",
     "targetText": "beschikbaar zijn",
@@ -966,12 +948,6 @@
     "topicId": "home-and-household"
   },
   {
-    "id": "b1-0156-the-heating-is-not-working",
-    "sourceText": "the heating is not working",
-    "targetText": "de verwarming werkt niet",
-    "topicId": "home-and-household"
-  },
-  {
     "id": "b1-0157-the-referral",
     "sourceText": "the referral",
     "targetText": "de verwijzing",
@@ -981,12 +957,6 @@
     "id": "b1-0158-the-side-effect",
     "sourceText": "the side effect",
     "targetText": "de bijwerking",
-    "topicId": "health-and-body"
-  },
-  {
-    "id": "b1-0159-to-suffer-from-be-bothered-by",
-    "sourceText": "to suffer from / be bothered by",
-    "targetText": "last hebben van",
     "topicId": "health-and-body"
   },
   {
@@ -1002,12 +972,6 @@
     "topicId": "health-and-body"
   },
   {
-    "id": "b1-0162-the-refund",
-    "sourceText": "the refund",
-    "targetText": "de terugbetaling",
-    "topicId": "shopping-and-paying"
-  },
-  {
     "id": "b1-0163-the-warranty-period",
     "sourceText": "the warranty period",
     "targetText": "de garantietermijn",
@@ -1018,12 +982,6 @@
     "sourceText": "to file a complaint",
     "targetText": "een klacht indienen",
     "topicId": "shopping-and-paying"
-  },
-  {
-    "id": "b1-0165-to-agree-with",
-    "sourceText": "to agree with",
-    "targetText": "het eens zijn met",
-    "topicId": "opinions-and-discussion"
   },
   {
     "id": "b1-0166-to-take-into-account",

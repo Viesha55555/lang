@@ -1,7 +1,20 @@
 import { LEARNING_TOPICS } from '../../../core/domain/models/learning-topics';
 import { EN_NL_SEED_DECK } from './en-nl-seed-deck';
+import { SEED_CARD_REDIRECTS } from './seed-card-redirects';
 
 describe('English-Dutch seed deck', () => {
+  it('has no identical translation pairs across levels and valid duplicate redirects', () => {
+    const cards = EN_NL_SEED_DECK.flatMap(section => section.cards);
+    const pairs = cards.map(card => JSON.stringify([
+      card.sourceText.trim().toLowerCase(), card.targetText.trim().toLowerCase(),
+    ]));
+    expect(new Set(pairs).size).toBe(pairs.length);
+    const ids = new Set(cards.map(card => card.id));
+    for (const [retired, survivor] of Object.entries(SEED_CARD_REDIRECTS)) {
+      expect(ids.has(retired)).toBeFalse();
+      expect(ids.has(survivor)).toBeTrue();
+    }
+  });
   it('uses unique card IDs and numeric ID prefixes within each level', () => {
     for (const section of EN_NL_SEED_DECK) {
       const ids = section.cards.map((card) => card.id);

@@ -1327,7 +1327,10 @@
     "id": "a1-0208-at-what-time",
     "sourceText": "at what time",
     "targetText": "om hoe laat",
-    "topicId": "time-and-calendar"
+    "topicId": "time-and-calendar",
+    "acceptedAnswers": [
+      "hoe laat"
+    ]
   },
   {
     "id": "a1-0209-day",
@@ -1765,13 +1768,21 @@
     "id": "a1-0281-cash",
     "sourceText": "cash",
     "targetText": "contant",
-    "topicId": "shopping-and-paying"
+    "topicId": "shopping-and-paying",
+    "acceptedAnswers": [
+      "contant geld",
+      "cash"
+    ]
   },
   {
     "id": "a1-0282-to-pay-by-card",
     "sourceText": "to pay by card",
     "targetText": "pinnen",
-    "topicId": "shopping-and-paying"
+    "topicId": "shopping-and-paying",
+    "acceptedAnswers": [
+      "met de pin betalen",
+      "met een kaart betalen"
+    ]
   },
   {
     "id": "a1-0283-to-pay",

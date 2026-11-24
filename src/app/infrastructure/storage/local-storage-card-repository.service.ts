@@ -7,6 +7,7 @@ import {
   EN_NL_TARGET_LANGUAGE,
   getEnNlSeedCards,
 } from './seed-data/en-nl-seed-deck';
+import { SEED_CARD_REDIRECTS } from './seed-data/seed-card-redirects';
 
 const STORAGE_KEY = 'spoken-flashcards.cards.v2';
 const RETIRED_CARD_IDS = new Set(['b1-0108-i-have-eaten']);
@@ -71,12 +72,13 @@ export class LocalStorageCardRepositoryService implements CardRepositoryPort {
         throw new Error('Stored cards are not an array.');
       }
 
-      const flashcards = (cards as Flashcard[]).filter(
+      const filteredCards = (cards as Flashcard[]).filter(
         (card) =>
           !card.id.startsWith('dialogue-') &&
           !card.sourceText.trim().endsWith('?') &&
           !RETIRED_CARD_IDS.has(card.id),
       );
+      const flashcards = this.mergeRetiredDuplicates(filteredCards);
       const seedTopics = new Map(
         this.seedCards().map((card) => [card.id, card.topicId]),
       );
@@ -92,6 +94,7 @@ export class LocalStorageCardRepositoryService implements CardRepositoryPort {
 
       if (
         flashcards.length !== (cards as Flashcard[]).length ||
+        flashcards.some((card, index) => card !== filteredCards[index]) ||
         cardsWithLevels.some((card, index) => card !== flashcards[index]) ||
         mergedCards.length !== cardsWithLevels.length
       ) {
@@ -108,6 +111,44 @@ export class LocalStorageCardRepositoryService implements CardRepositoryPort {
 
   private saveAll(cards: Flashcard[]): void {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(cards));
+  }
+
+  private mergeRetiredDuplicates(cards: Flashcard[]): Flashcard[] {
+    const seeds = new Map(this.seedCards().map((card) => [card.id, card]));
+    const result = new Map(
+      cards.filter((card) => !SEED_CARD_REDIRECTS[card.id]).map((card) => [card.id, card]),
+    );
+
+    for (const retired of cards) {
+      const id = SEED_CARD_REDIRECTS[retired.id];
+      if (!id) continue;
+      const seed = seeds.get(id);
+      if (!seed) continue;
+      const existing = result.get(id);
+      // Use the most recently reviewed schedule; never reset progress to a new seed.
+      const reviewedAt = (card: Flashcard): number =>
+        Date.parse(card.lastReviewedAt ?? '') ||
+        (card.repetition || card.reviewCount ? Date.parse(card.updatedAt) || 0 : 0);
+      const progress = existing && reviewedAt(existing) >= reviewedAt(retired)
+        ? existing : retired;
+      result.set(id, {
+        ...progress,
+        id,
+        level: seed.level,
+        topicId: seed.topicId,
+        sourceText: seed.sourceText,
+        targetText: seed.targetText,
+        acceptedAnswers: seed.acceptedAnswers,
+        focused: Boolean(existing?.focused || retired.focused),
+        focusStreak: progress.focusStreak ?? 0,
+        reviewCount: Math.max(existing?.reviewCount ?? 0, retired.reviewCount ?? 0),
+        lapseCount: Math.max(existing?.lapseCount ?? 0, retired.lapseCount ?? 0),
+        hardCount: Math.max(existing?.hardCount ?? 0, retired.hardCount ?? 0),
+        createdAt: existing && existing.createdAt < retired.createdAt
+          ? existing.createdAt : retired.createdAt,
+      });
+    }
+    return [...result.values()];
   }
 
   private withInferredLevel(card: Flashcard): Flashcard {
