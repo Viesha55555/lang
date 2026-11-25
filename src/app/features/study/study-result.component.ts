@@ -24,9 +24,7 @@ import { ReviewResult } from '../../core/domain/models/review-result.model';
         <p class="result-title">
           {{ result().passed ? 'Nicely done' : 'Give it another round' }}
         </p>
-        <p class="score">
-          Score {{ scorePercent() }}%
-        </p>
+
         <dl class="speech-diagnostics">
           <div>
             <dt>Heard</dt>
@@ -37,14 +35,14 @@ import { ReviewResult } from '../../core/domain/models/review-result.model';
             <dd>{{ result().expectedText }}</dd>
           </div>
           @if (showNormalized()) {
-            <div>
+            <details><summary>Recognition details</summary><div>
               <dt>Compared</dt>
               <dd>
                 {{ result().normalizedSpokenText || 'empty' }}
                 /
                 {{ result().normalizedExpectedText }}
               </dd>
-            </div>
+            </div></details>
           }
         </dl>
       </div>

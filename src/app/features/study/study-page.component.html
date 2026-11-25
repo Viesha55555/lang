@@ -1,6 +1,6 @@
 <main class="study-shell">
   <header class="topbar">
-    <a class="brand" href="/" aria-label="Spoken Flashcards home">
+    <a class="brand" routerLink="/" aria-label="Spoken Flashcards home">
       <span class="brand-mark" aria-hidden="true">S</span>
       <span>Spoken</span>
     </a>
@@ -15,19 +15,15 @@
           </button>
         </div>
       } @else {
-        <p class="mode">Choose practice</p>
+        <p class="mode">Your learning space</p>
       }
-      <div class="gem-counter" aria-label="Total gems">
-        <span class="gem-icon" aria-hidden="true">💎</span>
-        <span>{{ session.gemCount() }}</span>
-      </div>
       @if (reminders.isSupported && !reminderEnabled()) {
         <button
           type="button"
           class="bell-button"
           aria-label="Enable reminders"
           (click)="onEnableRemindersPressed()"
-        >🔔</button>
+        ><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8ZM10 20h4" /></svg></button>
       }
       <a routerLink="/dictionary" class="dict-link" aria-label="Choose focus words">Focus words</a>
     </div>
@@ -41,6 +37,7 @@
           <p>Finding your next card…</p>
         </div>
       } @else if (session.currentCard(); as card) {
+        @if (session.isExtraPractice()) { <p class="hint">Extra practice · your next scheduled review stays the same.</p> }
         @for (currentCard of [card]; track currentCard.id) {
           <app-study-card
             [card]="currentCard"
@@ -65,15 +62,15 @@
         <div class="empty-state">
           <span class="empty-icon" aria-hidden="true">✓</span>
           <h1>Session done</h1>
-          <p>Nice work. Come back later for the next short round.</p>
-          <a routerLink="/dictionary" class="continue-button">Choose focus words</a>
+          <p>Nice work. Take a break or keep building your confidence.</p>
+          <button class="continue-button" (click)="keepPractising()">Keep practising</button><a routerLink="/">Back to Today</a><a routerLink="/dictionary">Choose focus words</a>
         </div>
       } @else {
         <div class="empty-state">
           <span class="empty-icon" aria-hidden="true">☀</span>
           <h1>You're caught up</h1>
           <p>No cards are due in this set right now.</p>
-          <a routerLink="/dictionary" class="continue-button">Choose focus words</a>
+          <button class="continue-button" (click)="keepPractising()">Keep practising</button><a routerLink="/">Back to Today</a><a routerLink="/dictionary">Choose focus words</a>
         </div>
       }
 
@@ -85,7 +82,7 @@
       }
     </section>
 
-    @if (session.currentCard()) {
+    @if (session.currentCard() && !session.lastResult()) {
       <footer class="mic-area">
         @if (session.needsIntro()) {
           <button type="button" class="continue-button" (click)="onContinuePressed()">
@@ -143,7 +140,7 @@
                 Keep working on this answer
               }
             </p>
-            <dl class="speech-diagnostics compact">
+            <details><summary>Answer details</summary><dl class="speech-diagnostics compact">
               <div>
                 <dt>Question</dt>
                 <dd>{{ session.speakingChallengeQuestion() }}</dd>
@@ -194,28 +191,10 @@
                   <dd>{{ suggestion.note }}</dd>
                 </div>
               }
-            </dl>
+            </dl></details>
             <p>{{ result.feedback }}</p>
 
-            <details class="challenge-debug">
-              <summary>Debug: session flashcards</summary>
-              <dl>
-                <div>
-                  <dt>Chosen topic</dt>
-                  <dd>{{ session.speakingChallengeTopic() || 'Generic fallback' }}</dd>
-                </div>
-              </dl>
-              <ol>
-                @for (card of session.speakingChallengeCards(); track card.id) {
-                  <li>
-                    <span>{{ card.sourceText }}</span>
-                    <span aria-hidden="true">→</span>
-                    <strong>{{ card.targetText }}</strong>
-                    <small>{{ card.topicId || 'no topic tag' }}</small>
-                  </li>
-                }
-              </ol>
-            </details>
+
           </div>
         </section>
 
@@ -279,16 +258,16 @@
           <button type="button" class="replay-button" (click)="onToggleDialogueTranscriptPressed()">
             {{ session.dialogueTranscriptRevealed() ? 'Hide Dutch text' : 'Show Dutch text' }}
           </button>
-          <button type="button" class="replay-button" (click)="onToggleDialogueTranslationPressed()">
+          @if (question.translation) { <button type="button" class="replay-button" (click)="onToggleDialogueTranslationPressed()">
             {{ session.dialogueTranslationRevealed() ? 'Hide translation' : 'Show translation' }}
-          </button>
+          </button> }
         </div>
       }
 
       @if (session.currentDialogueUserTurn(); as answer) {
         <article class="dialogue-answer-target">
           <span>Your turn</span>
-          <strong>{{ answer.instruction }}</strong>
+          <strong>{{ answer.instruction || 'Listen, then practise this reply: ' + answer.text }}</strong>
         </article>
 
         <div class="answer-reveal">
@@ -296,7 +275,7 @@
             <span>Expected answer</span>
             <strong>{{ answer.text }}</strong>
             @if (session.dialogueAnswerWasHinted() && !session.dialogueResult()) {
-              <small>Hint used — this attempt will not earn a gem.</small>
+              <small>Take your time. Hints are part of learning.</small>
             }
           } @else {
             <button type="button" class="replay-button" (click)="onShowDialogueAnswerPressed()">
@@ -335,7 +314,7 @@
                 </div>
               </dl>
               @if (session.dialogueOutcome() === 'incorrect-structure') {
-                <p>Try again using: “{{ answer.targetTemplate }}”</p>
+                <p>Try again using: “{{ answer.targetTemplate || answer.text }}”</p>
               }
             </div>
           </section>
@@ -360,7 +339,7 @@
         <div class="empty-state">
           <span class="empty-icon" aria-hidden="true">✓</span>
           <h1>Dialogue done</h1>
-          <p>Weak answers will come back in your next flashcard run.</p>
+          <p>You worked through a conversation. Revisit it whenever you like.</p><a routerLink="/" class="continue-button">Back to Today</a><button class="replay-button" (click)="session.startDialogueAfterFlashcards()">Practise again</button>
         </div>
       }
     </section>
@@ -372,7 +351,7 @@
       </div>
       <div class="topic-grid">
         @for (topic of session.topics; track topic.id) {
-          <button
+          <article class="topic-entry"><button
             type="button"
             class="topic-card"
             (click)="onTopicPressed(topic.id)"
@@ -380,12 +359,15 @@
             <strong>{{ topic.title }}</strong>
             <span>{{ topic.description }}</span>
             <small>{{ topic.goalByLevel[selectedLevel] }}</small>
-          </button>
+          </button>@if (topic.dialogueByLevel[selectedLevel].length) { <button class="replay-button" (click)="startConversation(topic.id)">Try a conversation →</button> }</article>
         }
       </div>
     </section>
   } @else {
     <section class="start-menu" aria-label="Practice menu">
+      <div class="learn-heading"><p class="eyebrow">YOUR OWN PACE</p><h1>A little Dutch.<br>A world of possibility.</h1><p>Explore any topic. Every level is open.</p></div>
+      <button class="menu-card accent-card" (click)="session.startPractice('FREE_PRACTICE')"><span>Just start speaking →</span><small>A fresh mix of vocabulary</small></button>
+      <button class="menu-card" (click)="onPastTensePressed()"><span>Past tense</span><small>Talk about yesterday with confidence</small></button>
       <a routerLink="/dictionary" class="menu-card"><span>Choose your focus words</span><small>Search, browse categories, and build your own set</small></a>
       @for (menuCard of menuCards; track menuCard.title) {
         <button

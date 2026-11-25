@@ -6,7 +6,7 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import { CARD_REPOSITORY } from '../../core/domain/tokens';
 import { findLearningTopic } from '../../core/domain/models/learning-topics';
@@ -23,24 +23,23 @@ type SortKey = 'strength' | 'dutch' | 'level' | 'due';
       <header class="dict-header">
         <div class="dict-title-row">
           <a routerLink="/" class="back-link" aria-label="Back to practice">←</a>
-          <h1>Focus words</h1>
-          <span class="count-badge">{{ cards().length }} words</span>
+          <h1>{{ isReview ? 'Your review' : 'Focus words' }}</h1>
+          <span class="count-badge">{{ filtered().length }} words</span>
         </div>
 
-        <p>Choose the words you want to learn. Search Dutch or English, or browse by category.</p>
-        <p>Aim for 15 words or fewer so you have time to revisit each one. A smaller set is easier to practise consistently.</p>
+        <p>{{ isReview ? 'The words you have met. Revisit them whenever you like.' : 'Your words, your priorities. Keep a small set close.' }}</p>
         <div class="focus-actions">
-          <strong>{{ focusedCount() }} selected</strong>
-          <a routerLink="/" [queryParams]="{ practice: 'focus' }">Practise focus words</a>
-          <button type="button" (click)="onlyFocused.set(!onlyFocused())" [attr.aria-pressed]="onlyFocused()">Show {{ onlyFocused() ? 'all words' : 'selected words' }}</button>
+          <a class="primary-action" routerLink="/learn" [queryParams]="{practice: isReview ? 'review' : 'focus'}">{{ isReview ? 'Review words' : 'Practise due focus words' }} →</a>
+          @if (!isReview) {
+            <a routerLink="/learn" [queryParams]="{practice: 'focus-extra'}">Practise anytime</a>
+            <button (click)="onlyFocused.set(!onlyFocused())" [attr.aria-pressed]="onlyFocused()">{{ onlyFocused() ? 'Add words to focus' : 'Show my focus set' }}</button>
+          } @else { <a routerLink="/learn" [queryParams]="{practice: 'weak'}">Practise difficult words</a> }
         </div>
-        @if (reminders.isSupported) {
-          <button type="button" (click)="enableReminders()">Enable focus reminders</button>
-          <p role="status">{{ reminderMessage() }}</p>
+        @if (!isReview) {
+          <details class="focus-help"><summary>{{ focusedCount() }} selected · Tips & reminders</summary><p>Aim for around 15 words. After 3 successful reviews, a word enters maintenance and stays in your set.</p>
+            @if (reminders.isSupported) { <button (click)="enableReminders()">Enable reminders</button><p role="status">{{ reminderMessage() }}</p><p>Delivery depends on browser support and permission.</p> }
+          </details>
         }
-        <p>Reminders depend on browser support and permission; delivery while the app is closed is not guaranteed.</p>
-        <p>After 3 successful reviews in a row, a word moves to maintenance. It stays selected and returns when due.</p>
-        @if (focusedCount() > 15) { <p role="status">You have more than 15 selected. Consider a smaller set to give each word more attention.</p> }
         @if (error()) { <p role="alert">{{ error() }}</p> }
         <div class="dict-controls">
           <label>Category
@@ -78,48 +77,17 @@ type SortKey = 'strength' | 'dutch' | 'level' | 'due';
           </div>
         } @else if (filtered().length === 0) {
           <div class="empty-state">
-            <p>No cards match "{{ query() }}".</p>
+            <p>{{ query() ? 'No words match your search.' : isReview ? 'Your practised words will appear here after your first session.' : 'No words in this set yet. Add a few favourites to get started.' }}</p>
           </div>
         } @else {
-          <table class="card-table">
-            <thead>
-              <tr>
-                <th scope="col">Dutch</th>
-                <th scope="col">English</th>
-                <th scope="col">Category</th><th scope="col">Focus</th><th scope="col">Level</th>
-                <th scope="col">Status</th>
-                <th scope="col">Strength</th>
-              </tr>
-            </thead>
-            <tbody>
-              @for (card of filtered(); track card.id) {
-                <tr [class]="'status-' + card.status">
-                  <td class="dutch-cell">{{ card.targetText }}</td>
-                  <td class="english-cell">{{ card.sourceText }}</td>
-                  <td>{{ categoryName(card) }}</td>
-                  <td><button type="button" [disabled]="saving()" [attr.aria-pressed]="!!card.focused" [attr.aria-label]="(card.focused ? 'Remove ' : 'Focus on ') + card.targetText" (click)="toggleFocus(card)">{{ card.focused ? ((card.focusStreak ?? 0) >= 3 ? 'Maintenance · Remove' : 'Focused · Remove') : 'Add to focus' }}</button></td>
-                  <td class="level-cell">
-                    @if (card.level) {
-                      <span class="level-badge level-{{ card.level }}">{{ card.level }}</span>
-                    }
-                  </td>
-                  <td class="status-cell">
-                    <span class="status-pill">{{ card.status }}</span>
-                  </td>
-                  <td class="strength-cell">
-                    <div class="strength-bar-wrap" [title]="strengthLabel(card) + ' — ease ' + card.easeFactor.toFixed(2)">
-                      <div
-                        class="strength-bar"
-                        [class]="'strength-' + strengthTier(card)"
-                        [style.width.%]="strengthPct(card)"
-                      ></div>
-                    </div>
-                    <span class="strength-label">{{ strengthLabel(card) }}</span>
-                  </td>
-                </tr>
-              }
-            </tbody>
-          </table>
+          <div class="word-list">
+            @for (card of filtered(); track card.id) {
+              <article class="word-row">
+                <div class="word-copy"><strong>{{ card.targetText }}</strong><span>{{ card.sourceText }}</span><small>{{ categoryName(card) }} · {{ card.level }} @if (isReview && card.lastReviewedAt) { · Last practised {{ reviewDate(card) }} }</small></div>
+                <div class="word-meta"><span class="word-status">{{ card.status === 'new' ? 'New' : (card.focusStreak ?? 0) >= 3 ? 'Maintenance' : 'Practising' }}</span><button [disabled]="saving()" [attr.aria-pressed]="!!card.focused" [attr.aria-label]="(card.focused ? 'Remove from focus: ' : 'Focus on: ') + card.targetText" (click)="toggleFocus(card)">{{ card.focused ? '★ Focused' : '☆ Focus' }}</button></div>
+              </article>
+            }
+          </div>
         }
       </section>
     </main>
@@ -128,6 +96,8 @@ type SortKey = 'strength' | 'dutch' | 'level' | 'due';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DictionaryPageComponent implements OnInit {
+  readonly isReview = inject(ActivatedRoute).snapshot.routeConfig?.path === 'review';
+  reviewDate(card: Flashcard): string { return new Date(card.lastReviewedAt!).toLocaleDateString(undefined, {month: 'short', day: 'numeric'}); }
   private readonly repo = inject(CARD_REPOSITORY);
 
   readonly reminders = inject(ReminderService);
@@ -141,7 +111,7 @@ export class DictionaryPageComponent implements OnInit {
   }
   readonly error = signal('');
   readonly saving = signal(false);
-  readonly onlyFocused = signal(false);
+  readonly onlyFocused = signal(!this.isReview);
   readonly category = signal('');
   readonly focusedCount = computed(() => this.cards().filter(c => c.focused).length);
   readonly categories = computed(() => [...new Set(this.cards().map(c => this.categoryName(c)))].sort());
@@ -179,7 +149,7 @@ export class DictionaryPageComponent implements OnInit {
 
   readonly filtered = computed(() => {
     const q = this.query().trim().toLowerCase();
-    const all = this.cards().filter(c => (!this.onlyFocused() || c.focused) && (!this.category() || this.categoryName(c) === this.category()));
+    const all = this.cards().filter(c => (!this.isReview || !!c.lastReviewedAt) && (!this.onlyFocused() || c.focused) && (!this.category() || this.categoryName(c) === this.category()));
     const sort = this.sortKey();
 
     const matched = q

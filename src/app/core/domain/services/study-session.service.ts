@@ -1,5 +1,6 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 
+import { CHAPTER_VOCABULARY } from '../models/learning-chapters';
 import { CardLevel, Flashcard } from '../models/flashcard.model';
 import {
   LearningTopic,
@@ -17,6 +18,7 @@ import {
   SPEECH_RECOGNIZER,
   TEXT_TO_SPEECH,
 } from '../tokens';
+import { JourneyService } from './journey.service';
 import { ReminderService } from './reminder.service';
 import { normalizeText } from '../../../shared/utils/normalize-text';
 import {
@@ -28,7 +30,7 @@ import {
 } from '../../../shared/utils/speaking-challenge-analysis';
 import type { DutchUsageSuggestion } from '../../../shared/utils/dutch-usage-patterns';
 
-export type PracticeDeck = CardLevel | 'WEAK_WORDS' | 'FREE_PRACTICE' | 'FOCUS_WORDS';
+export type PracticeDeck = CardLevel | 'WEAK_WORDS' | 'FREE_PRACTICE' | 'FOCUS_WORDS' | 'FOCUS_EXTRA' | 'REVIEW_WORDS';
 export type TopicActivity = 'DIALOGUE' | 'SPEAKING_CHALLENGE';
 export type DialogueOutcome =
   | 'correct'
@@ -135,8 +137,10 @@ const TOPIC_SPEAKING_QUESTIONS: Partial<Record<TopicId, readonly SpeakingChallen
 
 @Injectable({ providedIn: 'root' })
 export class StudySessionService {
+  private loadGeneration = 0;
   private readonly cards = inject(CARD_REPOSITORY);
   private readonly speech = inject(SPEECH_RECOGNIZER);
+  private readonly journey = inject(JourneyService);
   private readonly tts = inject(TEXT_TO_SPEECH);
   private readonly evaluator = inject(PRONUNCIATION_EVALUATOR);
   private readonly scheduler = inject(REVIEW_SCHEDULER);
@@ -178,7 +182,6 @@ export class StudySessionService {
   readonly speakingChallengeTopic = signal<string | null>(null);
   readonly speakingChallengeWords = signal<readonly string[]>([]);
   readonly speakingChallengeResult = signal<SpeakingChallengeResult | null>(null);
-  readonly gemCount = signal(0);
   readonly isListening = signal(false);
   readonly isLoading = signal(false);
   readonly error = signal<string | null>(null);
@@ -291,6 +294,10 @@ export class StudySessionService {
 
     return `${currentPosition} / ${total}`;
   });
+  readonly isExtraPractice = computed(() => {
+    const card = this.currentCard();
+    return !this.lastResult() && !!card && card.status !== 'new' && Date.parse(card.dueAt) > Date.now();
+  });
   readonly isSessionComplete = computed(
     () =>
       this.practiceDeck() !== null &&
@@ -365,6 +372,7 @@ export class StudySessionService {
   }
 
   async startPractice(deck: PracticeDeck): Promise<void> {
+    const generation = ++this.loadGeneration;
     this.practiceDeck.set(deck);
     this.currentCard.set(null);
     this.lastResult.set(null);
@@ -384,19 +392,23 @@ export class StudySessionService {
 
     try {
       const sessionCards = await this.buildSessionCards(deck);
+      if (generation !== this.loadGeneration) return;
 
       this.sessionQueue.set(sessionCards);
       this.sessionTotal.set(sessionCards.length);
       this.advanceSessionQueue();
     } catch (error: unknown) {
+      if (generation !== this.loadGeneration) return;
       this.currentCard.set(null);
       this.error.set(this.messageFor(error, 'Could not load your cards.'));
     } finally {
-      this.isLoading.set(false);
+      if (generation === this.loadGeneration) this.isLoading.set(false);
     }
   }
 
   exitPractice(): void {
+    this.loadGeneration += 1;
+    this.journey.active = null;
     this.speech.stop();
     this.tts.cancel();
     this.practiceDeck.set(null);
@@ -441,6 +453,7 @@ export class StudySessionService {
       return;
     }
 
+    const generation = this.loadGeneration;
     this.error.set(null);
     this.isListening.set(true);
 
@@ -450,6 +463,7 @@ export class StudySessionService {
         silenceTimeoutMs: 2_000,
         maxDurationMs: 10_000,
       });
+      if (generation !== this.loadGeneration) return;
       const evaluation = this.evaluator.evaluate(
         card.targetText,
         speechResult.transcript,
@@ -468,9 +482,15 @@ export class StudySessionService {
         grade,
         reviewedAt: reviewedAt.toISOString(),
       };
-      const updatedCard = this.scheduler.schedule(card, grade, reviewedAt);
+      const extraReview = card.status !== 'new' && Date.parse(card.dueAt) > reviewedAt.getTime();
+      // Extra practice records activity without inflating spaced-review intervals.
+      const updatedCard = extraReview ? {
+        ...card, lastReviewedAt: reviewedAt.toISOString(), updatedAt: reviewedAt.toISOString(),
+        reviewCount: (card.reviewCount ?? 0) + 1,
+      } : this.scheduler.schedule(card, grade, reviewedAt);
 
       await this.cards.save(updatedCard);
+      if (generation !== this.loadGeneration) return;
       void this.reminders.scheduleNextReminder();
       this.lastResult.set(reviewResult);
       this.currentCard.set(updatedCard);
@@ -481,13 +501,12 @@ export class StudySessionService {
         .catch(() => undefined);
 
       if (reviewResult.passed) {
-        this.gemCount.update((count) => count + 1);
         void this.answerFeedback.playCorrect().catch(() => undefined);
       }
     } catch (error: unknown) {
-      this.error.set(this.messageFor(error, 'Speech recognition failed.'));
+      if (generation === this.loadGeneration) this.error.set(this.messageFor(error, 'Speech recognition failed.'));
     } finally {
-      this.isListening.set(false);
+      if (generation === this.loadGeneration) this.isListening.set(false);
     }
   }
 
@@ -518,6 +537,7 @@ export class StudySessionService {
       return;
     }
 
+    const generation = this.loadGeneration;
     this.error.set(null);
     this.tts.cancel();
     this.isListening.set(true);
@@ -528,6 +548,7 @@ export class StudySessionService {
         silenceTimeoutMs: 2_000,
         maxDurationMs: 15_000,
       });
+      if (generation !== this.loadGeneration) return;
       const transcript = speechResult.transcript.trim();
 
       if (!transcript) {
@@ -557,9 +578,9 @@ export class StudySessionService {
         feedback: analysis.feedback,
       });
     } catch (error: unknown) {
-      this.error.set(this.messageFor(error, 'Speech recognition failed.'));
+      if (generation === this.loadGeneration) this.error.set(this.messageFor(error, 'Speech recognition failed.'));
     } finally {
-      this.isListening.set(false);
+      if (generation === this.loadGeneration) this.isListening.set(false);
     }
   }
 
@@ -604,6 +625,7 @@ export class StudySessionService {
       return;
     }
 
+    const generation = this.loadGeneration;
     this.error.set(null);
     this.isListening.set(true);
 
@@ -613,6 +635,7 @@ export class StudySessionService {
         silenceTimeoutMs: 2_000,
         maxDurationMs: 12_000,
       });
+      if (generation !== this.loadGeneration) return;
       const evaluation = this.evaluator.evaluate(
         expectedTurn.text,
         speechResult.transcript,
@@ -634,14 +657,13 @@ export class StudySessionService {
       this.dialogueResult.set(reviewResult);
       this.dialogueAnswerRevealed.set(true);
 
-      if (evaluation.score >= 0.95 && !this.dialogueAnswerWasHinted()) {
-        this.gemCount.update((count) => count + 1);
+      if (evaluation.score >= 0.95) {
         void this.answerFeedback.playCorrect().catch(() => undefined);
       }
     } catch (error: unknown) {
-      this.error.set(this.messageFor(error, 'Speech recognition failed.'));
+      if (generation === this.loadGeneration) this.error.set(this.messageFor(error, 'Speech recognition failed.'));
     } finally {
-      this.isListening.set(false);
+      if (generation === this.loadGeneration) this.isListening.set(false);
     }
   }
 
@@ -654,6 +676,7 @@ export class StudySessionService {
     this.dialogueUserTurnIndex.update((index) => index + 1);
     this.resetDialogueRevealState();
 
+    if (this.isDialogueComplete()) this.journey.finishActivity(3);
     const nextQuestion = this.currentDialogueQuestion();
 
     if (nextQuestion) {
@@ -666,9 +689,14 @@ export class StudySessionService {
   private async buildSessionCards(deck: PracticeDeck): Promise<Flashcard[]> {
     const now = new Date();
 
-    if (deck === 'FOCUS_WORDS') {
+    if (deck === 'REVIEW_WORDS') {
+      return (await this.cards.getAllCards()).filter(card => this.isReviewed(card))
+        .sort((a, b) => Date.parse(a.dueAt) - Date.parse(b.dueAt)).slice(0, SESSION_CARD_LIMIT);
+    }
+
+    if (deck === 'FOCUS_WORDS' || deck === 'FOCUS_EXTRA') {
       return (await this.cards.getAllCards())
-        .filter(card => card.focused && new Date(card.dueAt).getTime() <= now.getTime())
+        .filter(card => card.focused && (deck === 'FOCUS_EXTRA' || new Date(card.dueAt).getTime() <= now.getTime()))
         .sort((a, b) => Number((a.focusStreak ?? 0) >= 3) - Number((b.focusStreak ?? 0) >= 3)
           || new Date(a.dueAt).getTime() - new Date(b.dueAt).getTime())
         .slice(0, 15);
@@ -712,7 +740,7 @@ export class StudySessionService {
     return [...reviewCards, ...newCards].sort((a, b) => Number(!!b.focused) - Number(!!a.focused)).slice(0, SESSION_CARD_LIMIT);
   }
 
-  private startDialogueAfterFlashcards(): void {
+  startDialogueAfterFlashcards(): void {
     this.exitPractice();
     this.selectedActivity.set('DIALOGUE');
     this.dialogueUserTurnIndex.set(0);
@@ -883,7 +911,7 @@ export class StudySessionService {
 
   private cardMatchesTopic(card: Flashcard, topic: LearningTopic): boolean {
     if (card.topicId) {
-      return card.topicId === topic.id;
+      return card.topicId === topic.id || card.topicId === CHAPTER_VOCABULARY[topic.id];
     }
 
     const haystack = `${card.id} ${card.sourceText} ${card.targetText}`.toLowerCase();
@@ -898,6 +926,7 @@ export class StudySessionService {
 
     this.sessionQueue.set(remainingCards);
     this.currentCard.set(nextCard ?? null);
+    if (!nextCard && this.sessionTotal() > 0) this.journey.finishActivity(1);
     this.needsIntro.set(nextCard?.status === 'new');
 
     // For new cards the answer is shown immediately as an intro — speak it so

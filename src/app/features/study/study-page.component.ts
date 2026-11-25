@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal, OnDestroy } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 
 import {
@@ -7,6 +7,7 @@ import {
 } from '../../core/domain/services/study-session.service';
 import { CardLevel } from '../../core/domain/models/flashcard.model';
 import { TopicId } from '../../core/domain/models/learning-topic.model';
+import { JourneyService } from '../../core/domain/services/journey.service';
 import { ReminderService } from '../../core/domain/services/reminder.service';
 import { MicButtonComponent } from './mic-button.component';
 import { StudyCardComponent } from './study-card.component';
@@ -19,13 +20,36 @@ import { StudyResultComponent } from './study-result.component';
   styleUrl: './study-page.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class StudyPageComponent {
+export class StudyPageComponent implements OnDestroy {
   constructor() {
-    if (inject(ActivatedRoute).snapshot.queryParamMap.get('practice') === 'focus') {
-      void this.session.startPractice('FOCUS_WORDS');
+    const params = inject(ActivatedRoute).snapshot.queryParamMap;
+    this.session.exitPractice();
+    this.session.selectedLevel.set(null);
+    this.session.selectedTopicId.set(null);
+    const practice = params.get('practice');
+    if (practice === 'focus') void this.session.startPractice('FOCUS_WORDS');
+    if (practice === 'focus-extra') void this.session.startPractice('FOCUS_EXTRA');
+    if (practice === 'review') void this.session.startPractice('REVIEW_WORDS');
+    if (practice === 'weak') void this.session.startPractice('WEAK_WORDS');
+    if (practice === 'free') void this.session.startPractice('FREE_PRACTICE');
+    const topic = this.session.topics.find(t => t.id === params.get('topic'));
+    if (topic) {
+      this.session.selectLevel('A2');
+      this.session.selectTopic(topic.id);
+      if (params.get('activity') === 'dialogue' && topic.dialogueByLevel.A2.length) this.session.startDialogueAfterFlashcards();
+      else void this.session.startPractice('FREE_PRACTICE');
+      if (params.get('journey') === 'true') this.journey.active = {topic: topic.id, phase: params.get('activity') === 'dialogue' ? 3 : 1};
     }
   }
 
+  ngOnDestroy(): void { this.session.exitPractice(); }
+
+  keepPractising(): void {
+    const deck = this.session.practiceDeck();
+    void this.session.startPractice(deck === 'FOCUS_WORDS' || deck === 'FOCUS_EXTRA' ? 'FOCUS_EXTRA' : deck === 'REVIEW_WORDS' || deck === 'WEAK_WORDS' ? 'REVIEW_WORDS' : 'FREE_PRACTICE');
+  }
+
+  readonly journey = inject(JourneyService);
   readonly session = inject(StudySessionService);
   readonly reminders = inject(ReminderService);
   readonly reminderEnabled = signal(
@@ -43,6 +67,16 @@ export class StudyPageComponent {
     { title: 'Intermediate', subtitle: 'B1 · explain problems', level: 'B1' },
     { title: 'Weak words', deck: 'WEAK_WORDS' },
   ];
+
+  startConversation(topicId: TopicId): void {
+    this.session.selectTopic(topicId);
+    this.session.startDialogueAfterFlashcards();
+  }
+
+  onPastTensePressed(): void {
+    this.session.selectLevel('A2');
+    void this.onTopicPressed('past-tense');
+  }
 
   onMicPressed(): void {
     if (this.session.isListening()) {

@@ -1,0 +1,43 @@
+:host { display: block; }
+.home-shell { max-width: 760px; margin: auto; padding: max(24px, env(safe-area-inset-top)) 24px 30px; }
+.home-header, .section-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.wordmark { display: flex; align-items: center; gap: 9px; font-weight: 750; font-size: 1.35rem; text-decoration: none; letter-spacing: -.06em; color: var(--ink); }
+.wordmark > span { display: grid; place-items: center; width: 34px; height: 34px; background: var(--teal); border-radius: 12px; color: white; font-size: 1.15rem; }
+.language-badge, .soft-badge { border: 1px solid var(--line); border-radius: 30px; padding: 7px 11px; font-size: .7rem; white-space: nowrap; color: var(--muted); }
+.welcome { padding: 38px 0 24px; }
+.welcome .eyebrow { color: var(--teal); }
+h1 { margin: 10px 0 14px; font-size: clamp(2.4rem, 8vw, 3.7rem); font-weight: 650; line-height: 1.04; }
+p { color: var(--muted); line-height: 1.6; font-size: .9rem; }
+h2 { margin: 7px 0; font-size: 1.55rem; font-weight: 650; }
+.daily-card { padding: 25px; border-radius: 25px; background: #dfeddf; position: relative; overflow: hidden; }
+.daily-card .eyebrow { color: #42684e; }
+.daily-card h2 { max-width: 350px; font-size: 1.8rem; }
+.daily-card p { margin: 10px 0 20px; }
+.daily-stats { display: flex; flex-wrap: wrap; gap: 12px 24px; padding-top: 18px; font-size: .74rem; color: #4b6755; }
+.daily-stats strong { color: var(--ink); font-size: .95rem; margin-right: 4px; }
+.quick-links { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 30px; }
+.quick-links a { position: relative; display: grid; gap: 7px; padding: 18px; background: #fff; border: 1px solid var(--line); border-radius: 20px; color: var(--ink); text-decoration: none; }
+.quick-links strong { font-size: .86rem; }
+.quick-links small { color: var(--muted); font-size: .73rem; }
+.quick-icon { width: 32px; height: 32px; display: grid; place-items: center; background: #f5eedc; border-radius: 11px; color: #93702d; font-size: 1.4rem; margin-bottom: 8px; }
+.quick-links a:last-child .quick-icon { background: #ecebf5; color: #77719a; }
+.quick-links .arrow { position: absolute; right: 15px; top: 18px; color: #84988c; }
+.journey-card { border: 1px solid var(--line); border-radius: 24px; padding: 22px; background: #fff; }
+.section-heading .eyebrow { margin: 0; }
+.section-heading h2 { font-size: 1.4rem; }
+.chapter-picker { display: grid; gap: 6px; font-size: .72rem; color: var(--muted); }
+select { width: 100%; padding: 10px 12px; border: 1px solid var(--line); border-radius: 12px; background: #f7f8f4; color: var(--ink); font-weight: 650; }
+.phase-list { list-style: none; margin: 18px 0; padding: 0; display: grid; gap: 6px; }
+.phase-list button { display: flex; align-items: center; width: 100%; gap: 13px; text-align: left; border: 1px solid transparent; padding: 12px; border-radius: 15px; background: transparent; color: var(--ink); font-size: .88rem; font-weight: 650; }
+.phase-list button.current { background: #eff5ed; border-color: #d7e4d2; }
+.phase-number { flex-shrink: 0; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: #eef1eb; color: #55715e; }
+.current .phase-number { color: white; background: var(--teal); }
+.phase-list small { display: block; margin-top: 4px; color: var(--muted); font-size: .72rem; font-weight: 400; }
+.arrow { margin-left: auto; }
+.phase-preview { border-top: 1px solid var(--line); padding-top: 8px; }
+.preview-word { display: flex; align-items: center; justify-content: space-between; width: 100%; gap: 12px; padding: 12px 0; border: 0; border-bottom: 1px solid #eef1eb; background: transparent; color: var(--ink); text-align: left; }
+.preview-word small { display: block; margin-top: 5px; font-size: .8rem; color: var(--muted); }
+.phase-preview .primary-action { margin-top: 16px; width: 100%; }
+.journey-note { font-size: .72rem; margin-bottom: 0; }
+.browse-link { display: flex; justify-content: space-between; margin: 24px 4px 0; font-size: .85rem; font-weight: 650; text-decoration: none; }
+@media (max-width: 380px) { .home-shell { padding-inline: 16px; } .journey-card, .daily-card { padding: 18px; } .soft-badge { display: none; } .quick-links a { padding: 14px; } }
